@@ -1,0 +1,39 @@
+# =============================================================================
+# .gitignore - Django Project
+# =============================================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+*.egg-info/
+
+# Django
+*.log
+*.sqlite3
+db.sqlite3
+/media/
+/staticfiles/
+.env
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# IDEs
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+*~
+
+# Backup
+*.bak
+*.backup

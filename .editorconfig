@@ -1,0 +1,60 @@
+# =============================================================================
+# EditorConfig - Configurazione coerente tra editor
+# https://editorconfig.org
+# =============================================================================
+
+root = true
+
+# Default per tutti i file
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+# Python
+[*.py]
+indent_size = 4
+max_line_length = 88
+
+# JavaScript/TypeScript
+[*.{js,ts,jsx,tsx}]
+indent_size = 2
+
+# HTML/Templates
+[*.{html,htm,dtl}]
+indent_size = 2
+
+# CSS
+[*.css]
+indent_size = 4
+
+# JSON
+[*.json]
+indent_size = 2
+
+# YAML
+[*.{yml,yaml}]
+indent_size = 2
+
+# Markdown
+[*.md]
+trim_trailing_whitespace = false
+
+# Package manager files
+[{package.json,package-lock.json}]
+indent_size = 2
+
+# Shell scripts
+[*.sh]
+indent_size = 4
+
+# Makefile (usa tab)
+[Makefile]
+indent_style = tab
+
+# Django templates
+[*.html]
+indent_size = 2

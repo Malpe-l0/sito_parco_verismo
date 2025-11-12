@@ -1,0 +1,15 @@
+# Core Django
+asgiref==3.10.0
+Django==5.2.8
+pillow==12.0.0
+sqlparse==0.5.3
+
+# Environment variables
+python-decouple==3.8
+
+# Production server (uncomment when needed)
+# gunicorn==21.2.0
+# whitenoise==6.6.0
+
+# PostgreSQL for production (uncomment when needed)
+# psycopg2-binary==2.9.9
