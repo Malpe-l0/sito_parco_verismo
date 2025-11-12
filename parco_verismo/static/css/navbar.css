@@ -1,0 +1,18 @@
+#mainNav {
+    background-color: transparent;
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+}
+
+#mainNav.navbar-scrolled {
+    background-color: yellow;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 8px rgba(61, 50, 38, 0.15);
+}
+
+.logo-header {
+    height: 4rem;
+    transition: height 0.3s ease;
+}

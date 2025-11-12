@@ -1,1 +1,18 @@
 /* Fonts CSS file - managed by npm scripts */
+
+/* Montserrat per i titoli */
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+/* Inter per il corpo del testo */
+body, p, a, li, span, div {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
