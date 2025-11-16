@@ -1,0 +1,638 @@
+# Parco Verismo translations - English
+# Copyright (C) 2025
+# Translators: OpenAI Assistant
+msgid ""
+msgstr ""
+"Project-Id-Version: Parco Verismo 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-16 02:32+0100\n"
+"PO-Revision-Date: 2025-11-16 02:20+0100\n"
+"Last-Translator: OpenAI Assistant <noreply@example.com>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: parco_verismo/templates/parco_verismo/base.html:8
+msgid ""
+"Parco Letterario Verismo - Un viaggio nella letteratura verista siciliana"
+msgstr "Verismo Literary Park - A journey through Sicilian verist literature"
+
+#: parco_verismo/templates/parco_verismo/base.html:9
+#: parco_verismo/templates/parco_verismo/base.html:43
+#: parco_verismo/templates/parco_verismo/evento_detail.html:4
+#: parco_verismo/templates/parco_verismo/index.html:6
+#: parco_verismo/templates/parco_verismo/navbar.html:5
+#: parco_verismo/templates/parco_verismo/notizia_detail.html:4
+#: parco_verismo/templates/parco_verismo/opera_detail.html:4
+#: parco_verismo/templates/parco_verismo/opere_per_autore.html:4
+msgid "Parco Letterario Verismo"
+msgstr "Verismo Literary Park"
+
+#: parco_verismo/templates/parco_verismo/base.html:44
+msgid ""
+"Un viaggio nella Sicilia di Verga e Capuana attraverso i luoghi che hanno "
+"ispirato i grandi capolavori del verismo italiano."
+msgstr ""
+"A journey through Verga and Capuana's Sicily, discovering the places that "
+"inspired the great masterpieces of Italian verismo."
+
+#: parco_verismo/templates/parco_verismo/base.html:61
+msgid "Navigazione"
+msgstr "Navigation"
+
+#: parco_verismo/templates/parco_verismo/base.html:63
+msgid "Home"
+msgstr "Home"
+
+#: parco_verismo/templates/parco_verismo/base.html:64
+msgid "Biblioteca"
+msgstr "Library"
+
+#: parco_verismo/templates/parco_verismo/base.html:65
+#: parco_verismo/templates/parco_verismo/eventi.html:10
+#: parco_verismo/templates/parco_verismo/navbar.html:52
+msgid "Eventi"
+msgstr "Events"
+
+#: parco_verismo/templates/parco_verismo/base.html:66
+msgid "Notizie"
+msgstr "News"
+
+#: parco_verismo/templates/parco_verismo/base.html:70
+#: parco_verismo/templates/parco_verismo/navbar.html:75
+msgid "Contatti"
+msgstr "Contacts"
+
+#: parco_verismo/templates/parco_verismo/base.html:87
+msgid "Newsletter"
+msgstr "Newsletter"
+
+#: parco_verismo/templates/parco_verismo/base.html:88
+msgid "Ricevi aggiornamenti sugli eventi e le novità del Parco."
+msgstr "Receive updates about events and news from the Park."
+
+#: parco_verismo/templates/parco_verismo/base.html:90
+msgid "La tua email"
+msgstr "Your email"
+
+#: parco_verismo/templates/parco_verismo/base.html:90
+msgid "Email per newsletter"
+msgstr "Newsletter email"
+
+#: parco_verismo/templates/parco_verismo/base.html:91
+msgid "Iscriviti"
+msgstr "Subscribe"
+
+#: parco_verismo/templates/parco_verismo/base.html:98
+msgid "Parco Letterario Verismo. Tutti i diritti riservati."
+msgstr "Verismo Literary Park. All rights reserved."
+
+#: parco_verismo/templates/parco_verismo/base.html:101
+msgid "Privacy Policy"
+msgstr "Privacy Policy"
+
+#: parco_verismo/templates/parco_verismo/base.html:102
+msgid "Termini di Servizio"
+msgstr "Terms of Service"
+
+#: parco_verismo/templates/parco_verismo/biblioteca.html:4
+msgid "Biblioteca Digitale - Parco Letterario Verismo"
+msgstr "Digital Library - Verismo Literary Park"
+
+#: parco_verismo/templates/parco_verismo/biblioteca.html:10
+#: parco_verismo/templates/parco_verismo/navbar.html:68
+msgid "Biblioteca Digitale"
+msgstr "Digital Library"
+
+#: parco_verismo/templates/parco_verismo/biblioteca.html:11
+msgid ""
+"Cerca tra le opere di Verga e Capuana e accedi alla lettura integrale su "
+"Wikisource."
+msgstr ""
+"Browse the works of Verga and Capuana and read them in full on Wikisource."
+
+#: parco_verismo/templates/parco_verismo/biblioteca.html:19
+msgid "Nessuna opera trovata"
+msgstr "No works found"
+
+#: parco_verismo/templates/parco_verismo/biblioteca.html:19
+msgid "Non sono state trovate opere corrispondenti alla tua ricerca."
+msgstr "No works matching your search were found."
+
+#: parco_verismo/templates/parco_verismo/calendario.html:4
+msgid "Calendario Eventi - Parco Letterario Verismo"
+msgstr "Events Calendar - Verismo Literary Park"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:13
+msgid "Calendario Eventi"
+msgstr "Events Calendar"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:15
+msgid "Consulta il calendario completo degli eventi e salva i tuoi preferiti"
+msgstr "Browse the full event calendar and save your favourites"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:72
+msgid "Dettagli"
+msgstr "Details"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:76
+msgid "Salva"
+msgstr "Save"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:80
+msgid "Google Calendar"
+msgstr "Google Calendar"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:83
+msgid "Outlook"
+msgstr "Outlook"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:86
+msgid "Apple Calendar"
+msgstr "Apple Calendar"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:90
+msgid "Condividi su WhatsApp"
+msgstr "Share on WhatsApp"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:95
+msgid "Promemoria"
+msgstr "Reminder"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:111
+msgid "Nessun evento nel calendario"
+msgstr "No events in the calendar"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:112
+msgid ""
+"Il calendario eventi è attualmente vuoto. Torna presto per scoprire le "
+"nostre iniziative!"
+msgstr ""
+"The event calendar is currently empty. Check back soon to discover our "
+"initiatives!"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:126
+msgid "Crea Promemoria"
+msgstr "Create Reminder"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:138
+msgid "Come salvare l'evento:"
+msgstr "How to save the event:"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:139
+msgid ""
+"1. Clicca sul pulsante \"Salva\" accanto all'evento<br>2. Scegli il tuo "
+"calendario preferito<br>3. L'evento verrà aggiunto automaticamente!"
+msgstr ""
+"1. Click the \"Save\" button next to the event<br>2. Choose your favourite "
+"calendar<br>3. The event will be added automatically!"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:145
+msgid "Chiudi"
+msgstr "Close"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:448
+msgid "Data"
+msgstr "Date"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:463
+msgid "Ora"
+msgstr "Time"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:474
+#: parco_verismo/templates/parco_verismo/evento_detail.html:43
+msgid "Luogo"
+msgstr "Venue"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:484
+msgid "Clicca sui pulsanti \"Salva\" per aggiungere l\\"
+msgstr "Click the \"Save\" buttons to add the event directly to your calendar!"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:545
+msgid "Evento aperto in Google Calendar!"
+msgstr "Event opened in Google Calendar!"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:556
+msgid "Evento aperto in Outlook!"
+msgstr "Event opened in Outlook!"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:587
+msgid "File calendario scaricato! Aprilo per aggiungere l'evento."
+msgstr "Calendar file downloaded! Open it to add the event."
+
+#: parco_verismo/templates/parco_verismo/calendario.html:592
+msgid "alle"
+msgstr "at"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:592
+msgid "Scopri di più sul sito del Parco Letterario del Verismo!"
+msgstr "Find out more on the Verismo Literary Park website!"
+
+#: parco_verismo/templates/parco_verismo/calendario.html:595
+msgid "Evento condiviso su WhatsApp!"
+msgstr "Event shared on WhatsApp!"
+
+#: parco_verismo/templates/parco_verismo/components/evento_card.html:32
+#: parco_verismo/templates/parco_verismo/components/opera_card.html:27
+#: parco_verismo/templates/parco_verismo/opere_per_autore.html:33
+msgid "Scopri di più"
+msgstr "Learn more"
+
+#: parco_verismo/templates/parco_verismo/components/no_results.html:12
+msgid "Nessun risultato"
+msgstr "No results"
+
+#: parco_verismo/templates/parco_verismo/components/no_results.html:13
+msgid "Non sono stati trovati elementi corrispondenti alla tua ricerca."
+msgstr "No items matching your search were found."
+
+#: parco_verismo/templates/parco_verismo/components/notizia_card.html:29
+msgid "Leggi di più"
+msgstr "Read more"
+
+#: parco_verismo/templates/parco_verismo/components/opera_card.html:19
+#, python-format
+msgid ""
+"\n"
+"      <p class=\"card-text text-muted mb-2\">di %(autore)s</p>\n"
+"      "
+msgstr ""
+"\n"
+"      <p class=\"card-text text-muted mb-2\">by %(autore)s</p>\n"
+"      "
+
+#: parco_verismo/templates/parco_verismo/components/opera_card.html:23
+msgid "Anno:"
+msgstr "Year:"
+
+#: parco_verismo/templates/parco_verismo/components/search_form.html:13
+msgid "Cerca..."
+msgstr "Search..."
+
+#: parco_verismo/templates/parco_verismo/components/search_form.html:16
+msgid "Cerca"
+msgstr "Search"
+
+#: parco_verismo/templates/parco_verismo/eventi.html:4
+msgid "Eventi - Parco Letterario Verismo"
+msgstr "Events - Verismo Literary Park"
+
+#: parco_verismo/templates/parco_verismo/eventi.html:11
+msgid "Scopri tutti gli eventi organizzati dal Parco Letterario del Verismo"
+msgstr "Discover all the events organised by the Verismo Literary Park"
+
+#: parco_verismo/templates/parco_verismo/eventi.html:19
+msgid "Nessun evento programmato"
+msgstr "No scheduled events"
+
+#: parco_verismo/templates/parco_verismo/eventi.html:20
+msgid ""
+"Al momento non ci sono eventi in programma. Torna presto per scoprire le "
+"nostre iniziative!"
+msgstr ""
+"There are no events scheduled right now. Come back soon to discover our "
+"initiatives!"
+
+#: parco_verismo/templates/parco_verismo/evento_detail.html:26
+msgid "Data e Ora"
+msgstr "Date and Time"
+
+#: parco_verismo/templates/parco_verismo/evento_detail.html:29
+msgid "Inizio:"
+msgstr "Start:"
+
+#: parco_verismo/templates/parco_verismo/evento_detail.html:33
+msgid "Fine:"
+msgstr "End:"
+
+#: parco_verismo/templates/parco_verismo/evento_detail.html:66
+msgid "Torna agli eventi"
+msgstr "Back to events"
+
+#: parco_verismo/templates/parco_verismo/evento_detail.html:69
+msgid "Vedi calendario"
+msgstr "View calendar"
+
+#: parco_verismo/templates/parco_verismo/index.html:12
+msgid "Parco Letterario del Verismo"
+msgstr "Verismo Literary Park"
+
+#: parco_verismo/templates/parco_verismo/index.html:13
+msgid "Un viaggio nella Sicilia di Verga e Capuana"
+msgstr "A journey through Verga and Capuana's Sicily"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:8
+msgid "Apri navigazione"
+msgstr "Open navigation"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:18
+msgid "Il Parco"
+msgstr "The Park"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:21
+msgid "Missioni e visione"
+msgstr "Mission & Vision"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:22
+msgid "Comitato tecnico"
+msgstr "Technical Committee"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:23
+msgid "Regolamenti & documenti"
+msgstr "Regulations & documents"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:24
+msgid "Partner e rete territoriale"
+msgstr "Partners & local network"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:25
+msgid "Accrediti e finanziamenti"
+msgstr "Accreditations & funding"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:32
+msgid "Luoghi & Percorsi"
+msgstr "Places & Routes"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:49
+msgid "Eventi & News"
+msgstr "Events & News"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:53
+msgid "Calendario"
+msgstr "Calendar"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:54
+msgid "News"
+msgstr "News"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:61
+msgid "Opere & Letteratura"
+msgstr "Works & Literature"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:64
+msgid "Opere di Verga"
+msgstr "Works by Verga"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:65
+msgid "Opere di Capuana"
+msgstr "Works by Capuana"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:66
+msgid "Personaggi & Lessico del Verismo"
+msgstr "Characters & Vocabulary of Verismo"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:67
+msgid "Luoghi delle Opere"
+msgstr "Places of the Works"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:69
+msgid "Archivio fotografico"
+msgstr "Photo archive"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:70
+msgid "Documenti & Studi"
+msgstr "Documents & Studies"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:79
+msgid "Prenota"
+msgstr "Book"
+
+#: parco_verismo/templates/parco_verismo/navbar.html:94
+msgid "Cambia lingua"
+msgstr "Change language"
+
+#: parco_verismo/templates/parco_verismo/notizia_detail.html:15
+#, python-format
+msgid ""
+"\n"
+"        <div class=\"text-center text-secondary mb-5\">\n"
+"          <i class=\"bi bi-calendar me-2\"></i>Pubblicata il %(data_pub)s\n"
+"        </div>\n"
+"        "
+msgstr ""
+"\n"
+"        <div class=\"text-center text-secondary mb-5\">\n"
+"          <i class=\"bi bi-calendar me-2\"></i>Published on %(data_pub)s\n"
+"        </div>\n"
+"        "
+
+#: parco_verismo/templates/parco_verismo/notizia_detail.html:37
+msgid "Torna alle news"
+msgstr "Back to news"
+
+#: parco_verismo/templates/parco_verismo/notizie.html:4
+msgid "Notizie - Parco Letterario Verismo"
+msgstr "News - Verismo Literary Park"
+
+#: parco_verismo/templates/parco_verismo/notizie.html:10
+msgid "News & Novità"
+msgstr "News & Updates"
+
+#: parco_verismo/templates/parco_verismo/notizie.html:11
+msgid "Rimani aggiornato sulle ultime novità del Parco Letterario del Verismo"
+msgstr "Stay up to date with the latest news from the Verismo Literary Park"
+
+#: parco_verismo/templates/parco_verismo/notizie.html:19
+msgid "Nessuna notizia disponibile"
+msgstr "No news available"
+
+#: parco_verismo/templates/parco_verismo/notizie.html:20
+msgid ""
+"Al momento non ci sono notizie pubblicate. Torna presto per leggere le "
+"nostre novità!"
+msgstr ""
+"There are no news items published at the moment. Check back soon to read our "
+"updates!"
+
+#: parco_verismo/templates/parco_verismo/opera_detail.html:13
+#, python-format
+msgid "di %(autore)s"
+msgstr "by %(autore)s"
+
+#: parco_verismo/templates/parco_verismo/opera_detail.html:20
+msgid "Trama"
+msgstr "Plot"
+
+#: parco_verismo/templates/parco_verismo/opera_detail.html:24
+msgid "Analisi e Contesto"
+msgstr "Analysis and Context"
+
+#: parco_verismo/templates/parco_verismo/opera_detail.html:31
+msgid "Leggi l'opera completa su Wikisource"
+msgstr "Read the full work on Wikisource"
+
+#: parco_verismo/templates/parco_verismo/opera_detail.html:34
+msgid ""
+"Il link ti porterà alla pagina di Wikisource dove potrai leggere l'opera "
+"integrale gratuitamente."
+msgstr ""
+"The link will take you to Wikisource, where you can read the full work for "
+"free."
+
+#: parco_verismo/templates/parco_verismo/opera_detail.html:39
+#, python-format
+msgid "← Torna alle opere di %(autore)s"
+msgstr "← Back to %(autore)s' works"
+
+#: parco_verismo/templates/parco_verismo/opere_per_autore.html:4
+#, python-format
+msgid "Opere di %(autore)s"
+msgstr "%(autore)s' Works"
+
+#: parco_verismo/templates/parco_verismo/opere_per_autore.html:10
+#, python-format
+msgid ""
+"\n"
+"  <h1 class=\"text-center mb-4\">Opere di %(autore)s</h1>\n"
+"  "
+msgstr ""
+"\n"
+"  <h1 class=\"text-center mb-4\">Works by %(autore)s</h1>\n"
+"  "
+
+#: parco_verismo/templates/parco_verismo/opere_per_autore.html:30
+msgid "Anno di pubblicazione:"
+msgstr "Year of publication:"
+
+#: parco_verismo/templates/parco_verismo/opere_per_autore.html:41
+msgid "Nessuna opera disponibile per questo autore."
+msgstr "No works available for this author."
+
+#: parco_verismo/templates/parco_verismo/documenti.html:4
+msgid "Documenti e Studi - Parco Letterario Verismo"
+msgstr "Documents & Studies - Verismo Literary Park"
+
+#: parco_verismo/templates/parco_verismo/documenti.html:10
+msgid "Documenti e Studi"
+msgstr "Documents & Studies"
+
+#: parco_verismo/templates/parco_verismo/documenti.html:11
+msgid "Esplora i documenti e gli studi pubblicati dal Parco Letterario del Verismo"
+msgstr "Explore the documents and studies published by the Verismo Literary Park"
+
+#: parco_verismo/templates/parco_verismo/documenti.html:20
+msgid "Cerca per titolo, descrizione, autori..."
+msgstr "Search by title, description, authors..."
+
+#: parco_verismo/templates/parco_verismo/documenti.html:33
+msgid "Tutti i tipi"
+msgstr "All types"
+
+#: parco_verismo/templates/parco_verismo/documenti.html:34
+msgid "Documenti"
+msgstr "Documents"
+
+#: parco_verismo/templates/parco_verismo/documenti.html:35
+msgid "Studi"
+msgstr "Studies"
+
+#: parco_verismo/templates/parco_verismo/documenti.html:36
+msgid "Ricerche"
+msgstr "Research"
+
+#: parco_verismo/templates/parco_verismo/documenti.html:37
+msgid "Saggi"
+msgstr "Essays"
+
+#: parco_verismo/templates/parco_verismo/documenti.html:50
+msgid "Nessun documento disponibile"
+msgstr "No documents available"
+
+#: parco_verismo/templates/parco_verismo/documenti.html:51
+msgid "Al momento non ci sono documenti o studi pubblicati. Torna presto per consultare i nostri materiali!"
+msgstr "There are no documents or studies published at the moment. Check back soon to browse our materials!"
+
+#: parco_verismo/templates/parco_verismo/documento_detail.html:27
+msgid "Autori:"
+msgstr "Authors:"
+
+#: parco_verismo/templates/parco_verismo/documento_detail.html:32
+#, python-format
+msgid "Pubblicato il %(data_pub)s"
+msgstr "Published on %(data_pub)s"
+
+#: parco_verismo/templates/parco_verismo/documento_detail.html:59
+msgid "Parole chiave:"
+msgstr "Keywords:"
+
+#: parco_verismo/templates/parco_verismo/documento_detail.html:70
+msgid "Scarica PDF"
+msgstr "Download PDF"
+
+#: parco_verismo/templates/parco_verismo/documento_detail.html:75
+msgid "Visualizza PDF"
+msgstr "View PDF"
+
+#: parco_verismo/templates/parco_verismo/documento_detail.html:82
+msgid "Torna ai documenti"
+msgstr "Back to documents"
+
+#: parco_verismo/templates/parco_verismo/components/documento_card.html:44
+msgid "Visualizza documento"
+msgstr "View document"
+
+#: parco_verismo/templates/parco_verismo/archivio_fotografico.html:4
+msgid "Archivio Fotografico - Parco Letterario Verismo"
+msgstr "Photo Archive - Verismo Literary Park"
+
+#: parco_verismo/templates/parco_verismo/archivio_fotografico.html:17
+msgid "Archivio Fotografico"
+msgstr "Photo Archive"
+
+#: parco_verismo/templates/parco_verismo/archivio_fotografico.html:18
+msgid "Un viaggio visivo attraverso i luoghi e le storie del Verismo"
+msgstr "A visual journey through the places and stories of Verismo"
+
+#: parco_verismo/templates/parco_verismo/archivio_fotografico.html:58
+msgid "Visualizza a schermo intero"
+msgstr "View fullscreen"
+
+#: parco_verismo/templates/parco_verismo/archivio_fotografico.html:84
+msgid "Precedente"
+msgstr "Previous"
+
+#: parco_verismo/templates/parco_verismo/archivio_fotografico.html:88
+msgid "Successivo"
+msgstr "Next"
+
+#: parco_verismo/templates/parco_verismo/archivio_fotografico.html:97
+msgid "Tutte le foto"
+msgstr "All photos"
+
+#: parco_verismo/templates/parco_verismo/archivio_fotografico.html:128
+msgid "Nessuna foto disponibile"
+msgstr "No photos available"
+
+#: parco_verismo/templates/parco_verismo/archivio_fotografico.html:129
+msgid "L'archivio fotografico sarà presto disponibile."
+msgstr "The photo archive will be available soon."
+
+#, python-format
+#~ msgid "di %(opera.autore.nome)s"
+#~ msgstr "by %(opera.autore.nome)s"
+
+#, python-format
+#~ msgid "%(evento.titolo)s - Parco Letterario Verismo"
+#~ msgstr "%(evento.titolo)s - Verismo Literary Park"
+
+#, python-format
+#~ msgid "%(notizia.titolo)s - Parco Letterario Verismo"
+#~ msgstr "%(notizia.titolo)s - Verismo Literary Park"
+
+#, python-format
+#~ msgid "Pubblicata il %(notizia.data_pubblicazione|date:\"l, d F Y\")s"
+#~ msgstr "Published on %(notizia.data_pubblicazione|date:\"l, d F Y\")s"
+
+#, python-format
+#~ msgid "%(opera.titolo)s - Parco Letterario Verismo"
+#~ msgstr "%(opera.titolo)s - Verismo Literary Park"
+
+#, python-format
+#~ msgid "Opere di %(autore.nome)s - Parco Letterario Verismo"
+#~ msgstr "%(autore.nome)s' Works - Verismo Literary Park"
+
+#~ msgid "Lingua"
+#~ msgstr "Language"
