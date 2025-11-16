@@ -4,14 +4,16 @@
   "description": "Django starter project con Bootstrap 5",
   "private": true,
   "scripts": {
-    "setup": "npm run copy-bootstrap && npm run copy-fonts",
-    "copy-bootstrap": "cp node_modules/bootstrap/dist/css/bootstrap.min.css parco_verismo/static/css/ && mkdir -p parco_verismo/static/js && cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js parco_verismo/static/js/",
-    "copy-fonts": "mkdir -p parco_verismo/static/fonts/montserrat && cp -r node_modules/@fontsource/montserrat/files/* parco_verismo/static/fonts/montserrat/ && mkdir -p parco_verismo/static/fonts/inter && cp -r node_modules/@fontsource/inter/files/* parco_verismo/static/fonts/inter/"
+    "setup": "node scripts/setup-assets.js",
+    "copy-bootstrap": "node scripts/setup-assets.js --only bootstrap",
+    "copy-fonts": "node scripts/setup-assets.js --only fonts",
+    "copy-icons": "node scripts/setup-assets.js --only icons"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
     "@fontsource/montserrat": "^5.2.8",
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3"
   },
   "engines": {
     "node": ">=18.0.0",
