@@ -1,0 +1,431 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="it" data-theme="verismo">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8" />
+    <meta name="description" content="Licodia Eubea - Storia, archeologia e tradizioni nel cuore degli Iblei. Scopri monumenti, musei, eventi e natura." />
+    <meta name="keywords" content="Licodia Eubea, Iblei, Sicilia, archeologia, Paolo Orsi, Lago Dirillo, Bosco Vaito, Festa dell'Uva" />
+    <title>Parco Letterario Verismo - Licodia Eubea</title>
+
+    <!-- Bootstrap CSS locale -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="{% static 'fonts/inter-400.css' %}" />
+    <link rel="stylesheet" href="{% static 'fonts/montserrat-500.css' %}" />
+    <link rel="stylesheet" href="{% static 'fonts/montserrat-700.css' %}" />
+
+    <!-- Stili -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/licodia.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  </head>
+
+  <body>
+    {% include 'parco_verismo/navbar.html' %}
+
+    {% block content %}
+      <div class="container-fluid my-5">
+        <!-- Hero Section -->
+        <section class="hero-licodia d-flex align-items-center justify-content-center text-center mb-5">
+          <div class="hero-content px-3" data-aos="fade-up">
+            <h1 class="display-3 fw-bold text-white" data-aos="fade-down" data-aos-delay="200">Licodia Eubea</h1>
+            <p class="lead text-light mt-3" data-aos="fade-up" data-aos-delay="400">Tra storia, natura e tradizione nel cuore degli Iblei</p>
+          </div>
+        </section>
+
+        <!-- Introduzione -->
+        <section class="row align-items-center mb-5">
+          <div class="col-md-7 mb-3 mb-md-0" data-aos="fade-right">
+            <h2 class="text-primary mb-3">Introduzione</h2>
+            <p>A 600 metri sul livello del mare, sul versante nord occidentale degli Iblei, sorge Licodia Eubea. Il significato del toponimo è incerto, ma gli studi concordano nel riconoscere nel fondovalle la presenza di un'antica civiltà, documentata da una vasta rete di necropoli. In epoca moderna il luogo venne identificato con la <strong>subcolonia greca Lentini Subcensueta</strong> e successivamente con <strong>La Ciura</strong>, fino ad assumere nel <strong>1872</strong> il nome attuale. Le ricerche archeologiche di <strong>Paolo Orsi</strong> e <strong>Vincenzo Cazzaniga</strong> hanno confermato l'esistenza di una rilevante borgata sicula, con una necropoli estesa e strutturata, databile all'<strong>VIII secolo a.C.</strong> Il Borgo rappresenta ancora oggi il nucleo più antico dell'abitato, sopravvissuto al terremoto del 1693.</p>
+          </div>
+          <div class="col-md-5 text-center" data-aos="fade-left" data-aos-delay="200">
+            <img src="/static/assets/img/licodia/panorama.jpg" class="img-fluid rounded shadow" alt="Panorama di Licodia Eubea" />
+          </div>
+        </section>
+
+        <!-- Bosco Vaito -->
+        <section class="row align-items-center mb-5">
+          <div class="col-md-5 text-center mb-3 mb-md-0" data-aos="fade-right">
+            <img src="/static/assets/img/licodia/bosco_vaito.jpeg" class="img-fluid rounded shadow" alt="Bosco Vaito" />
+          </div>
+          <div class="col-md-7" data-aos="fade-left" data-aos-delay="200">
+            <h2 class="text-primary mb-3">Bosco Vaito</h2>
+            <p>Bosco sporadico di circa <strong>84 ettari</strong>, caratterizzato dalla presenza della <em>sughera (Quercus suber)</em>, specie arborea tipica della macchia mediterranea e particolarmente rara in questa zona degli Iblei. Rappresenta una continuità naturale con il più esteso <strong>Bosco di Santo Pietro</strong>, situato verso sud, formando un corridoio ecologico di notevole interesse botanico e faunistico. L'area è ideale per escursioni naturalistiche, birdwatching e fotografia paesaggistica, offrendo ai visitatori sentieri immersi nella vegetazione spontanea e panorami suggestivi sul territorio circostante. Il bosco conserva un ecosistema prezioso che testimonia l'antico rapporto tra l'uomo e l'ambiente ibleo.</p>
+          </div>
+        </section>
+
+        <!-- Lago Dirillo -->
+        <section class="row align-items-center mb-5">
+          <div class="col-md-6 mb-3 mb-md-0" data-aos="fade-right">
+            <h2 class="text-primary mb-3">Lago Dirillo</h2>
+            <p>Bacino artificiale originato dalla <strong>diga Ragoleto (1961)</strong>, alimentato dal fiume Dirillo, uno dei principali corsi d'acqua del territorio ibleo. L'invaso, nato per scopi irrigui e di approvvigionamento idrico, ha trasformato il paesaggio creando un ambiente lacustre di grande suggestione. Nelle aree circostanti sono stati individuati <strong>sepolcreti e strutture di epoca tardo romana</strong> (IV secolo d.C.), testimonianza dell'antica presenza umana lungo le sponde del fiume. Il lago offre un paesaggio ideale per passeggiate rilassanti, birdwatching e fotografia naturalistica, attirando numerose specie di avifauna stanziale e migratoria. Le sue acque tranquille e il contesto naturale incontaminato lo rendono meta privilegiata per gli amanti della natura e della storia.</p>
+          </div>
+          <div class="col-md-6 text-center" data-aos="fade-left" data-aos-delay="200">
+            <img src="/static/assets/img/licodia/lago_dirillo.jpeg" class="img-fluid rounded shadow" alt="Lago Dirillo" />
+          </div>
+        </section>
+
+        <!-- Eventi / Tradizioni -->
+        <section class="mb-5">
+          <h2 class="text-primary mb-4" data-aos="fade-up">Tradizioni e Feste</h2>
+          <div class="row g-4">
+            <div class="col-12 col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="0">
+              <div class="card h-100 border shadow-sm">
+                <img src="/static/assets/img/licodia/settimana_santa.jpg" class="card-img-top" alt="Settimana Santa" />
+                <div class="card-body">
+                  <h5 class="card-title text-success">Settimana Santa</h5>
+                  <p class="card-text"><small class="text-muted">Marzo/Aprile</small></p>
+                  <p class="card-text">L'evento religioso più sentito dalla comunità. Le celebrazioni si aprono con il <strong>Settenario dell'Addolorata</strong> e culminano nel <strong>Venerdì Santo</strong> con la <em>Via Giunta</em>, la Crocifissione e la deposizione del Cristo nell'urna. La Domenica di Pasqua è dedicata alla tradizionale <em>"Giunta"</em>.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+              <div class="card h-100 border shadow-sm">
+                <img src="/static/assets/img/licodia/festa_dell_uva.jpeg" class="card-img-top" alt="Festa dell'Uva" />
+                <div class="card-body">
+                  <h5 class="card-title text-success">Festa dell'Uva</h5>
+                  <p class="card-text"><small class="text-muted">Prima domenica di settembre</small></p>
+                  <p class="card-text">Antica ricorrenza agricola ripresa nel Novecento, divenuta una manifestazione comunitaria molto partecipata, con degustazioni, iniziative culturali e la tradizionale <strong>pigiatura dell'uva nel tino</strong>.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+              <div class="card h-100 border shadow-sm">
+                <img src="/static/assets/img/licodia/rassegna.jpg" class="card-img-top" alt="Rassegna del Documentario Archeologico" />
+                <div class="card-body">
+                  <h5 class="card-title text-success">Rassegna del Documentario Archeologico</h5>
+                  <p class="card-text"><small class="text-muted">Ottobre</small></p>
+                  <p class="card-text">Festival cinematografico avviato nel <strong>2011</strong>, oggi tra i principali eventi italiani dedicati alla <strong>divulgazione archeologica</strong>. Organizzato dall'<em>Associazione ArcheoVisiva</em>.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+              <div class="card h-100 border shadow-sm">
+                <img src="/static/assets/img/licodia/sagra.jpg" class="card-img-top" alt="Sagra della Patacò" />
+                <div class="card-body">
+                  <h5 class="card-title text-success">Sagra della Patacò</h5>
+                  <p class="card-text"><small class="text-muted">Dicembre</small></p>
+                  <p class="card-text">Evento dedicato alla <strong>farina di fave secche</strong>, pietanza tradizionale licodiana, nato per valorizzare un prodotto storico poco conosciuto.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Galleria Fotografica -->
+        <section class="mb-5">
+          <h2 class="text-primary mb-4 text-center" data-aos="fade-up">Galleria Fotografica</h2>
+          <div class="row g-3">
+            <div class="col-6 col-md-3" data-aos="flip-left" data-aos-delay="0">
+              <img src="/static/assets/img/licodia/colle_castello.jpg" class="img-fluid rounded shadow" alt="Colle Castello" />
+            </div>
+            <div class="col-6 col-md-3" data-aos="flip-left" data-aos-delay="100">
+              <img src="/static/assets/img/licodia/chiesa_santa_margherita.jpg" class="img-fluid rounded shadow" alt="Chiesa di Santa Margherita" />
+            </div>
+            <div class="col-6 col-md-3" data-aos="flip-left" data-aos-delay="200">
+              <img src="/static/assets/img/licodia/museo.jpg" class="img-fluid rounded shadow" alt="Museo Archeologico" />
+            </div>
+            <div class="col-6 col-md-3" data-aos="flip-left" data-aos-delay="300">
+              <img src="/static/assets/img/licodia/piazza_margherita.jpg" class="img-fluid rounded shadow" alt="Piazza Margherita" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Monumenti e Luoghi di Interesse (Accordion) -->
+        <section class="mb-5">
+          <h2 class="text-primary mb-3" data-aos="fade-up">Monumenti e Luoghi di Interesse</h2>
+
+          <div class="accordion accordion-flush" id="monumentiAccordion">
+            <!-- Colle Castello -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="0">
+              <h2 class="accordion-header" id="heading1">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                  Colle Castello
+                </button>
+              </h2>
+              <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Identificato da <strong>Paolo Orsi</strong> come acropoli di un'antica borgata sicula, ospita diverse <strong>necropoli paleocristiane</strong>. Il castello fu residenza dei <strong>Santapaola</strong> dal XIV secolo fino all'abolizione del feudalesimo. Gravemente danneggiato dal terremoto del 1693, conserva <strong>resti murari bizantini dell'VIII-IX secolo</strong>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Chiesa di Santa Margherita -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="50">
+              <h2 class="accordion-header" id="heading2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                  Chiesa di Santa Margherita
+                </button>
+              </h2>
+              <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Edificata originariamente come cappella ai piedi del castello e ampliata nel <strong>XVI secolo</strong>, venne ricostruita dopo il terremoto del 1693. Custodisce la <strong>scultura lignea di Sant'Antonio Abate (1617)</strong> di <em>Giovanni Battista Gallone</em>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Chiesa di Santa Lucia -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+              <h2 class="accordion-header" id="heading3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                  Chiesa di Santa Lucia
+                </button>
+              </h2>
+              <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Situata nel Borgo, fu probabilmente la <strong>chiesa di San Giovanni</strong> menzionata nel XIV secolo. Successivamente dedicata a <strong>San Nicola</strong>, ospitò i frati conventuali. Restaurata dopo il 1693, è <strong>parrocchia dal 1945</strong>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Museo Etnografico -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="150">
+              <h2 class="accordion-header" id="heading4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                  Museo Etnografico "Padre A. Coniglione"
+                </button>
+              </h2>
+              <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Allestito nei locali dell'<strong>ex Ospedale Civico</strong>, espone strumenti e oggetti legati al lavoro agricolo e artigianale tradizionale. Una raccolta che testimonia la vita rurale e le usanze popolari degli Iblei.
+                </div>
+              </div>
+            </div>
+
+            <!-- Chiesa del Carmine -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+              <h2 class="accordion-header" id="heading5">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                  Chiesa del Carmine
+                </button>
+              </h2>
+              <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Sorta tra <strong>XVI e XVII secolo</strong>, fu ricostruita dopo il terremoto del 1693. In epoca successiva ospitò <strong>scuole pubbliche</strong>. Conserva opere di rilievo, tra cui l'<strong>urna con l'Adorazione dei Santi Cosma e Damiano</strong>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Palazzo Mugnos -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="250">
+              <h2 class="accordion-header" id="heading6">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                  Palazzo Mugnos
+                </button>
+              </h2>
+              <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Unico esempio <strong>barocco</strong> della città, appartenne alla famiglia Mugnos e fu acquistato nel <strong>1782</strong> dal <strong>barone Vassallo</strong>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Monumento ai Caduti -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+              <h2 class="accordion-header" id="heading7">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                  Monumento ai Caduti
+                </button>
+              </h2>
+              <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Realizzato tra il <strong>1925 e il 1926</strong> dallo scultore <em>Salvatore Juvara</em>. Collocato nel <strong>"Chianu cimientu"</strong>, cuore della vita pubblica cittadina.
+                </div>
+              </div>
+            </div>
+
+            <!-- Chiesa del SS. Salvatore -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="350">
+              <h2 class="accordion-header" id="heading8">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                  Chiesa del SS. Salvatore
+                </button>
+              </h2>
+              <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Ricostruita tra il <strong>1713 e il 1721</strong> in stile barocco, con interni decorati da <strong>stucchi novecenteschi</strong> e <strong>dipinti settecenteschi</strong>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Palazzo Municipale -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+              <h2 class="accordion-header" id="heading9">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                  Palazzo Municipale
+                </button>
+              </h2>
+              <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Edificio <strong>ottocentesco</strong> progettato dal <strong>barone Giuseppe Vassallo</strong>. Presenta elementi eclettici, cortile decorato e solai con <strong>stucchi policromi</strong>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Chiesa della Madonna delle Grazie -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="450">
+              <h2 class="accordion-header" id="heading10">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                  Chiesa della Madonna delle Grazie
+                </button>
+              </h2>
+              <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Fondata nel <strong>1539</strong> e ricostruita nel XVIII secolo dopo i danni del terremoto. Sorge su un'area ricca di testimonianze archeologiche che oggi costituiscono parte del <strong>Museo Civico</strong>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Chiesa del SS. Rosario -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="500">
+              <h2 class="accordion-header" id="heading11">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                  Chiesa del SS. Rosario
+                </button>
+              </h2>
+              <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="heading11" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Edificata nella seconda metà del <strong>Settecento</strong>. All'interno conserva un <strong>fonte battesimale seicentesco</strong>, una <strong>statua lignea settecentesca</strong> e un <strong>paliotto marmoreo datato 1754</strong>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Chiesa dei Cappuccini e Cimitero -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="550">
+              <h2 class="accordion-header" id="heading12">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
+                  Chiesa dei Cappuccini e Cimitero
+                </button>
+              </h2>
+              <div id="collapse12" class="accordion-collapse collapse" aria-labelledby="heading12" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Il vecchio convento dei Cappuccini divenne nel XIX secolo <strong>granaio e sede municipale</strong>, poi <strong>cimitero dal 1838</strong>. La chiesa attuale risale al XX secolo e custodisce i <strong>simulacri</strong> utilizzati nei riti della <strong>Settimana Santa</strong>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Piazza Margherita -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="600">
+              <h2 class="accordion-header" id="heading13">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
+                  Piazza Margherita
+                </button>
+              </h2>
+              <div id="collapse13" class="accordion-collapse collapse" aria-labelledby="heading13" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Centro nevralgico del paese, delimitata da edifici religiosi e istituzionali. Al centro si trova una <strong>vasca ovoidale con la statua dell'Immacolata</strong>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Museo Archeologico -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="650">
+              <h2 class="accordion-header" id="heading14">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse14" aria-expanded="false" aria-controls="collapse14">
+                  Museo Archeologico
+                </button>
+              </h2>
+              <div id="collapse14" class="accordion-collapse collapse" aria-labelledby="heading14" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Ospita reperti dalle aree <strong>preistoriche, greche, romane e tardo antiche</strong> del territorio: dolmen e vasi dell'<strong>età del Bronzo</strong>, materiali dei secoli <strong>IV-VI d.C.</strong>, ossuari a palmette del <strong>IV-III a.C.</strong>, ceramiche e lucerne di età romana. L'allestimento è dotato di <strong>pannelli didattici e audioguide</strong>.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Citazioni -->
+        <section class="citations-section mb-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-6 mb-3 mb-md-0 d-flex justify-content-start" data-aos="fade-right">
+                <div class="citation-box">
+                  <p class="citation-text">«In queste strade di pietra la memoria si posa lieve, e ogni eco del passato dalla necropoli sicula al grappolo d'uva diventa canto di tempo e terra.»</p>
+                  <footer class="citation-footer">— (citazione libera)</footer>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 d-flex justify-content-end" data-aos="fade-left" data-aos-delay="200">
+                <div class="citation-box">
+                  <p class="citation-text">«Quando il vento accarezza le vigne del colle e l'ombra del castello scende sul borgo antico, Licodia Eubea non racconta solo storia: offre un dialogo silenzioso fra pietra, vigna e cielo siciliano.»</p>
+                  <footer class="citation-footer">— (citazione libera)</footer>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Titolo separato dalla mappa -->
+        <h2 class="text-primary text-center mb-4" data-aos="fade-down">Mappa di Licodia Eubea</h2>
+
+        <section id="map-section" class="map-section mb-5" data-aos="zoom-in">
+          <div id="map" class="map-container rounded shadow"></div>
+
+          <!-- Barra di ricerca -->
+          <div class="search-container">
+            <input type="text" class="form-control search-box" placeholder="Cerca un luogo..." />
+            <div class="search-results"></div>
+          </div>
+
+          <!-- Filtri dropdown -->
+          <div class="filters-container dropdown">
+            <button class="btn btn-light dropdown-toggle d-flex align-items-center gap-2 filter-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="{% static 'assets/icons/filtri.svg' %}" width="20" height="20" alt="Filtri" /> Filtri
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li data-type="Servizi Pubblici" class="filter-item dropdown-item d-flex align-items-center gap-2">
+                <img src="{% static 'assets/icons/servizi_pubblici.svg' %}" width="20" height="20" alt="Icona Servizi Pubblici" /> Servizi Pubblici
+              </li>
+              <li data-type="Servizi Culturali" class="filter-item dropdown-item d-flex align-items-center gap-2">
+                <img src="{% static 'assets/icons/servizi_culturali.svg' %}" width="20" height="20" alt="Icona Servizi Culturali" /> Servizi Culturali
+              </li>
+              <li data-type="Prodotti Tipici" class="filter-item dropdown-item d-flex align-items-center gap-2">
+                <img src="{% static 'assets/icons/prodotti_tipici.svg' %}" width="20" height="20" alt="Icona Prodotti Tipici" /> Prodotti Tipici
+              </li>
+              <li data-type="Ospitalità" class="filter-item dropdown-item d-flex align-items-center gap-2">
+                <img src="{% static 'assets/icons/ospitalita.svg' %}" width="20" height="20" alt="Icona Ospitalità" /> Ospitalità
+              </li>
+              <li data-type="Luoghi Verghiani" class="filter-item dropdown-item d-flex align-items-center gap-2">
+                <img src="{% static 'assets/icons/luoghi_verghiani.svg' %}" width="20" height="20" alt="Icona Luoghi Verghiani" /> Luoghi Verghiani
+              </li>
+              <li data-type="Ristorazione" class="filter-item dropdown-item d-flex align-items-center gap-2">
+                <img src="{% static 'assets/icons/ristorazione.svg' %}" width="20" height="20" alt="Icona Ristorazione" /> Ristorazione
+              </li>
+              <li data-type="all" class="filter-item dropdown-item d-flex align-items-center gap-2">
+                <img src="{% static 'assets/icons/arrow-rotate.svg' %}" width="20" height="20" alt="Icona Tutti" /> Tutti
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    {% endblock %}
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100,
+        delay: 0
+      });
+    </script>
+    
+    <!-- Map Scripts -->
+    <script src="{% static 'js/map/points_licodia.js' %}"></script>
+    <script src="{% static 'js/map/script_licodia.js' %}"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>

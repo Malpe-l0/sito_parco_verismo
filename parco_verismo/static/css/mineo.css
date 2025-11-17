@@ -1,0 +1,591 @@
+/* ===========================
+   STILI PAGINA MINEO
+   =========================== */
+
+body {
+  background-color: var(--color-background);
+  font-family: "Montserrat", sans-serif;
+  color: var(--color-text-primary);
+  margin: 0;
+  height: 100%;
+}
+
+/* ===========================
+   HERO SECTION
+   =========================== */
+.hero-mineo {
+  position: relative;
+  background: url("/static/assets/img/mineo/panorama.jpg") center center / cover no-repeat;
+  background-attachment: fixed;
+  height: 80vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-text-inverse);
+  border-bottom: 4px solid var(--color-primary);
+  overflow: hidden;
+}
+
+.hero-mineo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 0;
+}
+
+.hero-mineo .hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-mineo h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-text-inverse);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  margin-bottom: 1rem;
+}
+
+.hero-mineo p {
+  font-size: 1.2rem;
+  color: var(--color-primary-pale);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   SEZIONI GENERALI
+   =========================== */
+section {
+  scroll-margin-top: 100px;
+  margin-bottom: 3rem;
+}
+
+h2.text-primary {
+  color: var(--color-primary) !important;
+  font-weight: 600;
+  border-left: 5px solid var(--color-primary);
+  padding-left: var(--space-sm);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+/* ===========================
+   CITAZIONI
+   =========================== */
+.citations-section {
+  margin: 3rem 0;
+}
+
+.citation-box {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: var(--color-surface-elevated);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.citation-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 0;
+  color: var(--color-text-primary);
+}
+
+.citation-footer {
+  margin-top: 0.5rem;
+  text-align: end;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
+/* ===========================
+   CARD
+   =========================== */
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-title {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.card:hover {
+  transform: none !important;
+}
+
+/* ===========================
+   IMMAGINI
+   =========================== */
+img.rounded.shadow,
+img.card-img-top {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-img-top {
+  height: 200px;
+}
+
+/* ===========================
+   LISTE
+   =========================== */
+.list-group-item {
+  background-color: var(--color-surface);
+  border-left: 4px solid transparent;
+  border-color: var(--color-border);
+}
+
+.list-group-item:hover {
+  border-left-color: var(--color-primary);
+  background-color: var(--color-surface-elevated);
+}
+
+/* ===========================
+   PULSANTI
+   =========================== */
+.btn-success {
+  background-color: var(--color-accent);
+  border: none;
+  color: var(--color-text-inverse);
+}
+
+.btn-success:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* ===========================
+   ACCORDION
+   =========================== */
+.accordion-button {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  font-weight: 600;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  color: var(--color-text-primary);
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--color-primary-light);
+  color: var(--color-text-primary) !important;
+}
+
+.accordion-button::after {
+  filter: invert(30%) sepia(70%) saturate(400%) hue-rotate(340deg);
+}
+
+.accordion-body {
+  background-color: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ===========================
+   MAPPA MINEO - STILI
+   =========================== */
+.map-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 50px auto;
+  position: relative;
+  padding: 0;
+}
+
+.map-section h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.map-container {
+  width: 100%;
+  height: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  max-width: 100%;
+}
+
+/* Ricerca */
+.search-container {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  z-index: 1100;
+}
+
+.search-box {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.search-results {
+  background: white;
+  border-radius: 8px;
+  margin-top: 2px;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.search-result-item {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background: #f0f0f0;
+}
+
+/* Filtri */
+.filters-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1100;
+}
+
+.filters-container .dropdown-toggle {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.filters-container .filter-item {
+  cursor: pointer;
+}
+
+.filters-container .dropdown-menu {
+  max-width: 200px;
+  top: 100% !important;
+  bottom: auto !important;
+  transform: none !important;
+  margin-top: 0.5rem;
+}
+
+.filters-container img {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+/* Desktop Extra Large (≥1400px) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+
+  /* Galleria fotografica - altezza fissa */
+  .row.g-3 img.rounded.shadow {
+    height: 320px;
+  }
+}
+
+/* Desktop Large (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  /* Galleria fotografica - altezza fissa */
+  .row.g-3 img.rounded.shadow {
+    height: 280px;
+  }
+}
+
+/* Desktop (992px - 1199px) */
+@media (max-width: 1199px) {
+  .hero-mineo h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-mineo p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) {
+  .hero-mineo {
+    height: 65vh;
+    background-attachment: scroll;
+  }
+
+  .hero-mineo h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-mineo p {
+    font-size: 1rem;
+  }
+
+  .map-container {
+    height: 450px;
+  }
+
+  .search-container {
+    width: 60%;
+    top: 15px;
+    left: 20px;
+    transform: none;
+  }
+
+  .filters-container {
+    top: 15px;
+    right: 20px;
+  }
+
+  h2.text-primary {
+    font-size: 1.8rem;
+  }
+
+  .citation-text {
+    font-size: 1rem;
+  }
+
+  .citation-footer {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Large (576px - 767px) */
+@media (max-width: 767px) {
+  .hero-mineo {
+    height: 60vh;
+    min-height: 400px;
+    background-attachment: scroll;
+  }
+
+  .hero-mineo h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-mineo p {
+    font-size: 0.95rem;
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+
+  h2.text-primary {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+
+  .citation-box {
+    padding: 1rem;
+  }
+
+  .citation-text {
+    font-size: 0.95rem;
+  }
+
+  .citation-footer {
+    font-size: 0.85rem;
+  }
+
+  img.rounded.shadow {
+    height: 250px;
+  }
+
+  .card-img-top {
+    height: 180px;
+  }
+
+  .map-container {
+    height: 400px;
+  }
+
+  .search-container {
+    width: calc(50% - 10px);
+    top: 10px;
+    left: 10px;
+  }
+
+  .filters-container {
+    top: 10px;
+    right: 10px;
+  }
+
+  .filters-container .dropdown-menu {
+    position: absolute !important;
+    top: calc(100% + 4px) !important;
+    right: 0 !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
+
+  .accordion-button {
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .accordion-body {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Small (≤575px) */
+@media (max-width: 575px) {
+  .hero-mineo {
+    height: 50vh;
+    min-height: 350px;
+  }
+
+  .hero-mineo h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-mineo p {
+    font-size: 0.9rem;
+  }
+
+  h2.text-primary {
+    font-size: 1.3rem;
+  }
+
+  .citation-box {
+    padding: 0.85rem;
+  }
+
+  .citation-text {
+    font-size: 0.9rem;
+  }
+
+  img.rounded.shadow {
+    height: 200px;
+  }
+
+  .card-img-top {
+    height: 160px;
+  }
+
+  .card-body {
+    padding: 0.85rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-text {
+    font-size: 0.85rem;
+  }
+
+  .map-container {
+    height: 350px;
+  }
+
+  .search-container {
+    width: 50%;
+    top: 10px;
+    left: 10px;
+  }
+
+  .filters-container {
+    top: 10px;
+    right: 10px;
+  }
+
+  .filters-container .dropdown-menu {
+    min-width: 150px;
+    position: absolute !important;
+    top: calc(100% + 4px) !important;
+    right: 0 !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
+
+  .accordion-button {
+    font-size: 0.9rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .accordion-body {
+    padding: 0.85rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile Extra Small (≤400px) */
+@media (max-width: 400px) {
+  .hero-mineo h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero-mineo p {
+    font-size: 0.85rem;
+  }
+
+  h2.text-primary {
+    font-size: 1.2rem;
+  }
+
+  .search-container {
+    width: 45%;
+    top: 10px;
+    left: 5px;
+  }
+
+  .filters-container {
+    top: 10px;
+    right: 5px;
+  }
+
+  .filters-container .dropdown-toggle {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .filters-container .dropdown-menu {
+    min-width: 140px;
+    position: absolute !important;
+    top: calc(100% + 4px) !important;
+    right: 0 !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
+}

@@ -1,0 +1,356 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="it" data-theme="verismo">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mineo - Città natale di Luigi Capuana, tra storia, archeologia e tradizioni siciliane. Scopri il Parco Letterario del Verismo." />
+    <meta name="keywords" content="Mineo, Luigi Capuana, Verismo, Sicilia, Iblei, Palagonia, archeologia, Castello" />
+    <title>Parco Letterario Verismo - Mineo</title>
+
+    <!-- Bootstrap CSS locale -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="{% static 'fonts/inter-400.css' %}" />
+    <link rel="stylesheet" href="{% static 'fonts/montserrat-500.css' %}" />
+    <link rel="stylesheet" href="{% static 'fonts/montserrat-700.css' %}" />
+
+    <!-- Stili -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/mineo.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  </head>
+
+  <body>
+    {% include 'parco_verismo/navbar.html' %}
+
+    {% block content %}
+      <div class="container my-5">
+        <!-- Hero Section -->
+        <section class="hero-mineo d-flex align-items-center justify-content-center text-center mb-5">
+          <div class="hero-content px-3" data-aos="fade-up">
+            <h1 class="display-3 fw-bold text-white" data-aos="fade-down" data-aos-delay="200">Mineo</h1>
+            <p class="lead text-light mt-3" data-aos="fade-up" data-aos-delay="400">Patria di Luigi Capuana, culla del Verismo siciliano</p>
+          </div>
+        </section>
+
+        <!-- Introduzione -->
+        <section class="row align-items-center mb-5">
+          <div class="col-md-7 mb-3 mb-md-0" data-aos="fade-right">
+            <h2 class="text-primary mb-3">Introduzione</h2>
+            <p>
+              Mineo sorge a 500 metri sul livello del mare, nel cuore degli Iblei, dominando la piana di Catania con il suo profilo inconfondibile. Città di antichissime origini, identificata con l'antica <strong>Menai</strong> o <strong>Menaion</strong> citata dalle fonti classiche, conserva tracce di insediamenti che risalgono all'età del bronzo. Nel corso dei secoli Mineo è stata teatro di dominazioni greche, romane, bizantine, arabe e normanne, ognuna delle quali ha lasciato un'impronta indelebile nel tessuto urbano e nella memoria collettiva. Tra Medioevo e Rinascimento, la città conobbe un periodo di particolare splendore sotto il dominio feudale, arricchendosi di chiese, palazzi e monumenti. Mineo è universalmente nota per aver dato i natali a <strong>Luigi Capuana</strong> (1839-1915), uno dei padri fondatori del <strong>Verismo italiano</strong>, narratore e teorico della letteratura che ha immortalato nei suoi racconti la vita e le tradizioni del popolo siciliano. Oggi Mineo è un borgo che unisce fascino storico e bellezza paesaggistica, meta ideale per chi desidera scoprire l'anima più autentica della Sicilia.
+            </p>
+          </div>
+          <div class="col-md-5 text-center" data-aos="fade-left" data-aos-delay="200">
+            <img src="/static/assets/img/mineo/bg-hero.jpg" class="img-fluid rounded shadow" alt="Panorama di Mineo" />
+          </div>
+        </section>
+
+        <!-- Casa Natale di Luigi Capuana -->
+        <section class="row align-items-center mb-5">
+          <div class="col-md-5 text-center mb-3 mb-md-0" data-aos="fade-right">
+            <img src="/static/assets/img/mineo/Casa-Luigi-Capuana.jpg" class="img-fluid rounded shadow" alt="Casa Natale Luigi Capuana" />
+          </div>
+          <div class="col-md-7" data-aos="fade-left" data-aos-delay="200">
+            <h2 class="text-primary mb-3">Casa Natale di Luigi Capuana</h2>
+            <p>
+              Nel cuore del centro storico di Mineo si trova la <strong>Casa Natale di Luigi Capuana</strong>, oggi trasformata in <strong>museo letterario</strong> dedicato alla vita e all'opera dello scrittore verista. L'edificio, risalente al XVIII secolo, conserva arredi d'epoca, manoscritti originali, prime edizioni delle sue opere e oggetti personali che testimoniano il percorso intellettuale e umano di Capuana. La casa rappresenta un luogo imprescindibile per comprendere il contesto culturale e sociale che ha ispirato capolavori come <em>Giacinta</em>, <em>Il Marchese di Roccaverdina</em> e le celebri novelle per l'infanzia. Il museo organizza mostre temporanee, incontri letterari e attività didattiche, fungendo da punto di riferimento per studiosi, appassionati e visitatori interessati alla letteratura verista e alla storia della Sicilia ottocentesca.
+            </p>
+          </div>
+        </section>
+
+        <!-- Castello di Mineo -->
+        <section class="row align-items-center mb-5">
+          <div class="col-md-6 mb-3 mb-md-0" data-aos="fade-right">
+            <h2 class="text-primary mb-3">Castello di Mineo</h2>
+            <p>
+              Il <strong>Castello di Mineo</strong>, o <strong>Castello dei Palagonia</strong>, domina dall'alto il profilo della città ed è uno dei simboli architettonici più significativi del territorio. Eretto in epoca medievale e più volte rimaneggiato, il castello fu residenza della nobile famiglia Palagonia, che governò il feudo per secoli lasciando un'impronta profonda nella storia locale. Nonostante i segni del tempo e le trasformazioni subite, il complesso conserva ancora imponenti mura, torri e strutture murarie che testimoniano l'importanza strategica e difensiva del sito. Dalle sue terrazze si gode di un panorama spettacolare sulla vallata circostante e sui monti Iblei. Il castello rappresenta una testimonianza viva del passato feudale siciliano ed è oggetto di interventi di valorizzazione volti a renderlo fruibile al pubblico e integrarlo nei percorsi turistico-culturali della zona.
+            </p>
+          </div>
+          <div class="col-md-6 text-center" data-aos="fade-left" data-aos-delay="200">
+            <img src="/static/assets/img/mineo/castello.jpg" class="img-fluid rounded shadow" alt="Castello di Mineo" />
+          </div>
+        </section>
+
+        <!-- Eventi / Tradizioni -->
+        <section class="mb-5">
+          <h2 class="text-primary mb-4" data-aos="fade-up">Tradizioni e Feste</h2>
+          <div class="row g-4">
+            <div class="col-12 col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="0">
+              <div class="card h-100 border shadow-sm">
+                <img src="/static/assets/img/mineo/settimana-santa.jpg" class="card-img-top" alt="Settimana Santa" />
+                <div class="card-body">
+                  <h5 class="card-title text-success">Settimana Santa</h5>
+                  <p class="card-text">
+                    <small class="text-muted">Marzo/Aprile</small>
+                  </p>
+                  <p class="card-text">
+                    Le celebrazioni della <strong>Settimana Santa</strong> a Mineo rappresentano uno degli eventi religiosi e culturali più sentiti dalla comunità. Processioni solenni, rappresentazioni della Passione e antichi riti accompagnano i fedeli dalla Domenica delle Palme fino alla Resurrezione, in un'atmosfera di intensa partecipazione popolare e tradizione secolare.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+              <div class="card h-100 border shadow-sm">
+                <img src="/static/assets/img/mineo/santa-agrippina.jpg" class="card-img-top" alt="Festa di Sant'Agrippina" />
+                <div class="card-body">
+                  <h5 class="card-title text-success">Festa di Sant'Agrippina</h5>
+                  <p class="card-text">
+                    <small class="text-muted">Agosto</small>
+                  </p>
+                  <p class="card-text">
+                    La <strong>Festa di Sant'Agrippina</strong>, patrona di Mineo, è la celebrazione più importante dell'anno. Processioni, luminarie, concerti bandistici e spettacoli pirotecnici animano le strade del centro storico, coinvolgendo tutta la popolazione in un clima di devozione e festa collettiva che affonda le radici in secoli di storia religiosa.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+              <div class="card h-100 border shadow-sm">
+                <img src="/static/assets/img/mineo/premio-luigi.jpg" class="card-img-top" alt="Premio Letterario Luigi Capuana" />
+                <div class="card-body">
+                  <h5 class="card-title text-success">Premio Letterario Luigi Capuana</h5>
+                  <p class="card-text">
+                    <small class="text-muted">Ottobre</small>
+                  </p>
+                  <p class="card-text">
+                    Il <strong>Premio Letterario Luigi Capuana</strong> è un riconoscimento nazionale dedicato alla letteratura e alla narrativa contemporanea. Scrittori, critici e studiosi si ritrovano a Mineo per celebrare la figura del grande verista e promuovere la cultura letteraria italiana, rendendo omaggio al suo genio e alla sua eredità intellettuale.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+              <div class="card h-100 border shadow-sm">
+                <img src="/static/assets/img/mineo/sagra.jpeg" class="card-img-top" alt="Sagra dell'Arancia" />
+                <div class="card-body">
+                  <h5 class="card-title text-success">Sagra dell'Arancia</h5>
+                  <p class="card-text">
+                    <small class="text-muted">Febbraio/Marzo</small>
+                  </p>
+                  <p class="card-text">
+                    La <strong>Sagra dell'Arancia</strong> celebra uno dei prodotti simbolo dell'agricoltura locale: l'arancia rossa di Sicilia. Degustazioni, stand gastronomici, mostre e attività ludiche valorizzano la tradizione agrumicola del territorio, attirando visitatori da tutta la regione in un evento che unisce gusto, cultura e convivialità.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Galleria Fotografica -->
+        <section class="mb-5">
+          <h2 class="text-primary mb-4 text-center" data-aos="fade-up">Galleria Fotografica</h2>
+          <div class="row g-3">
+            <div class="col-6 col-md-3" data-aos="flip-left" data-aos-delay="0">
+              <img src="/static/assets/img/mineo/piazza-mineo.jpg" class="img-fluid rounded shadow" alt="Piazza del Municipio" />
+            </div>
+            <div class="col-6 col-md-3" data-aos="flip-left" data-aos-delay="100">
+              <img src="/static/assets/img/mineo/chiesa.jpg" class="img-fluid rounded shadow" alt="Chiesa Madre" />
+            </div>
+            <div class="col-6 col-md-3" data-aos="flip-left" data-aos-delay="200">
+              <img src="/static/assets/img/mineo/centro-storico.jpg" class="img-fluid rounded shadow" alt="Centro Storico" />
+            </div>
+            <div class="col-6 col-md-3" data-aos="flip-left" data-aos-delay="300">
+              <img src="/static/assets/img/mineo/castello-serravalle.jpeg" class="img-fluid rounded shadow" alt="Veduta Castello" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Monumenti e Luoghi di Interesse (Accordion) -->
+        <section class="mb-5">
+          <h2 class="text-primary mb-3" data-aos="fade-up">Monumenti e Luoghi di Interesse</h2>
+
+          <div class="accordion accordion-flush" id="monumentiAccordion">
+            <!-- Chiesa Madre -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="0">
+              <h2 class="accordion-header" id="heading1"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">Chiesa Madre di Sant'Agrippina</button></h2>
+              <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  La <strong>Chiesa Madre di Sant'Agrippina</strong> è il principale edificio religioso di Mineo. Di origine medievale, è stata più volte restaurata e ampliata nei secoli successivi. All'interno custodisce pregevoli opere d'arte sacra, altari barocchi, dipinti settecenteschi e la statua della patrona. Il campanile svetta sul centro storico ed è uno dei simboli più riconoscibili della città.
+                </div>
+              </div>
+            </div>
+
+            <!-- Palazzo Comunale -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="50">
+              <h2 class="accordion-header" id="heading2"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Palazzo Comunale</button></h2>
+              <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Il <strong>Palazzo Comunale</strong>, situato nella piazza principale, è un elegante edificio storico che ospita gli uffici dell'amministrazione cittadina. La sua facciata neoclassica e gli interni decorati testimoniano l'importanza civile e politica assunta da Mineo nel corso dell'Ottocento, quando la città conobbe un periodo di rinnovamento urbanistico e istituzionale.
+                </div>
+              </div>
+            </div>
+
+            <!-- Biblioteca Comunale Luigi Capuana -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+              <h2 class="accordion-header" id="heading3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Biblioteca Comunale Luigi Capuana</button></h2>
+              <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  La <strong>Biblioteca Comunale Luigi Capuana</strong> conserva un importante patrimonio librario che include fondi antichi, opere veriste, testi di storia locale e manoscritti. La biblioteca svolge un ruolo fondamentale nella promozione della cultura e della lettura, organizzando presentazioni, mostre documentarie e laboratori per le scuole. È un punto di riferimento per studiosi e appassionati di letteratura siciliana.
+                </div>
+              </div>
+            </div>
+
+            <!-- Chiesa di San Pietro -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="150">
+              <h2 class="accordion-header" id="heading4"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">Chiesa di San Pietro</button></h2>
+              <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  La <strong>Chiesa di San Pietro</strong> è uno degli edifici religiosi più antichi di Mineo. Caratterizzata da una sobria architettura medievale, conserva al suo interno affreschi, stucchi barocchi e un altare ligneo di pregevole fattura. La chiesa è tuttora officiata e rappresenta un luogo caro alla devozione popolare, legato a tradizioni liturgiche secolari.
+                </div>
+              </div>
+            </div>
+
+            <!-- Museo Civico Corrado Tamburino Merlini -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+              <h2 class="accordion-header" id="heading5"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">Museo Civico Corrado Tamburino Merlini</button></h2>
+              <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Il <strong>Museo Civico Corrado Tamburino Merlini</strong> raccoglie reperti archeologici provenienti dal territorio di Mineo e dalle aree circostanti. Le collezioni spaziano dall'età preistorica all'epoca romana, con ceramiche, monete, utensili e corredi funerari che documentano la lunga storia dell'insediamento umano nella regione. Il museo offre visite guidate e percorsi didattici per scuole e visitatori.
+                </div>
+              </div>
+            </div>
+
+            <!-- Convento dei Cappuccini -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="250">
+              <h2 class="accordion-header" id="heading6"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">Convento dei Cappuccini</button></h2>
+              <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Il <strong>Convento dei Cappuccini</strong> sorge poco fuori dal centro abitato, immerso in un contesto di pace e raccoglimento. Fondato nel XVI secolo, conserva chiostri, celle monastiche e una biblioteca che testimonia la vita religiosa e culturale dei frati. Il convento è ancora attivo ed è meta di pellegrinaggi e visite spirituali, oltre che un luogo di grande interesse storico e architettonico.
+                </div>
+              </div>
+            </div>
+
+            <!-- Porta Adinolfo -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+              <h2 class="accordion-header" id="heading7"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">Porta Adinolfo</button></h2>
+              <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  <strong>Porta Adinolfo</strong> è una delle antiche porte d'accesso al centro storico di Mineo. Risalente all'epoca medievale, rappresenta una testimonianza delle antiche mura che cingevano la città e che ne garantivano la difesa. Oggi la porta è un punto di passaggio simbolico che introduce i visitatori nel cuore del borgo antico, ricco di vicoli, scalinate e scorci suggestivi.
+                </div>
+              </div>
+            </div>
+
+            <!-- Chiesa di Sant'Antonio Abate -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="350">
+              <h2 class="accordion-header" id="heading8"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">Chiesa di Sant'Antonio Abate</button></h2>
+              <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  La <strong>Chiesa di Sant'Antonio Abate</strong> è un piccolo gioiello architettonico situato nel cuore del centro storico. Edificata in epoca barocca, conserva decorazioni in stucco, dipinti votivi e un altare dedicato al santo eremita. La chiesa è particolarmente cara alla comunità locale, che vi celebra ogni anno la tradizionale festa con la benedizione degli animali e falò rituali.
+                </div>
+              </div>
+            </div>
+
+            <!-- Belvedere Panoramico -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+              <h2 class="accordion-header" id="heading9"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">Belvedere Panoramico</button></h2>
+              <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  Il <strong>Belvedere Panoramico</strong> di Mineo offre una vista mozzafiato sulla piana di Catania, sull'Etna e sui monti Iblei. È il luogo ideale per ammirare il paesaggio siciliano in tutta la sua bellezza, soprattutto al tramonto, quando i colori del cielo si fondono con i profili delle colline e dei borghi circostanti. Il belvedere è diventato un punto di riferimento per fotografi e appassionati di natura.
+                </div>
+              </div>
+            </div>
+
+            <!-- Villa Comunale -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="450">
+              <h2 class="accordion-header" id="heading10"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">Villa Comunale</button></h2>
+              <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10" data-bs-parent="#monumentiAccordion">
+                <div class="accordion-body">
+                  La <strong>Villa Comunale</strong> è il principale spazio verde del paese, luogo di ritrovo per famiglie e punto di ristoro nelle calde giornate estive. Arricchita da aiuole fiorite, viali alberati e fontane, la villa ospita manifestazioni culturali, concerti all'aperto e momenti di aggregazione sociale. È un angolo di pace e relax nel cuore della città.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Citazioni -->
+        <section class="citations-section mb-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-6 mb-3 mb-md-0 d-flex justify-content-start" data-aos="fade-right">
+                <div class="citation-box">
+                  <p class="citation-text">«Nelle strade di Mineo riecheggiano le voci dei personaggi capuaniani, anime di una Sicilia che fu e che ancora vive nella memoria delle pietre e nel cuore della gente.»</p>
+                  <footer class="citation-footer">— (citazione libera)</footer>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 d-flex justify-content-end" data-aos="fade-left" data-aos-delay="200">
+                <div class="citation-box">
+                  <p class="citation-text">«Tra vicoli silenziosi e panorami infiniti, Mineo custodisce l'eredità del Verismo, dove la parola scritta si fonde con la terra e con il cielo degli Iblei.»</p>
+                  <footer class="citation-footer">— (citazione libera)</footer>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Titolo separato dalla mappa -->
+        <h2 class="text-primary text-center mb-4" data-aos="fade-down">Mappa di Mineo</h2>
+
+        <section id="map-section" class="map-section mb-5" data-aos="zoom-in">
+          <div id="map" class="map-container rounded shadow"></div>
+
+          <!-- Barra di ricerca -->
+          <div class="search-container">
+            <input type="text" class="form-control search-box" placeholder="Cerca un luogo..." />
+            <div class="search-results"></div>
+          </div>
+
+          <!-- Filtri dropdown -->
+          <div class="filters-container dropdown">
+            <button class="btn btn-light dropdown-toggle d-flex align-items-center gap-2 filter-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="{% static 'assets/icons/filtri.svg' %}" width="20" height="20" alt="Filtri" /> Filtri</button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li data-type="Servizi Pubblici" class="filter-item dropdown-item d-flex align-items-center gap-2">
+                <img src="{% static 'assets/icons/servizi_pubblici.svg' %}" width="20" height="20" /> Servizi Pubblici
+              </li>
+              <li data-type="Servizi Culturali" class="filter-item dropdown-item d-flex align-items-center gap-2">
+                <img src="{% static 'assets/icons/servizi_culturali.svg' %}" width="20" height="20" /> Servizi Culturali
+              </li>
+              <li data-type="Prodotti Tipici" class="filter-item dropdown-item d-flex align-items-center gap-2">
+                <img src="{% static 'assets/icons/prodotti_tipici.svg' %}" width="20" height="20" /> Prodotti Tipici
+              </li>
+              <li data-type="Ospitalità" class="filter-item dropdown-item d-flex align-items-center gap-2">
+                <img src="{% static 'assets/icons/ospitalita.svg' %}" width="20" height="20" /> Ospitalità
+              </li>
+              <li data-type="Luoghi Verghiani" class="filter-item dropdown-item d-flex align-items-center gap-2">
+                <img src="{% static 'assets/icons/luoghi_verghiani.svg' %}" width="20" height="20" /> Luoghi Capuaniani
+              </li>
+              <li data-type="Ristorazione" class="filter-item dropdown-item d-flex align-items-center gap-2">
+                <img src="{% static 'assets/icons/ristorazione.svg' %}" width="20" height="20" /> Ristorazione
+              </li>
+              <li data-type="all" class="filter-item dropdown-item d-flex align-items-center gap-2">
+                <img src="{% static 'assets/icons/arrow-rotate.svg' %}" width="20" height="20" /> Tutti
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    {% endblock %}
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- ✅ BOOTSTRAP DEVE ESSERE PRIMA DELLO SCRIPT MAPPA -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100,
+        delay: 0
+      })
+    </script>
+
+    <!-- Map Scripts (ora bootstrap è già caricato) -->
+    <script src="{% static 'js/map/points_mineo.js' %}"></script>
+    <script src="{% static 'js/map/script_mineo.js' %}"></script>
+  </body>
+</html>

@@ -160,3 +160,10 @@ def archivio_fotografico_view(request):
         'categorie': categorie,
     }
     return render(request, 'parco_verismo/archivio_fotografico.html', context)
+
+
+def Licodia_View(request):
+    return render(request, 'parco_verismo/licodia.html')
+
+def Mineo_View(request):
+    return render(request, 'parco_verismo/mineo.html')
