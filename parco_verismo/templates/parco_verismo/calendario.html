@@ -1,612 +1,587 @@
-{% extends "parco_verismo/base.html" %}
-{% load static i18n %}
-
-{% block title %}{% trans 'Calendario Eventi - Parco Letterario Verismo' %}{% endblock %}
-
-{% block hero_section %}{% endblock %}
-
-{% block content %}
+{% extends "parco_verismo/base.html" %} {% load static i18n %} {% block title
+%}{% trans 'Calendario Eventi - Parco Letterario Verismo' %}{% endblock %} {%
+block hero_section %}{% endblock %} {% block content %}
 <section class="container my-5 pt-5">
   <div class="text-center mb-5">
     <h1 class="display-4 fw-bold text-primary mb-3">
       <i class="bi bi-calendar-week me-3"></i>
       {% trans 'Calendario Eventi' %}
     </h1>
-    <p class="lead text-secondary mb-0">{% trans 'Consulta il calendario completo degli eventi e salva i tuoi preferiti' %}</p>
+    <p class="lead text-secondary mb-0">
+      {% trans 'Consulta il calendario completo degli eventi e salva i tuoi
+      preferiti' %}
+    </p>
   </div>
 
   <div class="row">
-    <div class="col-lg-10 mx-auto">
-      {% regroup eventi by data_inizio.date as eventi_per_data %}
-      {% for data_group in eventi_per_data %}
-        <div class="calendario-card mb-4">
-          <div class="calendario-header">
-            <div class="d-flex align-items-center">
-              <div class="calendario-date-circle me-4">
-                <div class="date-day">{{ data_group.grouper|date:"d" }}</div>
-                <div class="date-month">{{ data_group.grouper|date:"M" }}</div>
-              </div>
-              <div>
-                <h3 class="mb-0 fw-semibold">{{ data_group.grouper|date:"l" }}</h3>
-                <small class="text-secondary">{{ data_group.grouper|date:"F Y" }}</small>
-              </div>
-            </div>
-          </div>
-          <div class="calendario-body">
-            {% for evento in data_group.list %}
-              <div class="evento-item">
-                <div class="row align-items-center g-3">
-                  <div class="col-auto">
-                    {% if evento.immagine %}
-                      <img src="{{ evento.immagine.url }}" alt="{{ evento.titolo }}" class="evento-thumb">
-                    {% else %}
-                      <div class="evento-thumb-placeholder">
-                        <i class="bi bi-calendar-event"></i>
-                      </div>
-                    {% endif %}
-                  </div>
-                  <div class="col">
-                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
-                      <div class="flex-grow-1">
-                        <h5 class="evento-title mb-2">
-                          <a href="{{ evento.get_absolute_url }}" class="text-decoration-none">{{ evento.titolo }}</a>
-                        </h5>
-                        <div class="evento-meta mb-2">
-                          <span class="me-4">
-                            <i class="bi bi-clock me-1"></i>
-                            {{ evento.data_inizio|date:"H:i" }}
-                            {% if evento.data_fine %}
-                              - {{ evento.data_fine|date:"H:i" }}
-                            {% endif %}
-                          </span>
-                          <span>
-                            <i class="bi bi-geo-alt me-1"></i>
-                            {{ evento.luogo }}
-                          </span>
-                        </div>
-                        <p class="evento-description mb-0">{{ evento.descrizione|truncatewords:20 }}</p>
-                      </div>
-                      <div class="evento-actions">
-                        <div class="d-flex flex-column gap-2">
-                          <a href="{{ evento.get_absolute_url }}" class="btn btn-outline-primary btn-sm">
-                            <i class="bi bi-info-circle me-1"></i>{% trans 'Dettagli' %}
-                          </a>
-                          <div class="dropdown">
-                            <button class="btn btn-secondary btn-sm dropdown-toggle btn-calendario" type="button" data-bs-toggle="dropdown">
-                              <i class="bi bi-calendar-plus me-1"></i>{% trans 'Salva' %}
-                            </button>
-                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#" onclick="aggiungiGoogleCalendar('{{ evento.titolo|escapejs }}', '{{ evento.descrizione|truncatewords:20|escapejs }}', '{{ evento.data_inizio|date:'Y-m-d' }}', '{{ evento.data_inizio|date:'H:i' }}', '{{ evento.data_fine|default:evento.data_inizio|date:'H:i' }}', '{{ evento.luogo|escapejs }}')">
-                                <i class="bi bi-google text-danger me-2"></i>{% trans 'Google Calendar' %}
-                              </a></li>
-                              <li><a class="dropdown-item" href="#" onclick="aggiungiOutlookCalendar('{{ evento.titolo|escapejs }}', '{{ evento.descrizione|truncatewords:20|escapejs }}', '{{ evento.data_inizio|date:'Y-m-d' }}', '{{ evento.data_inizio|date:'H:i' }}', '{{ evento.data_fine|default:evento.data_inizio|date:'H:i' }}', '{{ evento.luogo|escapejs }}')">
-                                <i class="bi bi-microsoft text-primary me-2"></i>{% trans 'Outlook' %}
-                              </a></li>
-                              <li><a class="dropdown-item" href="#" onclick="aggiungiAppleCalendar('{{ evento.titolo|escapejs }}', '{{ evento.descrizione|truncatewords:20|escapejs }}', '{{ evento.data_inizio|date:'Y-m-d' }}', '{{ evento.data_inizio|date:'H:i' }}', '{{ evento.data_fine|default:evento.data_inizio|date:'H:i' }}', '{{ evento.luogo|escapejs }}')">
-                                <i class="bi bi-apple text-dark me-2"></i>{% trans 'Apple Calendar' %}
-                              </a></li>
-                              <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdown-item" href="#" onclick="condividiWhatsApp('{{ evento.titolo|escapejs }}', '{{ evento.data_inizio|date:'d/m/Y' }}', '{{ evento.data_inizio|date:'H:i' }}', '{{ evento.luogo|escapejs }}')">
-                                <i class="bi bi-whatsapp text-success me-2"></i>{% trans 'Condividi su WhatsApp' %}
-                              </a></li>
-                            </ul>
-                          </div>
-                          <button class="btn btn-warning btn-sm" onclick="creaPromemoria('{{ evento.titolo|escapejs }}', '{{ evento.data_inizio|date:'Y-m-d' }}', '{{ evento.data_inizio|date:'H:i' }}', '{{ evento.luogo|escapejs }}')">
-                            <i class="bi bi-bell me-1"></i>{% trans 'Promemoria' %}
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            {% endfor %}
-          </div>
-        </div>
-      {% empty %}
-        <div class="text-center py-5">
-          <div class="empty-calendar-icon mb-4">
-            <i class="bi bi-calendar-x display-1 text-muted"></i>
-          </div>
-          <h3 class="h4 text-muted mb-2">{% trans 'Nessun evento nel calendario' %}</h3>
-          <p class="text-muted mb-0">{% trans 'Il calendario eventi è attualmente vuoto. Torna presto per scoprire le nostre iniziative!' %}</p>
-        </div>
-      {% endfor %}
+    <div class="col-lg-11 mx-auto">
+      <!-- FullCalendar  Container -->
+      <div id="calendar"></div>
     </div>
   </div>
 </section>
 
-<!-- Modal per promemoria -->
-<div class="modal fade" id="promemoriaModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content border-0" style="box-shadow: var(--shadow-lg);">
-      <div class="modal-header" style="background: var(--color-primary); color: var(--color-text-inverse); border-bottom: none;">
-        <h5 class="modal-title fw-semibold">
-          <i class="bi bi-bell me-2"></i>
-          {% trans 'Crea Promemoria' %}
+<!-- Modal per dettagli evento -->
+<div class="modal fade" id="eventoModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content border-0" style="box-shadow: var(--shadow-lg)">
+      <div
+        class="modal-header"
+        style="
+          background: var(--color-primary);
+          color: var(--color-text-inverse);
+          border-bottom: none;
+        "
+      >
+        <h5 class="modal-title fw-semibold" id="eventoModalTitle">
+          <i class="bi bi-calendar-event me-2"></i>
         </h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+        ></button>
       </div>
-      <div class="modal-body p-4">
-        <div id="promemoriaContent">
-          <!-- Contenuto dinamico -->
-        </div>
-        <div class="mt-4 p-3 rounded" style="background: var(--color-surface-elevated); border: 1px solid var(--color-border);">
-          <div class="d-flex align-items-center">
-            <i class="bi bi-lightbulb text-warning me-2"></i>
-            <div>
-              <strong class="text-primary">{% trans "Come salvare l'evento:" %}</strong><br>
-              <small class="text-secondary">{% blocktrans %}1. Clicca sul pulsante "Salva" accanto all'evento<br>2. Scegli il tuo calendario preferito<br>3. L'evento verrà aggiunto automaticamente!{% endblocktrans %}</small>
-            </div>
-          </div>
-        </div>
+      <div class="modal-body p-4" id="eventoModalBody">
+        <!-- Contenuto dinamico -->
       </div>
       <div class="modal-footer border-top-0">
-        <button type="button" class="btn btn-secondary btn-calendario" data-bs-dismiss="modal">{% trans 'Chiudi' %}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          {% trans 'Chiudi' %}
+        </button>
+        <a href="#" id="eventoDetailLink" class="btn btn-primary">
+          <i class="bi bi-info-circle me-1"></i>{% trans 'Vedi dettagli
+          completi' %}
+        </a>
       </div>
     </div>
   </div>
 </div>
 
 <style>
-/* ========================================================
+  /* ========================================================
    OVERRIDE BOOTSTRAP - FORZA PALETTE DEL SITO
    ======================================================== */
 
-.text-primary {
-  color: var(--color-primary) !important;
-}
+  .text-primary {
+    color: var(--color-primary) !important;
+  }
 
-.btn-outline-primary {
-  --bs-btn-color: var(--color-primary);
-  --bs-btn-border-color: var(--color-primary);
-  --bs-btn-hover-bg: var(--color-primary);
-  --bs-btn-hover-border-color: var(--color-primary);
-  --bs-btn-active-bg: var(--color-primary);
-  --bs-btn-active-border-color: var(--color-primary);
-}
+  .btn-outline-primary {
+    --bs-btn-color: var(--color-primary);
+    --bs-btn-border-color: var(--color-primary);
+    --bs-btn-hover-bg: var(--color-primary);
+    --bs-btn-hover-border-color: var(--color-primary);
+    --bs-btn-active-bg: var(--color-primary);
+    --bs-btn-active-border-color: var(--color-primary);
+  }
 
-.btn-outline-primary:hover {
-  color: var(--color-text-inverse) !important;
-}
+  .btn-outline-primary:hover {
+    color: var(--color-text-inverse) !important;
+  }
 
-/* ========================================================
-   CALENDARIO EVENTI - DESIGN MODERNO
+  .btn-primary {
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: var(--color-text-inverse) !important;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-primary-dark) !important;
+    border-color: var(--color-primary-dark) !important;
+  }
+
+  .btn-secondary {
+    background: var(--color-secondary) !important;
+    border-color: var(--color-secondary) !important;
+    color: var(--color-text-inverse) !important;
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-secondary-dark) !important;
+    border-color: var(--color-secondary-dark) !important;
+  }
+
+  /* ========================================================
+   FULLCALENDAR CUSTOMIZATION
    ======================================================== */
 
-.calendario-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  transition: all var(--transition-base);
-  margin-bottom: var(--space-xl);
-}
+  #calendar {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-lg);
+    min-height: 600px;
+  }
 
-.calendario-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
+  /* FullCalendar header */
+  .fc .fc-toolbar-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
 
-.calendario-header {
-  background: var(--gradient-primary);
-  color: var(--color-text-inverse);
-  padding: var(--space-lg) var(--space-xl);
-  position: relative;
-}
+  .fc .fc-button-primary {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: var(--color-text-inverse) !important;
+    font-weight: 500;
+  }
 
-.calendario-date-circle {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
+  .fc .fc-button-primary:hover {
+    background-color: var(--color-primary-dark) !important;
+    border-color: var(--color-primary-dark) !important;
+  }
 
-.date-day {
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 2px;
-}
+  .fc .fc-button-primary:not(:disabled):active,
+  .fc .fc-button-primary:not(:disabled).fc-button-active {
+    background-color: var(--color-primary-dark) !important;
+    border-color: var(--color-primary-dark) !important;
+  }
 
-.date-month {
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
-  opacity: 0.9;
-}
+  /* FullCalendar day cells */
+  .fc .fc-daygrid-day {
+    background: var(--color-surface-elevated);
+    transition: background-color var(--transition-fast);
+  }
 
-.calendario-body {
-  padding: var(--space-lg) var(--space-xl);
-}
+  .fc .fc-daygrid-day:hover {
+    background: var(--color-surface);
+  }
 
-.evento-item {
-  padding: var(--space-lg);
-  border-bottom: 1px solid var(--color-divider);
-  transition: all var(--transition-fast);
-}
+  .fc .fc-daygrid-day-top {
+    color: var(--color-text-primary);
+  }
 
-.evento-item:last-child {
-  border-bottom: none;
-}
+  .fc .fc-day-today {
+    background-color: rgba(var(--color-primary-rgb), 0.1) !important;
+  }
 
-.evento-item:hover {
-  background-color: var(--color-surface-elevated);
-}
+  .fc .fc-day-today .fc-daygrid-day-number {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
 
-.evento-thumb {
-  width: 64px;
-  height: 64px;
-  border-radius: var(--radius-md);
-  object-fit: cover;
-  border: 3px solid var(--color-surface);
-  box-shadow: var(--shadow-sm);
-  flex-shrink: 0;
-}
+  /* FullCalendar events */
+  .fc-event {
+    border: none !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 4px 8px !important;
+    margin-bottom: 2px !important;
+    cursor: pointer !important;
+    transition: all var(--transition-fast) !important;
+    font-weight: 500 !important;
+  }
 
-.evento-thumb-placeholder {
-  width: 64px;
-  height: 64px;
-  border-radius: var(--radius-md);
-  background: var(--gradient-secondary);
-  color: var(--color-text-inverse);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid var(--color-surface);
-  box-shadow: var(--shadow-sm);
-  flex-shrink: 0;
-}
+  .fc-event:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: var(--shadow-sm) !important;
+    filter: brightness(110%) !important;
+  }
 
-.evento-thumb-placeholder i {
-  font-size: 1.5rem;
-}
+  .fc-event-title {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+  }
 
-.evento-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-sm);
-}
-
-.evento-title a {
-  color: inherit;
-  transition: color var(--transition-fast);
-}
-
-.evento-title a:hover {
-  color: var(--color-primary);
-}
-
-.evento-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-md);
-  color: var(--color-text-secondary);
-  font-size: 0.875rem;
-  margin-bottom: var(--space-sm);
-}
-
-.evento-meta span {
-  display: flex;
-  align-items: center;
-}
-
-.evento-meta i {
-  margin-right: var(--space-xs);
-}
-
-.evento-description {
-  color: var(--color-text-secondary);
-  line-height: 1.5;
-  margin-bottom: 0;
-}
-
-.evento-actions {
-  flex-shrink: 0;
-}
-
-.evento-actions .btn {
-  min-width: 100px;
-  font-weight: 500;
-  border-radius: var(--radius-md);
-  transition: all var(--transition-fast);
-}
-
-.evento-actions .btn:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
-}
-
-.btn-secondary {
-  --bs-btn-bg: var(--color-secondary);
-  --bs-btn-border-color: var(--color-secondary);
-  --bs-btn-hover-bg: var(--color-secondary-dark);
-  --bs-btn-hover-border-color: var(--color-secondary-dark);
-  --bs-btn-active-bg: var(--color-secondary-dark);
-  --bs-btn-active-border-color: var(--color-secondary-dark);
-}
-
-.btn-calendario {
-  background: var(--color-secondary) !important;
-  border-color: var(--color-secondary) !important;
-  color: var(--color-text-inverse) !important;
-}
-
-.btn-calendario:hover {
-  background: var(--color-secondary-dark) !important;
-  border-color: var(--color-secondary-dark) !important;
-  color: var(--color-text-inverse) !important;
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
-}
-
-.btn-warning {
-  --bs-btn-bg: var(--color-warning);
-  --bs-btn-border-color: var(--color-warning);
-  --bs-btn-hover-bg: var(--color-warning-dark);
-  --bs-btn-hover-border-color: var(--color-warning-dark);
-}
-
-.dropdown-menu {
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-md);
-  border-radius: var(--radius-md);
-}
-
-.dropdown-item {
-  padding: var(--space-sm) var(--space-md);
-  transition: all var(--transition-fast);
-}
-
-.dropdown-item:hover {
-  background-color: var(--color-surface-elevated);
-  color: var(--color-primary);
-}
-
-.empty-calendar-icon {
-  opacity: 0.3;
-  color: var(--color-text-tertiary);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .calendario-header,
-  .calendario-body {
+  /* FullCalendar column headers */
+  .fc .fc-col-header-cell {
+    background: var(--color-surface-elevated);
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
     padding: var(--space-md);
+    border-color: var(--color-border);
   }
 
-  .evento-item {
+  /* FullCalendar grid borders */
+  .fc .fc-scrollgrid {
+    border-color: var(--color-border) !important;
+  }
+
+  .fc .fc-daygrid-day,
+  .fc .fc-col-header-cell {
+    border-color: var(--color-border) !important;
+  }
+
+  /* Modal styling */
+  .evento-meta-modal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: var(--space-md);
     padding: var(--space-md);
+    background: var(--color-surface-elevated);
+    border-radius: var(--radius-md);
   }
 
-  .evento-meta {
-    flex-direction: column;
-    gap: var(--space-xs);
+  .evento-meta-modal span {
+    display: flex;
+    align-items: center;
   }
 
-  .evento-actions .btn {
+  .evento-meta-modal i {
+    margin-right: var(--space-xs);
+    color: var(--color-primary);
+  }
+
+  .evento-description-modal {
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+  }
+
+  .evento-image-modal {
     width: 100%;
-    margin-bottom: var(--space-xs);
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-lg);
+    box-shadow: var(--shadow-sm);
   }
 
-  .calendario-date-circle {
-    width: 60px;
-    height: 60px;
+  .evento-actions-modal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--color-surface-elevated);
+    border-radius: var(--radius-md);
   }
 
-  .date-day {
-    font-size: 1.5rem;
+  /* Loading state */
+  .fc-loading {
+    position: relative;
   }
-}
 
-/* Animazioni */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+  .fc-loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    #calendar {
+      padding: var(--space-sm);
+    }
+
+    .fc .fc-toolbar {
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .fc .fc-toolbar-title {
+      font-size: 1.25rem;
+    }
+
+    .fc .fc-button {
+      padding: 0.375rem 0.75rem;
+      font-size: 0.875rem;
+    }
+
+    .evento-actions-modal {
+      flex-direction: column;
+    }
+
+    .evento-actions-modal .btn {
+      width: 100%;
+    }
   }
-}
 
-.calendario-card {
-  animation: fadeInUp 0.6s ease-out;
-}
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 
-.calendario-card:nth-child(1) { animation-delay: 0.1s; }
-.calendario-card:nth-child(2) { animation-delay: 0.2s; }
-.calendario-card:nth-child(3) { animation-delay: 0.3s; }
-.calendario-card:nth-child(4) { animation-delay: 0.4s; }
-.calendario-card:nth-child(5) { animation-delay: 0.5s; }
+  #calendar {
+    animation: fadeIn 0.5s ease-out;
+  }
 </style>
 
+<!-- FullCalendar CSS -->
+<link
+  href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css"
+  rel="stylesheet"
+/>
+
+<!-- FullCalendar JS -->
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+
+<!-- FullCalendar Italian Locale -->
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.10/locales/it.global.min.js"></script>
+
 <script>
-// Funzione per creare promemoria
-function creaPromemoria(titolo, data, ora, luogo) {
-  const contenuto = `
-    <div class="text-center mb-4">
-      <div class="d-inline-flex align-items-center justify-content-center rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; background: var(--color-primary); color: var(--color-text-inverse);">
-        <i class="bi bi-calendar-check display-6"></i>
-      </div>
-    </div>
-    <h4 class="text-center mb-4 fw-semibold" style="color: var(--color-text-primary);">${titolo}</h4>
-    <div class="row text-center g-3 mb-4">
-      <div class="col-6">
-        <div class="p-3 rounded" style="background: var(--color-surface-elevated); border: 1px solid var(--color-border);">
-          <div class="text-primary fw-semibold mb-1">
-            <i class="bi bi-calendar me-1"></i>{% trans 'Data' %}
+  document.addEventListener('DOMContentLoaded', function() {
+    const calendarEl = document.getElementById('calendar');
+
+    // Configura lingua in base al contesto Django
+    const locale = '{{ LANGUAGE_CODE|default:"it" }}';
+
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      locale: locale,
+      firstDay: 1, // Lunedì come primo giorno
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,listMonth'
+      },
+      buttonText: {
+        today: '{% trans "Oggi" %}',
+        month: '{% trans "Mese" %}',
+        week: '{% trans "Settimana" %}',
+        list: '{% trans "Lista" %}',
+      },
+      events: [
+        {% for evento in eventi %}
+        {
+          id: '{{ evento.id }}',
+          title: '{{ evento.titolo|escapejs }}',
+          start: '{{ evento.data_inizio|date:"Y-m-d\TH:i:s" }}',
+          {% if evento.data_fine %}
+          end: '{{ evento.data_fine|date:"Y-m-d\TH:i:s" }}',
+          {% endif %}
+          url: '{{ evento.get_absolute_url }}',
+          backgroundColor: '#1976d2',
+          borderColor: '#1976d2',
+          extendedProps: {
+            descrizione: '{{ evento.descrizione|escapejs }}',
+            luogo: '{{ evento.luogo|escapejs }}',
+            {% if evento.immagine %}
+            immagine: '{{ evento.immagine.url }}',
+            {% endif %}
+            detailUrl: '{{ evento.get_absolute_url }}'
+          }
+        },
+        {% endfor %}
+      ],
+      eventClick: function(info) {
+        info.jsEvent.preventDefault(); // Previeni navigazione diretta
+
+        const evento = info.event;
+        const props = evento.extendedProps;
+
+        // Popola il modal
+        document.getElementById('eventoModalTitle').innerHTML = `
+          <i class="bi bi-calendar-event me-2"></i>${evento.title}
+        `;
+
+        let modalContent = '';
+
+        // Immagine
+        if (props.immagine) {
+          modalContent += `
+            <img src="${props.immagine}" alt="${evento.title}" class="evento-image-modal">
+          `;
+        }
+
+        // Meta informazioni
+        modalContent += `
+          <div class="evento-meta-modal">
+            <span>
+              <i class="bi bi-calendar"></i>
+              ${evento.start.toLocaleDateString(locale, {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </span>
+            <span>
+              <i class="bi bi-clock"></i>
+              ${evento.start.toLocaleTimeString(locale, {
+                hour: '2-digit',
+                minute: '2-digit'
+              })}
+              ${evento.end ? ' - ' + evento.end.toLocaleTimeString(locale, {
+                hour: '2-digit',
+                minute: '2-digit'
+              }) : ''}
+            </span>
+            <span>
+              <i class="bi bi-geo-alt"></i>
+              ${props.luogo}
+            </span>
           </div>
-          <div style="color: var(--color-text-primary); font-size: 0.9rem;">
-            ${new Date(data + ' ' + ora).toLocaleDateString('{{ LANGUAGE_CODE|default:"it" }}', {
-              weekday: 'long',
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
+        `;
+
+        // Descrizione
+        if (props.descrizione) {
+          modalContent += `
+            <div class="evento-description-modal">
+              <h6 class="fw-semibold mb-2">{% trans "Descrizione" %}</h6>
+              <p>${props.descrizione}</p>
+            </div>
+          `;
+        }
+
+        // Azioni rapide
+        modalContent += `
+          <div class="evento-actions-modal">
+            <h6 class="fw-semibold mb-3 w-100">{% trans "Aggiungi al calendario" %}</h6>
+            <button class="btn btn-sm btn-outline-primary" onclick="aggiungiGoogleCalendar('${evento.title.replace(/'/g, "\\'")}', '${props.descrizione.replace(/'/g, "\\'")}', '${evento.start.toISOString().split('T')[0]}', '${evento.start.toTimeString().substring(0,5)}', '${evento.end ? evento.end.toTimeString().substring(0,5) : evento.start.toTimeString().substring(0,5)}', '${props.luogo.replace(/'/g, "\\'")}')">
+              <i class="bi bi-google text-danger me-1"></i>{% trans "Google Calendar" %}
+            </button>
+            <button class="btn btn-sm btn-outline-primary" onclick="aggiungiOutlookCalendar('${evento.title.replace(/'/g, "\\'")}', '${props.descrizione.replace(/'/g, "\\'")}', '${evento.start.toISOString().split('T')[0]}', '${evento.start.toTimeString().substring(0,5)}', '${evento.end ? evento.end.toTimeString().substring(0,5) : evento.start.toTimeString().substring(0,5)}', '${props.luogo.replace(/'/g, "\\'")}')">
+              <i class="bi bi-microsoft text-primary me-1"></i>{% trans "Outlook" %}
+            </button>
+            <button class="btn btn-sm btn-outline-primary" onclick="aggiungiAppleCalendar('${evento.title.replace(/'/g, "\\'")}', '${props.descrizione.replace(/'/g, "\\'")}', '${evento.start.toISOString().split('T')[0]}', '${evento.start.toTimeString().substring(0,5)}', '${evento.end ? evento.end.toTimeString().substring(0,5) : evento.start.toTimeString().substring(0,5)}', '${props.luogo.replace(/'/g, "\\'")}')">
+              <i class="bi bi-apple me-1"></i>{% trans "Apple Calendar" %}
+            </button>
+            <button class="btn btn-sm btn-warning" onclick="condividiWhatsApp('${evento.title.replace(/'/g, "\\'")}', '${evento.start.toLocaleDateString(locale)}', '${evento.start.toTimeString().substring(0,5)}', '${props.luogo.replace(/'/g, "\\'")}')">
+              <i class="bi bi-whatsapp me-1"></i>{% trans "WhatsApp" %}
+            </button>
           </div>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="p-3 rounded" style="background: var(--color-surface-elevated); border: 1px solid var(--color-border);">
-          <div class="text-primary fw-semibold mb-1">
-            <i class="bi bi-clock me-1"></i>{% trans 'Ora' %}
-          </div>
-          <div style="color: var(--color-text-primary); font-size: 0.9rem;">
-            ${ora}
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="text-center mb-4">
-      <div class="p-3 rounded" style="background: var(--color-surface-elevated); border: 1px solid var(--color-border);">
-        <div class="text-primary fw-semibold mb-1">
-          <i class="bi bi-geo-alt me-1"></i>{% trans 'Luogo' %}
-        </div>
-        <div style="color: var(--color-text-primary);">
-          ${luogo}
-        </div>
-      </div>
-    </div>
-    <hr style="border-color: var(--color-divider);">
-    <p class="text-center mb-0" style="color: var(--color-text-secondary); font-size: 0.9rem;">
-      <i class="bi bi-info-circle me-1"></i>
-      {% trans 'Clicca sui pulsanti "Salva" per aggiungere l\'evento direttamente al tuo calendario!' %}
-    </p>
-  `;
+        `;
 
-  document.getElementById('promemoriaContent').innerHTML = contenuto;
+        document.getElementById('eventoModalBody').innerHTML = modalContent;
+        document.getElementById('eventoDetailLink').href = props.detailUrl;
 
-  // Mostra il modal
-  const modal = new bootstrap.Modal(document.getElementById('promemoriaModal'));
-  modal.show();
-}
+        // Mostra il modal
+        const modal = new bootstrap.Modal(document.getElementById('eventoModal'));
+        modal.show();
+      },
+      eventDidMount: function(info) {
+        // Aggiungi tooltip
+        info.el.title = info.event.title;
+      },
+      height: 'auto',
+      contentHeight: 'auto',
+      aspectRatio: 1.8,
+      expandRows: true,
+      navLinks: true,
+      editable: false,
+      dayMaxEvents: true,
+      views: {
+        dayGridMonth: {
+          dayMaxEvents: 3
+        }
+      }
+    });
 
-// Funzione per mostrare notifica di successo
-function mostraSuccesso(messaggio) {
-  // Crea elemento notifica
-  const notifica = document.createElement('div');
-  notifica.className = 'position-fixed fade show';
-  notifica.style.cssText = `
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    min-width: 320px;
-    background: var(--color-success);
-    color: var(--color-text-inverse);
-    padding: 1rem 1.25rem;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg);
-    border: none;
-    font-weight: 500;
-  `;
-  notifica.innerHTML = `
-    <div class="d-flex align-items-center">
-      <i class="bi bi-check-circle me-2"></i>
-      <span>${messaggio}</span>
-      <button type="button" class="btn-close btn-close-white ms-auto" onclick="this.parentElement.parentElement.remove()"></button>
-    </div>
-  `;
-
-  document.body.appendChild(notifica);
-
-  // Animazione di entrata
-  setTimeout(() => {
-    notifica.style.transform = 'translateX(0)';
-  }, 10);
-
-  // Rimuovi automaticamente dopo 4 secondi
-  setTimeout(() => {
-    if (notifica.parentNode) {
-      notifica.style.transform = 'translateX(100%)';
-      setTimeout(() => notifica.remove(), 300);
-    }
-  }, 4000);
-}
-
-// Funzione per aggiungere evento a Google Calendar
-function aggiungiGoogleCalendar(titolo, descrizione, data, oraInizio, oraFine, luogo) {
-  const dataOraInizio = new Date(`${data}T${oraInizio}`);
-  const dataOraFine = new Date(`${data}T${oraFine}`);
-
-  const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(titolo)}&dates=${dataOraInizio.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}/${dataOraFine.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}&details=${encodeURIComponent(descrizione)}&location=${encodeURIComponent(luogo)}`;
-
-  window.open(googleUrl, '_blank');
-  mostraSuccesso("{% trans 'Evento aperto in Google Calendar!' %}");
-}
-
-// Funzione per aggiungere evento a Outlook
-function aggiungiOutlookCalendar(titolo, descrizione, data, oraInizio, oraFine, luogo) {
-  const dataOraInizio = new Date(`${data}T${oraInizio}`);
-  const dataOraFine = new Date(`${data}T${oraFine}`);
-
-  const outlookUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(titolo)}&startdt=${dataOraInizio.toISOString()}&enddt=${dataOraFine.toISOString()}&body=${encodeURIComponent(descrizione)}&location=${encodeURIComponent(luogo)}`;
-
-  window.open(outlookUrl, '_blank');
-  mostraSuccesso("{% trans 'Evento aperto in Outlook!' %}");
-}
-
-// Funzione per aggiungere evento ad Apple Calendar (iCal)
-function aggiungiAppleCalendar(titolo, descrizione, data, oraInizio, oraFine, luogo) {
-  // Genera contenuto ICS inline
-  const dataOraInizio = new Date(`${data}T${oraInizio}`);
-  const dataOraFine = new Date(`${data}T${oraFine}`);
-
-  const icsContent = `BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:${titolo}
-DESCRIPTION:${descrizione}
-LOCATION:${luogo}
-DTSTART:${dataOraInizio.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}
-DTEND:${dataOraFine.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}
-END:VEVENT
-END:VCALENDAR`;
-
-  // Crea blob e download
-  const blob = new Blob([icsContent], { type: 'text/calendar' });
-  const url = window.URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'evento.ics';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  window.URL.revokeObjectURL(url);
-
-  mostraSuccesso("{% blocktrans %}File calendario scaricato! Aprilo per aggiungere l'evento.{% endblocktrans %}");
-}
-
-// Funzione per condividere su WhatsApp
-function condividiWhatsApp(titolo, data, ora, luogo) {
-  const messaggio = `🎭 *${titolo}*\n📅 ${data} {% trans 'alle' %} ${ora}\n📍 ${luogo}\n\n{% trans 'Scopri di più sul sito del Parco Letterario del Verismo!' %}`;
-  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(messaggio)}`;
-  window.open(whatsappUrl, '_blank');
-  mostraSuccesso("{% trans 'Evento condiviso su WhatsApp!' %}");
-}
-
-// Aggiungi animazioni al caricamento
-document.addEventListener('DOMContentLoaded', function() {
-  const cards = document.querySelectorAll('.calendario-card');
-  cards.forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    setTimeout(() => {
-      card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-      card.style.opacity = '1';
-      card.style.transform = 'translateY(0)';
-    }, index * 150);
+    calendar.render();
   });
-});
+
+  // Funzioni per gestire l'aggiunta ai calendari
+  function mostraSuccesso(messaggio) {
+    const notifica = document.createElement('div');
+    notifica.className = 'position-fixed fade show';
+    notifica.style.cssText = `
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      min-width: 320px;
+      background: var(--color-success);
+      color: var(--color-text-inverse);
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      border: none;
+      font-weight: 500;
+    `;
+    notifica.innerHTML = `
+      <div class="d-flex align-items-center">
+        <i class="bi bi-check-circle me-2"></i>
+        <span>${messaggio}</span>
+        <button type="button" class="btn-close btn-close-white ms-auto" onclick="this.parentElement.parentElement.remove()"></button>
+      </div>
+    `;
+
+    document.body.appendChild(notifica);
+
+    setTimeout(() => {
+      notifica.style.transform = 'translateX(0)';
+    }, 10);
+
+    setTimeout(() => {
+      if (notifica.parentNode) {
+        notifica.style.transform = 'translateX(100%)';
+        setTimeout(() => notifica.remove(), 300);
+      }
+    }, 4000);
+  }
+
+  function aggiungiGoogleCalendar(titolo, descrizione, data, oraInizio, oraFine, luogo) {
+    const dataOraInizio = new Date(`${data}T${oraInizio}`);
+    const dataOraFine = new Date(`${data}T${oraFine}`);
+
+    const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(titolo)}&dates=${dataOraInizio.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}/${dataOraFine.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}&details=${encodeURIComponent(descrizione)}&location=${encodeURIComponent(luogo)}`;
+
+    window.open(googleUrl, '_blank');
+    mostraSuccesso("{% trans 'Evento aperto in Google Calendar!' %}");
+  }
+
+  function aggiungiOutlookCalendar(titolo, descrizione, data, oraInizio, oraFine, luogo) {
+    const dataOraInizio = new Date(`${data}T${oraInizio}`);
+    const dataOraFine = new Date(`${data}T${oraFine}`);
+
+    const outlookUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(titolo)}&startdt=${dataOraInizio.toISOString()}&enddt=${dataOraFine.toISOString()}&body=${encodeURIComponent(descrizione)}&location=${encodeURIComponent(luogo)}`;
+
+    window.open(outlookUrl, '_blank');
+    mostraSuccesso("{% trans 'Evento aperto in Outlook!' %}");
+  }
+
+  function aggiungiAppleCalendar(titolo, descrizione, data, oraInizio, oraFine, luogo) {
+    const dataOraInizio = new Date(`${data}T${oraInizio}`);
+    const dataOraFine = new Date(`${data}T${oraFine}`);
+
+    const icsContent = `BEGIN:VCALENDAR
+  VERSION:2.0
+  BEGIN:VEVENT
+  SUMMARY:${titolo}
+  DESCRIPTION:${descrizione}
+  LOCATION:${luogo}
+  DTSTART:${dataOraInizio.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}
+  DTEND:${dataOraFine.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}
+  END:VEVENT
+  END:VCALENDAR`;
+
+    const blob = new Blob([icsContent], { type: 'text/calendar' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'evento.ics';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+
+    mostraSuccesso("{% blocktrans %}File calendario scaricato! Aprilo per aggiungere l'evento.{% endblocktrans %}");
+  }
+
+  function condividiWhatsApp(titolo, data, ora, luogo) {
+    const messaggio = `🎭 *${titolo}*\n📅 ${data} {% trans 'alle' %} ${ora}\n📍 ${luogo}\n\n{% trans 'Scopri di più sul sito del Parco Letterario del Verismo!' %}`;
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(messaggio)}`;
+    window.open(whatsappUrl, '_blank');
+    mostraSuccesso("{% trans 'Evento condiviso su WhatsApp!' %}");
+  }
 </script>
 {% endblock %}
