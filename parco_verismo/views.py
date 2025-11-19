@@ -167,3 +167,6 @@ def Licodia_View(request):
 
 def Mineo_View(request):
     return render(request, 'parco_verismo/mineo.html')
+
+def Vizzini_View(request):
+    return render(request, 'parco_verismo/vizzini.html')

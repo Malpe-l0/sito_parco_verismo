@@ -1,5 +1,5 @@
 /* ===========================
-   STILI PAGINA LICODIA EUBEA
+   STILI PAGINA VIZZINI
    =========================== */
 
 body {
@@ -11,9 +11,9 @@ body {
 }
 
 /* Hero Section */
-.hero-licodia {
+.hero-vizzini {
   position: relative;
-  background: url("/static/assets/img/licodia/hero-bg.jpg") center center / cover no-repeat;
+  background: url("/static/assets/img/vizzini/bg-hero.jpg") center center / cover no-repeat;
   height: 80vh;
   display: flex;
   align-items: center;
@@ -24,7 +24,7 @@ body {
   overflow: hidden;
 }
 
-.hero-licodia::before {
+.hero-vizzini::before {
   content: "";
   position: absolute;
   top: 0;
@@ -35,20 +35,20 @@ body {
   z-index: 0;
 }
 
-.hero-licodia .hero-content {
+.hero-vizzini .hero-content {
   position: relative;
   z-index: 1;
   transform: translateY(-60px);
 }
 
-.hero-licodia h1 {
+.hero-vizzini h1 {
   font-size: 3rem;
   font-weight: 700;
   color: var(--color-text-inverse);
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-.hero-licodia p {
+.hero-vizzini p {
   font-size: 1.2rem;
   color: var(--color-primary-pale);
   margin-top: var(--space-sm);
@@ -183,7 +183,7 @@ img.card-img-top {
 }
 
 /* ===========================
-   MAPPA LICODIA - STILI
+   MAPPA VIZZINI - STILI
    =========================== */
 .map-section {
   width: 100%;
@@ -303,31 +303,31 @@ img.card-img-top {
 
 /* Desktop (992px - 1199px) */
 @media (max-width: 1199px) {
-  .hero-licodia h1 {
+  .hero-vizzini h1 {
     font-size: 2.5rem;
   }
 
-  .hero-licodia p {
+  .hero-vizzini p {
     font-size: 1.1rem;
   }
 }
 
 /* Tablet (768px - 991px) */
 @media (max-width: 991px) {
-  .hero-licodia {
+  .hero-vizzini {
     height: 65vh;
   }
 
-  .hero-licodia .hero-content {
+  .hero-vizzini .hero-content {
     transform: translateY(-40px);
     padding: 0 20px;
   }
 
-  .hero-licodia h1 {
+  .hero-vizzini h1 {
     font-size: 2.2rem;
   }
 
-  .hero-licodia p {
+  .hero-vizzini p {
     font-size: 1rem;
   }
 
@@ -362,20 +362,20 @@ img.card-img-top {
 
 /* Mobile Large (576px - 767px) */
 @media (max-width: 767px) {
-  .hero-licodia {
+  .hero-vizzini {
     height: 55vh;
   }
 
-  .hero-licodia .hero-content {
+  .hero-vizzini .hero-content {
     transform: translateY(-30px);
     padding: 0 15px;
   }
 
-  .hero-licodia h1 {
+  .hero-vizzini h1 {
     font-size: 1.8rem;
   }
 
-  .hero-licodia p {
+  .hero-vizzini p {
     font-size: 0.95rem;
   }
 
@@ -418,6 +418,11 @@ img.card-img-top {
     left: 10px;
   }
 
+  .filters-container {
+    top: 10px;
+    right: 10px;
+  }
+
   .filters-container .dropdown-menu {
     position: absolute !important;
     top: calc(100% + 4px) !important;
@@ -440,20 +445,20 @@ img.card-img-top {
 
 /* Mobile Small (≤575px) */
 @media (max-width: 575px) {
-  .hero-licodia {
+  .hero-vizzini {
     height: 50vh;
   }
 
-  .hero-licodia .hero-content {
+  .hero-vizzini .hero-content {
     transform: translateY(-20px);
     padding: 0 10px;
   }
 
-  .hero-licodia h1 {
+  .hero-vizzini h1 {
     font-size: 1.5rem;
   }
 
-  .hero-licodia p {
+  .hero-vizzini p {
     font-size: 0.9rem;
   }
 
@@ -527,11 +532,11 @@ img.card-img-top {
 
 /* Mobile Extra Small (≤400px) */
 @media (max-width: 400px) {
-  .hero-licodia h1 {
+  .hero-vizzini h1 {
     font-size: 1.3rem;
   }
 
-  .hero-licodia p {
+  .hero-vizzini p {
     font-size: 0.85rem;
   }
 
