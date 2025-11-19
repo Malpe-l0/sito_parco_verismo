@@ -34,47 +34,39 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="parcoDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              {% trans 'Il Parco' %}
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="parcoDropdown">
-              <li>
-                <a class="dropdown-item" href="#missioni"
-                  >{% trans 'Missioni e visione' %}</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="#comitato"
-                  >{% trans 'Comitato tecnico' %}</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="#regolamenti"
-                  >{% trans 'Regolamenti & documenti' %}</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="#partner"
-                  >{% trans 'Partner e rete territoriale' %}</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="#accrediti"
-                  >{% trans 'Accrediti e finanziamenti' %}</a
-                >
-              </li>
-            </ul>
-          </li>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="parcoDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        {% trans 'Il Parco' %}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="parcoDropdown">
+                        <li><a class="dropdown-item" href="{% url 'missione_visione' %}">{% trans 'Missioni e visione' %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'comitato_tecnico_scientifico' %}">{% trans 'Comitato tecnico' %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'regolamenti_documenti' %}">{% trans 'Regolamenti & documenti' %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'partner_rete_territoriale' %}">{% trans 'Partner e rete territoriale' %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'accrediti_finanziamenti' %}">{% trans 'Accrediti e finanziamenti' %}</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="luoghiDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        {% trans 'Luoghi & Percorsi' %}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="luoghiPercorsiDropdown">
+                        <li><a class="dropdown-item" href="{% url 'vizzini'%}">Vizzini</a></li>
+                        <li><a class="dropdown-item" href="{% url 'mineo'%}">Mineo</a></li>
+                        <li><a class="dropdown-item" href="{% url 'licodia' %}">Licodia Eubea</a></li>
+                        <li><a class="dropdown-item" href="/#mappe">Mappe interattive</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/#verghiani">Itinerari Verghiani</a></li>
+                        <li><a class="dropdown-item" href="/#capuaniani">Itinerari Capuaniani</a></li>
+                        <li><a class="dropdown-item" href="/#tematici">Tematici</a></li>
+                    </ul>
+                </li>
 
           <li class="nav-item dropdown">
             <a

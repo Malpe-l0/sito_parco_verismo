@@ -115,3 +115,512 @@ header::after {
         font-size: 1.1rem;
     }
 }
+
+/* ========================================================
+   HOMEPAGE - STILI PERSONALIZZATI
+   Palette Malpelo
+   ======================================================== */
+
+:root {
+    --color-primary: #823228;
+    --color-primary-dark: #4A140D;
+    --color-primary-light: #C76A52;
+    --color-primary-pale: #FAEEE7;
+    
+    --color-secondary: #C08C3B;
+    --color-secondary-dark: #8F6110;
+    --color-secondary-light: #F3C471;
+    
+    --color-accent: #2F6D5C;
+    
+    --color-background: #FFFBF7;
+    --color-surface: #FFFEFD;
+    --color-surface-elevated: #F7EDE4;
+    --color-text-primary: #2B1A13;
+    --color-text-secondary: #5B4034;
+    --color-border: #E7D9CA;
+    
+    --color-gradient-primary: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+    --color-gradient-secondary: linear-gradient(120deg, var(--color-secondary-dark), var(--color-secondary));
+    
+    --color-shadow-md: 0 8px 24px rgba(43, 26, 19, 0.08);
+    --color-shadow-lg: 0 18px 45px rgba(43, 26, 19, 0.12);
+}
+
+/* ========================================================
+   HERO SECTION - HOMEPAGE
+   ======================================================== */
+
+.homepage-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.homepage-hero .videobg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(74, 20, 13, 0.75) 0%,
+        rgba(131, 50, 40, 0.65) 50%,
+        rgba(192, 140, 59, 0.3) 100%);
+    z-index: 1;
+}
+
+.homepage-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    color: white;
+}
+
+.homepage-hero .hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-shadow: 3px 6px 16px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+}
+
+.homepage-hero .hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1rem;
+}
+
+.homepage-hero .hero-description {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+}
+
+.hero-cta .btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding: 0.875rem 2.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.hero-cta .btn-primary {
+    background: var(--color-gradient-primary);
+    border: none;
+    color: white;
+}
+
+.hero-cta .btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(131, 50, 40, 0.4);
+    color: white;
+}
+
+/* ========================================================
+   SECTIONS - HOMEPAGE
+   ======================================================== */
+
+.hp-section {
+    position: relative;
+    padding: 5rem 0;
+    background: var(--color-background);
+}
+
+.hp-parco {
+    background: linear-gradient(to bottom,
+        var(--color-background) 0%,
+        color-mix(in srgb, var(--color-primary-pale) 40%, var(--color-background)) 100%);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.hp-luoghi {
+    background: linear-gradient(to bottom,
+        color-mix(in srgb, var(--color-primary-pale) 30%, var(--color-background)) 0%,
+        var(--color-background) 100%);
+}
+
+.hp-biblioteca {
+    background: linear-gradient(to bottom,
+        var(--color-background) 0%,
+        color-mix(in srgb, var(--color-secondary-light) 15%, var(--color-background)) 100%);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.hp-eventi {
+    background: linear-gradient(to bottom,
+        color-mix(in srgb, var(--color-secondary-light) 15%, var(--color-background)) 0%,
+        var(--color-background) 100%);
+}
+
+.hp-archivi {
+    background: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.hp-cta-final {
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--color-primary-pale) 50%, var(--color-background)) 0%,
+        color-mix(in srgb, var(--color-secondary-light) 20%, var(--color-background)) 100%);
+}
+
+.hp-section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hp-accent {
+    background: var(--color-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ========================================================
+   CONTENT - HOMEPAGE
+   ======================================================== */
+
+.hp-content {
+    padding: 1rem;
+}
+
+.hp-content .lead {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+}
+
+.hp-features {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.hp-features li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    color: var(--color-text-primary);
+    line-height: 1.6;
+}
+
+.hp-features i {
+    color: var(--color-accent);
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.hp-cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.hp-cta-buttons .btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.hp-cta-buttons .btn-primary {
+    background: var(--color-gradient-primary);
+    border: none;
+    color: white;
+}
+
+.hp-cta-buttons .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--color-shadow-lg);
+    color: white;
+}
+
+.hp-cta-buttons .btn-outline-primary {
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.hp-cta-buttons .btn-outline-primary:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+/* ========================================================
+   CARDS - HOMEPAGE
+   ======================================================== */
+
+.hp-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.hp-card:hover {
+    transform: translateY(-12px);
+    box-shadow: var(--color-shadow-lg);
+    border-color: var(--color-primary-light);
+}
+
+.hp-card-primary {
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--color-primary-pale) 60%, var(--color-surface)) 0%,
+        var(--color-surface) 100%);
+}
+
+.hp-card-primary:hover {
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--color-primary-pale) 80%, var(--color-surface)) 0%,
+        color-mix(in srgb, var(--color-secondary-light) 15%, var(--color-surface)) 100%);
+}
+
+.hp-card-secondary {
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--color-secondary-light) 20%, var(--color-surface)) 0%,
+        var(--color-surface) 100%);
+}
+
+.hp-card-secondary:hover {
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--color-secondary-light) 30%, var(--color-surface)) 0%,
+        color-mix(in srgb, var(--color-accent) 10%, var(--color-surface)) 100%);
+}
+
+.hp-card-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg,
+        rgba(199, 106, 82, 0.15) 0%,
+        rgba(192, 140, 59, 0.1) 100%);
+    border-radius: 50%;
+    margin: 0 auto;
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.hp-card:hover .hp-card-icon {
+    background: var(--color-gradient-primary);
+    color: white;
+    transform: scale(1.2) rotate(10deg);
+}
+
+.hp-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.hp-card p {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.hp-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.hp-card-link:hover {
+    color: var(--color-primary-dark);
+    gap: 1rem;
+}
+
+/* ========================================================
+   IMAGES & ILLUSTRATIONS - HOMEPAGE
+   ======================================================== */
+
+.hp-image-wrapper {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: var(--color-shadow-lg);
+}
+
+.hp-illustration {
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* ========================================================
+   CTA CARD - HOMEPAGE
+   ======================================================== */
+
+.hp-cta-card {
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--color-primary-pale) 70%, var(--color-surface)) 0%,
+        color-mix(in srgb, var(--color-secondary-light) 20%, var(--color-surface)) 100%);
+    border: 2px solid var(--color-primary-light);
+    border-radius: 2rem;
+    padding: 4rem 2rem;
+    box-shadow: var(--color-shadow-lg);
+}
+
+.hp-cta-card h2 {
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+}
+
+.hp-cta-card .lead {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* ========================================================
+   RESPONSIVE - HOMEPAGE
+   ======================================================== */
+
+@media (max-width: 991.98px) {
+    .hp-section-title {
+        font-size: 2rem;
+    }
+    
+    .hp-hero-content {
+        text-align: center;
+    }
+    
+    .homepage-hero .hero-title {
+        font-size: 2rem;
+    }
+    
+    .homepage-hero .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hp-cta-buttons {
+        justify-content: center;
+    }
+    
+    .hp-cta-card {
+        padding: 3rem 1.5rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hp-section {
+        padding: 3rem 0;
+    }
+    
+    .hp-section-title {
+        font-size: 1.75rem;
+    }
+    
+    .homepage-hero .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .homepage-hero .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .homepage-hero .hero-description {
+        font-size: 1rem;
+    }
+    
+    .hp-card {
+        padding: 1.5rem;
+    }
+    
+    .hp-cta-buttons {
+        flex-direction: column;
+    }
+    
+    .hp-cta-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hp-card-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+    }
+}
+
+/* ========================================================
+   ACCESSIBILITY & PRINT - HOMEPAGE
+   ======================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .hp-illustration,
+    .hp-card,
+    .hp-card-icon {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+@media print {
+    .homepage-hero {
+        min-height: auto;
+        background: var(--color-surface);
+    }
+}

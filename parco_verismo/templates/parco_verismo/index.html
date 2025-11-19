@@ -5,6 +5,10 @@
 
 {% block title %}{% trans 'Parco Letterario Verismo' %}{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
 {% block hero_section %}
 <header>
     <video class="videobg" src="{% static 'assets/video/videobg.mp4' %}" autoplay muted loop></video>
@@ -16,6 +20,296 @@
 {% endblock %}
 
 {% block content %}
-<!-- Contenuto della homepage -->
+
+<!-- Sezione: Il Parco -->
+<section id="il-parco" class="hp-section hp-parco py-6">
+    <div class="container-xl">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+                <div class="hp-image-wrapper">
+                    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" class="hp-illustration">
+                        <defs>
+                            <linearGradient id="parcoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#C76A52;stop-opacity:0.2" />
+                                <stop offset="100%" style="stop-color:#823228;stop-opacity:0.3" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="500" height="500" fill="url(#parcoGrad)"/>
+                        <circle cx="250" cy="180" r="100" fill="#823228" opacity="0.15"/>
+                        <path d="M 100 350 Q 150 320 200 340 T 300 330 T 400 350" fill="none" stroke="#C76A52" stroke-width="3" opacity="0.6"/>
+                        <text x="250" y="450" font-family="serif" font-size="24" font-weight="bold" fill="#823228" opacity="0.4" text-anchor="middle">{% trans 'Valorizzazione Culturale' %}</text>
+                    </svg>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hp-content">
+                    <h2 class="hp-section-title">
+                        <span class="hp-accent">{% trans 'Il' %}</span> {% trans 'Parco' %}
+                    </h2>
+                    <p class="lead mb-4">
+                        {% trans 'Un modello integrato di welfare culturale fondato sulla valorizzazione dell&rsquo;eredità verista di Giovanni Verga e Luigi Capuana.' %}
+                    </p>
+                    <ul class="hp-features">
+                        <li><i class="bi bi-check-circle"></i> {% trans 'Missione e visione culturale condivisa' %}</li>
+                        <li><i class="bi bi-check-circle"></i> {% trans 'Comitato Tecnico-Scientifico d&rsquo;eccellenza' %}</li>
+                        <li><i class="bi bi-check-circle"></i> {% trans 'Riconoscimento istituzionale della Regione Siciliana' %}</li>
+                        <li><i class="bi bi-check-circle"></i> {% trans 'Radicamento territoriale tra Vizzini, Mineo e Licodia Eubea' %}</li>
+                    </ul>
+                    <div class="hp-cta-buttons">
+                        <a href="{% url 'missione_visione' %}" class="btn btn-primary">
+                            {% trans 'Missione e Visione' %}
+                        </a>
+                        <a href="{% url 'comitato_tecnico_scientifico' %}" class="btn btn-outline-primary">
+                            {% trans 'Comitato Tecnico' %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sezione: Luoghi e Percorsi -->
+<section class="hp-section hp-luoghi py-6">
+    <div class="container-xl">
+        <div class="text-center mb-5 mb-lg-6">
+            <h2 class="hp-section-title">
+                {% trans 'Luoghi & Percorsi' %}
+            </h2>
+            <p class="lead text-secondary" style="max-width: 600px; margin: 0 auto;">
+                {% trans 'Scopri i tre comuni del Verismo e gli itinerari tematici dedicati a Verga e Capuana' %}
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="hp-card hp-card-primary">
+                    <div class="hp-card-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <h3>Vizzini</h3>
+                    <p>{% trans 'La patria di Giovanni Verga, dove la letteratura dialoga con i luoghi.' %}</p>
+                    <a href="{% url 'vizzini' %}" class="hp-card-link">{% trans 'Scopri Vizzini' %} <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="hp-card hp-card-primary">
+                    <div class="hp-card-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <h3>Mineo</h3>
+                    <p>{% trans 'Uno dei luoghi più importanti della narrativa capuaniana e del Verismo.' %}</p>
+                    <a href="{% url 'mineo' %}" class="hp-card-link">{% trans 'Scopri Mineo' %} <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="hp-card hp-card-primary">
+                    <div class="hp-card-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <h3>Licodia Eubea</h3>
+                    <p>{% trans 'Un territorio ricco di storia e di legami con la grande letteratura siciliana.' %}</p>
+                    <a href="{% url 'licodia' %}" class="hp-card-link">{% trans 'Scopri Licodia' %} <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sezione: Biblioteca Letteraria -->
+<section class="hp-section hp-biblioteca py-6">
+    <div class="container-xl">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="hp-image-wrapper">
+                    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" class="hp-illustration">
+                        <defs>
+                            <linearGradient id="bibGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#C08C3B;stop-opacity:0.2" />
+                                <stop offset="100%" style="stop-color:#C76A52;stop-opacity:0.3" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="500" height="500" fill="url(#bibGrad)"/>
+                        <g transform="translate(100, 100)">
+                            <rect x="0" y="0" width="100" height="200" fill="none" stroke="#823228" stroke-width="2" rx="3"/>
+                            <line x1="50" y1="0" x2="50" y2="200" stroke="#C76A52" stroke-width="1" opacity="0.6"/>
+                            <line x1="10" y1="30" x2="90" y2="30" stroke="#C08C3B" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="10" y1="60" x2="90" y2="60" stroke="#C08C3B" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="10" y1="90" x2="90" y2="90" stroke="#C08C3B" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="10" y1="120" x2="90" y2="120" stroke="#C08C3B" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="10" y1="150" x2="90" y2="150" stroke="#C08C3B" stroke-width="1.5" opacity="0.7"/>
+                        </g>
+                        <g transform="translate(220, 120)">
+                            <rect x="0" y="0" width="100" height="200" fill="none" stroke="#823228" stroke-width="2" rx="3"/>
+                            <line x1="50" y1="0" x2="50" y2="200" stroke="#C76A52" stroke-width="1" opacity="0.6"/>
+                            <line x1="10" y1="30" x2="90" y2="30" stroke="#C08C3B" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="10" y1="60" x2="90" y2="60" stroke="#C08C3B" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="10" y1="90" x2="90" y2="90" stroke="#C08C3B" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="10" y1="120" x2="90" y2="120" stroke="#C08C3B" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="10" y1="150" x2="90" y2="150" stroke="#C08C3B" stroke-width="1.5" opacity="0.7"/>
+                        </g>
+                        <text x="250" y="450" font-family="serif" font-size="24" font-weight="bold" fill="#823228" opacity="0.4" text-anchor="middle">{% trans 'Patrimonio Letterario' %}</text>
+                    </svg>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="hp-content">
+                    <h2 class="hp-section-title">
+                        {% trans 'Biblioteca Letteraria' %}
+                    </h2>
+                    <p class="lead mb-4">
+                        {% trans 'Esplora le opere di Giovanni Verga e Luigi Capuana, i pilastri della letteratura siciliana e italiana.' %}
+                    </p>
+                    <ul class="hp-features">
+                        <li><i class="bi bi-check-circle"></i> {% trans 'Catalogo completo delle opere' %}</li>
+                        <li><i class="bi bi-check-circle"></i> {% trans 'Biografie dettagliate degli autori' %}</li>
+                        <li><i class="bi bi-check-circle"></i> {% trans 'Analisi letterarie e studi critici' %}</li>
+                        <li><i class="bi bi-check-circle"></i> {% trans 'Contenuti multimediali e interattivi' %}</li>
+                    </ul>
+                    <a href="{% url 'biblioteca' %}" class="btn btn-primary">
+                        {% trans 'Accedi alla Biblioteca' %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sezione: Eventi e Cultura -->
+<section class="hp-section hp-eventi py-6">
+    <div class="container-xl">
+        <div class="text-center mb-5 mb-lg-6">
+            <h2 class="hp-section-title">
+                {% trans 'Eventi & Cultura' %}
+            </h2>
+            <p class="lead text-secondary" style="max-width: 600px; margin: 0 auto;">
+                {% trans 'Scopri il calendario degli eventi, le notizie e le iniziative culturali' %}
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="hp-card hp-card-secondary">
+                    <div class="hp-card-icon">
+                        <i class="bi bi-calendar-event"></i>
+                    </div>
+                    <h3>{% trans 'Eventi' %}</h3>
+                    <p>{% trans 'Manifestazioni teatrali, convegni, spettacoli e produzioni culturali dedicate al Verismo.' %}</p>
+                    <a href="{% url 'eventi' %}" class="hp-card-link">{% trans 'Vedi gli eventi' %} <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="hp-card hp-card-secondary">
+                    <div class="hp-card-icon">
+                        <i class="bi bi-calendar2-check"></i>
+                    </div>
+                    <h3>{% trans 'Calendario' %}</h3>
+                    <p>{% trans 'Pianifica le tue visite con il calendario interattivo degli appuntamenti e delle attività.' %}</p>
+                    <a href="{% url 'calendario' %}" class="hp-card-link">{% trans 'Accedi al calendario' %} <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="hp-card hp-card-secondary">
+                    <div class="hp-card-icon">
+                        <i class="bi bi-newspaper"></i>
+                    </div>
+                    <h3>{% trans 'Notizie' %}</h3>
+                    <p>{% trans 'Resta aggiornato sulle ultime novità, scoperte e iniziative del Parco Letterario.' %}</p>
+                    <a href="{% url 'notizie' %}" class="hp-card-link">{% trans 'Leggi le notizie' %} <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sezione: Archivi e Documenti -->
+<section class="hp-section hp-archivi py-6">
+    <div class="container-xl">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+                <div class="hp-image-wrapper">
+                    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" class="hp-illustration">
+                        <defs>
+                            <linearGradient id="archGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2F6D5C;stop-opacity:0.2" />
+                                <stop offset="100%" style="stop-color:#C76A52;stop-opacity:0.2" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="500" height="500" fill="url(#archGrad)"/>
+                        <g transform="translate(150, 120)">
+                            <rect x="0" y="0" width="200" height="240" fill="none" stroke="#823228" stroke-width="2.5" rx="5"/>
+                            <line x1="50" y1="0" x2="50" y2="240" stroke="#C76A52" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="100" y1="0" x2="100" y2="240" stroke="#C76A52" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="150" y1="0" x2="150" y2="240" stroke="#C76A52" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="0" y1="40" x2="200" y2="40" stroke="#C08C3B" stroke-width="1" opacity="0.6"/>
+                            <line x1="0" y1="80" x2="200" y2="80" stroke="#C08C3B" stroke-width="1" opacity="0.6"/>
+                            <line x1="0" y1="120" x2="200" y2="120" stroke="#C08C3B" stroke-width="1" opacity="0.6"/>
+                            <line x1="0" y1="160" x2="200" y2="160" stroke="#C08C3B" stroke-width="1" opacity="0.6"/>
+                            <line x1="0" y1="200" x2="200" y2="200" stroke="#C08C3B" stroke-width="1" opacity="0.6"/>
+                        </g>
+                        <text x="250" y="450" font-family="serif" font-size="24" font-weight="bold" fill="#823228" opacity="0.4" text-anchor="middle">{% trans 'Risorse Documentali' %}</text>
+                    </svg>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hp-content">
+                    <h2 class="hp-section-title">
+                        {% trans 'Archivi & Documenti' %}
+                    </h2>
+                    <p class="lead mb-4">
+                        {% trans 'Accedi agli archivi fotografici, agli studi critici e ai documenti storici sul patrimonio verista.' %}
+                    </p>
+                    <ul class="hp-features">
+                        <li><i class="bi bi-check-circle"></i> {% trans 'Archivio fotografico del territorio' %}</li>
+                        <li><i class="bi bi-check-circle"></i> {% trans 'Studi e ricerche scientifiche' %}</li>
+                        <li><i class="bi bi-check-circle"></i> {% trans 'Documenti storici e manoscritti' %}</li>
+                        <li><i class="bi bi-check-circle"></i> {% trans 'Risorse per la ricerca accademica' %}</li>
+                    </ul>
+                    <div class="hp-cta-buttons">
+                        <a href="{% url 'archivio_fotografico' %}" class="btn btn-primary">
+                            {% trans 'Archivio Fotografico' %}
+                        </a>
+                        <a href="{% url 'documenti' %}" class="btn btn-outline-primary">
+                            {% trans 'Documenti' %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action finale -->
+<section class="hp-section hp-cta-final py-6">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="hp-cta-card">
+                    <div class="text-center">
+                        <h2 class="h2 fw-bold mb-3">
+                            {% trans 'Inizia il Tuo Viaggio nel Verismo' %}
+                        </h2>
+                        <p class="lead mb-5" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+                            {% trans 'Scopri il fascino della letteratura siciliana e immergerti nei paesaggi, nelle storie e nei personaggi che hanno affascinato il mondo con le loro opere.' %}
+                        </p>
+                        <div class="hp-cta-buttons justify-content-center">
+                            <a href="{% url 'biblioteca' %}" class="btn btn-primary btn-lg">
+                                <i class="bi bi-book"></i> {% trans 'Esplora la Biblioteca' %}
+                            </a>
+                            <a href="#il-parco" class="btn btn-outline-primary btn-lg">
+                                <i class="bi bi-map"></i> {% trans 'Scopri i Luoghi' %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
 

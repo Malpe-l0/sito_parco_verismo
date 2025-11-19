@@ -1,0 +1,162 @@
+{% extends "parco_verismo/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans 'Regolamento Comitato Tecnico-Scientifico' %} - {% trans 'Parco Letterario Verismo' %}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/regolamento_comitato.css' %}">
+{% endblock %}
+
+{% block body_class %}regolamento-comitato-page{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="reg-hero">
+    <div class="reg-hero-overlay"></div>
+    <div class="container-fluid h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-8 offset-lg-2 text-white z-index-10 py-5 py-lg-0">
+                <div class="reg-hero-content text-center">
+                    <span class="reg-badge">{% trans 'Normativa' %}</span>
+                    <h1 class="reg-hero-title display-2 fw-bold mb-4">
+                        {% trans 'Regolamento del Comitato Tecnico-Scientifico' %}
+                    </h1>
+                    <p class="reg-hero-subtitle lead">
+                        {% trans 'Parco Letterario del Verismo' %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Content Section -->
+<section class="reg-section py-5 py-lg-6">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="reg-content">
+                    <!-- Titolo e intestazione -->
+                    <div class="reg-header mb-5">
+                        <h2 class="fw-bold mb-2">{% trans 'REGOLAMENTO DEL COMITATO TECNICO-SCIENTIFICO' %}</h2>
+                        <p class="text-secondary">{% trans 'del Progetto "Il Parco Letterario del Verismo"' %}</p>
+                    </div>
+
+                    <!-- Articolo 1 -->
+                    <div class="reg-article">
+                        <h3 class="reg-article-title">{% trans 'Art. 1 – Istituzione e finalità' %}</h3>
+                        <p>
+                            {% trans 'È istituito il Comitato Tecnico-Scientifico (CTS) del Progetto &ldquo;Il Parco Letterario del Verismo&rdquo; nell&rsquo;ambito del finanziamento D.D.G. n. 1159 del 6 marzo 2025 della Regione Siciliana. Il CTS è organo consultivo e di indirizzo strategico, con il compito di garantire la qualità scientifica, culturale e metodologica delle attività del progetto, nonché di favorirne la sostenibilità, la valorizzazione, il radicamento territoriale e la continuità temporale.' %}
+                        </p>
+                    </div>
+
+                    <!-- Articolo 2 -->
+                    <div class="reg-article">
+                        <h3 class="reg-article-title">{% trans 'Art. 2 – Composizione' %}</h3>
+                        <p>
+                            {% trans 'Il CTS, il cui insediamento è deliberato dal Comune capofila di Vizzini, è composto da un numero variabile di membri compreso tra 7 e 11. Ne fanno parte esperti nei settori letterario, storico, culturale, turistico, accademico e artistico, nonché rappresentanti dell&rsquo;Ente del Terzo Settore (ETS) attuatore del progetto. I membri del CTS sono scelti tra studiosi, ricercatori ed esperti che abbiano dato contributi significativi nell&rsquo;ambito della letteratura verista, delle discipline storico-artistiche, antropologiche, filologiche, turistiche e culturali, con comprovata esperienza nella valorizzazione del patrimonio culturale e territoriale.' %}
+                        </p>
+                        <p class="fw-bold mt-3">{% trans 'Fanno parte del Comitato, in rappresentanza istituzionale, i seguenti enti e soggetti:' %}</p>
+                        <ul class="reg-list">
+                            <li>{% trans 'Comune di Vizzini – Comune capofila del progetto' %}</li>
+                            <li>{% trans 'Comune di Mineo' %}</li>
+                            <li>{% trans 'Comune di Licodia Eubea' %}</li>
+                            <li>{% trans 'Università degli Studi di Catania' %}</li>
+                            <li>{% trans 'Fondazione Verga' %}</li>
+                            <li>{% trans 'Centro Studi C.E.S.T.A. (attuatore del progetto)' %}</li>
+                            <li>{% trans 'ITS Academy Turismo Sicilia' %}</li>
+                            <li>{% trans 'ITS Steve Jobs di Caltagirone' %}</li>
+                            <li>{% trans 'Discendenza di Giovanni Verga' %}</li>
+                            <li>{% trans 'Discendenza di Luigi Capuana' %}</li>
+                        </ul>
+                        <p class="mt-3">
+                            {% trans 'Possono essere invitati alle sedute, senza diritto di voto, rappresentanti di università, istituti culturali, ITS, enti di ricerca e altri soggetti interessati.' %}
+                        </p>
+                    </div>
+
+                    <!-- Articolo 3 -->
+                    <div class="reg-article">
+                        <h3 class="reg-article-title">{% trans 'Art. 3 – Nomina e durata' %}</h3>
+                        <p>
+                            {% trans 'I componenti del CTS sono nominati con provvedimento del Comune capofila di Vizzini. Il CTS rimane in carica per tutta la durata del progetto, sino alla conclusione delle attività previste dal medesimo. L&rsquo;incarico è gratuito.' %}
+                        </p>
+                    </div>
+
+                    <!-- Articolo 4 -->
+                    <div class="reg-article">
+                        <h3 class="reg-article-title">{% trans 'Art. 4 – Compiti e funzioni' %}</h3>
+                        <p>{% trans 'Il CTS:' %}</p>
+                        <ul class="reg-list-lettered">
+                            <li><strong>a)</strong> {% trans 'definisce linee di indirizzo metodologico e culturale per la realizzazione del progetto' %}</li>
+                            <li><strong>b)</strong> {% trans 'supporta la progettazione e la valutazione di itinerari culturali e percorsi tematici' %}</li>
+                            <li><strong>c)</strong> {% trans 'fornisce pareri e orientamenti sulle attività formative, digitali, artistiche e partecipative' %}</li>
+                            <li><strong>d)</strong> {% trans 'promuove relazioni con università, ITS, centri di ricerca e istituzioni culturali' %}</li>
+                            <li><strong>e)</strong> {% trans 'contribuisce alla definizione di protocolli e disciplinari per prodotti culturali innovativi' %}</li>
+                            <li><strong>f)</strong> {% trans 'collabora alla progettazione del Premio Verga-Capuana e della Giornata di Studi sul Verismo' %}</li>
+                            <li><strong>g)</strong> {% trans 'valuta gli esiti delle attività e formula raccomandazioni per il miglioramento' %}</li>
+                            <li><strong>h)</strong> {% trans 'partecipa in modo collegiale alla pianificazione delle attività e alla definizione delle priorità operative' %}</li>
+                        </ul>
+                    </div>
+
+                    <!-- Articolo 4-bis -->
+                    <div class="reg-article">
+                        <h3 class="reg-article-title">{% trans 'Art. 4-bis – Coordinatore del Comitato Tecnico-Scientifico' %}</h3>
+                        <p>
+                            {% trans 'Il CTS individua al proprio interno, nella seduta di insediamento, un Coordinatore scelto tra i componenti. Il Coordinatore ha funzioni di raccordo tra il CTS, il Comune capofila e l&rsquo;ETS attuatore del progetto. Coordina le attività del Comitato, presiede le riunioni, assicura la corretta esecuzione delle deliberazioni e rappresenta il CTS nelle relazioni esterne di carattere tecnico-scientifico.' %}
+                        </p>
+                    </div>
+
+                    <!-- Articolo 5 -->
+                    <div class="reg-article">
+                        <h3 class="reg-article-title">{% trans 'Art. 5 – Modalità di funzionamento' %}</h3>
+                        <p>
+                            {% trans 'Il CTS si riunisce ogniqualvolta se ne ravvisi la necessità, su iniziativa dell&rsquo;ETS attuatore o su richiesta di almeno un terzo dei componenti. La convocazione è effettuata dalla segreteria tecnico-organizzativa, anche in forma telematica, con un preavviso minimo di 3 giorni. Le riunioni possono svolgersi in presenza o da remoto, mediante strumenti digitali idonei. Le sedute sono valide con la presenza della maggioranza dei componenti.' %}
+                        </p>
+                        <p>
+                            {% trans 'Le decisioni sono assunte a maggioranza dei presenti. In caso di parità di voti si applica il seguente sistema di voto ponderato:' %}
+                        </p>
+                        <ul class="reg-list">
+                            <li>{% trans 'Il Comune capofila di Vizzini dispone di due voti' %}</li>
+                            <li>{% trans 'I discendenti di Luigi Capuana dispongono congiuntamente di un voto unico' %}</li>
+                            <li>{% trans 'Tutti gli altri componenti del CTS dispongono di un voto ciascuno' %}</li>
+                        </ul>
+                    </div>
+
+                    <!-- Articolo 6 -->
+                    <div class="reg-article">
+                        <h3 class="reg-article-title">{% trans 'Art. 6 – Segreteria tecnico-organizzativa' %}</h3>
+                        <p>
+                            {% trans 'Le funzioni di segreteria del CTS sono svolte dall&rsquo;ETS attuatore del progetto. La segreteria cura la convocazione delle riunioni, la redazione e conservazione dei verbali, il supporto organizzativo e amministrativo, nonché la trasmissione delle deliberazioni ai Comuni partner.' %}
+                        </p>
+                    </div>
+
+                    <!-- Articolo 7 -->
+                    <div class="reg-article">
+                        <h3 class="reg-article-title">{% trans 'Art. 7 – Decadenza e sostituzione dei componenti' %}</h3>
+                        <p>
+                            {% trans 'I componenti decadono dall&rsquo;incarico per: dimissioni volontarie; assenza ingiustificata a tre riunioni consecutive; sopravvenuta incompatibilità con le finalità del progetto. In caso di decadenza o dimissioni, il Comune capofila provvede alla eventuale sostituzione con nuova nomina.' %}
+                        </p>
+                    </div>
+
+                    <!-- Articolo 8 -->
+                    <div class="reg-article">
+                        <h3 class="reg-article-title">{% trans 'Art. 8 – Disposizioni finali' %}</h3>
+                        <p>
+                            {% trans 'Per quanto non espressamente previsto dal presente Regolamento si fa rinvio alla normativa vigente in materia di organi collegiali. Il presente Regolamento resterà in vigore fino alla conclusione delle attività progettuali.' %}
+                        </p>
+                    </div>
+                    
+                    <!-- Link per tornare indietro -->
+                    <div class="reg-actions mt-5">
+                        <a href="{% url 'comitato_tecnico_scientifico' %}" class="btn btn-outline-primary">
+                            <i class="bi bi-arrow-left"></i>
+                            {% trans 'Torna al Comitato' %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
