@@ -32,4 +32,20 @@ urlpatterns = [
     path('licodia/', views.Licodia_View, name='licodia'),
     path('mineo/', views.Mineo_View, name='mineo'),
     path('vizzini/', views.Vizzini_View, name='vizzini'),
+
+    # Missione e Visione
+    path('missione-visione/', views.missione_visione_view, name='missione_visione'),
+
+    # Comitato Tecnico-Scientifico
+    path('comitato/', views.comitato_tecnico_scientifico_view, name='comitato_tecnico_scientifico'),
+    path('comitato/regolamento/', views.comitato_regolamento_view, name='comitato_regolamento'),
+
+    # Regolamenti e Documenti
+    path('regolamenti-documenti/', views.regolamenti_documenti_view, name='regolamenti_documenti'),
+
+    # Partner e Rete Territoriale
+    path('partner/', views.partner_rete_territoriale_view, name='partner_rete_territoriale'),
+
+    # Accrediti e Finanziamenti
+    path('finanziamenti/', views.accrediti_finanziamenti_view, name='accrediti_finanziamenti'),
 ]

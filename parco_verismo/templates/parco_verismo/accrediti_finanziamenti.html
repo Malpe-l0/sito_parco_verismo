@@ -1,0 +1,388 @@
+{% extends "parco_verismo/base.html" %}
+{% load static i18n %}
+
+{% block body_class %}page-accrediti{% endblock %}
+
+{% block title %}{% trans 'Accrediti e Finanziamenti - Parco Letterario Verismo' %}{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/accrediti_finanziamenti.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Sezione: Titolo Pagina -->
+<section class="page-intro py-5 py-lg-6 border-bottom">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 class="display-5 fw-bold mb-3">{% trans 'Accrediti & Finanziamenti' %}</h1>
+                <p class="lead text-secondary">
+                    {% trans 'Trasparenza nella gestione delle risorse finanziarie e degli investimenti nel territorio siciliano.' %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sezione: Accrediti Ricevuti -->
+<section class="page-section accrediti-section py-6">
+    <div class="container-xl">
+        <div class="text-center mb-5 mb-lg-6">
+            <h2 class="page-section-title">
+                {% trans 'Accrediti Istituzionali' %}
+            </h2>
+            <p class="lead text-secondary" style="max-width: 700px; margin: 0 auto;">
+                {% trans 'Riconoscimenti e accrediti da parte di enti e organizzazioni nazionali e internazionali.' %}
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="accredito-card">
+                    <div class="accredito-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h3>{% trans 'Ente Riconosciuto' %}</h3>
+                    <p class="accredito-label">{% trans 'dalla Regione Siciliana' %}</p>
+                    <p class="accredito-desc">
+                        {% trans 'Il Parco Letterario è ufficialmente riconosciuto dalla Regione Siciliana come polo culturale di valorizzazione del patrimonio letterario siciliano.' %}
+                    </p>
+                    <div class="accredito-meta">
+                        <span>{% trans 'Anno Riconoscimento: 2024' %}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="accredito-card">
+                    <div class="accredito-icon">
+                        <i class="bi bi-award"></i>
+                    </div>
+                    <h3>{% trans 'Parco Letterario Certificato' %}</h3>
+                    <p class="accredito-label">{% trans 'Associazione Parchi Letterari Italiani' %}</p>
+                    <p class="accredito-desc">
+                        {% trans 'Iscrizione all\'Associazione Nazionale dei Parchi Letterari Italiani con certificazione di qualità nei servizi culturali.' %}
+                    </p>
+                    <div class="accredito-meta">
+                        <span>{% trans 'Certificazione: Attiva' %}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="accredito-card">
+                    <div class="accredito-icon">
+                        <i class="bi bi-globe"></i>
+                    </div>
+                    <h3>{% trans 'Membro Rete Internazionale' %}</h3>
+                    <p class="accredito-label">{% trans 'UNESCO e Reti Mondiali' %}</p>
+                    <p class="accredito-desc">
+                        {% trans 'Partecipazione attiva alla rete internazionale di organizzazioni dedicate alla preservazione del patrimonio letterario mondiale.' %}
+                    </p>
+                    <div class="accredito-meta">
+                        <span>{% trans 'Status: Membro Associato' %}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="accredito-card">
+                    <div class="accredito-icon">
+                        <i class="bi bi-file-earmark-check"></i>
+                    </div>
+                    <h3>{% trans 'Accreditamento MIUR' %}</h3>
+                    <p class="accredito-label">{% trans 'Ministero Istruzione' %}</p>
+                    <p class="accredito-desc">
+                        {% trans 'Accreditamento presso il Ministero dell\'Istruzione per lo svolgimento di attività formative e laboratoriali con le scuole.' %}
+                    </p>
+                    <div class="accredito-meta">
+                        <span>{% trans 'Livello: Superiore' %}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="accredito-card">
+                    <div class="accredito-icon">
+                        <i class="bi bi-person-check"></i>
+                    </div>
+                    <h3>{% trans 'Certificazione EAS' %}</h3>
+                    <p class="accredito-label">{% trans 'Educazione Ambiente Sostenibile' %}</p>
+                    <p class="accredito-desc">
+                        {% trans 'Riconoscimento come Ente di Educazione Ambientale e Sostenibilità per programmi di sensibilizzazione territoriale.' %}
+                    </p>
+                    <div class="accredito-meta">
+                        <span>{% trans 'Validato: Sì' %}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="accredito-card">
+                    <div class="accredito-icon">
+                        <i class="bi bi-check-circle"></i>
+                    </div>
+                    <h3>{% trans 'Organizzazione Sostenibile' %}</h3>
+                    <p class="accredito-label">{% trans 'SDG Align' %}</p>
+                    <p class="accredito-desc">
+                        {% trans 'Allineamento agli Obiettivi di Sviluppo Sostenibile dell\'ONU con impegno nei settori culturale e territoriale.' %}
+                    </p>
+                    <div class="accredito-meta">
+                        <span>{% trans 'Certificato: 2024' %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sezione: Fonti di Finanziamento -->
+<section class="page-section finanziamenti-section py-6">
+    <div class="container-xl">
+        <div class="text-center mb-5 mb-lg-6">
+            <h2 class="page-section-title">
+                <span class="page-section-accent">{% trans 'Fonti di' %}</span> {% trans 'Finanziamento' %}
+            </h2>
+            <p class="lead text-secondary" style="max-width: 700px; margin: 0 auto;">
+                {% trans 'Le risorse economiche che sostengono le attività e i progetti del Parco Letterario.' %}
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="finanziamento-card">
+                    <div class="fin-header">
+                        <div class="fin-icon">
+                            <i class="bi bi-bank2"></i>
+                        </div>
+                        <h3>{% trans 'Fondi Pubblici Regionali' %}</h3>
+                    </div>
+                    <div class="fin-body">
+                        <p class="fin-desc">
+                            {% trans 'Finanziamenti dalla Regione Siciliana destinati alla valorizzazione del patrimonio culturale letterario e storico.' %}
+                        </p>
+                        <div class="fin-details">
+                            <div class="fin-detail-item">
+                                <span class="fin-label">{% trans 'Percentuale:' %}</span>
+                                <span class="fin-value">45%</span>
+                            </div>
+                            <div class="fin-detail-item">
+                                <span class="fin-label">{% trans 'Programmi:' %}</span>
+                                <span class="fin-value">POR, PSR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="finanziamento-card">
+                    <div class="fin-header">
+                        <div class="fin-icon">
+                            <i class="bi bi-briefcase"></i>
+                        </div>
+                        <h3>{% trans 'Sponsorizzazioni Aziendali' %}</h3>
+                    </div>
+                    <div class="fin-body">
+                        <p class="fin-desc">
+                            {% trans 'Contributi da aziende e organizzazioni private impegnate nel sostegno della cultura siciliana.' %}
+                        </p>
+                        <div class="fin-details">
+                            <div class="fin-detail-item">
+                                <span class="fin-label">{% trans 'Percentuale:' %}</span>
+                                <span class="fin-value">25%</span>
+                            </div>
+                            <div class="fin-detail-item">
+                                <span class="fin-label">{% trans 'Partner:' %}</span>
+                                <span class="fin-value">15+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="finanziamento-card">
+                    <div class="fin-header">
+                        <div class="fin-icon">
+                            <i class="bi bi-graph-up"></i>
+                        </div>
+                        <h3>{% trans 'Proventi da Servizi' %}</h3>
+                    </div>
+                    <div class="fin-body">
+                        <p class="fin-desc">
+                            {% trans 'Ricavi da visite guidate, laboratori, eventi e attività culturali organizzate dal Parco.' %}
+                        </p>
+                        <div class="fin-details">
+                            <div class="fin-detail-item">
+                                <span class="fin-label">{% trans 'Percentuale:' %}</span>
+                                <span class="fin-value">20%</span>
+                            </div>
+                            <div class="fin-detail-item">
+                                <span class="fin-label">{% trans 'Visitatori Annuali:' %}</span>
+                                <span class="fin-value">5,000+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="finanziamento-card">
+                    <div class="fin-header">
+                        <div class="fin-icon">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+                        <h3>{% trans 'Contributi Benefici' %}</h3>
+                    </div>
+                    <div class="fin-body">
+                        <p class="fin-desc">
+                            {% trans 'Donazioni da persone fisiche, fondazioni e organizzazioni filantropiche che supportano la mission culturale.' %}
+                        </p>
+                        <div class="fin-details">
+                            <div class="fin-detail-item">
+                                <span class="fin-label">{% trans 'Percentuale:' %}</span>
+                                <span class="fin-value">10%</span>
+                            </div>
+                            <div class="fin-detail-item">
+                                <span class="fin-label">{% trans 'Sostenitori:' %}</span>
+                                <span class="fin-value">200+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sezione: Allocazione Risorse -->
+<section class="page-section allocazione-section py-6">
+    <div class="container-xl">
+        <div class="text-center mb-5 mb-lg-6">
+            <h2 class="page-section-title">
+                {% trans 'Allocazione Risorse' %}
+            </h2>
+            <p class="lead text-secondary" style="max-width: 700px; margin: 0 auto;">
+                {% trans 'Come sono distribuite le risorse finanziarie tra le diverse aree di attività.' %}
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="allocation-chart">
+                    <div class="allocation-item">
+                        <div class="allocation-bar" style="width: 35%; background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));">
+                            <span class="allocation-label">{% trans 'Attività Culturali' %}</span>
+                        </div>
+                        <span class="allocation-value">35%</span>
+                    </div>
+                    <div class="allocation-item">
+                        <div class="allocation-bar" style="width: 25%; background: linear-gradient(90deg, var(--color-secondary), var(--color-secondary-light));">
+                            <span class="allocation-label">{% trans 'Ricerca e Conservazione' %}</span>
+                        </div>
+                        <span class="allocation-value">25%</span>
+                    </div>
+                    <div class="allocation-item">
+                        <div class="allocation-bar" style="width: 20%; background: linear-gradient(90deg, var(--color-accent), #4A9D83));">
+                            <span class="allocation-label">{% trans 'Infrastrutture e Manutenzione' %}</span>
+                        </div>
+                        <span class="allocation-value">20%</span>
+                    </div>
+                    <div class="allocation-item">
+                        <div class="allocation-bar" style="width: 15%; background: linear-gradient(90deg, #8F6110, var(--color-secondary-dark));">
+                            <span class="allocation-label">{% trans 'Amministrazione e Gestione' %}</span>
+                        </div>
+                        <span class="allocation-value">15%</span>
+                    </div>
+                    <div class="allocation-item">
+                        <div class="allocation-bar" style="width: 5%; background: linear-gradient(90deg, #5B4034, #7A5C42));">
+                            <span class="allocation-label">{% trans 'Riserva' %}</span>
+                        </div>
+                        <span class="allocation-value">5%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sezione: Iniziative Finanziate -->
+<section class="page-section iniziative-section py-6">
+    <div class="container-xl">
+        <div class="text-center mb-5 mb-lg-6">
+            <h2 class="page-section-title">
+                {% trans 'Progetti Finanziati' %}
+            </h2>
+            <p class="lead text-secondary" style="max-width: 700px; margin: 0 auto;">
+                {% trans 'Principali iniziative e progetti realizzati grazie al finanziamento ottenuto.' %}
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="progetto-card">
+                    <h3>{% trans 'Digitalizzazione Archivi' %}</h3>
+                    <p class="progetto-anno">2023-2024</p>
+                    <p class="progetto-desc">{% trans 'Scansione e catalogazione digitale di 500+ documenti e fotografie storiche.' %}</p>
+                    <div class="progetto-status">
+                        <span class="progetto-badge progetto-completato">{% trans 'Completato' %}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="progetto-card">
+                    <h3>{% trans 'Ristrutturazione Centro Studi' %}</h3>
+                    <p class="progetto-anno">2024-2025</p>
+                    <p class="progetto-desc">{% trans 'Realizzazione della nuova Sala di Lettura Interattiva con tecnologie innovative.' %}</p>
+                    <div class="progetto-status">
+                        <span class="progetto-badge progetto-corso">{% trans 'In Corso' %}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="progetto-card">
+                    <h3>{% trans 'Laboratori Didattici' %}</h3>
+                    <p class="progetto-anno">2024-2026</p>
+                    <p class="progetto-desc">{% trans 'Programma di laboratori per scuole e comunità su letteratura verista.' %}</p>
+                    <div class="progetto-status">
+                        <span class="progetto-badge progetto-pianificato">{% trans 'Pianificato' %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sezione: CTA -->
+<section class="page-section accrediti-cta py-6">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="accrediti-cta-card">
+                    <div class="text-center">
+                        <h2 class="h2 fw-bold mb-3">
+                            {% trans 'Supporta il Parco Letterario' %}
+                        </h2>
+                        <p class="lead mb-5">
+                            {% trans 'Contribuisci con una donazione o diventa partner per supportare la preservazione e lo sviluppo della cultura letteraria siciliana.' %}
+                        </p>
+                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                            <a href="mailto:finanziamenti@parcoverismo.it" class="btn btn-primary btn-lg">
+                                <i class="bi bi-hand-thumbs-up"></i> {% trans 'Dona Ora' %}
+                            </a>
+                            <a href="mailto:partnership@parcoverismo.it" class="btn btn-outline-primary btn-lg">
+                                <i class="bi bi-briefcase"></i> {% trans 'Diventa Partner' %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,517 @@
+/* ========================================================
+   MISSIONE E VISIONE - STILI PERSONALIZZATI
+   Palette Malpelo da styles.css
+   ======================================================== */
+
+/* Import della palette colori principale */
+:root {
+    /* Colori Malpelo - da styles.css */
+    --mv-primary: #823228;
+    --mv-primary-dark: #4A140D;
+    --mv-primary-light: #C76A52;
+    --mv-primary-pale: #FAEEE7;
+    
+    --mv-secondary: #C08C3B;
+    --mv-secondary-dark: #8F6110;
+    --mv-secondary-light: #F3C471;
+    
+    --mv-accent: #2F6D5C;
+    
+    --mv-background: #FFFBF7;
+    --mv-surface: #FFFEFD;
+    --mv-surface-elevated: #F7EDE4;
+    --mv-text-primary: #2B1A13;
+    --mv-text-secondary: #5B4034;
+    --mv-border: #E7D9CA;
+    
+    /* Gradienti */
+    --mv-gradient-primary: linear-gradient(135deg, var(--mv-primary-dark) 0%, var(--mv-primary) 100%);
+    --mv-gradient-secondary: linear-gradient(120deg, var(--mv-secondary-dark), var(--mv-secondary));
+    
+    /* Ombre */
+    --mv-shadow-md: 0 8px 24px rgba(43, 26, 19, 0.08);
+    --mv-shadow-lg: 0 18px 45px rgba(43, 26, 19, 0.12);
+}
+
+/* ========================================================
+   HERO SECTION
+   ======================================================== */
+
+.missione-visione-page {
+    background: var(--mv-background);
+    color: var(--mv-text-primary);
+}
+
+.mv-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, 
+        rgba(74, 20, 13, 0.95) 0%,
+        rgba(131, 50, 40, 0.85) 50%,
+        rgba(192, 140, 59, 0.4) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="dots" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23dots)"/></svg>');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.mv-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 20% 50%, 
+        rgba(199, 106, 82, 0.15) 0%,
+        transparent 50%);
+    pointer-events: none;
+}
+
+.mv-hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+.mv-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(243, 196, 113, 0.25);
+    border: 1px solid rgba(243, 196, 113, 0.5);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.mv-hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1rem;
+}
+
+.mv-hero-subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 90%;
+    text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mv-hero-image {
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-image,
+.placeholder-image-secondary {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(74, 20, 13, 0.15));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* ========================================================
+   MISSION & VISION SECTIONS
+   ======================================================== */
+
+.mv-section {
+    position: relative;
+    padding: 4rem 0;
+}
+
+.mv-section.mv-mission {
+    background: var(--mv-background);
+    border-bottom: 1px solid var(--mv-border);
+}
+
+.mv-section.mv-vision {
+    background: linear-gradient(135deg, 
+        var(--mv-surface) 0%,
+        color-mix(in srgb, var(--mv-primary-pale) 50%, var(--mv-surface)) 100%);
+}
+
+.mv-section.mv-recognition {
+    background: color-mix(in srgb, var(--mv-neutral-100) 50%, var(--mv-background));
+}
+
+.mv-section.mv-values {
+    background: var(--mv-background);
+}
+
+.mv-section-title {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--mv-text-primary);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+}
+
+.mv-title-accent {
+    background: var(--mv-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ========================================================
+   HIGHLIGHT TEXT
+   ======================================================== */
+
+.mv-highlight-text {
+    padding: 1.5rem;
+    background: linear-gradient(135deg,
+        rgba(199, 106, 82, 0.08) 0%,
+        rgba(192, 140, 59, 0.05) 100%);
+    border-left: 4px solid var(--mv-primary-light);
+    border-radius: 0.5rem;
+}
+
+.mv-highlight-text .lead {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--mv-text-secondary);
+    margin: 0;
+    line-height: 1.8;
+}
+
+/* ========================================================
+   POINTS GRID
+   ======================================================== */
+
+.mv-points {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.mv-point {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--mv-surface);
+    border-radius: 0.75rem;
+    border: 1px solid var(--mv-border);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mv-point:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--mv-shadow-md);
+    border-color: var(--mv-primary-light);
+    background: color-mix(in srgb, var(--mv-primary-pale) 50%, var(--mv-surface));
+}
+
+.mv-point-icon {
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, 
+        rgba(131, 50, 40, 0.1) 0%,
+        rgba(192, 140, 59, 0.1) 100%);
+    border-radius: 0.5rem;
+    color: var(--mv-primary);
+    font-size: 1.5rem;
+}
+
+.mv-point-content h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--mv-text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.mv-point-content p {
+    font-size: 0.95rem;
+    color: var(--mv-text-secondary);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ========================================================
+   ACTIONS LIST
+   ======================================================== */
+
+.mv-actions-list h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--mv-text-primary);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+}
+
+.mv-list-actions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.mv-list-actions li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    color: var(--mv-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--mv-border);
+}
+
+.mv-list-actions li:last-child {
+    border-bottom: none;
+}
+
+.mv-list-icon {
+    flex-shrink: 0;
+    color: var(--mv-primary-light);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* ========================================================
+   RECOGNITION CARD
+   ======================================================== */
+
+.mv-recognition-card {
+    background: var(--mv-surface);
+    border: 2px solid var(--mv-primary-light);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: var(--mv-shadow-lg);
+}
+
+.mv-badge-large {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--mv-primary-light), var(--mv-secondary-light));
+    border-radius: 50%;
+    color: white;
+    font-size: 2.5rem;
+    box-shadow: var(--mv-shadow-lg);
+}
+
+.mv-recognition-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--mv-text-primary);
+    font-weight: 700;
+}
+
+.mv-recognition-card p {
+    color: var(--mv-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* ========================================================
+   VALUES CARDS
+   ======================================================== */
+
+.mv-value-card {
+    background: var(--mv-surface);
+    border: 1px solid var(--mv-border);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mv-value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--mv-shadow-lg);
+    border-color: var(--mv-primary-light);
+    background: color-mix(in srgb, var(--mv-primary-pale) 40%, var(--mv-surface));
+}
+
+.mv-value-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg,
+        rgba(199, 106, 82, 0.15) 0%,
+        rgba(192, 140, 59, 0.15) 100%);
+    border-radius: 50%;
+    margin: 0 auto;
+    color: var(--mv-primary);
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.mv-value-card:hover .mv-value-icon {
+    background: var(--mv-gradient-primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+.mv-value-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--mv-text-primary);
+    font-size: 1rem;
+    margin: 0.5rem 0 0 0;
+}
+
+.mv-value-card p {
+    color: var(--mv-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========================================================
+   IMAGE WRAPPERS
+   ======================================================== */
+
+.mv-image-wrapper {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--mv-shadow-lg);
+}
+
+.placeholder-image-secondary {
+    display: block;
+    width: 100%;
+}
+
+/* ========================================================
+   RESPONSIVE
+   ======================================================== */
+
+@media (max-width: 991.98px) {
+    .mv-hero {
+        min-height: 70vh;
+    }
+    
+    .mv-hero-title {
+        font-size: 2rem;
+    }
+    
+    .mv-hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .mv-section {
+        padding: 3rem 0;
+    }
+    
+    .mv-recognition-card {
+        text-align: center;
+    }
+    
+    .mv-badge-large {
+        margin: 0 auto 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .mv-hero {
+        min-height: 60vh;
+    }
+    
+    .mv-hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .mv-hero-content {
+        text-align: center;
+    }
+    
+    .mv-hero-subtitle {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .mv-hero-image {
+        min-height: 350px;
+        margin-top: 2rem;
+    }
+    
+    .mv-section-title {
+        font-size: 1.5rem;
+    }
+    
+    .mv-point {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .mv-point-icon {
+        margin: 0 auto;
+    }
+    
+    .mv-value-card {
+        padding: 1.5rem;
+    }
+}
+
+/* ========================================================
+   ACCESSIBILITY & PRINT
+   ======================================================== */
+
+@media print {
+    .mv-hero {
+        background: var(--mv-surface);
+        color: var(--mv-text-primary);
+        min-height: auto;
+    }
+    
+    .mv-badge {
+        border: 1px solid var(--mv-text-primary);
+        background: none;
+    }
+    
+    .mv-value-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .placeholder-image,
+    .placeholder-image-secondary,
+    .mv-point,
+    .mv-value-card,
+    .mv-value-card:hover .mv-value-icon {
+        animation: none !important;
+        transition: none !important;
+    }
+}

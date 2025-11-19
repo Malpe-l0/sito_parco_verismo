@@ -1,0 +1,286 @@
+{% extends "parco_verismo/base.html" %}
+{% load static i18n %}
+
+{% block body_class %}page-regolamenti{% endblock %}
+
+{% block title %}{% trans 'Regolamenti e Documenti - Parco Letterario Verismo' %}{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/regolamenti_documenti.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Sezione: Titolo Pagina -->
+<section class="page-intro py-5 py-lg-6 border-bottom">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 class="display-5 fw-bold mb-3">{% trans 'Regolamenti & Documenti' %}</h1>
+                <p class="lead text-secondary">
+                    {% trans 'Trasparenza amministrativa e documentazione ufficiale del Parco Letterario del Verismo.' %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sezione: Regolamenti -->
+<section class="page-section regolamenti-section py-6">
+    <div class="container-xl">
+        <div class="text-center mb-5 mb-lg-6">
+            <h2 class="page-section-title">
+                {% trans 'Regolamenti Operativi' %}
+            </h2>
+            <p class="lead text-secondary" style="max-width: 700px; margin: 0 auto;">
+                {% trans 'I regolamenti che disciplinano le attività del Parco Letterario e l\'accesso ai servizi.' %}
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="reg-card">
+                    <div class="reg-card-header">
+                        <div class="reg-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <h3>{% trans 'Statuto del Parco Letterario' %}</h3>
+                        <p class="reg-date">{% trans 'Approvato 2024' %}</p>
+                    </div>
+                    <div class="reg-card-body">
+                        <p class="reg-desc">
+                            {% trans 'Lo statuto fondamentale che definisce la natura, i principi, gli obiettivi e l\'organizzazione del Parco Letterario del Verismo.' %}
+                        </p>
+                        <div class="reg-highlights">
+                            <span class="reg-highlight">{% trans 'Missione' %}</span>
+                            <span class="reg-highlight">{% trans 'Governance' %}</span>
+                            <span class="reg-highlight">{% trans 'Attività' %}</span>
+                        </div>
+                    </div>
+                    <div class="reg-card-footer">
+                        <a href="#" class="reg-link">
+                            <i class="bi bi-download"></i> {% trans 'Scarica PDF' %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="reg-card">
+                    <div class="reg-card-header">
+                        <div class="reg-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h3>{% trans 'Regolamento Interno' %}</h3>
+                        <p class="reg-date">{% trans 'Versione 2.0 - 2024' %}</p>
+                    </div>
+                    <div class="reg-card-body">
+                        <p class="reg-desc">
+                            {% trans 'Norme che regolano il funzionamento interno del Parco, le responsabilità degli organi e le procedure amministrative.' %}
+                        </p>
+                        <div class="reg-highlights">
+                            <span class="reg-highlight">{% trans 'Procedure' %}</span>
+                            <span class="reg-highlight">{% trans 'Organi' %}</span>
+                            <span class="reg-highlight">{% trans 'Responsabilità' %}</span>
+                        </div>
+                    </div>
+                    <div class="reg-card-footer">
+                        <a href="#" class="reg-link">
+                            <i class="bi bi-download"></i> {% trans 'Scarica PDF' %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="reg-card">
+                    <div class="reg-card-header">
+                        <div class="reg-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h3>{% trans 'Regolamento Visite e Accessi' %}</h3>
+                        <p class="reg-date">{% trans 'In vigore' %}</p>
+                    </div>
+                    <div class="reg-card-body">
+                        <p class="reg-desc">
+                            {% trans 'Disposizioni per l\'accesso ai siti, alle strutture e agli eventi organizzati dal Parco Letterario.' %}
+                        </p>
+                        <div class="reg-highlights">
+                            <span class="reg-highlight">{% trans 'Accessi' %}</span>
+                            <span class="reg-highlight">{% trans 'Tariffe' %}</span>
+                            <span class="reg-highlight">{% trans 'Condizioni' %}</span>
+                        </div>
+                    </div>
+                    <div class="reg-card-footer">
+                        <a href="#" class="reg-link">
+                            <i class="bi bi-download"></i> {% trans 'Scarica PDF' %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="reg-card">
+                    <div class="reg-card-header">
+                        <div class="reg-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                        <h3>{% trans 'Privacy e Protezione Dati' %}</h3>
+                        <p class="reg-date">{% trans 'GDPR Compliant 2024' %}</p>
+                    </div>
+                    <div class="reg-card-body">
+                        <p class="reg-desc">
+                            {% trans 'Politica sulla protezione dei dati personali e sulla privacy secondo le normative europee GDPR.' %}
+                        </p>
+                        <div class="reg-highlights">
+                            <span class="reg-highlight">{% trans 'Protezione' %}</span>
+                            <span class="reg-highlight">{% trans 'Trasparenza' %}</span>
+                            <span class="reg-highlight">{% trans 'GDPR' %}</span>
+                        </div>
+                    </div>
+                    <div class="reg-card-footer">
+                        <a href="#" class="reg-link">
+                            <i class="bi bi-download"></i> {% trans 'Scarica PDF' %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sezione: Documentazione Amministrativa -->
+<section class="page-section documenti-section py-6">
+    <div class="container-xl">
+        <div class="text-center mb-5 mb-lg-6">
+            <h2 class="page-section-title">
+                <span class="page-section-accent">{% trans 'Documentazione' %}</span> {% trans 'Amministrativa' %}
+            </h2>
+            <p class="lead text-secondary" style="max-width: 700px; margin: 0 auto;">
+                {% trans 'Atti, bilanci e documenti pubblici secondo le norme di trasparenza amministrativa.' %}
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="doc-category-card">
+                    <div class="doc-icon">
+                        <i class="bi bi-calculator-fill"></i>
+                    </div>
+                    <h3>{% trans 'Bilanci' %}</h3>
+                    <p>{% trans 'Bilanci annuali, relazioni finanziarie e rendiconti economici.' %}</p>
+                    <ul class="doc-list">
+                        <li><a href="#">{% trans 'Bilancio 2023' %}</a></li>
+                        <li><a href="#">{% trans 'Bilancio 2022' %}</a></li>
+                        <li><a href="#">{% trans 'Relazioni Econom.' %}</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="doc-category-card">
+                    <div class="doc-icon">
+                        <i class="bi bi-file-spreadsheet"></i>
+                    </div>
+                    <h3>{% trans 'Atti Amministrativi' %}</h3>
+                    <p>{% trans 'Delibere, determinazioni e provvedimenti ufficiali.' %}</p>
+                    <ul class="doc-list">
+                        <li><a href="#">{% trans 'Delibere 2024' %}</a></li>
+                        <li><a href="#">{% trans 'Determinazioni' %}</a></li>
+                        <li><a href="#">{% trans 'Provvedimenti' %}</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="doc-category-card">
+                    <div class="doc-icon">
+                        <i class="bi bi-folder-fill"></i>
+                    </div>
+                    <h3>{% trans 'Documentazione Generale' %}</h3>
+                    <p>{% trans 'Rapporti, studi e documenti strategici.' %}</p>
+                    <ul class="doc-list">
+                        <li><a href="#">{% trans 'Relazione Attività' %}</a></li>
+                        <li><a href="#">{% trans 'Piano Strategico' %}</a></li>
+                        <li><a href="#">{% trans 'Programmi Annuali' %}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sezione: Scarichi Rapidi -->
+<section class="page-section documenti-quick py-6">
+    <div class="container-xl">
+        <div class="text-center mb-5 mb-lg-6">
+            <h2 class="page-section-title">
+                {% trans 'Scarica Rapidamente' %}
+            </h2>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="#" class="doc-quick-link">
+                    <i class="bi bi-file-pdf"></i>
+                    <span>{% trans 'Statuto' %}</span>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="#" class="doc-quick-link">
+                    <i class="bi bi-file-pdf"></i>
+                    <span>{% trans 'Regolamento' %}</span>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="#" class="doc-quick-link">
+                    <i class="bi bi-file-pdf"></i>
+                    <span>{% trans 'Bilancio' %}</span>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="#" class="doc-quick-link">
+                    <i class="bi bi-file-pdf"></i>
+                    <span>{% trans 'Privacy' %}</span>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="#" class="doc-quick-link">
+                    <i class="bi bi-file-pdf"></i>
+                    <span>{% trans 'Delibere' %}</span>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="#" class="doc-quick-link">
+                    <i class="bi bi-archive"></i>
+                    <span>{% trans 'Archivio' %}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sezione: CTA -->
+<section class="page-section regolamenti-cta py-6">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="reg-cta-card">
+                    <div class="text-center">
+                        <h2 class="h2 fw-bold mb-3">
+                            {% trans 'Trasparenza e Responsabilità' %}
+                        </h2>
+                        <p class="lead mb-5">
+                            {% trans 'Il Parco Letterario si impegna per la massima trasparenza amministrativa e il rispetto della normativa vigente in materia di privacy e protezione dei dati.' %}
+                        </p>
+                        <a href="mailto:info@parcoverismo.it" class="btn btn-primary btn-lg">
+                            <i class="bi bi-envelope"></i> {% trans 'Contattaci per Info' %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

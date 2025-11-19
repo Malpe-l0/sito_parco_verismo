@@ -1,0 +1,330 @@
+{% extends "parco_verismo/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans 'Missione e Visione' %} - {% trans 'Parco Letterario Verismo' %}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/missione_visione.css' %}">
+{% endblock %}
+
+{% block body_class %}missione-visione-page{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="mv-hero">
+    <div class="mv-hero-overlay"></div>
+    <div class="container-fluid h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-6 offset-lg-1 text-white z-index-10 py-5 py-lg-0">
+                <div class="mv-hero-content">
+                    <span class="mv-badge">{% trans 'Chi Siamo' %}</span>
+                    <h1 class="mv-hero-title display-3 fw-bold mb-4">
+                        {% trans 'Il Parco Letterario del Verismo' %}
+                    </h1>
+                    <p class="mv-hero-subtitle lead">
+                        {% trans 'Trasformare la letteratura in dispositivo contemporaneo di sviluppo, identità e partecipazione civica' %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="mv-hero-image">
+                    <div class="placeholder-image">
+                        <svg viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="placeholderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#C76A52;stop-opacity:0.3" />
+                                    <stop offset="100%" style="stop-color:#823228;stop-opacity:0.5" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Background -->
+                            <rect width="600" height="700" fill="url(#placeholderGradient)"/>
+                            
+                            <!-- Decorative shapes -->
+                            <circle cx="150" cy="100" r="80" fill="#C76A52" opacity="0.2"/>
+                            <circle cx="500" cy="600" r="120" fill="#823228" opacity="0.15"/>
+                            
+                            <!-- Book icon -->
+                            <g transform="translate(150, 200)">
+                                <rect x="20" y="40" width="160" height="200" fill="none" stroke="#C76A52" stroke-width="3" rx="5"/>
+                                <line x1="100" y1="40" x2="100" y2="240" stroke="#C76A52" stroke-width="2"/>
+                                <path d="M 50 80 L 150 80 M 50 130 L 150 130 M 50 180 L 150 180 M 50 220 L 120 220" stroke="#C76A52" stroke-width="2" stroke-linecap="round"/>
+                            </g>
+                            
+                            <!-- Laurel wreath -->
+                            <g transform="translate(300, 350)">
+                                <path d="M -60 0 Q -40 -30 0 -40 Q 40 -30 60 0 Q 40 10 0 15 Q -40 10 -60 0" fill="none" stroke="#C08C3B" stroke-width="2.5" opacity="0.7"/>
+                            </g>
+                            
+                            <!-- Text placeholder -->
+                            <text x="300" y="520" font-family="serif" font-size="32" font-weight="bold" fill="#823228" opacity="0.4" text-anchor="middle">
+                                Verga • Capuana
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission Section -->
+<section class="mv-section mv-mission py-5 py-lg-6">
+    <div class="container-xl">
+        <div class="row g-4 align-items-lg-center">
+            <div class="col-lg-6">
+                <div class="mv-image-wrapper">
+                    <div class="placeholder-image-secondary">
+                        <svg viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="missionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#C76A52;stop-opacity:0.2" />
+                                    <stop offset="100%" style="stop-color:#F3C471;stop-opacity:0.3" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="500" height="600" fill="url(#missionGradient)"/>
+                            
+                            <!-- Network nodes representing communities -->
+                            <circle cx="250" cy="150" r="50" fill="#823228" opacity="0.6"/>
+                            <circle cx="150" cy="300" r="40" fill="#C08C3B" opacity="0.5"/>
+                            <circle cx="350" cy="300" r="40" fill="#C08C3B" opacity="0.5"/>
+                            <circle cx="100" cy="450" r="35" fill="#2F6D5C" opacity="0.4"/>
+                            <circle cx="250" cy="480" r="35" fill="#2F6D5C" opacity="0.4"/>
+                            <circle cx="400" cy="450" r="35" fill="#2F6D5C" opacity="0.4"/>
+                            
+                            <!-- Connection lines -->
+                            <line x1="250" y1="150" x2="150" y2="300" stroke="#C76A52" stroke-width="2" opacity="0.4"/>
+                            <line x1="250" y1="150" x2="350" y2="300" stroke="#C76A52" stroke-width="2" opacity="0.4"/>
+                            <line x1="150" y1="300" x2="100" y2="450" stroke="#C08C3B" stroke-width="2" opacity="0.3"/>
+                            <line x1="150" y1="300" x2="250" y2="480" stroke="#C08C3B" stroke-width="2" opacity="0.3"/>
+                            <line x1="350" y1="300" x2="250" y2="480" stroke="#C08C3B" stroke-width="2" opacity="0.3"/>
+                            <line x1="350" y1="300" x2="400" y2="450" stroke="#C08C3B" stroke-width="2" opacity="0.3"/>
+                            
+                            <!-- Central text -->
+                            <text x="250" y="560" font-family="serif" font-size="20" font-weight="bold" fill="#823228" opacity="0.3" text-anchor="middle">
+                                Ecosistema Culturale
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 ps-lg-5">
+                <div class="mv-content">
+                    <h2 class="mv-section-title h2 fw-bold mb-4">
+                        <span class="mv-title-accent">La Nostra</span> Missione
+                    </h2>
+                    
+                    <div class="mv-highlight-text mb-4">
+                        <p class="lead">
+                            {% trans "Il Parco Letterario del Verismo nasce per costruire nei territori di Vizzini, Mineo e Licodia Eubea un modello integrato di welfare culturale fondato sulla valorizzazione dell&rsquo;eredità verista di Giovanni Verga e Luigi Capuana come motore di crescita sociale, educativa e turistica." %}
+                        </p>
+                    </div>
+
+                    <div class="mv-points">
+                        <div class="mv-point">
+                            <div class="mv-point-icon">
+                                <i class="bi bi-book-half"></i>
+                            </div>
+                            <div class="mv-point-content">
+                                <h4>{% trans "Letteratura come Dispositivo" %}</h4>
+                                <p>{% trans "Trasformare la letteratura in uno strumento contemporaneo di sviluppo, identità e partecipazione civica." %}</p>
+                            </div>
+                        </div>
+
+                        <div class="mv-point">
+                            <div class="mv-point-icon">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
+                            <div class="mv-point-content">
+                                <h4>{% trans "Crescita Integrata" %}</h4>
+                                <p>{% trans "Sviluppo sociale, educativo e turistico attraverso la valorizzazione del patrimonio verghiano-capuaniano." %}</p>
+                            </div>
+                        </div>
+
+                        <div class="mv-point">
+                            <div class="mv-point-icon">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <div class="mv-point-content">
+                                <h4>{% trans "Radicamento Territoriale" %}</h4>
+                                <p>{% trans "Coinvolgimento delle comunità locali di Vizzini, Mineo e Licodia Eubea nel modello di welfare culturale." %}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vision Section -->
+<section class="mv-section mv-vision py-5 py-lg-6">
+    <div class="container-xl">
+        <div class="row g-4 align-items-lg-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="mv-image-wrapper">
+                    <div class="placeholder-image-secondary">
+                        <svg viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="visionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#2F6D5C;stop-opacity:0.2" />
+                                    <stop offset="100%" style="stop-color:#C76A52;stop-opacity:0.3" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="500" height="600" fill="url(#visionGradient)"/>
+                            
+                            <!-- Upward arrows representing growth -->
+                            <g opacity="0.5">
+                                <path d="M 150 450 L 150 250 M 130 280 L 150 250 L 170 280" fill="none" stroke="#2F6D5C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M 250 500 L 250 300 M 230 330 L 250 300 L 270 330" fill="none" stroke="#823228" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M 350 450 L 350 250 M 330 280 L 350 250 L 370 280" fill="none" stroke="#C08C3B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                            
+                            <!-- Light rays -->
+                            <line x1="250" y1="50" x2="150" y2="200" stroke="#F3C471" stroke-width="2" opacity="0.4"/>
+                            <line x1="250" y1="50" x2="250" y2="150" stroke="#F3C471" stroke-width="2" opacity="0.4"/>
+                            <line x1="250" y1="50" x2="350" y2="200" stroke="#F3C471" stroke-width="2" opacity="0.4"/>
+                            
+                            <!-- Foundation block -->
+                            <rect x="50" y="520" width="400" height="60" fill="#823228" opacity="0.2" rx="5"/>
+                            <text x="250" y="560" font-family="serif" font-size="18" font-weight="bold" fill="#823228" opacity="0.4" text-anchor="middle">
+                                Patrimonio in Movimento
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1 ps-lg-0 pe-lg-5">
+                <div class="mv-content">
+                    <h2 class="mv-section-title h2 fw-bold mb-4">
+                        <span class="mv-title-accent">La Nostra</span> Visione
+                    </h2>
+                    
+                    <div class="mv-highlight-text mb-4">
+                        <p class="lead">
+                            {% trans "Non custodire la memoria, ma riattivare il modo in cui essa viene riattivata nel presente. Il patrimonio culturale non deve rimanere un reperto, ma diventare infrastruttura viva di senso, di legami e di futuro per le comunità coinvolte." %}
+                        </p>
+                    </div>
+
+                    <div class="mv-actions-list">
+                        <h4 class="mb-3">{% trans "Azioni Strategiche" %}</h4>
+                        <ul class="mv-list-actions">
+                            <li>
+                                <span class="mv-list-icon">→</span>
+                                <span>{% trans "Costituzione di un Comitato Tecnico-Scientifico" %}</span>
+                            </li>
+                            <li>
+                                <span class="mv-list-icon">→</span>
+                                <span>{% trans "Messa in rete dei servizi culturali e turistici" %}</span>
+                            </li>
+                            <li>
+                                <span class="mv-list-icon">→</span>
+                                <span>{% trans "Creazione di itinerari tematici e digitali" %}</span>
+                            </li>
+                            <li>
+                                <span class="mv-list-icon">→</span>
+                                <span>{% trans "Accordi con università e ITS" %}</span>
+                            </li>
+                            <li>
+                                <span class="mv-list-icon">→</span>
+                                <span>{% trans "Premio Verga-Capuana per le scuole" %}</span>
+                            </li>
+                            <li>
+                                <span class="mv-list-icon">→</span>
+                                <span>{% trans "Giornata di Studi annuale" %}</span>
+                            </li>
+                            <li>
+                                <span class="mv-list-icon">→</span>
+                                <span>{% trans "Manifestazioni teatrali e produzioni culturali contemporanee" %}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recognition Section -->
+<section class="mv-section mv-recognition py-5 py-lg-6 bg-light">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="mv-recognition-card">
+                    <div class="row align-items-center g-4">
+                        <div class="col-lg-3 text-center">
+                            <div class="mv-badge-large">
+                                <i class="bi bi-award-fill"></i>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <h3 class="h3 mb-3 fw-bold">
+                                {% trans "Riconoscimento Istituzionale" %}
+                            </h3>
+                            <p class="mb-0">
+                                {% trans "Il progetto &egrave; promosso dagli Enti locali del territorio ed &egrave; formalmente riconosciuto e finanziato dalla Regione Siciliana ai sensi del D.D.G. n. 1159 del 6 marzo 2025, quale iniziativa di interesse pubblico finalizzata alla realizzazione del Parco Letterario del Verismo. Questo riconoscimento istituzionale sancisce il valore strategico dell&rsquo;intervento e ne legittima l&rsquo;attuazione in un orizzonte di continuità e pianificazione." %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="mv-section mv-values py-5 py-lg-6">
+    <div class="container-xl">
+        <div class="text-center mb-5 mb-lg-6">
+            <h2 class="h2 fw-bold mb-3">
+                {% trans "I Nostri Valori Fondamentali" %}
+            </h2>
+            <p class="lead text-secondary" style="max-width: 600px; margin: 0 auto;">
+                {% trans "Un ecosistema coerente e durevole di ricerca, formazione, fruizione pubblica e narrazione condivisa." %}
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="mv-value-card">
+                    <div class="mv-value-icon">
+                        <i class="bi bi-book-open"></i>
+                    </div>
+                    <h4 class="mv-value-title">{% trans "Ricerca" %}</h4>
+                    <p>{% trans "Approfondimento continuo del patrimonio verghiano-capuaniano attraverso studi e analisi critiche." %}</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="mv-value-card">
+                    <div class="mv-value-icon">
+                        <i class="bi bi-mortarboard"></i>
+                    </div>
+                    <h4 class="mv-value-title">{% trans "Formazione" %}</h4>
+                    <p>{% trans "Sviluppo di competenze e consapevolezza culturale nelle comunità locali, in particolare tra i giovani." %}</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="mv-value-card">
+                    <div class="mv-value-icon">
+                        <i class="bi bi-eye"></i>
+                    </div>
+                    <h4 class="mv-value-title">{% trans "Fruizione Pubblica" %}</h4>
+                    <p>{% trans "Accesso diffuso e inclusivo al patrimonio culturale per tutta la comunità, dai residenti ai visitatori." %}</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="mv-value-card">
+                    <div class="mv-value-icon">
+                        <i class="bi bi-chat-quote"></i>
+                    </div>
+                    <h4 class="mv-value-title">{% trans "Narrazione Condivisa" %}</h4>
+                    <p>{% trans "Costruzione collettiva di significati e storie che valorizzano il patrimonio nel presente." %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

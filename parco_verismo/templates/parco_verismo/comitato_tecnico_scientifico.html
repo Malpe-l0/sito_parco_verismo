@@ -1,0 +1,417 @@
+{% extends "parco_verismo/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans 'Comitato Tecnico-Scientifico' %} - {% trans 'Parco Letterario Verismo' %}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/comitato.css' %}">
+{% endblock %}
+
+{% block body_class %}comitato-page{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="cts-hero">
+    <div class="cts-hero-overlay"></div>
+    <div class="container-fluid h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-6 offset-lg-1 text-white z-index-10 py-5 py-lg-0">
+                <div class="cts-hero-content">
+                    <span class="cts-badge">{% trans 'Organi Direttivi' %}</span>
+                    <h1 class="cts-hero-title display-3 fw-bold mb-4">
+                        {% trans 'Comitato Tecnico-Scientifico' %}
+                    </h1>
+                    <p class="cts-hero-subtitle lead">
+                        {% trans 'Presidio culturale e scientifico del Parco Letterario del Verismo' %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="cts-hero-image">
+                    <div class="placeholder-image">
+                        <svg viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="ctsPlaceholderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#C76A52;stop-opacity:0.3" />
+                                    <stop offset="100%" style="stop-color:#823228;stop-opacity:0.5" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Background -->
+                            <rect width="600" height="700" fill="url(#ctsPlaceholderGradient)"/>
+                            
+                            <!-- Decorative shapes -->
+                            <circle cx="150" cy="100" r="80" fill="#C76A52" opacity="0.2"/>
+                            <circle cx="500" cy="600" r="120" fill="#823228" opacity="0.15"/>
+                            
+                            <!-- Table/Organization icon -->
+                            <g transform="translate(100, 150)">
+                                <rect x="0" y="0" width="400" height="300" fill="none" stroke="#C76A52" stroke-width="3" rx="8"/>
+                                <line x1="0" y1="60" x2="400" y2="60" stroke="#C76A52" stroke-width="2"/>
+                                <line x1="0" y1="120" x2="400" y2="120" stroke="#C76A52" stroke-width="2"/>
+                                <line x1="0" y1="180" x2="400" y2="180" stroke="#C76A52" stroke-width="2"/>
+                                <line x1="0" y1="240" x2="400" y2="240" stroke="#C76A52" stroke-width="2"/>
+                                <line x1="133" y1="0" x2="133" y2="300" stroke="#C76A52" stroke-width="2"/>
+                                <line x1="266" y1="0" x2="266" y2="300" stroke="#C76A52" stroke-width="2"/>
+                                <circle cx="66" cy="30" r="8" fill="#C08C3B" opacity="0.6"/>
+                                <circle cx="199" cy="30" r="8" fill="#C08C3B" opacity="0.6"/>
+                                <circle cx="333" cy="30" r="8" fill="#C08C3B" opacity="0.6"/>
+                            </g>
+                            
+                            <!-- Network nodes -->
+                            <circle cx="150" cy="550" r="20" fill="#2F6D5C" opacity="0.5"/>
+                            <circle cx="300" cy="580" r="20" fill="#2F6D5C" opacity="0.5"/>
+                            <circle cx="450" cy="550" r="20" fill="#2F6D5C" opacity="0.5"/>
+                            
+                            <!-- Text -->
+                            <text x="300" y="670" font-family="serif" font-size="24" font-weight="bold" fill="#823228" opacity="0.4" text-anchor="middle">
+                                Rete Strategica
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Institution Section -->
+<section class="cts-section cts-institution py-5 py-lg-6">
+    <div class="container-xl">
+        <div class="row g-4 align-items-lg-center">
+            <div class="col-lg-6">
+                <div class="cts-image-wrapper">
+                    <div class="placeholder-image-secondary">
+                        <svg viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="ctsInstitutionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#C76A52;stop-opacity:0.2" />
+                                    <stop offset="100%" style="stop-color:#F3C471;stop-opacity:0.3" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="500" height="600" fill="url(#ctsInstitutionGradient)"/>
+                            
+                            <!-- Document/Decree icon -->
+                            <g transform="translate(120, 100)">
+                                <rect x="0" y="0" width="260" height="380" fill="none" stroke="#823228" stroke-width="3" rx="5"/>
+                                <rect x="20" y="30" width="220" height="320" fill="none" stroke="#C08C3B" stroke-width="2" opacity="0.7"/>
+                                <line x1="30" y1="60" x2="230" y2="60" stroke="#823228" stroke-width="2"/>
+                                <line x1="30" y1="90" x2="230" y2="90" stroke="#C08C3B" stroke-width="1.5" opacity="0.7"/>
+                                <line x1="30" y1="110" x2="200" y2="110" stroke="#C08C3B" stroke-width="1.5" opacity="0.7"/>
+                                <line x1="30" y1="150" x2="230" y2="150" stroke="#C08C3B" stroke-width="1.5" opacity="0.7"/>
+                                <line x1="30" y1="170" x2="230" y2="170" stroke="#C08C3B" stroke-width="1.5" opacity="0.7"/>
+                                <line x1="30" y1="190" x2="220" y2="190" stroke="#C08C3B" stroke-width="1.5" opacity="0.7"/>
+                                <circle cx="130" cy="280" r="25" fill="#C76A52" opacity="0.4"/>
+                                <path d="M 120 280 L 135 290 L 145 275" fill="none" stroke="#823228" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                            
+                            <!-- Seal -->
+                            <circle cx="250" cy="520" r="40" fill="#823228" opacity="0.15"/>
+                            <text x="250" y="525" font-family="serif" font-size="16" font-weight="bold" fill="#823228" opacity="0.3" text-anchor="middle">
+                                D.S. n. 50
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 ps-lg-5">
+                <div class="cts-content">
+                    <h2 class="cts-section-title h2 fw-bold mb-4">
+                        <span class="cts-title-accent">Istituzione e</span> Competenze
+                    </h2>
+                    
+                    <div class="cts-highlight-text mb-4">
+                        <p class="lead">
+                            {% trans "Il Comitato Tecnico-Scientifico &egrave; stato istituito con Determinazione Sindacale n. 50 del 20 ottobre 2025 del Comune di Vizzini, in attuazione di quanto previsto dal progetto esecutivo approvato con Delibera di Giunta n. 65 del 13 giugno 2025 e finanziato dalla Regione Siciliana &ndash; Assessorato dei Beni Culturali e dell&rsquo;Identità Siciliana ai sensi della L.R. 3/2025, art. 7, comma 3." %}
+                        </p>
+                    </div>
+
+                    <div class="cts-info-box">
+                        <h4 class="mb-3">{% trans "Funzione del Comitato" %}</h4>
+                        <p>
+                            {% trans "Il Comitato ha funzione consultiva e di orientamento strategico: supporta gli Enti locali e i partner culturali nella definizione scientifica delle attività, nella direzione culturale, e nel coordinamento metodologico delle azioni previste dal Progetto &ldquo;Il Parco Letterario del Verismo&rdquo; tra Vizzini, Mineo e Licodia Eubea." %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Composition Section -->
+<section class="cts-section cts-composition py-5 py-lg-6 bg-light">
+    <div class="container-xl">
+        <div class="text-center mb-5 mb-lg-6">
+            <h2 class="h2 fw-bold mb-3">
+                {% trans 'Composizione del Comitato' %}
+            </h2>
+            <p class="lead text-secondary">
+                {% trans 'Una rete di esperti e istituzioni dedicati alla valorizzazione del patrimonio verghiano e capuaniano' %}
+            </p>
+        </div>
+
+        <div class="row g-3">
+            <!-- Enti pubblici -->
+            <div class="col-lg-12">
+                <div class="cts-composition-group">
+                    <h3 class="cts-group-title">{% trans 'Rappresentanti Enti Pubblici' %}</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="cts-member-card">
+                                <div class="cts-member-icon">
+                                    <i class="bi bi-building"></i>
+                                </div>
+                                <h4>{% trans 'Dott. Pietro La Rocca' %}</h4>
+                                <p class="text-secondary">{% trans 'Comune di Vizzini' %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="cts-member-card">
+                                <div class="cts-member-icon">
+                                    <i class="bi bi-building"></i>
+                                </div>
+                                <h4>{% trans 'Dott. Mario Luca Sebastiano Testa' %}</h4>
+                                <p class="text-secondary">{% trans 'Comune di Mineo' %}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Centri studi e famiglie -->
+            <div class="col-lg-12">
+                <div class="cts-composition-group">
+                    <h3 class="cts-group-title">{% trans 'Centri Studi e Famiglie Depositarie del Patrimonio' %}</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="cts-member-card">
+                                <div class="cts-member-icon">
+                                    <i class="bi bi-book-half"></i>
+                                </div>
+                                <h4>{% trans 'Dott. Raffaele Assunta Brunelli' %}</h4>
+                                <p class="text-secondary">{% trans 'Centro Studi C.E.S.T.A.' %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="cts-member-card">
+                                <div class="cts-member-icon">
+                                    <i class="bi bi-people-fill"></i>
+                                </div>
+                                <h4>{% trans 'Dott. Tommaso Domenico Cilia' %}</h4>
+                                <p class="text-secondary">{% trans 'Famiglia Capuana' %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="cts-member-card">
+                                <div class="cts-member-icon">
+                                    <i class="bi bi-people-fill"></i>
+                                </div>
+                                <h4>{% trans 'Dott.ssa Carla Verga' %}</h4>
+                                <p class="text-secondary">{% trans 'Famiglia Verga' %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="cts-member-card">
+                                <div class="cts-member-icon">
+                                    <i class="bi bi-people-fill"></i>
+                                </div>
+                                <h4>{% trans 'Dott. Carlo Capuana' %}</h4>
+                                <p class="text-secondary">{% trans 'Famiglia Capuana' %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="cts-member-card">
+                                <div class="cts-member-icon">
+                                    <i class="bi bi-book-half"></i>
+                                </div>
+                                <h4>{% trans 'Prof. Antonio Di Silvestro' %}</h4>
+                                <p class="text-secondary">{% trans 'Fondazione Verga' %}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Istituti superiori e università -->
+            <div class="col-lg-12">
+                <div class="cts-composition-group">
+                    <h3 class="cts-group-title">{% trans 'Istituti Superiori e Università' %}</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="cts-member-card">
+                                <div class="cts-member-icon">
+                                    <i class="bi bi-mortarboard"></i>
+                                </div>
+                                <h4>{% trans 'Dott.ssa Anna Raudino' %}</h4>
+                                <p class="text-secondary">{% trans 'ITS Academy di Siracusa' %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="cts-member-card">
+                                <div class="cts-member-icon">
+                                    <i class="bi bi-mortarboard"></i>
+                                </div>
+                                <h4>{% trans 'Prof. Francesco Pignataro' %}</h4>
+                                <p class="text-secondary">{% trans 'ITS Steve Jobs di Caltagirone' %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="cts-member-card">
+                                <div class="cts-member-icon">
+                                    <i class="bi bi-mortarboard"></i>
+                                </div>
+                                <h4>{% trans 'Prof. Luigi Ingaliso' %}</h4>
+                                <p class="text-secondary">{% trans "Università degli Studi di Catania" %}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coordinamento -->
+            <div class="col-lg-12">
+                <div class="cts-composition-group">
+                    <h3 class="cts-group-title">{% trans 'Coordinamento' %}</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="cts-member-card cts-member-card-highlight">
+                                <div class="cts-member-icon">
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <h4>{% trans 'Dott.ssa Delia Francesca Di Pasquale' %}</h4>
+                                <p class="text-secondary fw-bold">{% trans 'Coordinatrice del Comitato Tecnico-Scientifico' %}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Functions Section -->
+<section class="cts-section cts-functions py-5 py-lg-6">
+    <div class="container-xl">
+        <div class="row g-4 align-items-lg-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="cts-image-wrapper">
+                    <div class="placeholder-image-secondary">
+                        <svg viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="ctsFunctionsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#2F6D5C;stop-opacity:0.2" />
+                                    <stop offset="100%" style="stop-color:#C76A52;stop-opacity:0.3" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="500" height="600" fill="url(#ctsFunctionsGradient)"/>
+                            
+                            <!-- Target/Goals icon -->
+                            <circle cx="250" cy="150" r="80" fill="none" stroke="#2F6D5C" stroke-width="2" opacity="0.5"/>
+                            <circle cx="250" cy="150" r="60" fill="none" stroke="#2F6D5C" stroke-width="2" opacity="0.6"/>
+                            <circle cx="250" cy="150" r="40" fill="#2F6D5C" opacity="0.4"/>
+                            
+                            <!-- Arrows showing direction -->
+                            <g opacity="0.5">
+                                <path d="M 100 300 L 150 300 M 140 290 L 150 300 L 140 310" fill="none" stroke="#C08C3B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M 350 300 L 400 300 M 390 290 L 400 300 L 390 310" fill="none" stroke="#C08C3B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M 250 200 L 250 250 M 240 240 L 250 250 L 260 240" fill="none" stroke="#823228" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                            
+                            <!-- Foundation -->
+                            <rect x="50" y="520" width="400" height="50" fill="#823228" opacity="0.15" rx="5"/>
+                            <text x="250" y="555" font-family="serif" font-size="18" font-weight="bold" fill="#823228" opacity="0.4" text-anchor="middle">
+                                Strategia Integrata
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1 ps-lg-0 pe-lg-5">
+                <div class="cts-content">
+                    <h2 class="cts-section-title h2 fw-bold mb-4">
+                        <span class="cts-title-accent">Finalità e</span> Funzioni
+                    </h2>
+                    
+                    <div class="cts-functions-list">
+                        <div class="cts-function-item">
+                            <div class="cts-function-icon">
+                                <i class="bi bi-check-circle-fill"></i>
+                            </div>
+                            <div class="cts-function-content">
+                                <h4>{% trans 'Coerenza Scientifica' %}</h4>
+                                <p>{% trans 'Garantire coerenza scientifica e culturale alle azioni del progetto' %}</p>
+                            </div>
+                        </div>
+
+                        <div class="cts-function-item">
+                            <div class="cts-function-icon">
+                                <i class="bi bi-check-circle-fill"></i>
+                            </div>
+                            <div class="cts-function-content">
+                                <h4>{% trans 'Progettazione Strategica' %}</h4>
+                                <p>{% trans 'Orientare la progettazione di eventi, percorsi, accordi istituzionali e produzioni culturali' %}</p>
+                            </div>
+                        </div>
+
+                        <div class="cts-function-item">
+                            <div class="cts-function-icon">
+                                <i class="bi bi-check-circle-fill"></i>
+                            </div>
+                            <div class="cts-function-content">
+                                <h4>{% trans 'Costruzione di Reti' %}</h4>
+                                <p>{% trans 'Favorire la costruzione di reti tra enti pubblici, università, ITS, realtà culturali e famiglie depositarie del patrimonio' %}</p>
+                            </div>
+                        </div>
+
+                        <div class="cts-function-item">
+                            <div class="cts-function-icon">
+                                <i class="bi bi-check-circle-fill"></i>
+                            </div>
+                            <div class="cts-function-content">
+                                <h4>{% trans 'Welfare Culturale' %}</h4>
+                                <p>{% trans 'Promuovere una visione di welfare culturale condiviso e partecipato' %}</p>
+                            </div>
+                        </div>
+
+                        <div class="cts-function-item">
+                            <div class="cts-function-icon">
+                                <i class="bi bi-check-circle-fill"></i>
+                            </div>
+                            <div class="cts-function-content">
+                                <h4>{% trans 'Sviluppo Integrale' %}</h4>
+                                <p>{% trans 'Trasformare il patrimonio verghiano e capuaniano in un motore di sviluppo identitario, educativo e sociale' %}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cts-section cts-cta py-5 py-lg-6">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="cts-cta-card">
+                    <div class="text-center">
+                        <h2 class="h2 fw-bold mb-4">
+                            {% trans 'Presidio Culturale e Scientifico' %}
+                        </h2>
+                        <p class="lead mb-5" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+                            {% trans "Il Comitato rappresenta il presidio culturale e scientifico del progetto, assicurandone continuità, credibilità e radicamento territoriale nella valorizzazione del patrimonio letterario verghiano e capuaniano." %}
+                        </p>
+                        <div class="cts-cta-buttons">
+                            <a href="{% url 'comitato_regolamento' %}" class="btn btn-primary btn-lg">
+                                <i class="bi bi-file-text"></i>
+                                {% trans 'Leggi il Regolamento' %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

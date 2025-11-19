@@ -172,3 +172,36 @@ def Mineo_View(request):
 
 def Vizzini_View(request):
     return render(request, 'parco_verismo/vizzini.html')
+
+def missione_visione_view(request):
+    return render(request, 'parco_verismo/missione_visione.html')
+
+def comitato_tecnico_scientifico_view(request):
+    """
+    Pagina statica dedicata al Comitato Tecnico-Scientifico del Parco Letterario del Verismo.
+    """
+    return render(request, 'parco_verismo/comitato_tecnico_scientifico.html')
+
+def comitato_regolamento_view(request):
+    """
+    Pagina dedicata al regolamento del Comitato Tecnico-Scientifico.
+    """
+    return render(request, 'parco_verismo/comitato_regolamento.html')
+
+def regolamenti_documenti_view(request):
+    """
+    Pagina statica dedicata a Regolamenti e Documenti del Parco.
+    """
+    return render(request, 'parco_verismo/regolamenti_documenti.html')
+
+def partner_rete_territoriale_view(request):
+    """
+    Pagina statica dedicata a Partner e Rete Territoriale.
+    """
+    return render(request, 'parco_verismo/partner_rete_territoriale.html')
+
+def accrediti_finanziamenti_view(request):
+    """
+    Pagina statica dedicata ad Accrediti e Finanziamenti.
+    """
+    return render(request, 'parco_verismo/accrediti_finanziamenti.html')
