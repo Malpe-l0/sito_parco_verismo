@@ -1,17 +1,12 @@
-{% load static i18n %} {% get_current_language as LANGUAGE_CODE %}
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}" data-theme="verismo">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="{% trans 'Itinerari Verghiani - Scopri i luoghi delle opere di Giovanni Verga attraverso percorsi letterari nel cuore della Sicilia.' %}"
-    />
-    <meta
-      name="keywords"
-      content="Itinerari Verghiani, Giovanni Verga, Verismo, Sicilia, percorsi letterari"
-    />
+    <meta name="description" content="{% trans 'Itinerari Verghiani - Scopri i luoghi delle opere di Giovanni Verga attraverso percorsi letterari nel cuore della Sicilia.' %}" />
+    <meta name="keywords" content="Itinerari Verghiani, Giovanni Verga, Verismo, Sicilia, percorsi letterari" />
     <title>{% trans 'Parco Letterario Verismo - Itinerari Verghiani' %}</title>
 
     <!-- Bootstrap CSS locale -->
@@ -29,36 +24,33 @@
   </head>
 
   <body>
-    {% include 'parco_verismo/navbar.html' %} {% block content %}
+    {% include 'parco_verismo/navbar.html' %}
+    
+    {% block content %}
     <!-- Hero Section -->
-    <section
-      class="hero-verghiani d-flex align-items-center justify-content-center text-center mb-5"
-    >
+    <section class="hero-verghiani d-flex align-items-center justify-content-center text-center mb-5">
       <div class="hero-content px-3">
-        <h1 class="display-3 fw-bold text-white">
-          {% trans 'Itinerari Verghiani' %}
-        </h1>
+        <h1 class="display-3 fw-bold text-white">{% trans 'Itinerari Verghiani' %}</h1>
       </div>
     </section>
 
     <div class="container my-5">
       <div class="row">
-        {% for itinerario in itinerari %} {% include
-        'parco_verismo/components/itinerario_card.html' with
-        itinerario=itinerario %} {% empty %}
+        {% for itinerario in itinerari %}
+          {% include 'parco_verismo/components/itinerario_card.html' with itinerario=itinerario %}
+        {% empty %}
         <div class="col-12">
           <div class="alert alert-info text-center">
             <h5>{% trans 'Nessun itinerario disponibile' %}</h5>
-            <p>
-              {% trans 'Al momento non ci sono itinerari verghiani disponibili.
-              Torna presto per scoprire i percorsi!' %}
-            </p>
+            <p>{% trans 'Al momento non ci sono itinerari verghiani disponibili. Torna presto per scoprire i percorsi!' %}</p>
           </div>
         </div>
         {% endfor %}
       </div>
     </div>
-    {% endblock %} {% include 'parco_verismo/components/footer.html' %}
+    {% endblock %}
+    
+    {% include 'parco_verismo/components/footer.html' %}
 
     <!-- Bootstrap Bundle JS -->
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>

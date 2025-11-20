@@ -18,7 +18,7 @@ import shutil
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 django.setup()
 
-from parco_verismo.models import Autore, Opera, Evento, Notizia, FotoArchivio, Itinerario
+from parco_verismo.models import Autore, Opera, Evento, Notizia, FotoArchivio
 from django.conf import settings
 
 def copy_static_to_media(source_path, destination_relative):
@@ -754,82 +754,6 @@ raccontate dai grandi autori del verismo.''',
             ordine += 1
     
     # ========================================================================
-    # ITINERARI VERGHIANI
-    # ========================================================================
-    print("\n" + "="*70)
-    print("AGGIUNTA ITINERARI VERGHIANI")
-    print("="*70)
-    
-    itinerari_data = [
-        {
-            'titolo': 'Percorso Verga - Vizzini',
-            'slug': 'percorso-verga-vizzini',
-            'descrizione': '''Un affascinante percorso attraverso i luoghi che hanno ispirato Giovanni Verga per le sue opere immortali. 
-            Partendo dal centro storico di Vizzini, visiterete la casa natale dello scrittore, il duomo e i vicoli 
-            caratteristici che fanno da sfondo ai suoi romanzi. Un viaggio nella Sicilia autentica del Verismo.''',
-            'tipo': 'verghiano',
-            'link_strava': 'https://www.strava.com/routes/esempio-vizzini',
-            'immagine_path': 'vizzini/centrostorico.jpg',
-            'ordine': 1
-        },
-        {
-            'titolo': 'Itinerario I Malavoglia',
-            'slug': 'itinerario-i-malavoglia',
-            'descrizione': '''Ripercorri le vicende de "I Malavoglia" attraverso i luoghi reali che hanno ispirato il capolavoro verghiano. 
-            Da Aci Trezza alle campagne circostanti, questo itinerario vi farà immergere nell'atmosfera dell'opera più 
-            celebre di Verga, tra il mare e le tradizioni siciliane.''',
-            'tipo': 'verghiano',
-            'link_strava': 'https://www.strava.com/routes/esempio-malavoglia',
-            'immagine_path': 'vizzini/borgo.jpg',
-            'ordine': 2
-        },
-        {
-            'titolo': 'Sentiero Mastro-don Gesualdo',
-            'slug': 'sentiero-mastro-don-gesualdo',
-            'descrizione': '''Un percorso suggestivo che attraversa i paesaggi descritti in "Mastro-don Gesualdo". 
-            Tra ville nobiliari e antiche masserie, scoprirete i luoghi che hanno fatto da scenario alla tragica 
-            storia di ascesa e declino del protagonista verghiano.''',
-            'tipo': 'verghiano',
-            'link_strava': 'https://www.strava.com/routes/esempio-gesualdo',
-            'immagine_path': 'vizzini/casaVerga.jpg',
-            'ordine': 3
-        },
-    ]
-    
-    for itinerario_data in itinerari_data:
-        itinerario, created = Itinerario.objects.get_or_create(
-            slug=itinerario_data['slug'],
-            defaults={
-                'tipo': itinerario_data['tipo'],
-                'ordine': itinerario_data['ordine'],
-                'link_strava': itinerario_data.get('link_strava', ''),
-                'is_active': True
-            }
-        )
-        if not created:
-            itinerario.tipo = itinerario_data['tipo']
-            itinerario.ordine = itinerario_data['ordine']
-            itinerario.link_strava = itinerario_data.get('link_strava', '')
-            itinerario.is_active = True
-        
-        # Copia l'immagine se specificata
-        if 'immagine_path' in itinerario_data and not itinerario.immagine:
-            image_path = copy_static_to_media(itinerario_data['immagine_path'], f"itinerari/{itinerario_data['slug']}.jpg")
-            if image_path:
-                media_path = os.path.join(settings.MEDIA_ROOT, image_path)
-                with open(media_path, 'rb') as f:
-                    itinerario.immagine.save(f"{itinerario_data['slug']}.jpg", File(f), save=False)
-        
-        itinerario.set_current_language('it')
-        itinerario.titolo = itinerario_data['titolo']
-        itinerario.descrizione = itinerario_data['descrizione']
-        itinerario.save()
-        if created:
-            print(f"✓ Creato itinerario: {itinerario.titolo}")
-        else:
-            print(f"• Itinerario aggiornato: {itinerario.titolo}")
-    
-    # ========================================================================
     # RIEPILOGO FINALE
     # ========================================================================
     print("\n" + "="*70)
@@ -842,7 +766,6 @@ raccontate dai grandi autori del verismo.''',
     print(f"Totale eventi: {Evento.objects.count()}")
     print(f"Totale notizie: {Notizia.objects.count()}")
     print(f"Totale foto archivio: {FotoArchivio.objects.count()}")
-    print(f"Totale itinerari: {Itinerario.objects.count()}")
     print(f"\nPuoi ora avviare il server con:")
     print("  python manage.py runserver")
     print("\nE visitare:")
@@ -851,7 +774,6 @@ raccontate dai grandi autori del verismo.''',
     print("  - Calendario: http://127.0.0.1:8000/calendario/")
     print("  - Notizie: http://127.0.0.1:8000/notizie/")
     print("  - Archivio Fotografico: http://127.0.0.1:8000/archivio/")
-    print("  - Itinerari Verghiani: http://127.0.0.1:8000/itinerari-verghiani/")
 
 if __name__ == '__main__':
     populate()
