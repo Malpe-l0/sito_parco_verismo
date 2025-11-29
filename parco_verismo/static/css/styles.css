@@ -2,9 +2,19 @@
    PARCO LETTERARIO VERISMO - SISTEMA DI DESIGN
    ======================================================== */
 
-/* TEMA 1: TERRE DI VERGA (Default)
-   Palette calda e raffinata ispirata alla terracotta e alla carta antica */
-:root {
+/* ========================================================
+   PALETTE COLORI - Aggiungi una classe al <body> per cambiare tema:
+   <body> oppure <body class="theme-default">  = TERRE DI VERGA
+   <body class="theme-mare">      = MARE E AGRUMI  
+   <body class="theme-verde">     = VERDE SICILIA
+   <body class="theme-bordeaux">  = ELEGANZA BORDEAUX
+   <body class="theme-blu">       = BLU NOTTE
+   ======================================================== */
+
+/* TEMA 1: TERRE DI VERGA (Default) */
+:root,
+body:not([class*="theme-"]),
+body.theme-default {
     /* Colori principali */
     --color-primary: #823228;
     --color-primary-dark: #4A140D;
@@ -131,6 +141,315 @@
 }
 
 /* TEMA 2: MARE E AGRUMI */
+body.theme-mare {
+    /* Colori principali */
+    --color-primary: #1F4F70;
+    --color-primary-dark: #0F2C40;
+    --color-primary-light: #5D8EAF;
+    --color-primary-pale: #E3EEF6;
+    
+    --color-secondary: #F09B2D;
+    --color-secondary-dark: #B5670F;
+    --color-secondary-light: #FFC171;
+    
+    --color-accent: #1F8B66;
+    
+    /* Neutri & sfondi */
+    --color-background: #F5FAFF;
+    --color-surface: #FFFFFF;
+    --color-surface-elevated: #EEF4F9;
+    --color-neutral-100: #EDF3F7;
+    --color-neutral-200: #D7E4EE;
+    --color-neutral-300: #BBD0DF;
+    --color-neutral-400: #7B95AD;
+    
+    /* Testi */
+    --color-text-primary: #101C2C;
+    --color-text-secondary: #3C4F64;
+    --color-text-tertiary: #6D8297;
+    --color-heading: color-mix(in srgb, var(--color-primary) 40%, var(--color-text-primary));
+    
+    /* Bordi */
+    --color-border: #C9D8E5;
+    --color-border-strong: rgba(16, 28, 44, 0.18);
+    --color-divider: rgba(16, 28, 44, 0.12);
+    
+    /* Stati */
+    --color-success: #1F8B66;
+    --color-warning: #F29D2C;
+    --color-warning-dark: #C07113;
+    --color-error: #BD4C3F;
+    --color-info: #2A7FC0;
+    
+    /* Overlay e gradienti */
+    --overlay-hero-start: rgba(16, 28, 44, 0.7);
+    --overlay-hero-end: rgba(16, 28, 44, 0.4);
+    --color-text-inverse-muted: rgba(255,255,255,0.85);
+    --color-inverse-soft: color-mix(in srgb, var(--color-text-inverse) 75%, transparent);
+    --color-inverse-faint: color-mix(in srgb, var(--color-text-inverse) 35%, transparent);
+    --color-inverse-tint: color-mix(in srgb, var(--color-text-inverse) 18%, transparent);
+    --color-inverse-focus-ring: color-mix(in srgb, var(--color-text-inverse) 25%, transparent);
+    --gradient-primary: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 55%, var(--color-primary-light) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--color-secondary-dark), var(--color-secondary));
+    --gradient-background: radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--color-primary) 15%, var(--color-background)) 0%, var(--color-background) 50%, var(--color-surface) 100%);
+    --gradient-surface: linear-gradient(180deg, var(--color-surface) 0%, color-mix(in srgb, var(--color-surface) 70%, var(--color-background)) 100%);
+    
+    /* Ombre */
+    --shadow-sm: 0 1px 2px 0 rgba(16, 28, 44, 0.05);
+    --shadow-md: 0 8px 24px rgba(16, 28, 44, 0.08);
+    --shadow-lg: 0 18px 45px rgba(16, 28, 44, 0.12);
+}
+
+/* TEMA 3: VERDE SICILIA */
+body.theme-verde {
+    /* Colori principali */
+    --color-primary: #4A6741;
+    --color-primary-dark: #2F4028;
+    --color-primary-light: #7A9A6F;
+    --color-primary-pale: #E8F0E6;
+    
+    --color-secondary: #BF9B30;
+    --color-secondary-dark: #8B6F15;
+    --color-secondary-light: #E8C560;
+    
+    --color-accent: #A85D3A;
+    
+    /* Neutri & sfondi */
+    --color-background: #F8FBF7;
+    --color-surface: #FFFFFF;
+    --color-surface-elevated: #EDF4EB;
+    --color-neutral-100: #F0F5EE;
+    --color-neutral-200: #DBDDD5;
+    --color-neutral-300: #C5CCC0;
+    --color-neutral-400: #8B9285;
+    
+    /* Testi */
+    --color-text-primary: #1A2416;
+    --color-text-secondary: #3D4839;
+    --color-text-tertiary: #6B7565;
+    --color-heading: color-mix(in srgb, var(--color-primary) 50%, var(--color-text-primary));
+    
+    /* Bordi */
+    --color-border: #D5E0D2;
+    --color-border-strong: rgba(26, 36, 22, 0.2);
+    --color-divider: rgba(26, 36, 22, 0.12);
+    
+    /* Stati */
+    --color-success: #52A770;
+    --color-warning: #D89020;
+    --color-warning-dark: #A86D15;
+    --color-error: #B44033;
+    --color-info: #3D7A6F;
+    
+    /* Overlay e gradienti */
+    --overlay-hero-start: rgba(26, 36, 22, 0.65);
+    --overlay-hero-end: rgba(26, 36, 22, 0.35);
+    --color-text-inverse-muted: rgba(255,255,255,0.85);
+    --color-inverse-soft: color-mix(in srgb, var(--color-text-inverse) 80%, transparent);
+    --color-inverse-faint: color-mix(in srgb, var(--color-text-inverse) 35%, transparent);
+    --color-inverse-tint: color-mix(in srgb, var(--color-text-inverse) 18%, transparent);
+    --color-inverse-focus-ring: color-mix(in srgb, var(--color-text-inverse) 25%, transparent);
+    --gradient-primary: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+    --gradient-secondary: linear-gradient(120deg, var(--color-secondary-dark), var(--color-secondary));
+    --gradient-background: radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--color-primary) 10%, var(--color-background)) 0%, var(--color-background) 45%, var(--color-surface) 100%);
+    --gradient-surface: linear-gradient(180deg, var(--color-surface) 0%, color-mix(in srgb, var(--color-surface) 80%, var(--color-background)) 100%);
+    
+    /* Ombre */
+    --shadow-sm: 0 1px 2px 0 rgba(26, 36, 22, 0.06);
+    --shadow-md: 0 8px 24px rgba(26, 36, 22, 0.08);
+    --shadow-lg: 0 18px 45px rgba(26, 36, 22, 0.12);
+}
+
+/* TEMA 4: ELEGANZA BORDEAUX */
+body.theme-bordeaux {
+    /* Colori principali */
+    --color-primary: #6B2737;
+    --color-primary-dark: #3F1520;
+    --color-primary-light: #A5485E;
+    --color-primary-pale: #F4E6EA;
+    
+    --color-secondary: #B38B2E;
+    --color-secondary-dark: #7D5E15;
+    --color-secondary-light: #D9BA64;
+    
+    --color-accent: #3E5563;
+    
+    /* Neutri & sfondi */
+    --color-background: #FBF7F8;
+    --color-surface: #FFFFFF;
+    --color-surface-elevated: #F5EBE1;
+    --color-neutral-100: #F7F0F2;
+    --color-neutral-200: #E6D8DC;
+    --color-neutral-300: #D3C0C6;
+    --color-neutral-400: #9B7D83;
+    
+    /* Testi */
+    --color-text-primary: #2A1519;
+    --color-text-secondary: #4F3238;
+    --color-text-tertiary: #7B5A61;
+    --color-heading: color-mix(in srgb, var(--color-primary) 45%, var(--color-text-primary));
+    
+    /* Bordi */
+    --color-border: #E8D5DA;
+    --color-border-strong: rgba(42, 21, 25, 0.22);
+    --color-divider: rgba(42, 21, 25, 0.12);
+    
+    /* Stati */
+    --color-success: #5B8E5A;
+    --color-warning: #D18425;
+    --color-warning-dark: #9F631A;
+    --color-error: #B83345;
+    --color-info: #456A7F;
+    
+    /* Overlay e gradienti */
+    --overlay-hero-start: rgba(42, 21, 25, 0.68);
+    --overlay-hero-end: rgba(42, 21, 25, 0.38);
+    --color-text-inverse-muted: rgba(255,255,255,0.83);
+    --color-inverse-soft: color-mix(in srgb, var(--color-text-inverse) 78%, transparent);
+    --color-inverse-faint: color-mix(in srgb, var(--color-text-inverse) 33%, transparent);
+    --color-inverse-tint: color-mix(in srgb, var(--color-text-inverse) 17%, transparent);
+    --color-inverse-focus-ring: color-mix(in srgb, var(--color-text-inverse) 26%, transparent);
+    --gradient-primary: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+    --gradient-secondary: linear-gradient(120deg, var(--color-secondary-dark), var(--color-secondary));
+    --gradient-background: radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--color-primary) 8%, var(--color-background)) 0%, var(--color-background) 45%, var(--color-surface) 100%);
+    --gradient-surface: linear-gradient(180deg, var(--color-surface) 0%, color-mix(in srgb, var(--color-surface) 80%, var(--color-background)) 100%);
+    
+    /* Ombre */
+    --shadow-sm: 0 1px 2px 0 rgba(42, 21, 25, 0.07);
+    --shadow-md: 0 8px 24px rgba(42, 21, 25, 0.09);
+    --shadow-lg: 0 18px 45px rgba(42, 21, 25, 0.13);
+}
+
+/* TEMA: BLACK & WHITE */
+body.theme-black {
+    /* Colori principali */
+    --color-primary: #1A1A1A;
+    --color-primary-dark: #000000;
+    --color-primary-light: #4D4D4D;
+    --color-primary-pale: #F0F0F0;
+    
+    --color-secondary: #808080;
+    --color-secondary-dark: #595959;
+    --color-secondary-light: #B3B3B3;
+    
+    --color-accent: #666666;
+    
+    /* Neutri & sfondi */
+    --color-background: #FAFAFA;
+    --color-surface: #FFFFFF;
+    --color-surface-elevated: #F5F5F5;
+    --color-neutral-100: #EEEEEE;
+    --color-neutral-200: #E0E0E0;
+    --color-neutral-300: #D0D0D0;
+    --color-neutral-400: #999999;
+    
+    /* Testi */
+    --color-text-primary: #0D0D0D;
+    --color-text-secondary: #2B2B2B;
+    --color-text-tertiary: #555555;
+    --color-heading: color-mix(in srgb, var(--color-primary) 42%, var(--color-text-primary));
+    
+    /* Bordi */
+    --color-border: #D9D9D9;
+    --color-border-strong: rgba(13, 13, 13, 0.19);
+    --color-divider: rgba(13, 13, 13, 0.11);
+    
+    /* Stati */
+    --color-success: #4A4A4A;
+    --color-warning: #707070;
+    --color-warning-dark: #555555;
+    --color-error: #595959;
+    --color-info: #656565;
+    
+    /* Overlay e gradienti */
+    --overlay-hero-start: rgba(13, 13, 13, 0.72);
+    --overlay-hero-end: rgba(13, 13, 13, 0.42);
+    --color-text-inverse-muted: rgba(255, 255, 255, 0.87);
+    --color-inverse-soft: color-mix(in srgb, var(--color-text-inverse) 82%, transparent);
+    --color-inverse-faint: color-mix(in srgb, var(--color-text-inverse) 36%, transparent);
+    --color-inverse-tint: color-mix(in srgb, var(--color-text-inverse) 19%, transparent);
+    --color-inverse-focus-ring: color-mix(in srgb, var(--color-text-inverse) 27%, transparent);
+    --gradient-primary: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+    --gradient-secondary: linear-gradient(120deg, var(--color-secondary-dark), var(--color-secondary));
+    --gradient-background: radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--color-primary) 12%, var(--color-background)) 0%, var(--color-background) 45%, var(--color-surface) 100%);
+    --gradient-surface: linear-gradient(180deg, var(--color-surface) 0%, color-mix(in srgb, var(--color-surface) 85%, var(--color-background)) 100%);
+    
+    /* Ombre */
+    --shadow-sm: 0 1px 2px 0 rgba(13, 13, 13, 0.06);
+    --shadow-md: 0 8px 24px rgba(13, 13, 13, 0.08);
+    --shadow-lg: 0 18px 45px rgba(13, 13, 13, 0.12);
+}
+
+/* ========================================================
+   Fine tema BLACK & WHITE
+   ======================================================== */
+
+
+/* TEMA 5: BLU NOTTE */
+body.theme-blu {
+    /* Colori principali */
+    --color-primary: #1E3A5F;
+    --color-primary-dark: #0F2137;
+    --color-primary-light: #4A6B95;
+    --color-primary-pale: #E4EBF3;
+    
+    --color-secondary: #C99A3E;
+    --color-secondary-dark: #916E1F;
+    --color-secondary-light: #E8C575;
+    
+    --color-accent: #5D7A4C;
+    
+    /* Neutri & sfondi */
+    --color-background: #F6F9FC;
+    --color-surface: #FFFFFF;
+    --color-surface-elevated: #EDF2F7;
+    --color-neutral-100: #EEF4F9;
+    --color-neutral-200: #D8E3ED;
+    --color-neutral-300: #BFD0E0;
+    --color-neutral-400: #7E90A3;
+    
+    /* Testi */
+    --color-text-primary: #141D2A;
+    --color-text-secondary: #374556;
+    --color-text-tertiary: #627083;
+    --color-heading: color-mix(in srgb, var(--color-primary) 42%, var(--color-text-primary));
+    
+    /* Bordi */
+    --color-border: #CEDAE7;
+    --color-border-strong: rgba(20, 29, 42, 0.19);
+    --color-divider: rgba(20, 29, 42, 0.11);
+    
+    /* Stati */
+    --color-success: #3D9370;
+    --color-warning: #D89327;
+    --color-warning-dark: #A46F1C;
+    --color-error: #BD4840;
+    --color-info: #2878A8;
+    
+    /* Overlay e gradienti */
+    --overlay-hero-start: rgba(20, 29, 42, 0.72);
+    --overlay-hero-end: rgba(20, 29, 42, 0.42);
+    --color-text-inverse-muted: rgba(255,255,255,0.87);
+    --color-inverse-soft: color-mix(in srgb, var(--color-text-inverse) 82%, transparent);
+    --color-inverse-faint: color-mix(in srgb, var(--color-text-inverse) 36%, transparent);
+    --color-inverse-tint: color-mix(in srgb, var(--color-text-inverse) 19%, transparent);
+    --color-inverse-focus-ring: color-mix(in srgb, var(--color-text-inverse) 27%, transparent);
+    --gradient-primary: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+    --gradient-secondary: linear-gradient(120deg, var(--color-secondary-dark), var(--color-secondary));
+    --gradient-background: radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--color-primary) 12%, var(--color-background)) 0%, var(--color-background) 45%, var(--color-surface) 100%);
+    --gradient-surface: linear-gradient(180deg, var(--color-surface) 0%, color-mix(in srgb, var(--color-surface) 85%, var(--color-background)) 100%);
+    
+    /* Ombre */
+    --shadow-sm: 0 1px 2px 0 rgba(20, 29, 42, 0.06);
+    --shadow-md: 0 8px 24px rgba(20, 29, 42, 0.08);
+    --shadow-lg: 0 18px 45px rgba(20, 29, 42, 0.12);
+}
+
+/* ========================================================
+   Fine temi - Rimuovo le alternative commentate
+   ======================================================== */
+
+/* TEMA 2: MARE E AGRUMI - LEGACY [data-theme] */
 [data-theme="mediterraneo"] {
     --color-primary: #1F4F70;
     --color-primary-dark: #0F2C40;
@@ -359,17 +678,20 @@ a:focus-visible {
 }
 
 .btn-primary {
-    background: var(--gradient-primary);
-    border: none;
-    color: white;
+    background: var(--gradient-primary) !important;
+    border: none !important;
+    color: white !important;
     --bs-btn-color: white;
     --bs-btn-hover-color: white;
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: transparent;
 }
 
 .btn-primary:hover {
     transform: translateY(-1px);
     box-shadow: var(--shadow-md);
-    color: white;
+    color: white !important;
+    background: var(--gradient-primary) !important;
 }
 
 .btn-primary:active {
@@ -390,6 +712,177 @@ a:focus-visible {
 .btn-outline-primary:hover {
     box-shadow: var(--shadow-sm);
     transform: translateY(-1px);
+}
+
+/* OVERRIDE BOTTONI BOOTSTRAP SECONDARI */
+.btn-outline-secondary {
+    --bs-btn-color: var(--color-text-secondary);
+    --bs-btn-border-color: var(--color-border);
+    --bs-btn-hover-color: var(--color-text-inverse);
+    --bs-btn-hover-bg: var(--color-text-secondary);
+    --bs-btn-hover-border-color: var(--color-text-secondary);
+    --bs-btn-active-color: var(--color-text-inverse);
+    --bs-btn-active-bg: var(--color-text-primary);
+    --bs-btn-active-border-color: var(--color-text-primary);
+}
+
+.btn-secondary {
+    --bs-btn-color: var(--color-text-inverse);
+    --bs-btn-bg: var(--color-text-secondary);
+    --bs-btn-border-color: var(--color-text-secondary);
+    --bs-btn-hover-color: var(--color-text-inverse);
+    --bs-btn-hover-bg: var(--color-text-primary);
+    --bs-btn-hover-border-color: var(--color-text-primary);
+}
+
+.btn-light {
+    --bs-btn-color: var(--color-text-primary);
+    --bs-btn-bg: var(--color-surface);
+    --bs-btn-border-color: var(--color-border);
+    --bs-btn-hover-color: var(--color-text-primary);
+    --bs-btn-hover-bg: var(--color-surface-elevated);
+    --bs-btn-hover-border-color: var(--color-border);
+}
+
+/* ICONE BOOTSTRAP - ADATTA AI TEMI */
+.bi {
+    color: currentColor;
+}
+
+.card .bi {
+    color: var(--color-text-secondary) !important;
+    transition: color var(--transition-fast);
+}
+
+.card:hover .bi,
+.card .btn:hover .bi {
+    color: var(--color-primary) !important;
+}
+
+.btn .bi {
+    color: inherit;
+}
+
+.text-muted .bi {
+    color: var(--color-text-secondary) !important;
+}
+
+/* ========================================================
+   SVG Decorativi - Adattamento completo ai temi
+   ======================================================== */
+
+/* Gradienti SVG: stop-color negli attributi style */
+svg stop[style*="#C76A52"],
+svg stop[style*="#c76a52"] {
+    stop-color: var(--color-primary-light) !important;
+}
+
+svg stop[style*="#823228"] {
+    stop-color: var(--color-primary) !important;
+}
+
+svg stop[style*="#C08C3B"],
+svg stop[style*="#c08c3b"],
+svg stop[style*="#F3C471"],
+svg stop[style*="#f3c471"] {
+    stop-color: var(--color-secondary) !important;
+}
+
+svg stop[style*="#2F6D5C"],
+svg stop[style*="#2f6d5c"] {
+    stop-color: var(--color-accent) !important;
+}
+
+svg stop[style*="#E09A6A"],
+svg stop[style*="#e09a6a"] {
+    stop-color: var(--color-secondary-light) !important;
+}
+
+/* Attributi fill diretti */
+svg circle[fill="#C76A52"],
+svg circle[fill="#c76a52"],
+svg rect[fill="#C76A52"],
+svg rect[fill="#c76a52"],
+svg path[fill="#C76A52"],
+svg path[fill="#c76a52"] {
+    fill: var(--color-primary-light);
+}
+
+svg circle[fill="#823228"],
+svg rect[fill="#823228"],
+svg path[fill="#823228"] {
+    fill: var(--color-primary);
+}
+
+svg circle[fill="#C08C3B"],
+svg circle[fill="#c08c3b"],
+svg rect[fill="#C08C3B"],
+svg rect[fill="#c08c3b"],
+svg path[fill="#C08C3B"],
+svg path[fill="#c08c3b"] {
+    fill: var(--color-secondary);
+}
+
+svg circle[fill="#2F6D5C"],
+svg circle[fill="#2f6d5c"],
+svg rect[fill="#2F6D5C"],
+svg rect[fill="#2f6d5c"],
+svg path[fill="#2F6D5C"],
+svg path[fill="#2f6d5c"] {
+    fill: var(--color-accent);
+}
+
+svg rect[fill="#FFFBF7"],
+svg rect[fill="#fffbf7"] {
+    fill: var(--color-background);
+}
+
+svg rect[fill="#F7EDE4"],
+svg rect[fill="#f7ede4"] {
+    fill: var(--color-surface-elevated);
+}
+
+/* Attributi stroke */
+svg [stroke="#C76A52"],
+svg [stroke="#c76a52"] {
+    stroke: var(--color-primary-light);
+}
+
+svg [stroke="#823228"] {
+    stroke: var(--color-primary);
+}
+
+svg [stroke="#C08C3B"],
+svg [stroke="#c08c3b"],
+svg [stroke="#F3C471"],
+svg [stroke="#f3c471"] {
+    stroke: var(--color-secondary);
+}
+
+svg [stroke="#2F6D5C"],
+svg [stroke="#2f6d5c"] {
+    stroke: var(--color-accent);
+}
+
+svg [stroke="#E09A6A"],
+svg [stroke="#e09a6a"] {
+    stroke: var(--color-secondary-light);
+}
+
+/* Testo SVG */
+svg text[fill="#823228"] {
+    fill: var(--color-primary);
+}
+
+svg text[fill="#2F6D5C"],
+svg text[fill="#2f6d5c"] {
+    fill: var(--color-accent);
+}
+
+/* Colori addizionali flood-color nei filtri */
+svg feDropShadow[flood-color="#4A140D"],
+svg feDropShadow[flood-color="#4a140d"] {
+    flood-color: var(--color-primary-dark);
 }
 
 .btn-secondary {
@@ -625,6 +1118,55 @@ a:focus-visible {
 }
 
 /* ========================================================
+   OVERRIDE BOOTSTRAP CARDS - ADATTA AI TEMI
+   ======================================================== */
+
+/* Sovrascrivi tutte le card Bootstrap per adattarle ai temi */
+.card {
+    background-color: var(--color-surface) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.card-body {
+    background-color: var(--color-surface) !important;
+    color: var(--color-text-primary) !important;
+}
+
+.card-title {
+    color: var(--color-text-primary) !important;
+}
+
+.card-title a {
+    color: var(--color-text-primary) !important;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.card-title a:hover {
+    color: var(--color-primary) !important;
+}
+
+.card-text {
+    color: var(--color-text-secondary) !important;
+}
+
+.card-img-top {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.card-footer {
+    background-color: var(--color-surface-elevated) !important;
+    border-top-color: var(--color-border) !important;
+}
+
+/* ========================================================
    SEZIONI E LAYOUT
    ======================================================== */
 
@@ -811,8 +1353,8 @@ a:focus-visible {
 .pages-badge {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background: rgba(130, 50, 40, 0.12);
-    border: 1px solid rgba(130, 50, 40, 0.25);
+    background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
     border-radius: 50px;
     font-size: 0.875rem;
     font-weight: 600;

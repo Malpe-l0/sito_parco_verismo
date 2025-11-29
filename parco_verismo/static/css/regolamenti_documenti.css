@@ -704,7 +704,7 @@ section.page-section:nth-of-type(even) {
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
-    border: 2px solid white;
+    border: 2px solid var(--color-text-inverse);
     margin: 0.5rem;
 }
 
@@ -779,7 +779,7 @@ section.page-section:nth-of-type(even) {
 
 /* --- PAGE INTRO SECTION --- */
 .page-intro {
-    background-color: #f8f9fa;
+    background-color: var(--color-surface-elevated);
     border-bottom: 2px solid var(--color-primary);
     margin-top: 5rem;
     padding: 2.5rem 0 !important;
@@ -795,7 +795,7 @@ section.page-section:nth-of-type(even) {
 .page-intro .lead {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #6c757d;
+    color: var(--color-text-secondary);
 }
 
 /* --- PAGE SECTION SPACING --- */

@@ -217,7 +217,7 @@ header::after {
 
 .hero-cta .btn-primary:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(131, 50, 40, 0.4);
+    box-shadow: var(--shadow-lg);
     color: white;
 }
 
@@ -488,7 +488,7 @@ section.hp-section {
 
 .hp-cta-buttons .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: var(--color-shadow-lg);
+    box-shadow: var(--shadow-lg);
     color: white;
 }
 
@@ -557,9 +557,7 @@ section.hp-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg,
-        rgba(199, 106, 82, 0.15) 0%,
-        rgba(192, 140, 59, 0.1) 100%);
+    background: color-mix(in srgb, var(--color-primary) 15%, transparent);
     border-radius: 50%;
     margin: 0 auto;
     color: var(--color-primary);
@@ -568,7 +566,7 @@ section.hp-section {
 }
 
 .hp-card:hover .hp-card-icon {
-    background: var(--color-gradient-primary);
+    background: var(--gradient-primary);
     color: white;
     transform: scale(1.2) rotate(10deg);
 }
@@ -614,7 +612,7 @@ section.hp-section {
     position: relative;
     border-radius: 1.5rem;
     overflow: hidden;
-    box-shadow: var(--color-shadow-lg);
+    box-shadow: var(--shadow-lg);
 }
 
 .hp-illustration {

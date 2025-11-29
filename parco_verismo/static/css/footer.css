@@ -1,0 +1,48 @@
+/* Footer Logos */
+.footer-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    padding: 0;
+    max-width: 100%;
+}
+
+.footer-logo {
+    height: 80px !important;
+    max-height: 80px !important;
+    max-width: 220px !important;
+    width: auto !important;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+.footer-logo:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-logos {
+        gap: 1.5rem;
+    }
+    
+    .footer-logo {
+        height: 50px !important;
+        max-width: 120px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-logos {
+        gap: 1rem;
+    }
+    
+    .footer-logo {
+        height: 40px !important;
+        max-width: 100px !important;
+    }
+}
