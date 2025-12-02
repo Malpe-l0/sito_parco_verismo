@@ -218,6 +218,38 @@ class Itinerario(TranslatableModel):
         null=True,
         help_text="Link al percorso su Google Maps (opzionale)"
     )
+    # Campi per la mappa interattiva
+    coordinate_tappe = models.JSONField(
+        blank=True,
+        null=True,
+        help_text="JSON con le coordinate delle tappe: [{'nome': 'Tappa 1', 'coords': [lat, lng], 'descrizione': '...', 'order': 1}, ...]"
+    )
+    colore_percorso = models.CharField(
+        max_length=7,
+        default='#2E7D32',
+        help_text="Colore del percorso sulla mappa (formato hex, es: #2E7D32)"
+    )
+    icona_percorso = models.CharField(
+        max_length=10,
+        default='📖',
+        help_text="Emoji/icona per il percorso (es: 📖, 🏛️, 🍷)"
+    )
+    durata_stimata = models.CharField(
+        max_length=50,
+        blank=True,
+        null=True,
+        help_text="Durata stimata (es: '2-3 ore', 'Mezza giornata')"
+    )
+    difficolta = models.CharField(
+        max_length=50,
+        choices=[
+            ('facile', 'Facile'),
+            ('media', 'Media'),
+            ('difficile', 'Difficile'),
+        ],
+        default='facile',
+        help_text="Difficoltà del percorso"
+    )
     ordine = models.IntegerField(
         default=0,
         help_text="Ordine di visualizzazione (numero più basso = prima)."

@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Opera, Autore, Evento, Notizia, Documento, FotoArchivio, Itinerario
 from django.db.models import Q
 from django.http import HttpResponse
+import json
 
 def home_view(request):
     from django.utils import timezone
@@ -222,7 +223,20 @@ def accrediti_finanziamenti_view(request):
 def itinerari_verghiani_view(request):
     """Lista degli itinerari di tipo 'verghiano'."""
     itinerari = Itinerario.objects.filter(is_active=True, tipo='verghiano').order_by('ordine', 'translations__titolo')
-    context = {'itinerari': itinerari}
+    
+    # Prepara i dati per il template con serializzazione corretta
+    itinerari_data = []
+    for itinerario in itinerari:
+        coordinate_tappe = itinerario.coordinate_tappe if itinerario.coordinate_tappe else []
+        itinerari_data.append({
+            'obj': itinerario,
+            'coordinate_tappe_json': json.dumps(coordinate_tappe)
+        })
+    
+    context = {
+        'itinerari': itinerari,
+        'itinerari_data': itinerari_data
+    }
     return render(request, 'parco_verismo/itinerari_verghiani.html', context)
 
 

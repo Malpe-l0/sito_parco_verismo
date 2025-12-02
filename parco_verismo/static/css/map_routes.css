@@ -1,0 +1,357 @@
+/* Stili per la mappa con percorsi stilizzati */
+
+.map-routes-container {
+    position: relative;
+    min-height: 600px;
+    margin: 2rem 0;
+}
+
+.map-container {
+    height: 600px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Pannello laterale percorsi */
+.routes-sidebar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 320px;
+    max-height: calc(100% - 40px);
+    overflow-y: auto;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.routes-sidebar.collapsed {
+    transform: translateX(-100%);
+}
+
+.routes-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.routes-sidebar-header h5 {
+    margin: 0;
+    color: #333;
+    font-weight: 600;
+}
+
+.toggle-sidebar-btn {
+    position: absolute;
+    top: 20px;
+    left: 350px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.toggle-sidebar-btn:hover {
+    background: #f5f5f5;
+    transform: scale(1.1);
+}
+
+/* Pulsanti percorsi */
+.route-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.route-btn:hover {
+    border-color: #ccc;
+    background: #f8f9fa;
+    transform: translateX(5px);
+}
+
+.route-btn.active {
+    border-width: 3px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-weight: 600;
+}
+
+.route-btn-icon {
+    font-size: 1.5rem;
+    min-width: 30px;
+    text-align: center;
+}
+
+.route-btn-content h6 {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.route-btn-content small {
+    color: #666;
+    font-size: 0.75rem;
+}
+
+/* Marker numerati personalizzati - Cerchi uniformi */
+.numbered-marker {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.marker-pin {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #c30b82;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    border: 3px solid white;
+    transition: transform 0.2s ease;
+}
+
+.marker-pin:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.marker-number {
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    line-height: 1;
+    z-index: 10;
+}
+
+/* Popup personalizzati */
+.route-popup {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.route-popup-header {
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.route-popup-body {
+    padding: 15px;
+}
+
+.route-popup-body h6 {
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.route-icon {
+    font-size: 1.2rem;
+}
+
+/* Pannello informazioni percorso */
+.route-info-panel {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 350px;
+    z-index: 1000;
+    display: none;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.route-info-content {
+    padding-left: 15px;
+}
+
+.route-steps ol {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.route-steps li {
+    margin-bottom: 5px;
+}
+
+/* Controlli mappa */
+.map-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
+}
+
+.map-control-btn {
+    background: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.map-control-btn:hover {
+    background: #f5f5f5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .routes-sidebar {
+        max-width: 280px;
+        padding: 15px;
+    }
+
+    .toggle-sidebar-btn {
+        left: 300px;
+    }
+
+    .route-info-panel {
+        max-width: 280px;
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: calc(100% - 20px);
+    }
+
+    .map-container {
+        height: 500px;
+    }
+}
+
+@media (max-width: 576px) {
+    .routes-sidebar {
+        max-width: 240px;
+        padding: 12px;
+    }
+
+    .toggle-sidebar-btn {
+        left: 260px;
+    }
+
+    .route-btn {
+        padding: 10px 12px;
+    }
+
+    .route-btn-icon {
+        font-size: 1.2rem;
+    }
+
+    .route-btn-content h6 {
+        font-size: 0.85rem;
+    }
+}
+
+/* Legenda */
+.route-legend {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    border: 2px solid #e0e0e0;
+}
+
+.route-legend h6 {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
+
+.legend-line {
+    width: 30px;
+    height: 3px;
+    border-radius: 2px;
+}
+
+/* Animazione caricamento */
+.loading-map {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2000;
+}
+
+.loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <link rel="stylesheet" href="{% static 'css/itinerari.css' %}" />
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/map_routes.css' %}" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   </head>
 
   <body>
@@ -35,22 +38,83 @@
     </section>
 
     <div class="container my-5">
-      <div class="row">
-        {% for itinerario in itinerari %}
-          {% include 'parco_verismo/components/itinerario_card.html' with itinerario=itinerario %}
-        {% empty %}
-        <div class="col-12">
-          <div class="alert alert-info text-center">
-            <h5>{% trans 'Nessun itinerario disponibile' %}</h5>
-            <p>{% trans 'Al momento non ci sono itinerari verghiani disponibili. Torna presto per scoprire i percorsi!' %}</p>
+      {% if itinerari %}
+      <h2 class="text-center mb-4" style="color: #823228;">{% trans 'Mappa Itinerari Verghiani' %}</h2>
+      <p class="text-center text-muted mb-4">{% trans 'Esplora i percorsi letterari di Giovanni Verga attraverso la Sicilia' %}</p>
+
+      <section id="map-routes-section" class="map-routes-container mb-5">
+        <!-- Mappa -->
+        <div id="map" class="map-container"></div>
+
+        <!-- Pannello laterale con i percorsi -->
+        <div class="routes-sidebar">
+          <div class="routes-sidebar-header">
+            <h5>🗺️ {% trans 'Percorsi Verghiani' %}</h5>
+          </div>
+
+          <!-- Pulsanti percorsi dinamici -->
+          {% for data in itinerari_data %}
+          <button class="route-btn" 
+                  data-itinerario='{"slug": "{{ data.obj.slug }}", 
+                                    "titolo": "{{ data.obj.titolo|escapejs }}", 
+                                    "descrizione_breve": "{{ data.obj.descrizione|truncatewords:15|escapejs }}",
+                                    "colore": "{{ data.obj.colore_percorso|default:'#2E7D32' }}", 
+                                    "icona": "{{ data.obj.icona_percorso|default:'📖' }}", 
+                                    "durata": "{{ data.obj.durata_stimata|default:'' }}", 
+                                    "difficolta": "{{ data.obj.get_difficolta_display|default:'' }}",
+                                    "coordinate_tappe": {{ data.coordinate_tappe_json|safe }}}'>
+            <span class="route-btn-icon">{{ data.obj.icona_percorso|default:'📖' }}</span>
+            <div class="route-btn-content">
+              <h6>{{ data.obj.titolo }}</h6>
+              <small>
+                {% if data.obj.durata_stimata %}{{ data.obj.durata_stimata }}{% endif %}
+                {% if data.obj.durata_stimata and data.obj.difficolta %} · {% endif %}
+                {% if data.obj.difficolta %}{{ data.obj.get_difficolta_display }}{% endif %}
+              </small>
+            </div>
+          </button>
+          {% endfor %}
+
+          <!-- Legenda -->
+          <div class="route-legend">
+            <h6>{% trans 'Legenda' %}</h6>
+            {% for itinerario in itinerari %}
+            <div class="legend-item">
+              <div class="legend-line" style="background: {{ itinerario.colore_percorso|default:'#2E7D32' }};"></div>
+              <span>{{ itinerario.titolo|truncatewords:3 }}</span>
+            </div>
+            {% endfor %}
           </div>
         </div>
-        {% endfor %}
+
+        <!-- Controlli mappa -->
+        <div class="map-controls">
+          <button class="map-control-btn reset-view-btn">
+            <span>🎯</span>
+            <span>{% trans 'Reset vista' %}</span>
+          </button>
+        </div>
+
+        <!-- Pannello informazioni percorso -->
+        <div class="route-info-panel"></div>
+      </section>
+
+      {% else %}
+      <div class="alert alert-info text-center">
+        <h5>{% trans 'Nessun itinerario disponibile' %}</h5>
+        <p>{% trans 'Al momento non ci sono itinerari verghiani disponibili. Torna presto per scoprire i percorsi!' %}</p>
       </div>
+      {% endif %}
     </div>
     {% endblock %}
     
     {% include 'parco_verismo/components/footer.html' %}
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <!-- Map Scripts -->
+    <script src="{% static 'js/map/script_itinerari_verghiani.js' %}"></script>
 
     <!-- Bootstrap Bundle JS -->
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>

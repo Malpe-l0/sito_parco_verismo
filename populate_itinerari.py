@@ -46,7 +46,6 @@ e i Faraglioni dei Ciclopi, teatro delle vicende della famiglia Toscano. Il perc
 le vie del borgo marinaro, toccando i luoghi dove Verga ambientò le sue storie più celebri.''',
             'tipo': 'verghiano',
             'ordine': 1,
-            'link_strava': 'https://www.strava.com/routes/123456789',
             'immagine_path': 'vizzini/centrostorico.jpg',
             'is_active': True
         },
@@ -59,7 +58,6 @@ lo scrittore, il centro storico con le sue chiese barocche e i luoghi che hanno 
 vicende del protagonista. Un viaggio nella stratificazione sociale della Sicilia dell'Ottocento.''',
             'tipo': 'verghiano',
             'ordine': 2,
-            'link_strava': 'https://www.strava.com/routes/234567890',
             'immagine_path': 'vizzini/borgo.jpg',
             'is_active': True
         },
@@ -72,7 +70,6 @@ nel tempo, gli stessi che Verga descrisse con crudo realismo nelle sue opere. Un
 Sicilia contadina dell'Ottocento, tra tradizioni e fatiche quotidiane.''',
             'tipo': 'verghiano',
             'ordine': 3,
-            'link_strava': 'https://www.strava.com/routes/345678901',
             'immagine_path': 'vizzini/bosco.jpeg',
             'is_active': True
         },
@@ -85,7 +82,6 @@ borghi storici, campagne e il mare. Questo itinerario offre una panoramica compl
 dalle colline dell'entroterra fino alle coste del Mar Ionio.''',
             'tipo': 'verghiano',
             'ordine': 4,
-            'link_strava': 'https://www.strava.com/routes/456789012',
             'immagine_path': 'vizzini/casaVerga.jpg',
             'is_active': True
         },
@@ -98,7 +94,6 @@ Il percorso tocca anche il Palazzo Verga, il Duomo e le vie che Verga percorreva
 Un viaggio nella memoria dello scrittore e nella storia del borgo.''',
             'tipo': 'verghiano',
             'ordine': 5,
-            'link_strava': 'https://www.strava.com/routes/567890123',
             'immagine_path': 'vizzini/cunziria.jpg',
             'is_active': True
         },
@@ -110,7 +105,6 @@ Un viaggio nella memoria dello scrittore e nella storia del borgo.''',
             defaults={
                 'tipo': itinerario_data['tipo'],
                 'ordine': itinerario_data['ordine'],
-                'link_strava': itinerario_data['link_strava'],
                 'is_active': itinerario_data.get('is_active', True)
             }
         )
@@ -118,7 +112,6 @@ Un viaggio nella memoria dello scrittore e nella storia del borgo.''',
         if not created:
             itinerario.tipo = itinerario_data['tipo']
             itinerario.ordine = itinerario_data['ordine']
-            itinerario.link_strava = itinerario_data['link_strava']
             itinerario.is_active = itinerario_data.get('is_active', True)
         
         # Copia l'immagine se specificata e non esiste già
