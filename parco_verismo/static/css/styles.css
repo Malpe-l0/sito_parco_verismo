@@ -3,6 +3,70 @@
    ======================================================== */
 
 /* ========================================================
+   ACCESSIBILITA'
+   ======================================================== */
+
+/* Skip to main content link */
+.skip-to-main {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 9999;
+    padding: 1rem 1.5rem;
+    background: var(--color-primary, #823228);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0 0 0.5rem 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.skip-to-main:focus {
+    left: 0;
+    outline: 3px solid #FFD700;
+    outline-offset: 2px;
+}
+
+/* Focus visible improvements */
+*:focus-visible {
+    outline: 2px solid var(--color-primary, #823228);
+    outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--color-primary, #823228);
+    outline-offset: 2px;
+}
+
+/* Improve contrast for links */
+a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+a:hover,
+a:focus {
+    text-decoration-thickness: 2px;
+}
+
+/* Screen reader only content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ========================================================
    PALETTE COLORI - Aggiungi una classe al <body> per cambiare tema:
    <body> oppure <body class="theme-default">  = TERRE DI VERGA
    <body class="theme-mare">      = MARE E AGRUMI  
