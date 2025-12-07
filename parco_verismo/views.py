@@ -1,11 +1,40 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Opera, Autore, Evento, Notizia, Documento, FotoArchivio, Itinerario
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Opera, Autore, Evento, Notizia, Documento, FotoArchivio, Itinerario, Prenotazione
 from django.db.models import Q
 from django.http import HttpResponse
+from django.contrib import messages
 import json
 
 def home_view(request):
     from django.utils import timezone
+
+    # Gestione form di contatto
+    if request.method == 'POST':
+        try:
+            # Gestione data preferita
+            data_preferita = request.POST.get('data_preferita')
+            if data_preferita:
+                from datetime import datetime
+                data_preferita = datetime.strptime(data_preferita, '%Y-%m-%d').date()
+            else:
+                data_preferita = None
+            
+            richiesta = Prenotazione(
+                nome=request.POST.get('nome'),
+                cognome=request.POST.get('cognome'),
+                email=request.POST.get('email'),
+                telefono=request.POST.get('telefono', ''),
+                luogo=request.POST.get('luogo'),
+                itinerario=request.POST.get('itinerario'),
+                data_preferita=data_preferita,
+                numero_partecipanti=int(request.POST.get('numero_partecipanti', 1)),
+                messaggio=request.POST.get('messaggio', '')
+            )
+            richiesta.save()
+            messages.success(request, 'Prenotazione inviata con successo! Ti contatteremo presto via email.')
+            return redirect('home' + '#prenota-itinerario')
+        except Exception as e:
+            messages.error(request, 'Si è verificato un errore. Riprova più tardi.')
 
     # Eventi: prendere i prossimi eventi attivi (a partire da oggi) ordinati per data
     eventi_latest = Evento.objects.filter(is_active=True, data_inizio__gte=timezone.now()).order_by('data_inizio')[:4]
@@ -16,6 +45,7 @@ def home_view(request):
     context = {
         'eventi': eventi_latest,
         'notizie': notizie_latest,
+        'oggi': timezone.now().date().isoformat(),
     }
     return render(request, 'parco_verismo/index.html', context)
 
@@ -267,3 +297,23 @@ def itinerario_detail_view(request, slug):
     context = {'itinerario': itinerario}
     # If you later create a dedicated detail template, change the template path here.
     return render(request, 'parco_verismo/itinerario_detail.html', context)
+
+
+def privacy_policy_view(request):
+    """Pagina Privacy Policy conforme GDPR"""
+    return render(request, 'parco_verismo/privacy_policy.html')
+
+
+def note_legali_view(request):
+    """Pagina Note Legali per PA"""
+    return render(request, 'parco_verismo/note_legali.html')
+
+
+def cookie_policy_view(request):
+    """Pagina Cookie Policy"""
+    return render(request, 'parco_verismo/cookie_policy.html')
+
+
+def dichiarazione_accessibilita_view(request):
+    """Dichiarazione di Accessibilità AGID obbligatoria per PA"""
+    return render(request, 'parco_verismo/dichiarazione_accessibilita.html')

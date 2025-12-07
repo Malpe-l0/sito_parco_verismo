@@ -54,4 +54,10 @@ urlpatterns = [
     path('itinerari/capuaniani/', views.itinerari_capuaniani_view, name='itinerari_capuaniani'),
     path('itinerari/tematici/', views.itinerari_tematici_view, name='itinerari_tematici'),
     path('itinerario/<slug:slug>/', views.itinerario_detail_view, name='itinerario_detail'),
+    
+    # Pagine di conformità GDPR e PA
+    path('privacy/', views.privacy_policy_view, name='privacy_policy'),
+    path('note-legali/', views.note_legali_view, name='note_legali'),
+    path('cookie-policy/', views.cookie_policy_view, name='cookie_policy'),
+    path('accessibilita/', views.dichiarazione_accessibilita_view, name='dichiarazione_accessibilita'),
 ]
