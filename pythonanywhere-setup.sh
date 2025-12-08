@@ -32,22 +32,23 @@ if [ ! -d "/home/$USER" ]; then
     exit 1
 fi
 
-VENV_NAME="parco_verismo"
+VENV_DIR="venv"
 PROJECT_DIR="$PWD"
 
 # 1. Virtual Environment
-printf "${YELLOW}[1/6]${NC} Creazione virtual environment '${VENV_NAME}'...\n"
-if [ ! -d "$HOME/.virtualenvs/$VENV_NAME" ]; then
-    mkvirtualenv --python=/usr/bin/python3.10 "$VENV_NAME"
+printf "${YELLOW}[1/6]${NC} Creazione virtual environment...\n"
+if [ ! -d "$VENV_DIR" ]; then
+    python3.10 -m venv "$VENV_DIR"
     printf "${GREEN}✓${NC} Virtual environment creato\n\n"
 else
     printf "${GREEN}✓${NC} Virtual environment già esistente\n\n"
-    workon "$VENV_NAME"
 fi
+
+# Attiva virtualenv
+source "$VENV_DIR/bin/activate"
 
 # 2. Installazione dipendenze
 printf "${YELLOW}[2/6]${NC} Installazione dipendenze Python...\n"
-workon "$VENV_NAME"
 pip install --upgrade pip
 pip install -r requirements.txt
 printf "${GREEN}✓${NC} Dipendenze installate\n\n"
@@ -78,20 +79,17 @@ fi
 
 # 4. Migrazioni database
 printf "${YELLOW}[4/6]${NC} Esecuzione migrazioni database...\n"
-workon "$VENV_NAME"
 python manage.py migrate
 printf "${GREEN}✓${NC} Migrazioni completate\n\n"
 
 # 5. Raccolta file statici
 printf "${YELLOW}[5/6]${NC} Raccolta file statici...\n"
-workon "$VENV_NAME"
 python manage.py collectstatic --noinput
 printf "${GREEN}✓${NC} File statici raccolti\n\n"
 
 # 6. Creazione superuser
 printf "${YELLOW}[6/6]${NC} Creazione superuser...\n"
 printf "${CYAN}Inserisci i dati per l'amministratore:${NC}\n"
-workon "$VENV_NAME"
 python manage.py createsuperuser
 
 printf "\n${GREEN}╔═══════════════════════════════════════════════╗${NC}\n"
@@ -109,7 +107,7 @@ printf "   URL: ${YELLOW}/media/${NC}   Directory: ${YELLOW}$PROJECT_DIR/media${
 printf "6. Reload dell'app web\n\n"
 
 printf "${CYAN}Per popolare il database con dati demo:${NC}\n"
-printf "   workon $VENV_NAME\n"
+printf "   source venv/bin/activate\n"
 printf "   python populate_db_complete.py\n\n"
 
 printf "${GREEN}✓ Tutto pronto!${NC}\n\n"
