@@ -1,0 +1,52 @@
+"""
+Views per Itinerari turistici.
+"""
+# Standard library imports
+import json
+
+# Django imports
+from django.shortcuts import render, get_object_or_404
+
+# Local imports
+from ..models import Itinerario
+
+
+def itinerari_verghiani_view(request):
+    """Lista degli itinerari di tipo 'verghiano'."""
+    itinerari = Itinerario.objects.filter(is_active=True, tipo='verghiano').order_by('ordine', 'translations__titolo')
+    
+    # Prepara i dati per il template con serializzazione corretta
+    itinerari_data = []
+    for itinerario in itinerari:
+        coordinate_tappe = itinerario.coordinate_tappe if itinerario.coordinate_tappe else []
+        itinerari_data.append({
+            'obj': itinerario,
+            'coordinate_tappe_json': json.dumps(coordinate_tappe)
+        })
+    
+    context = {
+        'itinerari': itinerari,
+        'itinerari_data': itinerari_data
+    }
+    return render(request, 'parco_verismo/itinerari_verghiani.html', context)
+
+
+def itinerari_capuaniani_view(request):
+    """Lista degli itinerari di tipo 'capuaniano'."""
+    itinerari = Itinerario.objects.filter(is_active=True, tipo='capuaniano').order_by('ordine', 'translations__titolo')
+    context = {'itinerari': itinerari}
+    return render(request, 'parco_verismo/itinerari_verghiani.html', context)
+
+
+def itinerari_tematici_view(request):
+    """Lista degli itinerari di tipo 'tematico'."""
+    itinerari = Itinerario.objects.filter(is_active=True, tipo='tematico').order_by('ordine', 'translations__titolo')
+    context = {'itinerari': itinerari}
+    return render(request, 'parco_verismo/itinerari_verghiani.html', context)
+
+
+def itinerario_detail_view(request, slug):
+    """Pagina di dettaglio di un singolo itinerario."""
+    itinerario = get_object_or_404(Itinerario, slug=slug, is_active=True)
+    context = {'itinerario': itinerario}
+    return render(request, 'parco_verismo/itinerario_detail.html', context)

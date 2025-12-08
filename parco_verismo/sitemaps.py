@@ -35,7 +35,7 @@ class StaticViewSitemap(Sitemap):
             'privacy_policy',
             'cookie_policy',
             'note_legali',
-            'dichiarazione_accessibilita',
+
         ]
 
     def location(self, item):
