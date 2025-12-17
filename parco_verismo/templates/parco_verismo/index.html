@@ -3,7 +3,7 @@
 
 {% block body_class %}has-hero{% endblock %}
 
-{% block title %}{% trans 'Parco Letterario Verismo' %}{% endblock %}
+{% block title %}{% trans 'Parco Letterario Giovanni Verga e Luigi Capuana -- I luoghi del Verismo' %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
@@ -14,7 +14,10 @@
 <header>
     <video class="videobg" src="{% static 'assets/video/videobg.mp4' %}" autoplay muted loop></video>
     <div class="hero-content">
-        <h1 class="hero-title">{% trans 'Parco Letterario Giovanni Verga e Luigi Capuana' %}</h1>
+        <h1 class="hero-title">
+            {% trans 'Parco Letterario' %}<br>
+            {% trans 'Giovanni Verga e Luigi Capuana' %}
+        </h1>
         <p class="hero-subtitle">{% trans 'Un viaggio nella Sicilia Verista' %}</p>
     </div>
 </header>

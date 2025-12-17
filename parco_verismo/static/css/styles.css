@@ -94,7 +94,7 @@ body.theme-default {
     /* Neutri & sfondi */
     --color-background: #FFFBF7;
     --color-surface: #FFFEFD;
-    --color-surface-elevated: #F7EDE4;
+    --color-surface-elevated: #f0f0f0;
     --color-neutral-100: #FBF2EC;
     --color-neutral-200: #EBDACF;
     --color-neutral-300: #D8C5BA;
@@ -901,8 +901,8 @@ svg rect[fill="#fffbf7"] {
     fill: var(--color-background);
 }
 
-svg rect[fill="#F7EDE4"],
-svg rect[fill="#f7ede4"] {
+svg rect[fill="#f0f0f0"],
+svg rect[fill="#f0f0f0"] {
     fill: var(--color-surface-elevated);
 }
 
@@ -1013,8 +1013,8 @@ svg feDropShadow[flood-color="#4a140d"] {
 }
 
 .site-footer .social-links .footer-social-link {
-    width: 40px;
-    height: 40px;
+    width: 46px;
+    height: 46px;
     border-radius: var(--radius-full);
     border: 1px solid var(--color-inverse-faint);
     display: inline-flex;
@@ -1385,7 +1385,7 @@ svg feDropShadow[flood-color="#4a140d"] {
     align-items: center;
     background: linear-gradient(135deg, 
         #F5E6D9 0%,
-        #F7EDE4 50%,
+        #f0f0f0 50%,
         #FBF2EC 100%),
         url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="dots" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(130,50,40,0.05)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23dots)"/></svg>');
     background-size: cover;
