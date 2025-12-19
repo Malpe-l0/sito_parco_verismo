@@ -1,19 +1,19 @@
-# 📚 Parco Letterario del Verismo
+# Parco Letterario del Verismo
 
 Piattaforma web moderna per la promozione e valorizzazione del patrimonio letterario verista siciliano, con focus su Giovanni Verga e Luigi Capuana.
 
-## ✨ Caratteristiche
+## Caratteristiche
 
-- 🌍 **Multilingua** - Contenuti in Italiano e Inglese
-- 📖 **Biblioteca Digitale** - Opere, autori e analisi letterarie
-- 🗺️ **Itinerari Turistici** - Percorsi letterari interattivi
-- 📅 **Eventi e Notizie** - Calendario eventi e ultime notizie
-- 📄 **Archivio Documentale** - Studi, ricerche e documenti
-- 📝 **Sistema Prenotazioni** - Gestione prenotazioni itinerari guidati
-- 🎨 **Archivio Fotografico** - Galleria fotografica organizzata
-- ♿ **Accessibilità** - Conforme AGID e GDPR
+-  **Multilingua** - Contenuti in Italiano e Inglese
+-  **Biblioteca Digitale** - Opere, autori e analisi letterarie
+-  **Itinerari Turistici** - Percorsi letterari interattivi
+-  **Eventi e Notizie** - Calendario eventi e ultime notizie
+-  **Archivio Documentale** - Studi, ricerche e documenti
+-  **Sistema Prenotazioni** - Gestione prenotazioni itinerari guidati
+-  **Archivio Fotografico** - Galleria fotografica organizzata
+-  **Accessibilità** - Conforme AGID e GDPR
 
-## 🚀 Stack Tecnologico
+##  Stack Tecnologico
 
 - **Django 5.2.8** - Framework web Python
 - **Python 3.8+** - Linguaggio backend
@@ -67,7 +67,7 @@ Lo script `quick-start` fa **tutto automaticamente**:
 
 ---
 
-## 🔄 Avvio Quotidiano
+## Avvio Quotidiano
 
 **Linux/Mac:**
 ```bash
@@ -85,7 +85,7 @@ python manage.py runserver
 
 ---
 
-## 🎯 Setup Manuale (Opzionale)
+## Setup Manuale (Opzionale)
 
 Solo se preferisci controllare ogni passaggio:
 
@@ -113,7 +113,7 @@ python manage.py runserver
 
 ---
 
-## 🏗️ Architettura
+## Architettura
 
 ### Models (Dominio)
 
@@ -148,7 +148,7 @@ services/
 └── stats_service.py   # Statistiche admin
 ```
 
-## 📖 Modelli Principali
+##  Modelli Principali
 
 ### Biblioteca
 - **Autore** - Autori veristi (Verga, Capuana, etc.)
@@ -169,7 +169,7 @@ services/
 ### Sistema
 - **Prenotazione** - Gestione prenotazioni guidate
 
-## 🎯 Funzionalità
+##  Funzionalità
 
 ### Biblioteca Digitale
 - Opere di Verga e Capuana
@@ -207,7 +207,7 @@ services/
 - Admin panel dedicato
 - Anti-spam integrato
 
-## 🔧 Comandi Utili
+##  Comandi Utili
 
 ### Script di Setup
 
@@ -249,7 +249,7 @@ python manage.py collectstatic          # Raccogli file statici
 python manage.py check --deploy         # Check deploy
 ```
 
-## 📦 Deployment
+##  Deployment
 
 ### Variabili d'Ambiente (.env)
 
@@ -281,7 +281,7 @@ python manage.py collectstatic --noinput
 gunicorn mysite.wsgi:application --bind 0.0.0.0:8000
 ```
 
-## 🤝 Contribuire
+## Contribuire
 
 1. Fork il progetto
 2. Clone: `git clone https://github.com/TUO-USERNAME/sito_parco_verismo.git`
@@ -289,24 +289,4 @@ gunicorn mysite.wsgi:application --bind 0.0.0.0:8000
 4. Branch: `git checkout -b feature/NomeFunzionalita`
 5. Commit: `git commit -m 'Descrizione chiara'`
 6. Push: `git push origin feature/NomeFunzionalita`
-7. Apri Pull Request su GitHub
-
-**Best Practices:**
-- ✅ Testa sempre: `python manage.py test`
-- ✅ Verifica: `python manage.py check`
-- ✅ Segui la struttura organizzata (models/, views/, admin/)
-- ✅ Commit message chiari e descrittivi
-
-## 📄 Licenza
-
-Progetto open-source per la promozione culturale del patrimonio letterario siciliano.
-
-## 👥 Contatti
-
-**Parco Letterario del Verismo**  
-Email: info@parcoletterarioverismo.it  
-Web: https://parcoletterarioverismo.it
-
----
-
-*Realizzato con ❤️ per la cultura siciliana*
+7. Apri Pull Request su GitHub 
