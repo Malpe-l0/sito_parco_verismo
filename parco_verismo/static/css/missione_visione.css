@@ -1,4 +1,5 @@
-@import url('index.css'); /* import variables and base rules from index */
+@import url('index.css');
+/* import variables and base rules from index */
 /* ========================================================
    MISSIONE E VISIONE - STILI PERSONALIZZATI
    Tutte le variabili colore sono ora in styles.css globale
@@ -14,35 +15,41 @@
 /* ========================================================
    MISSION & VISION SECTIONS
    ======================================================== */
-   .mv-section.mv-mission {
-    background: var(--mv-background);
-    border-bottom: 1px solid var(--mv-border);
+.pages-section.pages-mission {
+    background: var(--pages-background);
+    border-bottom: 1px solid var(--pages-border);
 }
 
-.mv-section.mv-vision {
-    background: linear-gradient(135deg, 
-        var(--mv-surface) 0%,
-        color-mix(in srgb, var(--mv-primary-pale) 50%, var(--mv-surface)) 100%);
+.pages-section.pages-vision {
+    background: linear-gradient(135deg,
+            var(--pages-surface) 0%,
+            color-mix(in srgb, var(--pages-primary-pale) 50%, var(--pages-surface)) 100%);
 }
 
-.mv-section.mv-recognition {
-    background: color-mix(in srgb, var(--mv-neutral-100) 50%, var(--mv-background));
+.pages-section.pages-recognition {
+    background: color-mix(in srgb, var(--pages-neutral-100) 50%, var(--pages-background));
 }
 
-.mv-section.mv-values {
-    background: var(--mv-background);
+.pages-section.pages-values {
+    background: var(--pages-background);
 }
 
-.mv-section-title {
+.pages-section-title {
     font-family: 'TeX Gyre Termes', serif;
-    color: var(--mv-text-primary);
+    color: var(--pages-primary);
     font-weight: 400;
     letter-spacing: -0.01em;
     margin-bottom: 1.5rem;
 }
 
-.mv-title-accent {
-    background: var(--mv-gradient-primary);
+.pages-hero-title,
+.pages-hero-subtitle,
+.pages-mission h3 {
+    color: var(--pages-primary);
+}
+
+.pages-title-accent {
+    background: var(--pages-gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -52,19 +59,19 @@
    HIGHLIGHT TEXT
    ======================================================== */
 
-.mv-highlight-text {
+.pages-highlight-text {
     padding: 1.5rem;
     background: linear-gradient(135deg,
-        rgba(199, 106, 82, 0.08) 0%,
-        rgba(192, 140, 59, 0.05) 100%);
-    border-left: 4px solid var(--mv-primary-light);
+            rgba(199, 106, 82, 0.08) 0%,
+            rgba(192, 140, 59, 0.05) 100%);
+    border-left: 4px solid var(--pages-primary-light);
     border-radius: 0.5rem;
 }
 
-.mv-highlight-text .lead {
+.pages-highlight-text .lead {
     font-size: 1.1rem;
     font-weight: 400;
-    color: var(--mv-text-secondary);
+    color: var(--pages-text-secondary);
     margin: 0;
     line-height: 1.8;
 }
@@ -73,55 +80,55 @@
    POINTS GRID
    ======================================================== */
 
-.mv-points {
+.pages-points {
     display: grid;
     gap: 2rem;
     margin-top: 2.5rem;
 }
 
-.mv-point {
+.pages-point {
     display: flex;
     gap: 1.5rem;
     padding: 1.5rem;
-    background: var(--mv-surface);
+    background: var(--pages-surface);
     border-radius: 0.75rem;
-    border: 1px solid var(--mv-border);
+    border: 1px solid var(--pages-border);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.mv-point:hover {
+.pages-point:hover {
     transform: translateY(-4px);
-    box-shadow: var(--mv-shadow-md);
-    border-color: var(--mv-primary-light);
-    background: color-mix(in srgb, var(--mv-primary-pale) 50%, var(--mv-surface));
+    box-shadow: var(--pages-shadow-md);
+    border-color: var(--pages-primary-light);
+    background: color-mix(in srgb, var(--pages-primary-pale) 50%, var(--pages-surface));
 }
 
-.mv-point-icon {
+.pages-point-icon {
     flex-shrink: 0;
     width: 3rem;
     height: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, 
-        rgba(131, 50, 40, 0.1) 0%,
-        rgba(192, 140, 59, 0.1) 100%);
+    background: linear-gradient(135deg,
+            rgba(131, 50, 40, 0.1) 0%,
+            rgba(192, 140, 59, 0.1) 100%);
     border-radius: 0.5rem;
-    color: var(--mv-primary);
+    color: var(--pages-primary);
     font-size: 1.5rem;
 }
 
-.mv-point-content h4 {
+.pages-point-content h4 {
     font-family: 'TeX Gyre Termes', serif;
     font-size: 1rem;
     font-weight: 600;
-    color: var(--mv-text-primary);
+    color: var(--pages-text-primary);
     margin-bottom: 0.5rem;
 }
 
-.mv-point-content p {
+.pages-point-content p {
     font-size: 0.95rem;
-    color: var(--mv-text-secondary);
+    color: var(--pages-text-secondary);
     margin: 0;
     line-height: 1.6;
 }
@@ -130,16 +137,16 @@
    ACTIONS LIST
    ======================================================== */
 
-.mv-actions-list h4 {
+.pages-actions-list h4 {
     font-family: 'TeX Gyre Termes', serif;
     font-weight: 600;
-    color: var(--mv-text-primary);
+    color: var(--pages-text-primary);
     text-transform: uppercase;
     font-size: 0.875rem;
     letter-spacing: 0.05em;
 }
 
-.mv-list-actions {
+.pages-list-actions {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -147,24 +154,24 @@
     gap: 1rem;
 }
 
-.mv-list-actions li {
+.pages-list-actions li {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
     padding: 0.75rem 0;
-    color: var(--mv-text-secondary);
+    color: var(--pages-text-secondary);
     font-size: 0.95rem;
     line-height: 1.6;
-    border-bottom: 1px solid var(--mv-border);
+    border-bottom: 1px solid var(--pages-border);
 }
 
-.mv-list-actions li:last-child {
+.pages-list-actions li:last-child {
     border-bottom: none;
 }
 
-.mv-list-icon {
+.pages-list-icon {
     flex-shrink: 0;
-    color: var(--mv-primary-light);
+    color: var(--pages-primary-light);
     font-weight: 400;
     font-size: 1.2rem;
 }
@@ -173,35 +180,35 @@
    RECOGNITION CARD
    ======================================================== */
 
-.mv-recognition-card {
-    background: var(--mv-surface);
-    border: 2px solid var(--mv-primary-light);
+.pages-recognition-card {
+    background: var(--pages-surface);
+    border: 2px solid var(--pages-primary-light);
     border-radius: 1rem;
     padding: 2.5rem;
-    box-shadow: var(--mv-shadow-lg);
+    box-shadow: var(--pages-shadow-lg);
 }
 
-.mv-badge-large {
+.pages-badge-large {
     width: 100px;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--mv-primary-light), var(--mv-secondary-light));
+    background: linear-gradient(135deg, var(--pages-primary-light), var(--pages-secondary-light));
     border-radius: 50%;
     color: white;
     font-size: 2.5rem;
-    box-shadow: var(--mv-shadow-lg);
+    box-shadow: var(--pages-shadow-lg);
 }
 
-.mv-recognition-card h3 {
+.pages-recognition-card h3 {
     font-family: 'TeX Gyre Termes', serif;
-    color: var(--mv-text-primary);
+    color: var(--pages-text-primary);
     font-weight: 400;
 }
 
-.mv-recognition-card p {
-    color: var(--mv-text-secondary);
+.pages-recognition-card p {
+    color: var(--pages-text-secondary);
     font-size: 0.95rem;
     line-height: 1.8;
 }
@@ -210,9 +217,9 @@
    VALUES CARDS
    ======================================================== */
 
-.mv-value-card {
-    background: var(--mv-surface);
-    border: 1px solid var(--mv-border);
+.pages-value-card {
+    background: var(--pages-surface);
+    border: 1px solid var(--pages-border);
     border-radius: 0.75rem;
     padding: 2rem;
     text-align: center;
@@ -223,45 +230,45 @@
     gap: 1rem;
 }
 
-.mv-value-card:hover {
+.pages-value-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--mv-shadow-lg);
-    border-color: var(--mv-primary-light);
-    background: color-mix(in srgb, var(--mv-primary-pale) 40%, var(--mv-surface));
+    box-shadow: var(--pages-shadow-lg);
+    border-color: var(--pages-primary-light);
+    background: color-mix(in srgb, var(--pages-primary-pale) 40%, var(--pages-surface));
 }
 
-.mv-value-icon {
+.pages-value-icon {
     width: 80px;
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg,
-        rgba(199, 106, 82, 0.15) 0%,
-        rgba(192, 140, 59, 0.15) 100%);
+            rgba(199, 106, 82, 0.15) 0%,
+            rgba(192, 140, 59, 0.15) 100%);
     border-radius: 50%;
     margin: 0 auto;
-    color: var(--mv-primary);
+    color: var(--pages-primary);
     font-size: 2rem;
     transition: all 0.3s ease;
 }
 
-.mv-value-card:hover .mv-value-icon {
-    background: var(--mv-gradient-primary);
+.pages-value-card:hover .pages-value-icon {
+    background: var(--pages-gradient-primary);
     color: white;
     transform: scale(1.1);
 }
 
-.mv-value-title {
+.pages-value-title {
     font-family: 'TeX Gyre Termes', serif;
     font-weight: 600;
-    color: var(--mv-text-primary);
+    color: var(--pages-text-primary);
     font-size: 1rem;
     margin: 0.5rem 0 0 0;
 }
 
-.mv-value-card p {
-    color: var(--mv-text-secondary);
+.pages-value-card p {
+    color: var(--pages-text-secondary);
     font-size: 0.9rem;
     line-height: 1.6;
     margin: 0;
@@ -271,11 +278,11 @@
    IMAGE WRAPPERS
    ======================================================== */
 
-.mv-image-wrapper {
+.pages-image-wrapper {
     position: relative;
     border-radius: 1rem;
     overflow: hidden;
-    box-shadow: var(--mv-shadow-lg);
+    box-shadow: var(--pages-shadow-lg);
 }
 
 .placeholder-image-secondary {
@@ -288,69 +295,69 @@
    ======================================================== */
 
 @media (max-width: 991.98px) {
-    .mv-hero {
+    .pages-hero {
         min-height: 70vh;
     }
-    
-    .mv-hero-title {
+
+    .pages-hero-title {
         font-size: 2rem;
     }
-    
-    .mv-hero-subtitle {
+
+    .pages-hero-subtitle {
         font-size: 1rem;
     }
-    
-    .mv-section {
+
+    .pages-section {
         padding: 3rem 0;
     }
-    
-    .mv-recognition-card {
+
+    .pages-recognition-card {
         text-align: center;
     }
-    
-    .mv-badge-large {
+
+    .pages-badge-large {
         margin: 0 auto 1rem;
     }
 }
 
 @media (max-width: 767.98px) {
-    .mv-hero {
+    .pages-hero {
         min-height: 60vh;
     }
-    
-    .mv-hero-title {
+
+    .pages-hero-title {
         font-size: 1.75rem;
     }
-    
-    .mv-hero-content {
+
+    .pages-hero-content {
         text-align: center;
     }
-    
-    .mv-hero-subtitle {
+
+    .pages-hero-subtitle {
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
     }
-    
-    .mv-hero-image {
+
+    .pages-hero-image {
         min-height: 350px;
         margin-top: 2rem;
     }
-    
-    .mv-section-title {
+
+    .pages-section-title {
         font-size: 1.5rem;
     }
-    
-    .mv-point {
+
+    .pages-point {
         flex-direction: column;
         text-align: center;
     }
-    
-    .mv-point-icon {
+
+    .pages-point-icon {
         margin: 0 auto;
     }
-    
-    .mv-value-card {
+
+    .pages-value-card {
         padding: 1.5rem;
     }
 }
@@ -360,29 +367,30 @@
    ======================================================== */
 
 @media print {
-    .mv-hero {
-        background: var(--mv-surface);
-        color: var(--mv-text-primary);
+    .pages-hero {
+        background: var(--pages-surface);
+        color: var(--pages-text-primary);
         min-height: auto;
     }
-    
-    .mv-badge {
-        border: 1px solid var(--mv-text-primary);
+
+    .pages-badge {
+        border: 1px solid var(--pages-text-primary);
         background: none;
     }
-    
-    .mv-value-card:hover {
+
+    .pages-value-card:hover {
         transform: none;
         box-shadow: none;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .placeholder-image,
     .placeholder-image-secondary,
-    .mv-point,
-    .mv-value-card,
-    .mv-value-card:hover .mv-value-icon {
+    .pages-point,
+    .pages-value-card,
+    .pages-value-card:hover .pages-value-icon {
         animation: none !important;
         transition: none !important;
     }
@@ -395,30 +403,58 @@
    Keeping them here keeps styles centralized with missione styles.
    ======================================================== */
 
-.mv-composition .mv-member-card{
+.pages-composition .pages-member-card {
     background: var(--color-surface);
-    border:1px solid var(--color-border);
-    padding:1.05rem;
-    border-radius:10px;
+    border: 1px solid var(--color-border);
+    padding: 1.05rem;
+    border-radius: 10px;
     box-shadow: var(--color-shadow-md);
 }
-.mv-composition .mv-member-icon{
-    width:56px;height:56px;border-radius:10px;
+
+.pages-composition .pages-member-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
     background: var(--color-gradient-primary);
-    display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.25rem;margin-bottom:.75rem
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.25rem;
+    margin-bottom: .75rem
 }
-.mv-composition .mv-member-card h4{margin-bottom:.25rem;color:var(--color-text-primary)}
-.mv-separator{border:0;border-top:1px solid var(--color-border);margin:1rem 0 1.5rem;width:100%;max-width:900px;margin-left:auto;margin-right:auto}
-.mv-composition .mv-member-card-highlight{background: linear-gradient(180deg, var(--color-surface-elevated), var(--color-surface));border-color:var(--color-border)}
-.mv-composition .mv-group-title{margin-bottom:.75rem;color:var(--color-text-primary)}
+
+.pages-composition .pages-member-card h4 {
+    margin-bottom: .25rem;
+    color: var(--color-text-primary)
+}
+
+.pages-separator {
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    margin: 1rem 0 1.5rem;
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.pages-composition .pages-member-card-highlight {
+    background: linear-gradient(180deg, var(--color-surface-elevated), var(--color-surface));
+    border-color: var(--color-border)
+}
+
+.pages-composition .pages-group-title {
+    margin-bottom: .75rem;
+    color: var(--color-text-primary)
+}
 
 /* Alternate section backgrounds (copied from index.css) */
-/* Apply alternating background colors to .mv-section elements */
-section.mv-section:nth-of-type(odd) {
+/* Apply alternating background colors to .pages-section elements */
+section.pages-section:nth-of-type(odd) {
     background: var(--color-primary-pale) !important;
 }
 
-section.mv-section:nth-of-type(even) {
+section.pages-section:nth-of-type(even) {
     background: var(--color-background) !important;
 }
-

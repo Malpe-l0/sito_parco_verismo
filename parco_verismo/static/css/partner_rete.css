@@ -1,4 +1,5 @@
-@import url('index.css'); /* import variables and base rules from index */
+@import url('index.css');
+/* import variables and base rules from index */
 /* ========================================================
    PARTNER E RETE TERRITORIALE - STILI PERSONALIZZATI
    Tutte le variabili colore sono ora in styles.css globale
@@ -15,20 +16,54 @@
 }
 
 /* Colori di riempimento */
-.svg-fill-primary { fill: var(--color-primary); }
-.svg-fill-primary-dark { fill: var(--color-primary-dark); }
-.svg-fill-primary-light { fill: var(--color-primary-light); }
-.svg-fill-secondary { fill: var(--color-secondary); }
-.svg-fill-secondary-light { fill: var(--color-secondary-light); }
-.svg-fill-accent { fill: var(--color-accent); }
-.svg-fill-background { fill: var(--color-background); }
-.svg-fill-surface { fill: var(--color-surface-elevated); }
+.svg-fill-primary {
+    fill: var(--color-primary);
+}
+
+.svg-fill-primary-dark {
+    fill: var(--color-primary-dark);
+}
+
+.svg-fill-primary-light {
+    fill: var(--color-primary-light);
+}
+
+.svg-fill-secondary {
+    fill: var(--color-secondary);
+}
+
+.svg-fill-secondary-light {
+    fill: var(--color-secondary-light);
+}
+
+.svg-fill-accent {
+    fill: var(--color-accent);
+}
+
+.svg-fill-background {
+    fill: var(--color-background);
+}
+
+.svg-fill-surface {
+    fill: var(--color-surface-elevated);
+}
 
 /* Colori di stroke */
-.svg-stroke-primary { stroke: var(--color-primary); }
-.svg-stroke-primary-dark { stroke: var(--color-primary-dark); }
-.svg-stroke-secondary { stroke: var(--color-secondary); }
-.svg-stroke-accent { stroke: var(--color-accent); }
+.svg-stroke-primary {
+    stroke: var(--color-primary);
+}
+
+.svg-stroke-primary-dark {
+    stroke: var(--color-primary-dark);
+}
+
+.svg-stroke-secondary {
+    stroke: var(--color-secondary);
+}
+
+.svg-stroke-accent {
+    stroke: var(--color-accent);
+}
 
 /* ========================================================
    HERO SECTION
@@ -94,18 +129,45 @@
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg,
-        rgba(199, 106, 82, 0.15) 0%,
-        rgba(192, 140, 59, 0.15) 100%);
+            rgba(199, 106, 82, 0.15) 0%,
+            rgba(192, 140, 59, 0.15) 100%);
     border-radius: 50%;
     margin: 0 auto;
     color: var(--mv-primary);
     font-size: 2rem;
     transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.partner-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Stili specifici per i partner istituzionali (senza cerchio, loghi più grandi) */
+.partner-institutional .partner-logo {
+    background: none;
+    border-radius: 0;
+    width: 100%;
+    height: 140px;
+    /* Altezza aumentata per loghi più grandi */
+    overflow: visible;
+}
+
+.partner-institutional .partner-logo img {
+    object-fit: contain;
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+}
+
+.partner-institutional:hover .partner-logo {
+    background: none;
+    transform: scale(1.05);
 }
 
 .partner-card:hover .partner-logo {
-    background: var(--mv-gradient-primary);
-    color: white;
     transform: scale(1.1);
 }
 
@@ -181,9 +243,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, 
-        rgba(131, 50, 40, 0.1) 0%,
-        rgba(192, 140, 59, 0.1) 100%);
+    background: linear-gradient(135deg,
+            rgba(131, 50, 40, 0.1) 0%,
+            rgba(192, 140, 59, 0.1) 100%);
     border-radius: 0.5rem;
     color: var(--mv-primary);
     font-size: 1.5rem;
@@ -368,15 +430,15 @@
     .mv-hero {
         min-height: 70vh;
     }
-    
+
     .mv-hero-title {
         font-size: 2rem;
     }
-    
+
     .mv-hero-subtitle {
         font-size: 1rem;
     }
-    
+
     .page-section {
         padding: 3rem 0;
     }
@@ -386,35 +448,35 @@
     .mv-hero {
         min-height: 60vh;
     }
-    
+
     .mv-hero-title {
         font-size: 1.75rem;
     }
-    
+
     .mv-hero-content {
         text-align: center;
     }
-    
+
     .mv-hero-subtitle {
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     .mv-hero-image {
         min-height: 350px;
         margin-top: 2rem;
     }
-    
+
     .page-section-title {
         font-size: 1.5rem;
     }
-    
+
     .partner-card,
     .network-card {
         padding: 1.5rem;
     }
-    
+
     .sponsor-logos {
         gap: 1rem;
     }
@@ -430,12 +492,12 @@
         color: var(--mv-text-primary);
         min-height: auto;
     }
-    
+
     .mv-badge {
         border: 1px solid var(--mv-text-primary);
         background: none;
     }
-    
+
     .partner-card:hover,
     .network-card:hover {
         transform: none;
@@ -444,6 +506,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .placeholder-image,
     .partner-card,
     .network-card,
