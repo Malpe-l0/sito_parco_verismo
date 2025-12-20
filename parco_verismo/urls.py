@@ -12,7 +12,7 @@ from .views import (
     itinerari_tematici_view, itinerario_detail_view,
     licodia_view, mineo_view, vizzini_view,
     missione_visione_view, comitato_tecnico_scientifico_view,
-    comitato_regolamento_view, regolamenti_documenti_view,
+    regolamenti_documenti_view,
     partner_rete_territoriale_view, accrediti_finanziamenti_view,
     contatti_view,
     privacy_policy_view, note_legali_view, cookie_policy_view,
@@ -55,7 +55,6 @@ urlpatterns = [
 
     # Comitato Tecnico-Scientifico
     path('comitato/', comitato_tecnico_scientifico_view, name='comitato_tecnico_scientifico'),
-    path('comitato/regolamento/', comitato_regolamento_view, name='comitato_regolamento'),
 
     # Regolamenti e Documenti
     path('regolamenti-documenti/', regolamenti_documenti_view, name='regolamenti_documenti'),

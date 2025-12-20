@@ -48,7 +48,6 @@ from .comuni import (
 from .istituzionale import (
     missione_visione_view,
     comitato_tecnico_scientifico_view,
-    comitato_regolamento_view,
     regolamenti_documenti_view,
     partner_rete_territoriale_view,
     accrediti_finanziamenti_view,
@@ -87,7 +86,6 @@ __all__ = [
     # Istituzionali
     'missione_visione_view',
     'comitato_tecnico_scientifico_view',
-    'comitato_regolamento_view',
     'regolamenti_documenti_view',
     'partner_rete_territoriale_view',
     'accrediti_finanziamenti_view',

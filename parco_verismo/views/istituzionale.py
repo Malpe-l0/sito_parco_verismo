@@ -19,11 +19,6 @@ def comitato_tecnico_scientifico_view(request):
     return render(request, 'parco_verismo/comitato_tecnico_scientifico.html')
 
 
-def comitato_regolamento_view(request):
-    """Pagina del regolamento del Comitato Tecnico-Scientifico."""
-    return render(request, 'parco_verismo/comitato_regolamento.html')
-
-
 def regolamenti_documenti_view(request):
     """Pagina Regolamenti e Documenti del Parco."""
     return render(request, 'parco_verismo/regolamenti_documenti.html')
