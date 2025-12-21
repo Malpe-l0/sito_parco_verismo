@@ -65,6 +65,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # Serve static files in production
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -88,6 +89,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "parco_verismo.context_processors.google_analytics",
             ],
         },
     },
@@ -98,13 +100,30 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+# Supporta SQLite (default) e PostgreSQL (via variabili d'ambiente)
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+DB_ENGINE = config("DB_ENGINE", default="django.db.backends.sqlite3")
+
+if "postgresql" in DB_ENGINE:
+    # PostgreSQL per produzione
+    DATABASES = {
+        "default": {
+            "ENGINE": DB_ENGINE,
+            "NAME": config("DB_NAME", default="parco_verismo"),
+            "USER": config("DB_USER", default="parco_user"),
+            "PASSWORD": config("DB_PASSWORD", default=""),
+            "HOST": config("DB_HOST", default="localhost"),
+            "PORT": config("DB_PORT", default="5432"),
+        }
     }
-}
+else:
+    # SQLite per sviluppo e piccole installazioni
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 # Cache Configuration (required for rate limiting middleware)
 CACHES = {
@@ -194,3 +213,10 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10MB
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# =============================================================================
+# GOOGLE ANALYTICS
+# =============================================================================
+# Inserisci il tuo Measurement ID (es. G-XXXXXXXXXX)
+# In produzione, imposta la variabile d'ambiente GA_MEASUREMENT_ID
+GA_MEASUREMENT_ID = config("GA_MEASUREMENT_ID", default="")

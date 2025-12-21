@@ -50,6 +50,7 @@ from .comuni import (
 from .istituzionale import (
     missione_visione_view,
     comitato_tecnico_scientifico_view,
+    comitato_regolamento_view,
     regolamenti_documenti_view,
     partner_rete_territoriale_view,
     accrediti_finanziamenti_view,
@@ -58,6 +59,9 @@ from .istituzionale import (
     note_legali_view,
     cookie_policy_view,
 )
+
+# Health Check
+from .health import health_check_view
 
 __all__ = [
     # Home
@@ -97,4 +101,6 @@ __all__ = [
     "privacy_policy_view",
     "note_legali_view",
     "cookie_policy_view",
+    # Health Check
+    "health_check_view",
 ]

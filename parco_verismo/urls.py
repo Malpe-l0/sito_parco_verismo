@@ -34,6 +34,7 @@ from .views import (
     privacy_policy_view,
     note_legali_view,
     cookie_policy_view,
+    health_check_view,
 )
 
 urlpatterns = [
@@ -102,4 +103,7 @@ urlpatterns = [
     path("privacy/", privacy_policy_view, name="privacy_policy"),
     path("note-legali/", note_legali_view, name="note_legali"),
     path("cookie-policy/", cookie_policy_view, name="cookie_policy"),
+    # Health check per Docker/Nginx
+    path("health/", health_check_view, name="health_check"),
 ]
+
