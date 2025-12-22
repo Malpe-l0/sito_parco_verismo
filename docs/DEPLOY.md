@@ -23,7 +23,7 @@ Questa guida ti accompagna nel deployment del **Parco Letterario del Verismo** s
 ### Step 1: Connettiti alla VPS
 
 ```bash
-ssh root@TUO_IP_VPS
+ssh root@93.186.254.13
 ```
 
 ### Step 2: Crea l'utente deploy
@@ -40,29 +40,23 @@ usermod -aG sudo deploy
 su - deploy
 ```
 
-### Step 3: Scarica e configura lo script
+### Step 3: Scarica lo script
+
+> [!NOTE]
+> Lo script è già configurato con `DOMAIN="parcovergacapuana.it"` - non devi modificare nulla!
 
 ```bash
 # Scarica lo script
 curl -O https://raw.githubusercontent.com/Triba14/sito_parco_verismo/main/scripts/first-deploy.sh
 
-# Modifica dominio e email
-nano first-deploy.sh
+# Rendi eseguibile
+chmod +x first-deploy.sh
 ```
-
-**Modifica queste 2 righe (circa riga 32-33):**
-```bash
-DOMAIN="tuodominio.com"
-EMAIL="tua@email.com"
-```
-
-Salva: `Ctrl+X`, poi `Y`, poi `Invio`
 
 ### Step 4: Esegui lo script
 
 ```bash
 # (Opzionale) Verifica prima che tutto sia ok
-chmod +x first-deploy.sh
 ./first-deploy.sh --check
 
 # Esegui il deploy
