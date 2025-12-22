@@ -9,6 +9,7 @@ from .models import Opera, Evento, Notizia, Documento, Itinerario, Autore
 class StaticViewSitemap(Sitemap):
     """Sitemap per le pagine statiche del sito"""
 
+    protocol = "https"
     priority = 0.8
     changefreq = "monthly"
 
@@ -16,6 +17,8 @@ class StaticViewSitemap(Sitemap):
         return [
             "home",
             "biblioteca",
+            "personaggi_lessico",
+            "luoghi_opere",
             "eventi",
             "calendario",
             "notizie",
@@ -30,6 +33,7 @@ class StaticViewSitemap(Sitemap):
             "partner_rete_territoriale",
             "accrediti_finanziamenti",
             "regolamenti_documenti",
+            "contatti",
             "vizzini",
             "licodia",
             "mineo",
@@ -45,6 +49,7 @@ class StaticViewSitemap(Sitemap):
 class OperaSitemap(Sitemap):
     """Sitemap per le opere letterarie"""
 
+    protocol = "https"
     changefreq = "monthly"
     priority = 0.7
 
@@ -59,6 +64,7 @@ class OperaSitemap(Sitemap):
 class AutoreSitemap(Sitemap):
     """Sitemap per le pagine degli autori"""
 
+    protocol = "https"
     changefreq = "monthly"
     priority = 0.7
 
@@ -72,6 +78,7 @@ class AutoreSitemap(Sitemap):
 class EventoSitemap(Sitemap):
     """Sitemap per gli eventi"""
 
+    protocol = "https"
     changefreq = "weekly"
     priority = 0.9
 
@@ -85,6 +92,7 @@ class EventoSitemap(Sitemap):
 class NotiziaSitemap(Sitemap):
     """Sitemap per le notizie"""
 
+    protocol = "https"
     changefreq = "daily"
     priority = 0.8
 
@@ -98,6 +106,7 @@ class NotiziaSitemap(Sitemap):
 class DocumentoSitemap(Sitemap):
     """Sitemap per i documenti e studi"""
 
+    protocol = "https"
     changefreq = "monthly"
     priority = 0.6
 
@@ -111,6 +120,7 @@ class DocumentoSitemap(Sitemap):
 class ItinerarioSitemap(Sitemap):
     """Sitemap per gli itinerari"""
 
+    protocol = "https"
     changefreq = "monthly"
     priority = 0.7
 
