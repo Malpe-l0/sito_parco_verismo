@@ -17,6 +17,8 @@ class StaticViewSitemap(Sitemap):
         return [
             "home",
             "biblioteca",
+            "personaggi_lessico",
+            "luoghi_opere",
             "eventi",
             "calendario",
             "notizie",
@@ -31,6 +33,7 @@ class StaticViewSitemap(Sitemap):
             "partner_rete_territoriale",
             "accrediti_finanziamenti",
             "regolamenti_documenti",
+            "contatti",
             "vizzini",
             "licodia",
             "mineo",
