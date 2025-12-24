@@ -19,7 +19,6 @@ class EventoAdmin(TranslatableAdmin):
     search_fields = ("translations__titolo", "translations__luogo")
     date_hierarchy = "data_inizio"
     ordering = ("-data_inizio",)
-    prepopulated_fields = {"slug": ("data_inizio",)}
     list_editable = ("is_active",)
 
 

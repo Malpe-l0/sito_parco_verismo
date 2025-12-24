@@ -11,10 +11,22 @@ from ..models import Evento, Notizia
 
 
 def eventi_view(request):
-    """Mostra tutti gli eventi attivi ordinati per data con notizie."""
-    eventi = Evento.objects.filter(
-        is_active=True, data_inizio__gte=timezone.now()
-    ).order_by("data_inizio")
+    """Mostra gli ultimi 5 eventi: prima quelli futuri, poi quelli passati."""
+    now = timezone.now()
+    
+    # Eventi futuri (ordinati dal più vicino al più lontano)
+    eventi_futuri = list(Evento.objects.filter(
+        is_active=True, data_inizio__gte=now
+    ).order_by("data_inizio"))
+    
+    # Eventi passati (ordinati dal più recente al più vecchio)
+    eventi_passati = list(Evento.objects.filter(
+        is_active=True, data_inizio__lt=now
+    ).order_by("-data_inizio"))
+    
+    # Combina: prima futuri, poi passati, max 5 totali
+    eventi = (eventi_futuri + eventi_passati)[:5]
+    
     notizie = Notizia.objects.filter(is_active=True).order_by("-data_pubblicazione")[
         :20
     ]
