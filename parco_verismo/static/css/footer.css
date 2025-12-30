@@ -7,7 +7,7 @@
     border-top: 1px solid var(--color-border, #e9ecef);
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-    margin-top: 1rem;
+    margin-top: 0;
 }
 
 /* Explicit color bindings mirroring previous footer palette */
