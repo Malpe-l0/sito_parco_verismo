@@ -787,7 +787,7 @@ body {
     gap: 2rem;
     align-items: start;
     width: 100%;
-    max-width: 920px;
+    max-width: 1200px;
     margin: 0 auto;
     justify-items: center;
 }
@@ -798,16 +798,119 @@ body {
     width: 100%;
 }
 
+/* ========================================================
+   CONTACT FORM - HOMEPAGE (Premium Styles)
+   ======================================================== */
+
 .hp-contact-card {
     background: linear-gradient(180deg, color-mix(in srgb, var(--color-surface-elevated) 60%, var(--color-surface)) 0%, var(--color-surface) 100%);
     border: 1px solid var(--color-border);
     border-radius: 1rem;
-    padding: 1.5rem;
-    box-shadow: var(--color-shadow-md);
+    padding: 3rem;
+    box-shadow: var(--shadow-md);
     width: 100%;
-    max-width: 600px;
-    /* constrain form width so it stays centered (narrower) */
+    max-width: 1000px;
 }
+
+.hp-contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.hp-contact-form .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+}
+
+.hp-contact-form .form-label .required {
+    color: var(--color-error);
+    font-weight: 700;
+}
+
+.hp-contact-form .form-label .optional {
+    color: var(--color-text-tertiary);
+    font-weight: 400;
+    font-size: 0.875rem;
+}
+
+.hp-contact-form .form-control {
+    display: block;
+    width: 100%;
+    min-height: 56px;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hp-contact-form .form-control:hover {
+    border-color: var(--color-primary-light);
+}
+
+.hp-contact-form .form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(130, 50, 40, 0.08);
+    background: var(--color-surface-elevated);
+}
+
+.hp-contact-form .form-control::placeholder {
+    color: var(--color-text-tertiary);
+    opacity: 0.8;
+}
+
+.hp-contact-form textarea.form-control {
+    resize: vertical;
+    min-height: 140px;
+    height: auto;
+}
+
+/* Validazione visiva */
+.hp-contact-form .form-control.is-invalid {
+    border-color: var(--color-error);
+    background-image: none;
+}
+
+.hp-contact-form .invalid-feedback {
+    font-size: 0.875rem;
+    color: var(--color-error);
+    margin-top: 0.5rem;
+}
+
+/* Button override for contact form */
+.hp-contact-form .btn-lg {
+    padding: 1rem 3rem;
+    font-size: 1.125rem;
+    letter-spacing: 0.02em;
+    border-radius: 0.75rem;
+    margin-top: 1rem;
+}
+
+.hp-contact-form .form-note {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hp-contact-card {
+        padding: 1.5rem;
+    }
+
+    .hp-contact-form .btn-lg {
+        width: 100%;
+    }
+}
+
+
 
 .hp-contact-form .form-label {
     display: block;

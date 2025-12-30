@@ -12,7 +12,7 @@
 
 {% block hero_section %}
 <header>
-    <video class="videobg" src="{% static 'assets/video/videobg.mp4' %}" autoplay muted loop playsinline></video>
+    <video class="videobg" src="{% static 'assets/video/videobg.mp4' %}" autoplay muted loop playsinline disablePictureInPicture oncontextmenu="return false;"></video>
     <div class="hero-content">
         <h1 class="hero-title">
             {% trans 'Parco Letterario' %}<br>
@@ -32,7 +32,7 @@
             <div class="col-lg-10">
                 <div class="hp-content text-center">
                     <h2 class="hp-section-title fw-bold display-5" style="font-size:2.5rem;">
-                        <span class="hp-accent">{% trans 'Il' %}</span> {% trans 'Parco Letterario Giovanni Verga e Luigi Capuana' %}
+                        {% trans 'Il Parco Letterario Giovanni Verga e Luigi Capuana' %}
                     </h2>
                     <p class="lead mb-4 text-muted" style="font-size:1.125rem; max-width:900px; margin: 0 auto; line-height:1.6;">
                         {% blocktrans trimmed %}
@@ -334,9 +334,14 @@
                 <div class="hp-contact-center">
                     <div class="hp-contact-column d-flex justify-content-center">
                         <div class="hp-contact-card">
-                            <div class="mb-3 d-flex flex-column align-items-center justify-content-center">
-                                <h2 class="h2 fw-bold mb-1">Modulo di contatto</h2>
-                                <p class="text-secondary mb-0">Per richieste di informazioni generali, proposte di collaborazione, attività didattiche, visite guidate, eventi o comunicazioni istituzionali, è possibile utilizzare il modulo di contatto sottostante. Il messaggio sarà indirizzato all'email ufficiale del Parco Letterario.</p>
+                            <div class="text-center mb-4">
+                                <h2 class="hp-section-title">{% trans "Modulo di contatto" %}</h2>
+                                <p class="lead text-secondary mt-3" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+                                    {% trans 'Per richieste di informazioni generali, proposte di collaborazione, attività didattiche, visite guidate, eventi o comunicazioni istituzionali, è possibile utilizzare il modulo di contatto sottostante.' %}
+                                </p>
+                                <p class="text-secondary">
+                                    {% blocktrans %}Il messaggio sarà indirizzato all'email ufficiale del Parco Letterario.{% endblocktrans %}
+                                </p>
                             </div>
 
                             {% if messages %}
@@ -355,40 +360,53 @@
                                 {% endif %}
                                 <div class="row">
                                     <div class="col-md-6 form-group">
-                                        {{ form.nome.label_tag }} {% if form.nome.field.required %}<span class="required">*</span>{% endif %}
+                                        <label for="{{ form.nome.id_for_label }}" class="form-label mb-2">
+                                            {{ form.nome.label }} {% if form.nome.field.required %}<span class="required">*</span>{% endif %}
+                                        </label>
                                         {{ form.nome }}
                                         {% for err in form.nome.errors %}<div class="invalid-feedback d-block">{{ err }}</div>{% endfor %}
                                     </div>
+                                    
                                     <div class="col-md-6 form-group">
-                                        {{ form.cognome.label_tag }} {% if form.cognome.field.required %}<span class="required">*</span>{% endif %}
+                                        <label for="{{ form.cognome.id_for_label }}" class="form-label mb-2">
+                                            {{ form.cognome.label }} {% if form.cognome.field.required %}<span class="required">*</span>{% endif %}
+                                        </label>
                                         {{ form.cognome }}
                                         {% for err in form.cognome.errors %}<div class="invalid-feedback d-block">{{ err }}</div>{% endfor %}
                                     </div>
 
                                     <div class="col-md-6 form-group">
-                                        {{ form.ente.label_tag }} <span class="optional">({% trans 'facoltativo' %})</span>
+                                        <label for="{{ form.ente.id_for_label }}" class="form-label mb-2">
+                                            {{ form.ente.label }} <span class="optional">({% trans 'facoltativo' %})</span>
+                                        </label>
                                         {{ form.ente }}
                                         {% for err in form.ente.errors %}<div class="invalid-feedback d-block">{{ err }}</div>{% endfor %}
                                     </div>
-
+                                    
                                     <div class="col-md-6 form-group">
-                                        {{ form.email.label_tag }} {% if form.email.field.required %}<span class="required">*</span>{% endif %}
+                                        <label for="{{ form.email.id_for_label }}" class="form-label mb-2">
+                                            {{ form.email.label }} {% if form.email.field.required %}<span class="required">*</span>{% endif %}
+                                        </label>
                                         {{ form.email }}
                                         {% for err in form.email.errors %}<div class="invalid-feedback d-block">{{ err }}</div>{% endfor %}
                                     </div>
-
+                                    
                                     <div class="col-12 form-group">
-                                        {{ form.oggetto.label_tag }} {% if form.oggetto.field.required %}<span class="required">*</span>{% endif %}
+                                        <label for="{{ form.oggetto.id_for_label }}" class="form-label mb-2">
+                                            {{ form.oggetto.label }} {% if form.oggetto.field.required %}<span class="required">*</span>{% endif %}
+                                        </label>
                                         {{ form.oggetto }}
                                         {% for err in form.oggetto.errors %}<div class="invalid-feedback d-block">{{ err }}</div>{% endfor %}
                                     </div>
-
+                                    
                                     <div class="col-12 form-group">
-                                        {{ form.messaggio.label_tag }} {% if form.messaggio.field.required %}<span class="required">*</span>{% endif %}
+                                        <label for="{{ form.messaggio.id_for_label }}" class="form-label mb-2">
+                                            {{ form.messaggio.label }} {% if form.messaggio.field.required %}<span class="required">*</span>{% endif %}
+                                        </label>
                                         {{ form.messaggio }}
                                         {% for err in form.messaggio.errors %}<div class="invalid-feedback d-block">{{ err }}</div>{% endfor %}
                                     </div>
-
+                                    
                                     <div class="col-12 text-center mt-3">
                                         <button type="submit" class="btn btn-primary btn-lg">
                                             <i class="bi bi-send me-2"></i>

@@ -85,7 +85,7 @@
     <div class="container-xl">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <h2 class="contatti-section-title">{% trans 'Coordinamento del' %} <span class="contatti-title-accent">{% trans 'Parco' %}</span></h2>
+                <h2 class="contatti-section-title">{% trans 'Coordinamento del Parco' %}</h2>
                 
                 <div class="contatti-cesta-card">
                     <h3 class="contatti-cesta-title">{% trans 'Centro Studi C.E.S.T.A.' %}</h3>
@@ -149,7 +149,7 @@
     <div class="container-xl">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <h2 class="contatti-section-title">{% trans 'Comuni partner del' %} <span class="contatti-title-accent">{% trans 'Parco Letterario' %}</span></h2>
+                <h2 class="contatti-section-title">{% trans 'Comuni partner del Parco Letterario' %}</h2>
                 
                 <div class="comuni-grid">
                     <!-- Comune di Vizzini -->
@@ -247,87 +247,81 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="text-center mb-4">
-                    <h2 class="contatti-section-title d-inline-block">{% trans 'Modulo di' %} <span class="contatti-title-accent">{% trans 'contatto' %}</span></h2>
+                    <h2 class="contatti-section-title d-inline-block">{% trans 'Modulo di contatto' %}</h2>
                     <p class="lead text-secondary mt-3" style="max-width: 700px; margin-left: auto; margin-right: auto;">
                         {% trans 'Per richieste di informazioni generali, proposte di collaborazione, attività didattiche, visite guidate, eventi o comunicazioni istituzionali, è possibile utilizzare il modulo di contatto sottostante.' %}
                     </p>
                     <p class="text-secondary">
-                        {% trans 'Il messaggio sarà indirizzato all\'email ufficiale del Parco Letterario.' %}
+                        {% blocktrans %}Il messaggio sarà indirizzato all'email ufficiale del Parco Letterario.{% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="contatti-form-center">
                     <div class="contatti-form-column d-flex justify-content-center">
                         <div class="contatti-form-card">
-                            <form class="contatti-form" method="post" action="">
+
+
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                        {{ message }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+
+                            <form class="contatti-form" method="post">
                                 {% csrf_token %}
+                                {% if form.non_field_errors %}
+                                    <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+                                {% endif %}
                                 <div class="row">
                                     <div class="col-md-6 form-group">
-                                        <label for="nome" class="form-label">
-                                            {% trans 'Nome e cognome' %} <span class="required">*</span>
+                                        <label for="{{ form.nome.id_for_label }}" class="form-label mb-2">
+                                            {{ form.nome.label }} {% if form.nome.field.required %}<span class="required">*</span>{% endif %}
                                         </label>
-                                        <input 
-                                            type="text" 
-                                            class="form-control" 
-                                            id="nome" 
-                                            name="nome" 
-                                            placeholder="{% trans 'Inserisci nome e cognome' %}"
-                                            required
-                                            aria-required="true">
+                                        {{ form.nome }}
+                                        {% for err in form.nome.errors %}<div class="invalid-feedback d-block">{{ err }}</div>{% endfor %}
                                     </div>
                                     
                                     <div class="col-md-6 form-group">
-                                        <label for="ente" class="form-label">
-                                            {% trans 'Ente / Istituzione' %} <span class="optional">({% trans 'facoltativo' %})</span>
+                                        <label for="{{ form.cognome.id_for_label }}" class="form-label mb-2">
+                                            {{ form.cognome.label }} {% if form.cognome.field.required %}<span class="required">*</span>{% endif %}
                                         </label>
-                                        <input 
-                                            type="text" 
-                                            class="form-control" 
-                                            id="ente" 
-                                            name="ente"
-                                            placeholder="{% trans 'Nome ente o istituzione' %}">
+                                        {{ form.cognome }}
+                                        {% for err in form.cognome.errors %}<div class="invalid-feedback d-block">{{ err }}</div>{% endfor %}
+                                    </div>
+
+                                    <div class="col-md-6 form-group">
+                                        <label for="{{ form.ente.id_for_label }}" class="form-label mb-2">
+                                            {{ form.ente.label }} <span class="optional">({% trans 'facoltativo' %})</span>
+                                        </label>
+                                        {{ form.ente }}
+                                        {% for err in form.ente.errors %}<div class="invalid-feedback d-block">{{ err }}</div>{% endfor %}
                                     </div>
                                     
                                     <div class="col-md-6 form-group">
-                                        <label for="email" class="form-label">
-                                            {% trans 'Indirizzo email' %} <span class="required">*</span>
+                                        <label for="{{ form.email.id_for_label }}" class="form-label mb-2">
+                                            {{ form.email.label }} {% if form.email.field.required %}<span class="required">*</span>{% endif %}
                                         </label>
-                                        <input 
-                                            type="email" 
-                                            class="form-control" 
-                                            id="email" 
-                                            name="email"
-                                            placeholder="{% trans 'La tua email' %}" 
-                                            required
-                                            aria-required="true">
-                                    </div>
-                                    
-                                    <div class="col-md-6 form-group">
-                                        <label for="oggetto" class="form-label">
-                                            {% trans 'Oggetto' %} <span class="required">*</span>
-                                        </label>
-                                        <input 
-                                            type="text" 
-                                            class="form-control" 
-                                            id="oggetto" 
-                                            name="oggetto"
-                                            placeholder="{% trans 'Oggetto del messaggio' %}" 
-                                            required
-                                            aria-required="true">
+                                        {{ form.email }}
+                                        {% for err in form.email.errors %}<div class="invalid-feedback d-block">{{ err }}</div>{% endfor %}
                                     </div>
                                     
                                     <div class="col-12 form-group">
-                                        <label for="messaggio" class="form-label">
-                                            {% trans 'Messaggio' %} <span class="required">*</span>
+                                        <label for="{{ form.oggetto.id_for_label }}" class="form-label mb-2">
+                                            {{ form.oggetto.label }} {% if form.oggetto.field.required %}<span class="required">*</span>{% endif %}
                                         </label>
-                                        <textarea 
-                                            class="form-control" 
-                                            id="messaggio" 
-                                            name="messaggio" 
-                                            rows="5"
-                                            placeholder="{% trans 'Scrivi qui il tuo messaggio...' %}" 
-                                            required
-                                            aria-required="true"></textarea>
+                                        {{ form.oggetto }}
+                                        {% for err in form.oggetto.errors %}<div class="invalid-feedback d-block">{{ err }}</div>{% endfor %}
+                                    </div>
+                                    
+                                    <div class="col-12 form-group">
+                                        <label for="{{ form.messaggio.id_for_label }}" class="form-label mb-2">
+                                            {{ form.messaggio.label }} {% if form.messaggio.field.required %}<span class="required">*</span>{% endif %}
+                                        </label>
+                                        {{ form.messaggio }}
+                                        {% for err in form.messaggio.errors %}<div class="invalid-feedback d-block">{{ err }}</div>{% endfor %}
                                     </div>
                                     
                                     <div class="col-12 text-center mt-3">
@@ -337,6 +331,13 @@
                                         </button>
                                         <div class="form-note mt-2">
                                             {% trans 'I campi contrassegnati con' %} <span class="required">*</span> {% trans 'sono obbligatori.' %}
+                                        </div>
+                                        <div class="form-note mt-1">
+                                            <small>
+                                                <a href="#privacy" class="text-muted">
+                                                    {% trans 'Informativa sulla privacy' %}
+                                                </a>
+                                            </small>
                                         </div>
                                     </div>
                                 </div>
@@ -354,7 +355,7 @@
     <div class="container-xl">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <h2 class="contatti-section-title">{% trans 'Nota sulla' %} <span class="contatti-title-accent">{% trans 'privacy' %}</span></h2>
+                <h2 class="contatti-section-title">{% trans 'Nota sulla privacy' %}</h2>
                 <p>
                     {% trans 'I dati inviati tramite il modulo di contatto saranno utilizzati esclusivamente per rispondere alla richiesta, nel rispetto della normativa vigente in materia di protezione dei dati personali (Regolamento UE 2016/679 - GDPR).' %}
                 </p>
