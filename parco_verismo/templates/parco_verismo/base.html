@@ -270,21 +270,54 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Initialize AOS
+            // Selective AOS: Disable only for critical card sections on mobile to prevent scrolling jump
+            if (window.innerWidth <= 991) {
+                const staticSelectors = [
+                    '.hp-luoghi [data-aos]',
+                    '.hp-opere-section [data-aos]',
+                    '.hp-card-primary[data-aos]',
+                    '.hp-card-secondary[data-aos]'
+                ];
+                staticSelectors.forEach(selector => {
+                    document.querySelectorAll(selector).forEach(el => {
+                        el.removeAttribute('data-aos');
+                        el.style.opacity = '1';
+                        el.style.transform = 'none';
+                    });
+                });
+            }
+
             AOS.init({
                 duration: 800,
                 easing: 'ease-in-out',
                 once: true,
-                offset: 100
+                offset: 50,
+                disable: false 
             });
 
-            // Parallax effect for Hero Video
+            // Parallax effect for Hero Video and Background Quotes
             const heroVideo = document.querySelector('.videobg');
-            if (heroVideo) {
+            const quotes = document.querySelectorAll('.bg-quote');
+            
+            if ((heroVideo || quotes.length > 0) && window.innerWidth > 991) {
                 window.addEventListener('scroll', function () {
                     const scrollY = window.pageYOffset;
-                    // Move the video at half the speed of the scroll
-                    heroVideo.style.transform = `translate(-50%, calc(-50% + ${scrollY * 0.4}px))`;
+                    
+                    // Video Parallax
+                    if (heroVideo) {
+                        heroVideo.style.transform = `translate(-50%, calc(-50% + ${scrollY * 0.4}px))`;
+                    }
+                    
+                    // Quotes Parallax
+                    quotes.forEach(quote => {
+                        const speed = parseFloat(quote.getAttribute('data-parallax-speed')) || 0.1;
+                        const rect = quote.parentElement.getBoundingClientRect();
+                        if (rect.top < window.innerHeight && rect.bottom > 0) {
+                            const offset = (window.innerHeight - rect.top) * speed;
+                            const rotation = quote.style.transform.match(/rotate\(([^)]+)\)/)?.[0] || '';
+                            quote.style.transform = `translateY(${offset}px) ${rotation}`;
+                        }
+                    });
                 }, { passive: true });
             }
         });

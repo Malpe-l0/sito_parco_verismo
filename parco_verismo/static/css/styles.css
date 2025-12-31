@@ -209,6 +209,7 @@ a:focus {
    ======================================================== */
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -219,12 +220,20 @@ body {
     color: var(--color-text-primary);
     line-height: 1.75;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 .detail-page {
     padding-top: var(--space-xl);
     padding-bottom: var(--space-xl);
     margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+    .detail-page {
+        margin-bottom: 0;
+        padding-bottom: var(--space-lg);
+    }
 }
 
 /* Evita che le card nelle pagine detail si estendano troppo */
@@ -252,18 +261,24 @@ body {
 @media (max-width: 768px) {
     .page-content {
         padding-top: var(--space-lg);
-        padding-bottom: calc(var(--space-xl) * 2);
+        padding-bottom: 0 !important;
+    }
+
+    body.has-hero .page-content {
+        padding-top: 0 !important;
+        /* Rimuove gap dopo il video hero */
     }
 
     body:not(.has-hero) .page-content {
         padding-top: calc(var(--space-xl) + 3.5rem);
-        padding-bottom: calc(var(--space-xl) * 2.5);
+        padding-bottom: 0 !important;
+        /* Rimosso l'enorme spazio finale di 5rem */
     }
 
     .detail-page {
         padding-top: var(--space-lg);
-        padding-bottom: var(--space-lg);
-        margin-bottom: var(--space-md);
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
     }
 
     .detail-page .return-actions {

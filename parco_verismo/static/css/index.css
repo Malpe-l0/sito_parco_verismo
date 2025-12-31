@@ -217,6 +217,27 @@ header::after {
     animation: fadeInUp 1s ease-out 0.8s forwards;
 }
 
+/* Unified Button Sizes for Homepage */
+.hp-section .btn {
+    min-width: 220px;
+    padding: 0.875rem 2.5rem !important;
+    /* Forza padding uniforme ovunque */
+    font-weight: 600;
+    border-radius: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .hp-section .btn {
+        min-width: 100%;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
 .hero-cta .btn {
     font-family: 'TeX Gyre Termes', serif;
     font-weight: 600;
@@ -251,78 +272,118 @@ header::after {
 }
 
 .hp-parco {
-    background: linear-gradient(to bottom,
-            var(--color-background) 0%,
-            color-mix(in srgb, var(--color-primary-pale) 40%, var(--color-background)) 100%);
+    background-color: var(--color-background);
     border-bottom: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
 }
 
 /* Sezione 'Il Parco' full-screen con logo di sfondo trasparente verso sinistra */
+/* Background Design: Warmed Vellum + Subtle Vignette */
 #il-parco.hp-parco {
     position: relative;
     min-height: 100vh;
-    max-height: 100vh;
-    /* cap section height to viewport */
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 !important;
+    background:
+        radial-gradient(circle at center, rgba(255, 255, 235, 0.4) 0%, rgba(74, 103, 65, 0.08) 100%),
+        url('/static/assets/img/textures/paper-texture.webp');
+    background-blend-mode: multiply;
+    background-size: cover;
+    overflow: hidden;
 }
 
-#il-parco.hp-parco::before {
-    display: none;
-    /* Rimosso per pulizia come richiesto */
+/* Internal refined frame */
+#il-parco.hp-parco::after {
+    content: '';
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    right: 3rem;
+    bottom: 3rem;
+    border: 1px solid rgba(74, 103, 65, 0.12);
+    pointer-events: none;
+    z-index: 1;
 }
 
-/* Background Quotes Styling */
-.bg-quotes-container {
+/* Background Quotes Layer */
+.hp-quotes-layer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1;
-    overflow: hidden;
+    z-index: 2;
 }
 
 .bg-quote {
     position: absolute;
     color: var(--color-primary-dark);
-    opacity: 0.06;
     font-family: 'TeX Gyre Termes', serif;
     font-style: italic;
-    font-size: clamp(1rem, 2.5vw, 1.6rem);
-    line-height: 1.2;
-    max-width: 350px;
-    z-index: 1;
-    transition: opacity 0.5s ease;
+    font-size: clamp(0.9rem, 2vw, 1.25rem);
+    line-height: 1.4;
+    max-width: 280px;
+    padding: 0.5rem 1rem;
+    opacity: 0.45;
+    /* Aumentata opacità per migliore leggibilità */
+    background: rgba(255, 255, 255, 0.6);
+    /* Sfondo più solido per contrasto */
+    border-radius: 4px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.1s linear;
 }
 
-/* Distribution to the four corners */
+.bg-quote::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    width: 4px;
+    height: 60%;
+    background: var(--color-primary);
+    transform: translateY(-50%);
+    opacity: 0.3;
+}
+
 .bg-quote-1 {
-    top: 10%;
-    left: 5%;
-    transform: rotate(-3deg);
+    top: 15%;
+    left: 8%;
+    transform: rotate(-2deg);
 }
 
 .bg-quote-2 {
-    top: 10%;
-    right: 5%;
-    transform: rotate(3deg);
-    text-align: right;
+    top: 18%;
+    right: 10%;
+    transform: rotate(1.5deg);
 }
 
 .bg-quote-3 {
-    bottom: 10%;
-    left: 5%;
-    transform: rotate(2deg);
+    bottom: 20%;
+    left: 12%;
+    transform: rotate(1deg);
 }
 
 .bg-quote-4 {
-    bottom: 10%;
-    right: 5%;
-    transform: rotate(-2deg);
-    text-align: right;
+    bottom: 15%;
+    right: 8%;
+    transform: rotate(-1.5deg);
+}
+
+@media (max-width: 991px) {
+    .hp-quotes-layer {
+        display: none;
+    }
+
+    #il-parco.hp-parco::after {
+        top: 1.5rem;
+        left: 1.5rem;
+        right: 1.5rem;
+        bottom: 1.5rem;
+    }
 }
 
 /* Subtle floating animation */
@@ -339,22 +400,22 @@ header::after {
 }
 
 .bg-quote-1 {
-    --rot: -3deg;
+    --rot: -2deg;
     animation: microFloat 14s infinite ease-in-out;
 }
 
 .bg-quote-2 {
-    --rot: 3deg;
+    --rot: 1.5deg;
     animation: microFloat 16s infinite ease-in-out;
 }
 
 .bg-quote-3 {
-    --rot: 2deg;
+    --rot: 1deg;
     animation: microFloat 18s infinite ease-in-out;
 }
 
 .bg-quote-4 {
-    --rot: -2deg;
+    --rot: -1.5deg;
     animation: microFloat 20s infinite ease-in-out;
 }
 
@@ -368,13 +429,55 @@ header::after {
     z-index: 2;
 }
 
-/* Constrain content inside #il-parco so the section doesn't exceed viewport */
+/* Constrain content inside #il-parco - Adjusted for centering */
 #il-parco .hp-content {
-    max-height: calc(100vh - 140px);
-    overflow: auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    position: relative;
+    z-index: 3;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
+
+.hp-section-separator {
+    margin: 0.5rem 0 2rem;
+    display: flex;
+    align-items: center;
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(74, 103, 65, 0.2), transparent);
+    position: relative;
+}
+
+.separator-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(74, 103, 65, 0.2);
+}
+
+#il-parco .hp-section-title {
+    font-size: clamp(2rem, 5.5vw, 3rem);
+    margin-bottom: 0.5rem;
+    color: var(--color-primary-dark);
+}
+
+#il-parco .lead {
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--color-text-secondary);
+}
+
+/* Elegant Drop-cap rimosso per pulizia */
 
 /* Pulsanti nella sezione Il Parco: riga e centrati */
 #il-parco.hp-parco .hp-cta-buttons {
@@ -398,19 +501,17 @@ header::after {
 /* Mobile: logo più piccolo e meno invadente */
 @media (max-width: 768px) {
     #il-parco.hp-parco::before {
-        left: 0;
-        transform: translate(-50%, -50%) scale(1.6);
-        transform-origin: left center;
-        width: 100vw;
-        height: 50vh;
-        background-size: 70vw auto;
-        opacity: 0.04;
+        width: 80vw;
+        height: 80vw;
+        background-size: contain;
+        opacity: 0.03;
     }
 
     #il-parco.hp-parco {
-        min-height: 70vh;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        min-height: auto;
+        /* Permette alla sezione di crescere col contenuto */
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
     }
 }
 
@@ -607,7 +708,7 @@ section.hp-section {
     border-radius: 1rem;
     padding: 2rem;
     text-align: center;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease, background 0.4s ease, border-color 0.4s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -826,19 +927,7 @@ section.hp-section {
     width: 100%;
     height: auto;
     display: block;
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
+    /* Animation removed as requested: "le card con dentro gli svg fanno su e giu ed è brutto" */
 }
 
 /* ========================================================
@@ -895,13 +984,14 @@ section.hp-section {
     .hp-cta-card {
         padding: 3rem 1.5rem;
     }
+
+    .hp-section {
+        padding: 3rem 0 !important;
+        /* Ridotto da 5rem per mobile */
+    }
 }
 
 @media (max-width: 767.98px) {
-    .hp-section {
-        padding: 3rem 0;
-    }
-
     .hp-section-title {
         font-size: 1.75rem;
     }
@@ -910,20 +1000,32 @@ section.hp-section {
         font-size: 1.75rem;
     }
 
-    .homepage-hero .hero-subtitle {
-        font-size: 1.1rem;
-    }
-
-    .homepage-hero .hero-description {
-        font-size: 1rem;
+    .hp-section {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
     }
 
     .hp-card {
         padding: 1.5rem;
+        transform: none !important;
+        transition: opacity 0.4s ease, background 0.4s ease !important;
+        /* Solo opacità e sfondo */
+        animation: none !important;
+        width: 100% !important;
+        /* Forza layout verticale stabile */
+        margin-bottom: 1.5rem;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+
+    .hp-card::before,
+    .hp-card::after {
+        display: none !important;
     }
 
     .hp-cta-buttons {
         flex-direction: column;
+        gap: 0.75rem;
     }
 
     .hp-cta-buttons .btn {
@@ -1085,9 +1187,10 @@ body {
     margin-top: 0.5rem;
 }
 
-/* Button override for contact form */
+/* Button override for contact form - Unified with homepage buttons */
 .hp-contact-form .btn-lg {
-    padding: 1rem 3rem;
+    min-width: 220px;
+    /* padding ereditato da .hp-section .btn con !important */
     font-size: 1.125rem;
     letter-spacing: 0.02em;
     border-radius: 0.75rem;
@@ -1131,6 +1234,33 @@ body {
     color: var(--color-text-primary);
     font-size: 1rem;
     transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* Form group margin (custom) */
+.hp-contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .hp-contact-form .form-group {
+        margin-bottom: 0.85rem !important;
+        /* Spazio ridotto tra i campi su mobile */
+    }
+
+    .hp-contact-form .form-control {
+        height: 48px !important;
+        min-height: 48px !important;
+        font-size: 15px !important;
+    }
+
+    .hp-contact-form textarea.form-control {
+        min-height: 100px !important;
+    }
+
+    .hp-contact-form .form-label {
+        margin-bottom: 0.2rem !important;
+        font-size: 0.9rem !important;
+    }
 }
 
 /* right-column styles removed (column deleted from template) */
@@ -1228,6 +1358,8 @@ body {
     #il-parco.hp-parco {
         max-height: none !important;
         min-height: auto !important;
+        padding-top: 0 !important;
+        /* Rimuove spazio residuo sotto il video */
     }
 
     #il-parco .hp-content {
@@ -1264,5 +1396,21 @@ body {
     .hp-cta-buttons .btn {
         padding: 0.6rem 1rem !important;
         font-size: 0.9rem !important;
+    }
+}
+
+/* Eliminate gap before footer on mobile */
+@media (max-width: 991px) {
+
+    .hp-section.hp-cta-final,
+    .hp-section:last-of-type {
+        padding-bottom: 2.5rem !important;
+        /* Ripristinata simmetria (uguale al padding-top) */
+        margin-bottom: 0 !important;
+    }
+
+    .hp-cta-final .container,
+    .hp-cta-final .container-xl {
+        margin-bottom: 0 !important;
     }
 }

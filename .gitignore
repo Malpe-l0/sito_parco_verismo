@@ -24,6 +24,8 @@ db.sqlite3-journal
 !/media/copertine/**
 !/media/archivio_fotografico/
 !/media/archivio_fotografico/**
+!/media/documenti/
+!/media/documenti/**
 /staticfiles/
 /static_root/
 .env

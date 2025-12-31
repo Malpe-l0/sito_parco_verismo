@@ -690,3 +690,29 @@
 .calendar-day.selected {
     box-shadow: 0 0 0 2px var(--color-text-primary);
 }
+/* ===========================
+   RESPONSIVE - EVENTI
+   =========================== */
+
+@media (max-width: 991px) {
+    .evento-card {
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+        border-width: 1px !important;
+    }
+
+    .evento-card::before, .evento-card::after {
+        display: none !important;
+    }
+
+    .evento-card:hover {
+        transform: none !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .evento-card-img img {
+        transition: none !important;
+        transform: none !important;
+    }
+}

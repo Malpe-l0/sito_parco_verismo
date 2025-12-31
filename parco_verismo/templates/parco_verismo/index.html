@@ -25,38 +25,43 @@
 {% block content %}
 
 <!-- Sezione: Il Parco -->
-<section id="il-parco" class="hp-section hp-parco py-6">
-    <!-- Background Quotes -->
-    <div class="bg-quotes-container" aria-hidden="true">
-        <div class="bg-quote bg-quote-1" data-aos="fade-up" data-aos-delay="200" data-aos-duration="3000">
-            &ldquo;Il mare non ha paese nemmeno lui, ed è di tutti quelli che lo stanno ad ascoltare&rdquo;
+<section id="il-parco" class="hp-section hp-parco">
+    <!-- Background Quotes with Parallax Support - 2 Verga, 2 Capuana -->
+    <div class="hp-quotes-layer" aria-hidden="true">
+        <div class="bg-quote bg-quote-1" data-parallax-speed="0.1">
+            "Il mare non ha paese nemmen lui, ed è di tutti quelli che lo stanno ad ascoltare"
         </div>
-        <div class="bg-quote bg-quote-2" data-aos="fade-up" data-aos-delay="400" data-aos-duration="3500">
-            &ldquo;La parola deve servire ad esprimere l'idea&rdquo;
+        <div class="bg-quote bg-quote-2" data-parallax-speed="0.15">
+            "Bisogna saper fare come le ostriche: quando il mare è in tempesta, lasciar passare l'onda"
         </div>
-        <div class="bg-quote bg-quote-3" data-aos="fade-up" data-aos-delay="600" data-aos-duration="3200">
-            &ldquo;L'arte è la vita, ma la vita è più dell'arte&rdquo;
+        <div class="bg-quote bg-quote-3" data-parallax-speed="0.12">
+            "Il vero è il fine dell'arte, l'unica sorgente della bellezza"
         </div>
-        <div class="bg-quote bg-quote-4" data-aos="fade-up" data-aos-delay="800" data-aos-duration="3800">
-            &ldquo;Dobbiamo studiare il vero, non inventarlo&rdquo;
+        <div class="bg-quote bg-quote-4" data-parallax-speed="0.08">
+            "Dobbiamo studiare il vero, non inventarlo"
         </div>
     </div>
 
     <div class="container-xl">
         <div class="row justify-content-center">
             <div class="col-lg-10" data-aos="fade-up">
-                <div class="hp-content text-center">
-                    <h2 class="hp-section-title fw-bold display-5" style="font-size:2.5rem;">
+                <div class="hp-content">
+                    <h1 class="hp-section-title" data-aos="fade-up">
                         {% trans 'Il Parco Letterario Giovanni Verga e Luigi Capuana' %}
-                    </h2>
-                    <p class="lead mb-4 text-muted" style="font-size:1.125rem; max-width:900px; margin: 0 auto; line-height:1.6;">
+                    </h1>
+                    
+                    <div class="hp-section-separator" data-aos="zoom-in" data-aos-delay="100">
+                        <span class="separator-dot"></span>
+                    </div>
+
+                    <p class="lead" data-aos="fade-up" data-aos-delay="200">
                         {% blocktrans trimmed %}
                         Il Parco Letterario Giovanni Verga e Luigi Capuana valorizza il patrimonio verista attraverso ricerca, percorsi culturali e progetti che coinvolgono la comunità. L'obiettivo è trasformare la memoria letteraria in un motore di sviluppo condiviso, favorendo un turismo culturale responsabile e un territorio in cui identità, storia e futuro dialogano in modo armonioso.
                         {% endblocktrans %}
                     </p>
 
-                    <div class="hp-cta-buttons mt-4">
-                        <a href="{% url 'missione_visione' %}" class="btn btn-primary me-2">{% trans 'Scopri il Parco' %}</a>
+                    <div class="hp-cta-buttons">
+                        <a href="{% url 'missione_visione' %}" class="btn btn-primary">{% trans 'Scopri il Parco' %}</a>
                         <a href="{% url 'comitato_tecnico_scientifico' %}" class="btn btn-outline-primary">{% trans 'Comitato Tecnico' %}</a>
                     </div>
                 </div>
@@ -293,7 +298,7 @@
 </section>
 
 <!-- Sezione: Opere & Letteratura -->
-<section class="hp-section hp-eventi py-6">
+<section class="hp-section hp-eventi hp-opere-section py-6">
     <div class="container-xl">
         <div class="text-center mb-5 mb-lg-6">
             <h2 class="hp-section-title">
