@@ -8,7 +8,6 @@ header {
     width: 100%;
     height: 100vh;
     max-height: 100vh;
-    /* ensure header never exceeds viewport height */
     overflow: hidden;
     display: flex;
     align-items: center;

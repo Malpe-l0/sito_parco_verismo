@@ -12,9 +12,45 @@
       <div class="col-lg-8">
         <h1 class="site-section-title text-center mb-3">{{ evento.titolo }}</h1>
 
-        {% if evento.immagine %}
+        {% if evento.immagine or evento.additional_images.all %}
           <div class="text-center mb-5">
-            <img src="{{ evento.immagine.url }}" alt="{% trans 'Immagine evento' %} {{ evento.titolo }}" class="img-fluid rounded shadow" style="max-height: 400px; object-fit: contain;">
+            {% if not evento.additional_images.all %}
+              {# Mostra solo l'immagine principale se non ci sono altre foto #}
+              <img src="{{ evento.immagine.url }}" alt="{% trans 'Immagine evento' %} {{ evento.titolo }}" class="img-fluid rounded shadow" style="max-height: 450px; width: 100%; object-fit: cover;">
+            {% else %}
+              {# Carousel se ci sono più foto (principale + addizionali) #}
+              <div id="eventoCarousel" class="carousel slide rounded shadow overflow-hidden" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#eventoCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  {% for img in evento.additional_images.all %}
+                    <button type="button" data-bs-target="#eventoCarousel" data-bs-slide-to="{{ forloop.counter }}" aria-label="Slide {{ forloop.counter|add:1 }}"></button>
+                  {% endfor %}
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="{{ evento.immagine.url }}" class="d-block w-100" alt="{{ evento.titolo }}" style="max-height: 450px; object-fit: cover;">
+                  </div>
+                  {% for img in evento.additional_images.all %}
+                    <div class="carousel-item">
+                      <img src="{{ img.immagine.url }}" class="d-block w-100" alt="{{ img.didascalia|default:evento.titolo }}" style="max-height: 450px; object-fit: cover;">
+                      {% if img.didascalia %}
+                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.5); border-radius: 10px; padding: 5px 15px;">
+                          <p class="m-0">{{ img.didascalia }}</p>
+                        </div>
+                      {% endif %}
+                    </div>
+                  {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#eventoCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#eventoCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            {% endif %}
           </div>
         {% endif %}
 

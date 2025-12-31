@@ -9,7 +9,17 @@ from django.contrib import admin
 from parler.admin import TranslatableAdmin
 
 # Local imports
-from ..models import Evento, Notizia
+from ..models import Evento, Notizia, EventoImage, NotiziaImage
+
+
+class EventoImageInline(admin.TabularInline):
+    model = EventoImage
+    extra = 1
+
+
+class NotiziaImageInline(admin.TabularInline):
+    model = NotiziaImage
+    extra = 1
 
 
 @admin.register(Evento)
@@ -20,6 +30,7 @@ class EventoAdmin(TranslatableAdmin):
     date_hierarchy = "data_inizio"
     ordering = ("-data_inizio",)
     list_editable = ("is_active",)
+    inlines = [EventoImageInline]
 
 
 @admin.register(Notizia)
@@ -30,3 +41,4 @@ class NotiziaAdmin(TranslatableAdmin):
     date_hierarchy = "data_pubblicazione"
     ordering = ("-data_pubblicazione",)
     list_editable = ("is_active",)
+    inlines = [NotiziaImageInline]

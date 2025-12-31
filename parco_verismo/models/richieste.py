@@ -4,66 +4,67 @@ Modelli per il sistema di Richieste.
 
 # Django imports
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class Richiesta(models.Model):
     """Modello per salvare le richieste dal form della homepage"""
 
     PRIORITA_CHOICES = [
-        ("bassa", "Bassa"),
-        ("media", "Media"),
-        ("alta", "Alta"),
+        ("bassa", _("Bassa")),
+        ("media", _("Media")),
+        ("alta", _("Alta")),
     ]
 
     STATO_CHOICES = [
-        ("nuova", "Nuova richiesta"),
-        ("in_lavorazione", "In lavorazione"),
-        ("confermata", "Confermata"),
-        ("completata", "Completata"),
-        ("cancellata", "Cancellata"),
+        ("nuova", _("Nuova richiesta")),
+        ("in_lavorazione", _("In lavorazione")),
+        ("confermata", _("Confermata")),
+        ("completata", _("Completata")),
+        ("cancellata", _("Cancellata")),
     ]
 
     # Dati contatto
-    nome = models.CharField(max_length=100, verbose_name="Nome")
-    cognome = models.CharField(max_length=100, verbose_name="Cognome")
-    email = models.EmailField(verbose_name="Email")
+    nome = models.CharField(max_length=100, verbose_name=_("Nome"))
+    cognome = models.CharField(max_length=100, verbose_name=_("Cognome"))
+    email = models.EmailField(verbose_name=_("Email"))
 
     # Messaggio
     messaggio = models.TextField(
         blank=False,
-        verbose_name="Messaggio/Richieste particolari",
-        help_text="Inserisci il contenuto del messaggio (obbligatorio)",
+        verbose_name=_("Messaggio/Richieste particolari"),
+        help_text=_("Inserisci il contenuto del messaggio (obbligatorio)"),
     )
 
     # Gestione amministrativa
-    data_richiesta = models.DateTimeField(auto_now_add=True, verbose_name="Data richiesta")
+    data_richiesta = models.DateTimeField(auto_now_add=True, verbose_name=_("Data richiesta"))
     stato = models.CharField(
-        max_length=20, choices=STATO_CHOICES, default="nuova", verbose_name="Stato", db_index=True
+        max_length=20, choices=STATO_CHOICES, default="nuova", verbose_name=_("Stato"), db_index=True
     )
     priorita = models.CharField(
-        max_length=10, choices=PRIORITA_CHOICES, default="media", verbose_name="Priorità", db_index=True
+        max_length=10, choices=PRIORITA_CHOICES, default="media", verbose_name=_("Priorità"), db_index=True
     )
 
     # Gestione date
     data_completamento = models.DateTimeField(
         null=True,
         blank=True,
-        verbose_name="Data completamento",
-        help_text="Quando il servizio è stato erogato",
+        verbose_name=_("Data completamento"),
+        help_text=_("Quando il servizio è stato erogato"),
     )
 
     # Team e note
     ente = models.CharField(
         max_length=200,
         blank=True,
-        verbose_name="Ente / Istituzione",
-        help_text="Facoltativo",
+        verbose_name=_("Ente / Istituzione"),
+        help_text=_("Facoltativo"),
     )
     oggetto = models.CharField(
         max_length=200,
         blank=False,
-        verbose_name="Oggetto",
-        help_text="Oggetto della richiesta (obbligatorio)",
+        verbose_name=_("Oggetto"),
+        help_text=_("Oggetto della richiesta (obbligatorio)"),
     )
     responsabile = models.CharField(
         max_length=100,

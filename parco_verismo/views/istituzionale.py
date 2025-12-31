@@ -1,7 +1,3 @@
-"""
-Views per pagine istituzionali e di conformità.
-"""
-
 # Django imports
 # Django imports
 import logging

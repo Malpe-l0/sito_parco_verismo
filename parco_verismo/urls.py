@@ -69,7 +69,7 @@ urlpatterns = [
     path('partner/', partner_rete_territoriale_view, name='partner_rete_territoriale'),
 
     # Accrediti e Finanziamenti
-    path('finanziamenti/', accrediti_finanziamenti_view, name='accrediti_finanziamenti'),
+    # path('finanziamenti/', accrediti_finanziamenti_view, name='accrediti_finanziamenti'),
     
     # Contatti
     path('contatti/', contatti_view, name='contatti'),

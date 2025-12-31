@@ -5,7 +5,7 @@ Organizzati per funzionalità e dominio.
 
 # Import tutti i modelli per renderli disponibili
 from .autori_opere import Autore, Opera
-from .eventi import Evento, Notizia
+from .eventi import Evento, Notizia, EventoImage, NotiziaImage
 from .documenti import Documento, FotoArchivio
 from .itinerari import Itinerario, TappaItinerario
 from .richieste import Richiesta
@@ -17,7 +17,9 @@ __all__ = [
     "Opera",
     # Eventi e Notizie
     "Evento",
+    "EventoImage",
     "Notizia",
+    "NotiziaImage",
     # Documenti e Archivio
     "Documento",
     "FotoArchivio",

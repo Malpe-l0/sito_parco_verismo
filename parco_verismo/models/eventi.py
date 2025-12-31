@@ -113,3 +113,27 @@ class Notizia(TranslatableModel):
 
     def get_absolute_url(self):
         return reverse("notizia_detail", kwargs={"slug": self.slug})
+
+
+class EventoImage(models.Model):
+    evento = models.ForeignKey(Evento, related_name='additional_images', on_delete=models.CASCADE)
+    immagine = models.ImageField(upload_to="eventi/gallery/")
+    didascalia = models.CharField(max_length=200, blank=True, null=True)
+    ordine = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['ordine']
+        verbose_name = "Immagine Evento"
+        verbose_name_plural = "Immagini Evento"
+
+
+class NotiziaImage(models.Model):
+    notizia = models.ForeignKey(Notizia, related_name='additional_images', on_delete=models.CASCADE)
+    immagine = models.ImageField(upload_to="notizie/gallery/")
+    didascalia = models.CharField(max_length=200, blank=True, null=True)
+    ordine = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['ordine']
+        verbose_name = "Immagine Notizia"
+        verbose_name_plural = "Immagini Notizia"

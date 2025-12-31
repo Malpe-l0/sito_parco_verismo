@@ -7,10 +7,21 @@
 h1 {
   font-family: "Perandory", sans-serif;
   font-weight: 400;
+  letter-spacing: 0.05em;
 }
 
 /* TeX Gyre Termes per il corpo del testo e altri titoli (inclusi h2-h6) */
-body, p, a, li, span, div, h2, h3, h4, h5, h6 {
+body,
+p,
+a,
+li,
+span,
+div,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "TeX Gyre Termes", serif;
   font-weight: 400;
 }
@@ -27,4 +38,5 @@ h1.mv-hero-title,
 h1.cts-hero-title,
 h1.reg-hero-title {
   font-family: "Perandory", sans-serif;
-} 
+  letter-spacing: 0.05em;
+}

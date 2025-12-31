@@ -1,14 +1,9 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-30 19:21+0100\n"
+"POT-Creation-Date: 2025-12-31 01:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,12 +18,10 @@ msgid "Nome ente o istituzione (facoltativo)"
 msgstr "Organization or institution name (optional)"
 
 #: parco_verismo/forms/richiesta.py:59
-#: parco_verismo/templates/parco_verismo/contatti.html:314
 msgid "Oggetto del messaggio"
 msgstr "Message subject"
 
 #: parco_verismo/forms/richiesta.py:67
-#: parco_verismo/templates/parco_verismo/contatti.html:328
 msgid "Scrivi qui il tuo messaggio..."
 msgstr "Write your message here..."
 
@@ -112,6 +105,102 @@ msgstr "Subject is required"
 msgid "Troppe richieste. Riprova tra qualche minuto."
 msgstr "Too many requests. Please try again in a few minutes."
 
+#: parco_verismo/models/richieste.py:14
+msgid "Bassa"
+msgstr "Low"
+
+#: parco_verismo/models/richieste.py:15
+msgid "Media"
+msgstr "Medium"
+
+#: parco_verismo/models/richieste.py:16
+msgid "Alta"
+msgstr "High"
+
+#: parco_verismo/models/richieste.py:20
+msgid "Nuova richiesta"
+msgstr "New request"
+
+#: parco_verismo/models/richieste.py:21
+msgid "In lavorazione"
+msgstr "In progress"
+
+#: parco_verismo/models/richieste.py:22
+msgid "Confermata"
+msgstr "Confirmed"
+
+#: parco_verismo/models/richieste.py:23
+msgid "Completata"
+msgstr "Completed"
+
+#: parco_verismo/models/richieste.py:24
+msgid "Cancellata"
+msgstr "Cancelled"
+
+#: parco_verismo/models/richieste.py:28
+#: parco_verismo/templates/parco_verismo/cookie_policy.html:112
+#: parco_verismo/templates/parco_verismo/cookie_policy.html:150
+msgid "Nome"
+msgstr "Name"
+
+#: parco_verismo/models/richieste.py:29
+msgid "Cognome"
+msgstr "Surname"
+
+#: parco_verismo/models/richieste.py:30
+#: parco_verismo/templates/parco_verismo/cookie_policy.html:248
+#: parco_verismo/templates/parco_verismo/note_legali.html:66
+#: parco_verismo/templates/parco_verismo/note_legali.html:176
+#: parco_verismo/templates/parco_verismo/privacy_policy.html:73
+#: parco_verismo/templates/parco_verismo/privacy_policy.html:166
+#: parco_verismo/templates/parco_verismo/privacy_policy.html:180
+msgid "Email"
+msgstr "Email"
+
+#: parco_verismo/models/richieste.py:35
+msgid "Messaggio/Richieste particolari"
+msgstr "Message/Special requests"
+
+#: parco_verismo/models/richieste.py:36
+msgid "Inserisci il contenuto del messaggio (obbligatorio)"
+msgstr "Enter the message content (required)"
+
+#: parco_verismo/models/richieste.py:40
+msgid "Data richiesta"
+msgstr "Request date"
+
+#: parco_verismo/models/richieste.py:42
+msgid "Stato"
+msgstr "Status"
+
+#: parco_verismo/models/richieste.py:45
+msgid "Priorità"
+msgstr "Priority"
+
+#: parco_verismo/models/richieste.py:52
+msgid "Data completamento"
+msgstr "Completion date"
+
+#: parco_verismo/models/richieste.py:53
+msgid "Quando il servizio è stato erogato"
+msgstr "When the service was provided"
+
+#: parco_verismo/models/richieste.py:60
+msgid "Ente / Istituzione"
+msgstr "Organization / Institution"
+
+#: parco_verismo/models/richieste.py:61
+msgid "Facoltativo"
+msgstr "Optional"
+
+#: parco_verismo/models/richieste.py:66
+msgid "Oggetto"
+msgstr "Subject"
+
+#: parco_verismo/models/richieste.py:67
+msgid "Oggetto della richiesta (obbligatorio)"
+msgstr "Subject of the request (required)"
+
 #: parco_verismo/templates/parco_verismo/accrediti_finanziamenti.html:4
 msgid "Accrediti e Finanziamenti"
 msgstr "Accreditations and Funding"
@@ -168,12 +257,8 @@ msgid "Riconoscimenti Ufficiali"
 msgstr "Official Recognitions"
 
 #: parco_verismo/templates/parco_verismo/accrediti_finanziamenti.html:111
-msgid "Accrediti"
-msgstr "Accreditations"
-
-#: parco_verismo/templates/parco_verismo/accrediti_finanziamenti.html:111
-msgid "Istituzionali"
-msgstr "Institutional"
+msgid "Accrediti Istituzionali"
+msgstr "Institutional Accreditations"
 
 #: parco_verismo/templates/parco_verismo/accrediti_finanziamenti.html:116
 msgid ""
@@ -227,12 +312,8 @@ msgid "Investimenti Sostenibili"
 msgstr "Sustainable Investments"
 
 #: parco_verismo/templates/parco_verismo/accrediti_finanziamenti.html:201
-msgid "Fonti di"
-msgstr "Sources of"
-
-#: parco_verismo/templates/parco_verismo/accrediti_finanziamenti.html:201
-msgid "Finanziamento"
-msgstr "Funding"
+msgid "Fonti di Finanziamento"
+msgstr "Funding Sources"
 
 #: parco_verismo/templates/parco_verismo/accrediti_finanziamenti.html:206
 msgid ""
@@ -287,10 +368,12 @@ msgstr ""
 "and Management (15%%), Reserve (5%%)."
 
 #: parco_verismo/templates/parco_verismo/accrediti_finanziamenti.html:257
+#, python-format
 msgid "35%% Cultura"
 msgstr "35%% Culture"
 
 #: parco_verismo/templates/parco_verismo/accrediti_finanziamenti.html:258
+#, python-format
 msgid "25%% Ricerca"
 msgstr "25%% Research"
 
@@ -558,7 +641,6 @@ msgstr "Technical-Scientific Committee Regulations"
 #: parco_verismo/templates/parco_verismo/comitato_regolamento.html:25
 #: parco_verismo/templates/parco_verismo/components/footer.html:8
 #: parco_verismo/templates/parco_verismo/contatti.html:25
-#: parco_verismo/templates/parco_verismo/index.html:35
 #: parco_verismo/templates/parco_verismo/privacy_policy.html:71
 msgid "Parco Letterario Giovanni Verga e Luigi Capuana"
 msgstr "Giovanni Verga and Luigi Capuana Literary Park"
@@ -887,6 +969,7 @@ msgstr "Back to Committee"
 
 #: parco_verismo/templates/parco_verismo/comitato_tecnico_scientifico.html:4
 #: parco_verismo/templates/parco_verismo/comitato_tecnico_scientifico.html:22
+#: parco_verismo/templates/parco_verismo/regolamenti_documenti.html:59
 msgid "Comitato Tecnico-Scientifico"
 msgstr "Technical-Scientific Committee"
 
@@ -1438,12 +1521,8 @@ msgstr ""
 "itineraries, please refer to the institutional contacts listed below."
 
 #: parco_verismo/templates/parco_verismo/contatti.html:88
-msgid "Coordinamento del"
-msgstr "Coordination of the"
-
-#: parco_verismo/templates/parco_verismo/contatti.html:88
-msgid "Parco"
-msgstr "Park"
+msgid "Coordinamento del Parco"
+msgstr "Park Coordination"
 
 #: parco_verismo/templates/parco_verismo/contatti.html:94
 msgid "Centro Studi, Ricerca e Promozione Culturale"
@@ -1494,13 +1573,8 @@ msgid "Web:"
 msgstr "Web:"
 
 #: parco_verismo/templates/parco_verismo/contatti.html:152
-msgid "Comuni partner del"
-msgstr "Partner municipalities of the"
-
-#: parco_verismo/templates/parco_verismo/contatti.html:152
-#: parco_verismo/templates/parco_verismo/index.html:18
-msgid "Parco Letterario"
-msgstr "Literary Park"
+msgid "Comuni partner del Parco Letterario"
+msgstr "Partner Municipalities of the Literary Park"
 
 #: parco_verismo/templates/parco_verismo/contatti.html:157
 msgid "Comune di Vizzini (CT)"
@@ -1545,14 +1619,12 @@ msgstr ""
 "Badia Cultural Hub, space for events and official ceremonies."
 
 #: parco_verismo/templates/parco_verismo/contatti.html:250
-msgid "Modulo di"
-msgstr "Contact"
-
-#: parco_verismo/templates/parco_verismo/contatti.html:250
-msgid "contatto"
-msgstr "form"
+#: parco_verismo/templates/parco_verismo/index.html:338
+msgid "Modulo di contatto"
+msgstr "Contact Form"
 
 #: parco_verismo/templates/parco_verismo/contatti.html:252
+#: parco_verismo/templates/parco_verismo/index.html:340
 msgid ""
 "Per richieste di informazioni generali, proposte di collaborazione, attività "
 "didattiche, visite guidate, eventi o comunicazioni istituzionali, è "
@@ -1563,70 +1635,40 @@ msgstr ""
 "use the contact form below."
 
 #: parco_verismo/templates/parco_verismo/contatti.html:255
+#: parco_verismo/templates/parco_verismo/index.html:343
 msgid "Il messaggio sarà indirizzato all'email ufficiale del Parco Letterario."
 msgstr "The message will be sent to the official email of the Literary Park."
 
-#: parco_verismo/templates/parco_verismo/contatti.html:267
-msgid "Nome e cognome"
-msgstr "Full name"
-
-#: parco_verismo/templates/parco_verismo/contatti.html:274
-msgid "Inserisci nome e cognome"
-msgstr "Enter full name"
-
-#: parco_verismo/templates/parco_verismo/contatti.html:281
-msgid "Ente / Istituzione"
-msgstr "Organization / Institution"
-
-#: parco_verismo/templates/parco_verismo/contatti.html:281
-#: parco_verismo/templates/parco_verismo/index.html:369
+#: parco_verismo/templates/parco_verismo/contatti.html:297
+#: parco_verismo/templates/parco_verismo/index.html:380
 msgid "facoltativo"
 msgstr "optional"
 
-#: parco_verismo/templates/parco_verismo/contatti.html:288
-msgid "Nome ente o istituzione"
-msgstr "Organization or institution name"
-
-#: parco_verismo/templates/parco_verismo/contatti.html:293
-msgid "Indirizzo email"
-msgstr "Email address"
-
-#: parco_verismo/templates/parco_verismo/contatti.html:300
-msgid "La tua email"
-msgstr "Your email"
-
-#: parco_verismo/templates/parco_verismo/contatti.html:307
-msgid "Oggetto"
-msgstr "Subject"
-
-#: parco_verismo/templates/parco_verismo/contatti.html:321
-msgid "Messaggio"
-msgstr "Message"
-
-#: parco_verismo/templates/parco_verismo/contatti.html:336
-#: parco_verismo/templates/parco_verismo/index.html:395
+#: parco_verismo/templates/parco_verismo/contatti.html:330
+#: parco_verismo/templates/parco_verismo/index.html:413
 msgid "Invia messaggio"
 msgstr "Send message"
 
-#: parco_verismo/templates/parco_verismo/contatti.html:339
-#: parco_verismo/templates/parco_verismo/index.html:398
+#: parco_verismo/templates/parco_verismo/contatti.html:333
+#: parco_verismo/templates/parco_verismo/index.html:416
 msgid "I campi contrassegnati con"
 msgstr "Fields marked with"
 
-#: parco_verismo/templates/parco_verismo/contatti.html:339
-#: parco_verismo/templates/parco_verismo/index.html:398
+#: parco_verismo/templates/parco_verismo/contatti.html:333
+#: parco_verismo/templates/parco_verismo/index.html:416
 msgid "sono obbligatori."
 msgstr "are required."
 
-#: parco_verismo/templates/parco_verismo/contatti.html:357
-msgid "Nota sulla"
-msgstr "Note on"
+#: parco_verismo/templates/parco_verismo/contatti.html:338
+#: parco_verismo/templates/parco_verismo/index.html:421
+msgid "Informativa sulla privacy"
+msgstr "Privacy policy"
 
-#: parco_verismo/templates/parco_verismo/contatti.html:357
-msgid "privacy"
-msgstr "privacy"
+#: parco_verismo/templates/parco_verismo/contatti.html:358
+msgid "Nota sulla privacy"
+msgstr "Privacy note"
 
-#: parco_verismo/templates/parco_verismo/contatti.html:359
+#: parco_verismo/templates/parco_verismo/contatti.html:360
 msgid ""
 "I dati inviati tramite il modulo di contatto saranno utilizzati "
 "esclusivamente per rispondere alla richiesta, nel rispetto della normativa "
@@ -1637,11 +1679,11 @@ msgstr ""
 "request, in compliance with current legislation on personal data protection "
 "(EU Regulation 2016/679 - GDPR)."
 
-#: parco_verismo/templates/parco_verismo/contatti.html:371
+#: parco_verismo/templates/parco_verismo/contatti.html:372
 msgid "Seguici"
 msgstr "Follow Us"
 
-#: parco_verismo/templates/parco_verismo/contatti.html:373
+#: parco_verismo/templates/parco_verismo/contatti.html:374
 msgid ""
 "Per rimanere aggiornato sulle attività, gli eventi e le iniziative del Parco "
 "Letterario Giovanni Verga e Luigi Capuana, seguici sui canali social "
@@ -1650,7 +1692,7 @@ msgstr ""
 "To stay updated on the activities, events and initiatives of the Giovanni "
 "Verga and Luigi Capuana Literary Park, follow us on official social channels."
 
-#: parco_verismo/templates/parco_verismo/contatti.html:382
+#: parco_verismo/templates/parco_verismo/contatti.html:383
 msgid "Pagina Facebook"
 msgstr "Facebook Page"
 
@@ -1708,11 +1750,6 @@ msgstr ""
 #: parco_verismo/templates/parco_verismo/cookie_policy.html:107
 msgid "Non richiedono consenso dell'utente"
 msgstr "Do not require user consent"
-
-#: parco_verismo/templates/parco_verismo/cookie_policy.html:112
-#: parco_verismo/templates/parco_verismo/cookie_policy.html:150
-msgid "Nome"
-msgstr "Name"
 
 #: parco_verismo/templates/parco_verismo/cookie_policy.html:113
 #: parco_verismo/templates/parco_verismo/cookie_policy.html:152
@@ -1925,15 +1962,6 @@ msgid ""
 "contattare:"
 msgstr "For any information regarding the Cookie Policy, you can contact:"
 
-#: parco_verismo/templates/parco_verismo/cookie_policy.html:248
-#: parco_verismo/templates/parco_verismo/note_legali.html:66
-#: parco_verismo/templates/parco_verismo/note_legali.html:176
-#: parco_verismo/templates/parco_verismo/privacy_policy.html:73
-#: parco_verismo/templates/parco_verismo/privacy_policy.html:166
-#: parco_verismo/templates/parco_verismo/privacy_policy.html:180
-msgid "Email"
-msgstr "Email"
-
 #: parco_verismo/templates/parco_verismo/cookie_policy.html:249
 #: parco_verismo/templates/parco_verismo/note_legali.html:67
 #: parco_verismo/templates/parco_verismo/note_legali.html:177
@@ -1969,10 +1997,11 @@ msgid ""
 "patrimonio letterario e territoriale del Parco."
 msgstr ""
 "This section collects official documents produced within the scientific, "
-"cultural and institutional activities of the Giovanni Verga and Luigi Capuana "
-"Literary Park – The places of Verismo. The acts, publications and materials "
-"archived here constitute a shared memory of the research, dissemination and "
-"enhancement work on the Park's literary and territorial heritage."
+"cultural and institutional activities of the Giovanni Verga and Luigi "
+"Capuana Literary Park – The places of Verismo. The acts, publications and "
+"materials archived here constitute a shared memory of the research, "
+"dissemination and enhancement work on the Park's literary and territorial "
+"heritage."
 
 #: parco_verismo/templates/parco_verismo/documenti.html:22
 msgid ""
@@ -1981,8 +2010,8 @@ msgid ""
 "Atti di ciascuna edizione verranno pubblicati e resi disponibili in questa "
 "sezione."
 msgstr ""
-"The Literary Park organizes annual Study Days dedicated to Verist authors and "
-"nineteenth-century Sicilian literature themes. The Proceedings of each "
+"The Literary Park organizes annual Study Days dedicated to Verist authors "
+"and nineteenth-century Sicilian literature themes. The Proceedings of each "
 "edition will be published and made available in this section."
 
 #: parco_verismo/templates/parco_verismo/documenti.html:25
@@ -2280,6 +2309,10 @@ msgstr "View calendar"
 msgid "Parco Letterario Giovanni Verga e Luigi Capuana - I luoghi del Verismo"
 msgstr "Giovanni Verga and Luigi Capuana Literary Park - The places of Verismo"
 
+#: parco_verismo/templates/parco_verismo/index.html:18
+msgid "Parco Letterario"
+msgstr "Literary Park"
+
 #: parco_verismo/templates/parco_verismo/index.html:19
 msgid "Giovanni Verga e Luigi Capuana"
 msgstr "Giovanni Verga and Luigi Capuana"
@@ -2289,8 +2322,9 @@ msgid "I luoghi del Verismo"
 msgstr "The places of Verismo"
 
 #: parco_verismo/templates/parco_verismo/index.html:35
-msgid "Il"
-msgstr "The"
+#: parco_verismo/templates/parco_verismo/missione_visione.html:22
+msgid "Il Parco Letterario Giovanni Verga e Luigi Capuana"
+msgstr "The Giovanni Verga and Luigi Capuana Literary Park"
 
 #: parco_verismo/templates/parco_verismo/index.html:38
 msgid ""
@@ -2442,6 +2476,7 @@ msgstr ""
 #: parco_verismo/templates/parco_verismo/index.html:268
 #: parco_verismo/templates/parco_verismo/navbar.html:143
 #: parco_verismo/templates/parco_verismo/verga_capuana_fotografi.html:17
+#: parco_verismo/templates/parco_verismo/verga_capuana_fotografi.html:135
 msgid "Verga e Capuana Fotografi"
 msgstr "Verga and Capuana Photographers"
 
@@ -2516,26 +2551,6 @@ msgstr ""
 #: parco_verismo/templates/parco_verismo/index.html:322
 msgid "Approfondisci"
 msgstr "Learn more"
-
-#: parco_verismo/templates/parco_verismo/index.html:338
-msgid "Modulo di contatto"
-msgstr "Contact Form"
-
-#: parco_verismo/templates/parco_verismo/index.html:339
-msgid ""
-"Per richieste di informazioni generali, proposte di collaborazione, attività "
-"didattiche, visite guidate, eventi o comunicazioni istituzionali, è "
-"possibile utilizzare il modulo di contatto sottostante. Il messaggio sarà "
-"indirizzato all'email ufficiale del Parco Letterario."
-msgstr ""
-"For general information requests, collaboration proposals, educational "
-"activities, guided tours, events or institutional communications, you can "
-"use the contact form below. The message will be forwarded to the Literary "
-"Park's official email."
-
-#: parco_verismo/templates/parco_verismo/index.html:403
-msgid "Informativa sulla privacy"
-msgstr "Privacy policy"
 
 #: parco_verismo/templates/parco_verismo/itinerari_capuaniani.html:4
 msgid "Parco Letterario Giovanni Verga Luigi Capuana - Itinerari Capuaniani"
@@ -2642,6 +2657,8 @@ msgid "Tappe del percorso"
 msgstr "Route stops"
 
 #: parco_verismo/templates/parco_verismo/licodia.html:5
+#: parco_verismo/templates/parco_verismo/licodia.html:26
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:613
 #: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:212
 #: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:225
 #: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:279
@@ -2685,10 +2702,8 @@ msgstr ""
 "          "
 
 #: parco_verismo/templates/parco_verismo/licodia.html:48
-#: parco_verismo/templates/parco_verismo/mineo.html:48
-#: parco_verismo/templates/parco_verismo/vizzini.html:48
-msgid "Panorama di"
-msgstr "Panorama of"
+msgid "Panorama di Licodia Eubea"
+msgstr "Panorama of Licodia Eubea"
 
 #: parco_verismo/templates/parco_verismo/licodia.html:60
 msgid "Un territorio che riflette il mondo verista"
@@ -2719,6 +2734,10 @@ msgstr ""
 "fully embodies their spirit: it is a place where the narrative mechanisms of "
 "Verismo are perceived in daily reality.</p>\n"
 "          "
+
+#: parco_verismo/templates/parco_verismo/licodia.html:67
+msgid "Bosco Vaito"
+msgstr "Vaito Wood"
 
 #: parco_verismo/templates/parco_verismo/licodia.html:78
 #: parco_verismo/templates/parco_verismo/mineo.html:78
@@ -3128,6 +3147,33 @@ msgstr "Literary Geography"
 msgid "Nel Verismo il luogo non è uno sfondo, ma una forza narrativa"
 msgstr "In Verismo, the place is not a backdrop, but a narrative force"
 
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:57
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:110
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:113
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:593
+#: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:175
+#: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:188
+#: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:249
+#: parco_verismo/templates/parco_verismo/vizzini.html:5
+#: parco_verismo/templates/parco_verismo/vizzini.html:26
+msgid "Vizzini"
+msgstr "Vizzini"
+
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:57
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:340
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:343
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:603
+#: parco_verismo/templates/parco_verismo/mineo.html:5
+#: parco_verismo/templates/parco_verismo/mineo.html:26
+#: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:201
+#: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:264
+msgid "Mineo"
+msgstr "Mineo"
+
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:57
+msgid "Licodia"
+msgstr "Licodia"
+
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:74
 msgid ""
 "Nel Verismo il luogo non è uno sfondo, ma una forza narrativa. Paesi, "
@@ -3159,13 +3205,33 @@ msgstr ""
 "form of narration."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:90
-#: parco_verismo/templates/parco_verismo/luoghi_opere.html:319
-msgid "I luoghi delle opere di"
-msgstr "The places of the works of"
+msgid "I luoghi delle opere di Giovanni Verga"
+msgstr "The places of Giovanni Verga's works"
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:114
 msgid "La scena delle passioni elementari"
 msgstr "The scene of elementary passions"
+
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:115
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:136
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:121
+msgid "Cavalleria rusticana"
+msgstr "Cavalleria rusticana"
+
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:115
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:146
+msgid "La lupa"
+msgstr "The She-Wolf"
+
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:115
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:244
+msgid "Jeli il pastore"
+msgstr "Jeli the Shepherd"
+
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:131
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:134
+msgid "La Cunziria"
+msgstr "La Cunziria"
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:135
 msgid "Teatro del duello fatale"
@@ -3175,17 +3241,17 @@ msgstr "Theater of the fatal duel"
 msgid ""
 "Vizzini è uno dei luoghi simbolo del Verismo italiano, il paese dove la "
 "tragedia nasce dalla vita quotidiana. Arroccato sui monti Iblei, a 586 metri "
-"sul livello del mare, il borgo domina un paesaggio di colline brulle, "
-"vallate profonde e campi di grano che si estendono fino all'orizzonte. È un "
-"paese di pietra bianca, di luce accecante d'estate, di vicoli che si "
-"arrampicano verso la chiesa madre e la piazza centrale."
+"sul livello del mare, o domina un paesaggio di colline brulle, vallate "
+"profonde e campi di grano che si estendono fino all'orizzonte. È un paese di "
+"pietra bianca, di luce accecante d'estate, di vicoli che si arrampicano "
+"verso la chiesa madre e la piazza centrale."
 msgstr ""
 "Vizzini is one of the symbolic places of Italian Verismo, the village where "
 "tragedy arises from daily life. Perched on the Hyblaean Mountains, at 586 "
-"meters above sea level, the village dominates a landscape of barren hills, "
-"deep valleys and wheat fields stretching to the horizon. It is a village of "
-"white stone, blinding light in summer, alleys climbing towards the mother "
-"church and the central square."
+"meters above sea level, it dominates a landscape of barren hills, deep "
+"valleys and wheat fields stretching to the horizon. It is a village of white "
+"stone, blinding light in summer, alleys climbing towards the mother church "
+"and the central square."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:145
 msgid "Il tessuto urbano e sociale"
@@ -3201,13 +3267,13 @@ msgid ""
 "dove il codice dell'onore regola ogni gesto, dove l'amore si intreccia alla "
 "gelosia, dove il sangue lava l'offesa."
 msgstr ""
-"Vizzini is structured as a compact organism, where every neighborhood has its "
-"precise social identity. The popular neighborhoods - the narrow and shady "
-"\"vanelle\" - are the beating heart of Verga's narrative: here live peasants, "
-"laborers, artisans, women weaving and sewing in low houses. Here the stories "
-"of Cavalleria rusticana and La lupa are born, stories where the code of honor "
-"regulates every gesture, where love is intertwined with jealousy, where blood "
-"washes away the offense."
+"Vizzini is structured as a compact organism, where every neighborhood has "
+"its precise social identity. The popular neighborhoods - the narrow and "
+"shady \"vanelle\" - are the beating heart of Verga's narrative: here live "
+"peasants, laborers, artisans, women weaving and sewing in low houses. Here "
+"the stories of Cavalleria rusticana and La lupa are born, stories where the "
+"code of honor regulates every gesture, where love is intertwined with "
+"jealousy, where blood washes away the offense."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:150
 msgid "La Cunziria: luogo iconico della tragedia"
@@ -3223,11 +3289,11 @@ msgid ""
 "teatro rituale della violenza necessaria."
 msgstr ""
 "The Cunziria - ancient tannery located in the lower part of the village, "
-"along the stream - is the place where the drama of Cavalleria rusticana takes "
-"place. Here Turiddu and Compare Alfio face each other in the final duel, at "
-"dawn, when the village is still asleep and the sun has not yet risen. It is a "
-"liminal space: no longer village but not yet countryside, a smelly workplace "
-"and at the same time a ritual theater of necessary violence."
+"along the stream - is the place where the drama of Cavalleria rusticana "
+"takes place. Here Turiddu and Compare Alfio face each other in the final "
+"duel, at dawn, when the village is still asleep and the sun has not yet "
+"risen. It is a liminal space: no longer village but not yet countryside, a "
+"smelly workplace and at the same time a ritual theater of necessary violence."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:155
 msgid "Le campagne vizzinesi"
@@ -3241,8 +3307,8 @@ msgid ""
 "vivono per settimane durante i raccolti. È un paesaggio aspro, assolato, "
 "dove il lavoro consuma i corpi e le distanze sono enormi."
 msgstr ""
-"Around the inhabited center extend the fields that Verga describes in La lupa "
-"and Jeli il pastore: expanses of durum wheat swaying in the wind, herds "
+"Around the inhabited center extend the fields that Verga describes in La "
+"lupa and Jeli il pastore: expanses of durum wheat swaying in the wind, herds "
 "grazing in the valleys, isolated farms where peasants live for weeks during "
 "harvests. It is a harsh, sunny landscape, where work consumes bodies and "
 "distances are enormous."
@@ -3267,9 +3333,19 @@ msgstr ""
 "material memory of the rural world: ancient wine presses, inner courtyards, "
 "public fountains."
 
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:189
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:192
+msgid "Aci Trezza"
+msgstr "Aci Trezza"
+
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:193
 msgid "Il borgo del mare e della tradizione"
 msgstr "The village of the sea and tradition"
+
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:194
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:96
+msgid "I Malavoglia"
+msgstr "The House by the Medlar Tree (I Malavoglia)"
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:200
 msgid ""
@@ -3317,9 +3393,9 @@ msgstr ""
 "At the center of the novel stands the house by the medlar tree, the "
 "Malavoglia home that becomes a symbol of stability, tradition, belonging. "
 "Losing the house means losing social identity, family memory, one's place in "
-"the world. It is a modest building, with the courtyard where nets are mended, "
-"the kitchen where the common meal is consumed, the rooms where they sleep "
-"crowded."
+"the world. It is a modest building, with the courtyard where nets are "
+"mended, the kitchen where the common meal is consumed, the rooms where they "
+"sleep crowded."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:213
 msgid "La Provvidenza"
@@ -3337,6 +3413,10 @@ msgstr ""
 "tradition of the trade. Losing it in the shipwreck means losing the way of "
 "life, falling into debt, depending on others."
 
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:239
+msgid "Campagne"
+msgstr "Countryside"
+
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:242
 msgid "Le campagne siciliane"
 msgstr "The Sicilian countryside"
@@ -3344,6 +3424,21 @@ msgstr "The Sicilian countryside"
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:243
 msgid "Terra di possesso e fatica"
 msgstr "Land of possession and toil"
+
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:244
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:196
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:465
+msgid "La roba"
+msgstr "The Property (La roba)"
+
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:244
+msgid "Nedda"
+msgstr "Nedda"
+
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:244
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:221
+msgid "Mastro-don Gesualdo"
+msgstr "Mastro-don Gesualdo"
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:250
 msgid ""
@@ -3371,8 +3466,8 @@ msgid ""
 "conta le mandrie, controlla i raccolti, sorveglia i contadini. La terra qui "
 "non è madre, ma proprietà da difendere, da far fruttare, da moltiplicare."
 msgstr ""
-"La roba stages the Sicilian latifundium in all its extension: \"...lands as far "
-"as the eye can see, vineyards, olive groves, arable land...\". Mazzarò "
+"La roba stages the Sicilian latifundium in all its extension: \"...lands as "
+"far as the eye can see, vineyards, olive groves, arable land...\". Mazzarò "
 "patrols his possessions like a general inspecting an army: he counts the "
 "herds, checks the harvest, supervises the peasants. The land here is not a "
 "mother, but property to be defended, made fruitful, multiplied."
@@ -3389,11 +3484,15 @@ msgid ""
 "soldi. In Jeli il pastore vediamo la vita dei pastori: mesi passati in "
 "solitudine con le greggi, in rifugi di pietra o grotte naturali."
 msgstr ""
-"Verga describes agricultural work with almost documentary precision. In Nedda "
-"we follow the olive pickers moving from one estate to another, sleeping in "
-"haystacks, working from dawn to dusk for a few pennies. In Jeli il pastore "
-"we see the life of shepherds: months spent in solitude with flocks, in stone "
-"shelters or natural caves."
+"Verga describes agricultural work with almost documentary precision. In "
+"Nedda we follow the olive pickers moving from one estate to another, "
+"sleeping in haystacks, working from dawn to dusk for a few pennies. In Jeli "
+"il pastore we see the life of shepherds: months spent in solitude with "
+"flocks, in stone shelters or natural caves."
+
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:284
+msgid "La Miniera"
+msgstr "The Mine"
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:287
 msgid "La miniera"
@@ -3402,6 +3501,12 @@ msgstr "The mine"
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:288
 msgid "Spazio della disumanizzazione"
 msgstr "Space of dehumanization"
+
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:289
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:170
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:171
+msgid "Rosso Malpelo"
+msgstr "Rosso Malpelo"
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:295
 msgid ""
@@ -3431,8 +3536,8 @@ msgstr ""
 "Verga describes the quarry as a labyrinth of tunnels dug into the rock. The "
 "air is unbreathable, charged with dust that enters the lungs and consumes "
 "them. Sunlight does not arrive: work is done by lantern light, in perennial "
-"darkness. It is a claustrophobic space where movements are limited: one moves "
-"bent, crawling in the narrowest passages."
+"darkness. It is a claustrophobic space where movements are limited: one "
+"moves bent, crawling in the narrowest passages."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:303
 msgid "Spazio simbolico"
@@ -3452,9 +3557,31 @@ msgstr ""
 "hope. It is the zero degree of Verist determinism: the place that kills "
 "slowly, that consumes bodies and erases individualities."
 
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:319
+msgid "I luoghi delle opere di Luigi Capuana"
+msgstr "The places of Luigi Capuana's works"
+
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:344
 msgid "Laboratorio di osservazione psicologica"
 msgstr "Laboratory of psychological observation"
+
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:345
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:256
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:257
+msgid "Giacinta"
+msgstr "Giacinta"
+
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:345
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:281
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:282
+msgid "Il marchese di Roccaverdina"
+msgstr "The Marquis of Roccaverdina"
+
+#: parco_verismo/templates/parco_verismo/luoghi_opere.html:345
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:306
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:307
+msgid "Le paesane"
+msgstr "Le paesane"
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:351
 msgid ""
@@ -3466,11 +3593,11 @@ msgid ""
 "sociale più complessa."
 msgstr ""
 "Mineo is the geographical and imaginative center of Capuana's work, the town "
-"Capuana has known since childhood and transforms into a narrative laboratory. "
-"Located at 510 meters above sea level, in the Calatino inland, Mineo "
-"dominates a fertile valley surrounded by hills. It is a larger town than "
-"Vizzini, with a more articulated urban structure and a more complex social "
-"stratification."
+"Capuana has known since childhood and transforms into a narrative "
+"laboratory. Located at 510 meters above sea level, in the Calatino inland, "
+"Mineo dominates a fertile valley surrounded by hills. It is a larger town "
+"than Vizzini, with a more articulated urban structure and a more complex "
+"social stratification."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:354
 msgid "Storia e stratificazione urbana"
@@ -3486,9 +3613,9 @@ msgid ""
 msgstr ""
 "Mineo has very ancient origins (identified with ancient Mene, Sican city), "
 "and this past is visible in the town structure. The historic center develops "
-"around the castle and the mother church, with medieval alleys, noble palaces, "
-"convents and churches. Popular neighborhoods extend towards the valley, with "
-"more modest houses, common courtyards, shared spaces."
+"around the castle and the mother church, with medieval alleys, noble "
+"palaces, convents and churches. Popular neighborhoods extend towards the "
+"valley, with more modest houses, common courtyards, shared spaces."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:359
 msgid "Il tessuto sociale"
@@ -3521,11 +3648,11 @@ msgid ""
 "una vegetazione più ricca. Nelle novelle de Le paesane, Capuana segue le "
 "donne che vanno a lavorare nei campi durante i raccolti."
 msgstr ""
-"Around Mineo extend the Calatino fields: fertile lands cultivated with wheat, "
-"almond groves, vineyards, olive groves. It is a gentler landscape compared to "
-"the harsh Vizzini hills, with greater presence of water and richer "
-"vegetation. In the short stories of Le paesane, Capuana follows women going "
-"to work in the fields during harvests."
+"Around Mineo extend the Calatino fields: fertile lands cultivated with "
+"wheat, almond groves, vineyards, olive groves. It is a gentler landscape "
+"compared to the harsh Vizzini hills, with greater presence of water and "
+"richer vegetation. In the short stories of Le paesane, Capuana follows women "
+"going to work in the fields during harvests."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:394
 msgid "Le case borghesi"
@@ -3633,13 +3760,13 @@ msgid ""
 "clientelismi, le rivalità tra famiglie che si perpetuano per generazioni."
 msgstr ""
 "The town hall, the café, the square are spaces reserved for men. Here local "
-"politics is done, elections decided, alliances formed. Capuana describes this "
-"world with irony and cynicism: local notables, clientelism, rivalries "
+"politics is done, elections decided, alliances formed. Capuana describes "
+"this world with irony and cynicism: local notables, clientelism, rivalries "
 "between families perpetuated for generations."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:472
-msgid "tra Verga e Capuana"
-msgstr "between Verga and Capuana"
+msgid "Licodia Eubea: tra Verga e Capuana"
+msgstr "Licodia Eubea: between Verga and Capuana"
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:480
 msgid ""
@@ -3667,8 +3794,8 @@ msgid ""
 "alla chiesa madre e alla piazza principale."
 msgstr ""
 "Licodia occupies a strategic position in the Hyblaean hinterland, in a "
-"landscape of rounded hills cultivated with cereals and olives. The town has a "
-"compact urban structure, with the historic center developing around the "
+"landscape of rounded hills cultivated with cereals and olives. The town has "
+"a compact urban structure, with the historic center developing around the "
 "mother church and the main square."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:488
@@ -3699,9 +3826,9 @@ msgid ""
 "La roba, dove Mazzarò avrebbe potuto accumulare le sue terre."
 msgstr ""
 "Licodia Eubea represents the archetype of the inland agricultural village, "
-"the one described in Verga's short stories set \"in the countryside\" without "
-"precise geographical indication. It is the type of village where La roba "
-"could take place, where Mazzarò could have accumulated his lands."
+"the one described in Verga's short stories set \"in the countryside\" "
+"without precise geographical indication. It is the type of village where La "
+"roba could take place, where Mazzarò could have accumulated his lands."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:501
 msgid ""
@@ -3724,24 +3851,20 @@ msgid ""
 msgstr ""
 "Even today, Licodia preserves visible traces of the rural world described by "
 "Verismo. Ancient farms, some restored and others in ruins, testify to the "
-"organization of agricultural work. Millstones remind of the production cycles "
-"marking the year."
+"organization of agricultural work. Millstones remind of the production "
+"cycles marking the year."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:517
-msgid "I paesaggi del Verismo:"
-msgstr "The landscapes of Verismo:"
-
-#: parco_verismo/templates/parco_verismo/luoghi_opere.html:517
-msgid "elementi ricorrenti"
-msgstr "recurrent elements"
+msgid "I paesaggi del Verismo: elementi ricorrenti"
+msgstr "The landscapes of Verismo: recurrent elements"
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:520
 msgid ""
 "Oltre ai luoghi specifici, il Verismo è fatto di paesaggi ricorrenti che "
 "attraversano le opere di Verga e Capuana"
 msgstr ""
-"Beyond specific places, Verismo is made of recurrent landscapes traversing the "
-"works of Verga and Capuana"
+"Beyond specific places, Verismo is made of recurrent landscapes traversing "
+"the works of Verga and Capuana"
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:530
 msgid "La campagna"
@@ -3787,11 +3910,11 @@ msgid ""
 "si fermano in piazza e commentano. Niente può rimanere segreto. È anche "
 "spazio della memoria collettiva."
 msgstr ""
-"Space of social control. It always functions as an organism that observes and "
-"judges. It is a transparent space, without privacy, where every gesture is "
-"public. Women look out from windows and see everything. Men stop in the "
-"square and comment. Nothing can remain secret. It is also space of collective "
-"memory."
+"Space of social control. It always functions as an organism that observes "
+"and judges. It is a transparent space, without privacy, where every gesture "
+"is public. Women look out from windows and see everything. Men stop in the "
+"square and comment. Nothing can remain secret. It is also space of "
+"collective memory."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:566
 msgid "La casa"
@@ -3812,12 +3935,8 @@ msgstr ""
 "seclusion."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:582
-msgid "Geografia letteraria:"
-msgstr "Literary geography:"
-
-#: parco_verismo/templates/parco_verismo/luoghi_opere.html:582
-msgid "il triangolo Vizzini-Mineo-Licodia"
-msgstr "the Vizzini-Mineo-Licodia triangle"
+msgid "Geografia letteraria: il triangolo Vizzini-Mineo-Licodia"
+msgstr "Literary geography: the Vizzini-Mineo-Licodia triangle"
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:587
 msgid ""
@@ -3841,8 +3960,8 @@ msgid ""
 "sociali. Qui tutto è più netto, più violento, più visibile."
 msgstr ""
 "Place of elementary passions, absolute codes of honor, ritual violence. Its "
-"harsh landscape reflects the hardness of social relations. Here everything is "
-"sharper, more violent, more visible."
+"harsh landscape reflects the hardness of social relations. Here everything "
+"is sharper, more violent, more visible."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:604
 msgid "Il paese dell'analisi psicologica"
@@ -3869,8 +3988,8 @@ msgid ""
 "proprietà, le dinamiche del lavoro agricolo."
 msgstr ""
 "Archetype of the agricultural village, the one most tied to the rhythms of "
-"the land. Here exploitation mechanisms, property relations, agricultural work "
-"dynamics are seen most clearly."
+"the land. Here exploitation mechanisms, property relations, agricultural "
+"work dynamics are seen most clearly."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:623
 msgid ""
@@ -3880,11 +3999,11 @@ msgid ""
 "Le famiglie sono imparentate attraverso matrimoni che uniscono proprietà. Le "
 "notizie circolano, portate da viandanti, commercianti, mendicanti."
 msgstr ""
-"The three villages are connected by ancient cattle tracks, paths crossing the "
-"countryside. Verist characters move from one village to another: for weekly "
-"markets, religious festivals, to seek seasonal work. Families are related "
-"through marriages uniting properties. News circulates, carried by travelers, "
-"merchants, beggars."
+"The three villages are connected by ancient cattle tracks, paths crossing "
+"the countryside. Verist characters move from one village to another: for "
+"weekly markets, religious festivals, to seek seasonal work. Families are "
+"related through marriages uniting properties. News circulates, carried by "
+"travelers, merchants, beggars."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:627
 msgid ""
@@ -3895,11 +4014,11 @@ msgid ""
 "strutture narrative, vedere nelle pietre e nelle strade la materia di cui "
 "sono fatte le storie."
 msgstr ""
-"This network of connections creates a unitary literary territory: the Verismo "
-"village is not a single place but a system of places mirroring, completing, "
-"dialoguing with each other. Crossing this territory means reading geography "
-"as text, recognizing narrative structures in landscapes, seeing in stones and "
-"streets the material stories are made of."
+"This network of connections creates a unitary literary territory: the "
+"Verismo village is not a single place but a system of places mirroring, "
+"completing, dialoguing with each other. Crossing this territory means "
+"reading geography as text, recognizing narrative structures in landscapes, "
+"seeing in stones and streets the material stories are made of."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:642
 msgid ""
@@ -3935,12 +4054,12 @@ msgid ""
 "particolare e l'universale, tra il documento e il simbolo, tra la storia "
 "locale e la letteratura mondiale."
 msgstr ""
-"Verismo transformed inland Sicily into universal literary geography. Vizzini, "
-"Mineo and Licodia Eubea are both precise places on the map and places of "
-"imagination, Sicilian villages and metaphors of the human condition. "
-"Visiting them means constantly oscillating between the particular and the "
-"universal, between document and symbol, between local history and world "
-"literature."
+"Verismo transformed inland Sicily into universal literary geography. "
+"Vizzini, Mineo and Licodia Eubea are both precise places on the map and "
+"places of imagination, Sicilian villages and metaphors of the human "
+"condition. Visiting them means constantly oscillating between the particular "
+"and the universal, between document and symbol, between local history and "
+"world literature."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:654
 msgid ""
@@ -3949,8 +4068,8 @@ msgid ""
 "con lo sguardo educato dalla letteratura."
 msgstr ""
 "It is this tension - between geographical root and universal value - that "
-"makes Verismo places still alive, still capable of speaking to those crossing "
-"them with a gaze educated by literature."
+"makes Verismo places still alive, still capable of speaking to those "
+"crossing them with a gaze educated by literature."
 
 #: parco_verismo/templates/parco_verismo/luoghi_opere.html:667
 msgid "Scopri il territorio del Verismo"
@@ -3963,12 +4082,6 @@ msgid ""
 msgstr ""
 "Visit Vizzini, Mineo and Licodia Eubea: walk in the villages where stories "
 "took shape and landscape became literature"
-
-#: parco_verismo/templates/parco_verismo/mineo.html:5
-#: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:201
-#: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:264
-msgid "Mineo"
-msgstr "Mineo"
 
 #: parco_verismo/templates/parco_verismo/mineo.html:28
 msgid "La città natale di Luigi Capuana"
@@ -3998,6 +4111,10 @@ msgstr ""
 "Capuana works, often transformed into poetic or fantastic theater.</p>\n"
 "          "
 
+#: parco_verismo/templates/parco_verismo/mineo.html:48
+msgid "Panorama di Mineo"
+msgstr "Panorama of Mineo"
+
 #: parco_verismo/templates/parco_verismo/mineo.html:60
 msgid "Mineo nella vita di Luigi Capuana"
 msgstr "Mineo in the life of Luigi Capuana"
@@ -4026,8 +4143,8 @@ msgstr ""
 "          "
 
 #: parco_verismo/templates/parco_verismo/mineo.html:67
-msgid "Casa Natale"
-msgstr "Birthplace of"
+msgid "Casa Natale di Luigi Capuana"
+msgstr "Birthplace of Luigi Capuana"
 
 #: parco_verismo/templates/parco_verismo/mineo.html:80
 msgid ""
@@ -4314,10 +4431,6 @@ msgstr "Mission and Vision"
 msgid "Chi Siamo"
 msgstr "About Us"
 
-#: parco_verismo/templates/parco_verismo/missione_visione.html:22
-msgid "Il Parco Letterario Giovanni Verga e Luigi Capuana"
-msgstr "The Giovanni Verga and Luigi Capuana Literary Park"
-
 #: parco_verismo/templates/parco_verismo/missione_visione.html:25
 msgid ""
 "Trasformare la letteratura in dispositivo contemporaneo di sviluppo, "
@@ -4327,13 +4440,8 @@ msgstr ""
 "and civic participation"
 
 #: parco_verismo/templates/parco_verismo/missione_visione.html:76
-#: parco_verismo/templates/parco_verismo/missione_visione.html:134
-msgid "La Nostra"
-msgstr "Our"
-
-#: parco_verismo/templates/parco_verismo/missione_visione.html:76
-msgid "Missione"
-msgstr "Mission"
+msgid "La Nostra Missione"
+msgstr "Our Mission"
 
 #: parco_verismo/templates/parco_verismo/missione_visione.html:81
 msgid ""
@@ -4444,8 +4552,8 @@ msgstr ""
 "knowledge."
 
 #: parco_verismo/templates/parco_verismo/missione_visione.html:134
-msgid "Visione"
-msgstr "Vision"
+msgid "La Nostra Visione"
+msgstr "Our Vision"
 
 #: parco_verismo/templates/parco_verismo/missione_visione.html:138
 msgid ""
@@ -5098,12 +5206,8 @@ msgid ""
 msgstr "Funding body and institutional recognition of the Literary Park."
 
 #: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:146
-msgid "Associazioni"
-msgstr "Associations"
-
-#: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:146
-msgid "Rete Culturale"
-msgstr "Cultural Network"
+msgid "Associazioni & Rete Culturale"
+msgstr "Associations & Cultural Network"
 
 #: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:149
 msgid ""
@@ -5126,13 +5230,6 @@ msgstr "Cultural promotion and lifelong learning."
 #: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:174
 msgid "Circolo Culturale “Giovanni Verga”"
 msgstr "Cultural Club \"Giovanni Verga\""
-
-#: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:175
-#: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:188
-#: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:249
-#: parco_verismo/templates/parco_verismo/vizzini.html:5
-msgid "Vizzini"
-msgstr "Vizzini"
 
 #: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:176
 msgid "Valorizzazione della figura e dell'opera di Verga."
@@ -5174,12 +5271,8 @@ msgid "Tutela e valorizzazione del patrimonio archeologico e culturale."
 msgstr "Protection and enhancement of archaeological and cultural heritage."
 
 #: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:238
-msgid "Rete"
-msgstr "Network"
-
-#: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:238
-msgid "Territoriale"
-msgstr "Territorial"
+msgid "Rete Territoriale"
+msgstr "Territorial Network"
 
 #: parco_verismo/templates/parco_verismo/partner_rete_territoriale.html:241
 msgid ""
@@ -5365,6 +5458,14 @@ msgstr ""
 "becomes a living lexicon, a language made of gestures, silences, efforts and "
 "rebellions."
 
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:86
+msgid "I personaggi di Giovanni Verga"
+msgstr "The characters of Giovanni Verga"
+
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:95
+msgid "Padron 'Ntoni"
+msgstr ""
+
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:102
 msgid ""
 "Padron 'Ntoni è il patriarca della famiglia Toscano, custode di una saggezza "
@@ -5376,7 +5477,8 @@ msgstr ""
 "Padron 'Ntoni is the patriarch of the Toscano family, guardian of an ancient "
 "wisdom contained in proverbs and handed-down customs. Incarnation of "
 "tradition, memory and ancient order, he firmly believes that everything has "
-"its place and time: \"To row the boat, the five fingers must help each other\"."
+"its place and time: \"To row the boat, the five fingers must help each "
+"other\"."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:105
 msgid ""
@@ -5389,11 +5491,12 @@ msgid ""
 "mondo che non riconosce più, dalla perdita progressiva di ogni autorità."
 msgstr ""
 "His drama is not material poverty, but the irreversible collapse of a value "
-"system that can no longer withstand the shock of change. Modernity arrives in "
-"Aci Trezza like a storm: new economic laws, new work logics, new ambitions "
-"that disintegrate family ties. With him, the balance of family and community "
-"breaks. His old age is marked by moral solitude, incomprehension towards a "
-"world he no longer recognizes, and the progressive loss of all authority."
+"system that can no longer withstand the shock of change. Modernity arrives "
+"in Aci Trezza like a storm: new economic laws, new work logics, new "
+"ambitions that disintegrate family ties. With him, the balance of family and "
+"community breaks. His old age is marked by moral solitude, incomprehension "
+"towards a world he no longer recognizes, and the progressive loss of all "
+"authority."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:108
 msgid ""
@@ -5403,11 +5506,15 @@ msgid ""
 "modernità, tra comunità e individualismo, tra destino accettato e "
 "aspirazione al cambiamento."
 msgstr ""
-"Padron 'Ntoni represents the custodian of an ethic of sacrifice and duty, but "
-"also powerlessness in the face of historical forces greater than the "
+"Padron 'Ntoni represents the custodian of an ethic of sacrifice and duty, "
+"but also powerlessness in the face of historical forces greater than the "
 "individual. His figure embodies the conflict between the rural world and "
 "modernity, between community and individualism, between accepted destiny and "
 "aspiration for change."
+
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:120
+msgid "Turiddu Macca"
+msgstr ""
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:127
 msgid ""
@@ -5418,8 +5525,8 @@ msgid ""
 "gelosia e violenza sono regolati da codici non scritti ma assoluti."
 msgstr ""
 "Turiddu is the character of impulse and honor, the young soldier returned to "
-"the village who moves within rigid and inescapable codes. His actions are not "
-"the result of conscious choice, but of a collective logic that admits no "
+"the village who moves within rigid and inescapable codes. His actions are "
+"not the result of conscious choice, but of a collective logic that admits no "
 "deviations. He embodies a ritual masculinity, where love, jealousy and "
 "violence are regulated by unwritten but absolute codes."
 
@@ -5433,11 +5540,11 @@ msgid ""
 "è accettata come necessaria, quasi rituale."
 msgstr ""
 "His relationship with Lola is both passion and trap: desire intertwines with "
-"the sense of offended honor, with the hierarchy of male roles in the village, "
-"with the need to affirm one's social position. When he accepts the duel challenge "
-"with Compare Alfio, Turiddu knows that death is the only possible conclusion. "
-"There is no rebellion, no escape: his end is accepted as necessary, almost "
-"ritual."
+"the sense of offended honor, with the hierarchy of male roles in the "
+"village, with the need to affirm one's social position. When he accepts the "
+"duel challenge with Compare Alfio, Turiddu knows that death is the only "
+"possible conclusion. There is no rebellion, no escape: his end is accepted "
+"as necessary, almost ritual."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:133
 msgid ""
@@ -5449,11 +5556,15 @@ msgid ""
 "dell'annientamento."
 msgstr ""
 "Verga does not judge, does not condemn, but shows the devastating force of a "
-"culture where the individual is crushed by the weight of conventions. Turiddu "
-"is both victim and executioner, trapped in a mechanism that leaves no escape. "
-"His final cry to his mother – \"Ah! mamma mia!\" – is one of the most "
-"heartrending moments in Italian literature, a flash of humanity before "
+"culture where the individual is crushed by the weight of conventions. "
+"Turiddu is both victim and executioner, trapped in a mechanism that leaves "
+"no escape. His final cry to his mother – \"Ah! mamma mia!\" – is one of the "
+"most heartrending moments in Italian literature, a flash of humanity before "
 "annihilation."
+
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:145
+msgid "Gnà Pina, detta \"la Lupa\""
+msgstr ""
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:152
 msgid ""
@@ -5476,9 +5587,10 @@ msgid ""
 msgstr ""
 "Gnà Pina burns with a visceral desire for Nanni, a young man who ends up "
 "marrying her daughter just to keep her away. But the Lupa does not give up: "
-"she returns, pursues, demands. The community neither understands nor forgives "
-"her: her passion becomes scandal, threat, disorder. She is accused of being "
-"\"possessed\", of bringing bad luck, of contaminating with her mere presence."
+"she returns, pursues, demands. The community neither understands nor "
+"forgives her: her passion becomes scandal, threat, disorder. She is accused "
+"of being \"possessed\", of bringing bad luck, of contaminating with her mere "
+"presence."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:158
 msgid ""
@@ -5508,10 +5620,10 @@ msgid ""
 "subita diventa l'unica forma di relazione che conosce."
 msgstr ""
 "Malpelo is not a character, but a condition. A child marked by prejudice – "
-"red hair is a sign of malice, according to popular superstition – grows up in "
-"an environment that knows neither protection nor affection. Work in the quarry "
-"consumes him, solitude shapes him, suffered violence becomes the only form of "
-"relationship he knows."
+"red hair is a sign of malice, according to popular superstition – grows up "
+"in an environment that knows neither protection nor affection. Work in the "
+"quarry consumes him, solitude shapes him, suffered violence becomes the only "
+"form of relationship he knows."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:180
 msgid ""
@@ -5522,12 +5634,12 @@ msgid ""
 "il padre, sepolto vivo nella cava, e poi con il ragazzo che cerca di "
 "proteggere, mostra lampi di umanità negata, di tenerezza impossibile."
 msgstr ""
-"Verga describes his existence with implacable rawness: \"He was malicious, he "
-"was bad, he was bully, he was everything you want\". But this \"badness\" is "
-"the direct consequence of exclusion, rejection, the hardness of a world that "
-"has condemned him since birth. The relationship with his father, buried alive "
-"in the quarry, and then with the boy he tries to protect, shows flashes of "
-"denied humanity, of impossible tenderness."
+"Verga describes his existence with implacable rawness: \"He was malicious, "
+"he was bad, he was bully, he was everything you want\". But this \"badness\" "
+"is the direct consequence of exclusion, rejection, the hardness of a world "
+"that has condemned him since birth. The relationship with his father, buried "
+"alive in the quarry, and then with the boy he tries to protect, shows "
+"flashes of denied humanity, of impossible tenderness."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:183
 msgid ""
@@ -5539,10 +5651,15 @@ msgid ""
 "dell'abbandono sociale."
 msgstr ""
 "His final disappearance – sent to explore a tunnel from which he will not "
-"return – is not a mystery, but the logical consequence of a world that devours "
-"the weakest. Malpelo is sent towards death with the same indifference with "
-"which he was treated in life. No one weeps, no one remembers. He is the emblem "
-"of child exploitation, of the ferocity of work, of social abandonment."
+"return – is not a mystery, but the logical consequence of a world that "
+"devours the weakest. Malpelo is sent towards death with the same "
+"indifference with which he was treated in life. No one weeps, no one "
+"remembers. He is the emblem of child exploitation, of the ferocity of work, "
+"of social abandonment."
+
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:195
+msgid "Mazzarò"
+msgstr ""
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:202
 msgid ""
@@ -5555,8 +5672,8 @@ msgstr ""
 "Mazzarò is the man who possesses everything, except himself. Starting from "
 "nothing, he built an empire of lands, farms, vineyards, herds. His life is "
 "entirely absorbed by the accumulation of goods: he does not eat, does not "
-"rest, does not enjoy. \"The stuff\" becomes the measure of existence, until it "
-"replaces every human relationship."
+"rest, does not enjoy. \"The stuff\" becomes the measure of existence, until "
+"it replaces every human relationship."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:205
 msgid ""
@@ -5590,6 +5707,10 @@ msgstr ""
 "possession, but obsession, idol, substitute for any other form of life. "
 "Mazzarò dies vanquished, despite having won everything."
 
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:220
+msgid "Gesualdo Motta"
+msgstr ""
+
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:227
 msgid ""
 "Gesualdo Motta incarna l'ascesa sociale pagata con la solitudine. Muratore "
@@ -5614,10 +5735,10 @@ msgid ""
 "lo umilia."
 msgstr ""
 "But he never manages to be truly accepted. The nobles despise him as a "
-"parvenu, the commoners see him as a traitor. He remains suspended between two "
-"worlds: the one he comes from, made of work and sacrifice, and the one he "
-"aspires to, made of coats of arms and privileges. Even the relationship with "
-"his daughter is marked by incommunicability: Isabella is ashamed of her "
+"parvenu, the commoners see him as a traitor. He remains suspended between "
+"two worlds: the one he comes from, made of work and sacrifice, and the one "
+"he aspires to, made of coats of arms and privileges. Even the relationship "
+"with his daughter is marked by incommunicability: Isabella is ashamed of her "
 "origins, rejects him, humiliates him."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:233
@@ -5631,13 +5752,18 @@ msgid ""
 "gerarchie. Gesualdo è insieme colpevole e vittima: sfruttatore spietato e "
 "sconfitto dalla storia."
 msgstr ""
-"The novel closes with Gesualdo dying in Palermo, in the palace of his daughter "
-"the duchess, abandoned by servants, mocked, alone. He dies surrounded by "
-"wealth, but in total emotional misery. His true failure is not economic, but "
-"human. Mastro-don Gesualdo is the great novel of the impossibility of social "
-"mobility, of the condemnation to one's class of origin, of the destruction of "
-"the individual attempting to force hierarchies. Gesualdo is both guilty and "
-"victim: ruthless exploiter and defeated by history."
+"The novel closes with Gesualdo dying in Palermo, in the palace of his "
+"daughter the duchess, abandoned by servants, mocked, alone. He dies "
+"surrounded by wealth, but in total emotional misery. His true failure is not "
+"economic, but human. Mastro-don Gesualdo is the great novel of the "
+"impossibility of social mobility, of the condemnation to one's class of "
+"origin, of the destruction of the individual attempting to force "
+"hierarchies. Gesualdo is both guilty and victim: ruthless exploiter and "
+"defeated by history."
+
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:247
+msgid "I personaggi di Luigi Capuana"
+msgstr "The characters of Luigi Capuana"
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:263
 msgid ""
@@ -5646,8 +5772,8 @@ msgid ""
 "come un \"caso umano\", con lo sguardo dello scienziato più che del "
 "moralista, senza giudizio né indulgenza."
 msgstr ""
-"Giacinta is a figure marked by trauma and psychological fragility, one of the "
-"first \"sick\" heroines of Italian literature. Capuana observes her as a "
+"Giacinta is a figure marked by trauma and psychological fragility, one of "
+"the first \"sick\" heroines of Italian literature. Capuana observes her as a "
 "\"human case\", with the gaze of a scientist rather than a moralist, without "
 "judgment or indulgence."
 
@@ -5677,9 +5803,9 @@ msgstr ""
 "Her destiny shows how inner suffering can be determined by the environment, "
 "by repressive education, by social conventions that deny women any form of "
 "authentic expression. Capuana anticipates psychoanalysis, exploring the dark "
-"zones of the psyche with very modern attention. Giacinta is not guilty, but a "
-"victim twice over: of the violence suffered and of a society that offers her "
-"no possibility of healing or redemption."
+"zones of the psyche with very modern attention. Giacinta is not guilty, but "
+"a victim twice over: of the violence suffered and of a society that offers "
+"her no possibility of healing or redemption."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:288
 msgid ""
@@ -5701,11 +5827,11 @@ msgid ""
 "trovare pace. La sua confessione finale non è atto di pentimento religioso, "
 "ma crollo psichico, disperato bisogno di liberarsi da un peso insostenibile."
 msgstr ""
-"Capuana constructs one of the most complex psychological portraits in Italian "
-"fiction, where the drama is entirely internal. The Marquis is persecuted by "
-"hallucinations, obsessed by memory, unable to find peace. His final confession "
-"is not an act of religious repentance, but a psychic breakdown, a desperate "
-"need to free himself from an unbearable burden."
+"Capuana constructs one of the most complex psychological portraits in "
+"Italian fiction, where the drama is entirely internal. The Marquis is "
+"persecuted by hallucinations, obsessed by memory, unable to find peace. His "
+"final confession is not an act of religious repentance, but a psychic "
+"breakdown, a desperate need to free himself from an unbearable burden."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:294
 msgid ""
@@ -5719,19 +5845,15 @@ msgstr ""
 "tortured. Capuana shows how the perfect crime does not exist: the true "
 "punishment is the one the individual inflicts on himself."
 
-#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:306
-msgid "Le donne de"
-msgstr "Women of"
-
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:313
 msgid ""
 "Non un singolo personaggio, ma una coralità femminile. Donne di campagna, "
 "mogli, figlie, lavoratrici, serve, figure marginali la cui vita è segnata da "
 "sacrificio, silenzio e adattamento forzato."
 msgstr ""
-"Not a single character, but a female choral. Country women, wives, daughters, "
-"workers, servants, marginal figures whose life is marked by sacrifice, "
-"silence and forced adaptation."
+"Not a single character, but a female choral. Country women, wives, "
+"daughters, workers, servants, marginal figures whose life is marked by "
+"sacrifice, silence and forced adaptation."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:316
 msgid ""
@@ -5745,8 +5867,8 @@ msgstr ""
 "Capuana gives them back narrative dignity, observing their daily gestures, "
 "work in the fields, waiting, renunciations, small rebellions. They are women "
 "who have no public voice but who support the entire social structure; who "
-"suffer patriarchal violence but find subtle forms of resistance; who embody a "
-"silent strength, a tenacity that persists through generations."
+"suffer patriarchal violence but find subtle forms of resistance; who embody "
+"a silent strength, a tenacity that persists through generations."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:319
 msgid ""
@@ -5761,8 +5883,10 @@ msgstr ""
 "and work."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:331
-msgid "I protagonisti delle"
-msgstr "Protagonists of"
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:332
+msgid "Novelle del mondo occulto"
+msgstr "Novelle del mondo occulto"
+
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:338
 msgid ""
@@ -5799,10 +5923,22 @@ msgid ""
 "all'irrazionale."
 msgstr ""
 "These characters embody the crisis of positivism, the limit of nineteenth-"
-"century science, the disturbing discovery that not everything is explainable, "
-"measurable, controllable. They are borderline figures, suspended between two "
-"worlds, unable to return to certainty but also to abandon themselves "
-"completely to the irrational."
+"century science, the disturbing discovery that not everything is "
+"explainable, measurable, controllable. They are borderline figures, "
+"suspended between two worlds, unable to return to certainty but also to "
+"abandon themselves completely to the irrational."
+
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:358
+msgid "I tipi umani del Verismo: un lessico sociale"
+msgstr "Human types of Verismo: a social lexicon"
+
+#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:361
+msgid ""
+"Oltre ai singoli personaggi, il Verismo costruisce figure ricorrenti, veri e "
+"propri archetipi sociali che attraversano opere, autori, luoghi"
+msgstr ""
+"In addition to individual characters, Verismo constructs recurring figures, "
+"true social archetypes that cross works, authors, and places"
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:371
 msgid "Il contadino"
@@ -5836,9 +5972,9 @@ msgid ""
 msgstr ""
 "Suspended between sea, debts and community. The sea is both livelihood and "
 "threat, source of life and death. The fisherman lives in daily uncertainty, "
-"dependent on seasons and luck, in the web of economic relations that bind him "
-"to the boat owner, the merchant, the usurer. He is the symbol of existential "
-"precariousness."
+"dependent on seasons and luck, in the web of economic relations that bind "
+"him to the boat owner, the merchant, the usurer. He is the symbol of "
+"existential precariousness."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:395
 msgid "La donna esclusa"
@@ -5870,10 +6006,10 @@ msgid ""
 "schiacciati dalle leggi ferree del determinismo sociale ed economico."
 msgstr ""
 "Who tries to change destiny and fails. It is the central theme of Verga's "
-"Cycle of the Vanquished: whoever steps out of their condition is destined for "
-"defeat. 'Ntoni Malavoglia who wants to get rich, Gesualdo who wants to rise "
-"socially, Malpelo who dreams of a better life. All are crushed by the iron "
-"laws of social and economic determinism."
+"Cycle of the Vanquished: whoever steps out of their condition is destined "
+"for defeat. 'Ntoni Malavoglia who wants to get rich, Gesualdo who wants to "
+"rise socially, Malpelo who dreams of a better life. All are crushed by the "
+"iron laws of social and economic determinism."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:419
 msgid "Il proprietario"
@@ -5888,10 +6024,10 @@ msgid ""
 "divorato dall'ossessione del possesso."
 msgstr ""
 "Power, accumulation, progressive isolation. Whoever owns the land also owns "
-"the men. But this power does not bring happiness: Mazzarò dies in the madness "
-"of accumulation, Gesualdo dies alone and despised. The owner is a prisoner of "
-"his own wealth, incapable of authentic relationships, devoured by the "
-"obsession of possession."
+"the men. But this power does not bring happiness: Mazzarò dies in the "
+"madness of accumulation, Gesualdo dies alone and despised. The owner is a "
+"prisoner of his own wealth, incapable of authentic relationships, devoured "
+"by the obsession of possession."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:431
 msgid "Il ribelle"
@@ -5906,19 +6042,15 @@ msgid ""
 "mostra la forza schiacciante delle strutture sociali contro ogni tentativo "
 "di rottura."
 msgstr ""
-"Who breaks the social or moral order and pays the price. It can be the political "
-"rebel, the passionate rebel (Turiddu, La Lupa), the generational rebel "
-"('Ntoni challenging his grandfather's authority). Rebellion is always "
-"punished: with death, exclusion, failure. Verismo shows the crushing force of "
-"social structures against any attempt at rupture."
+"Who breaks the social or moral order and pays the price. It can be the "
+"political rebel, the passionate rebel (Turiddu, La Lupa), the generational "
+"rebel ('Ntoni challenging his grandfather's authority). Rebellion is always "
+"punished: with death, exclusion, failure. Verismo shows the crushing force "
+"of social structures against any attempt at rupture."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:446
-msgid "Lessico del Verismo:"
-msgstr "Lexicon of Verismo:"
-
-#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:446
-msgid "parole e concetti chiave"
-msgstr "keywords and concepts"
+msgid "Lessico del Verismo: parole e concetti chiave"
+msgstr "Lexicon of Verismo: keywords and key concepts"
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:449
 msgid ""
@@ -5939,14 +6071,10 @@ msgid ""
 "sessi. La sua violazione richiede il sangue. È il pilastro della società "
 "patriarcale, il meccanismo che impone ruoli fissi e punisce ogni deviazione."
 msgstr ""
-"Not an individual virtue, but a collective code. Honor is inherited, defended, "
-"can be lost. It governs relationships between men, families, sexes. Its "
-"violation requires blood. It is the pillar of patriarchal society, the "
-"mechanism that imposes fixed roles and punishes every deviation."
-
-#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:465
-msgid "La roba"
-msgstr "The stuff"
+"Not an individual virtue, but a collective code. Honor is inherited, "
+"defended, can be lost. It governs relationships between men, families, "
+"sexes. Its violation requires blood. It is the pillar of patriarchal "
+"society, the mechanism that imposes fixed roles and punishes every deviation."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:467
 msgid ""
@@ -5959,7 +6087,8 @@ msgstr ""
 "Sicilian term indicating goods, properties, material wealth. But in Verist "
 "narration it becomes something more: obsession, identity, substitute for "
 "affection. \"The stuff\" is what one lives and dies for, what defines the "
-"social value of the individual, what deludes into giving meaning to existence."
+"social value of the individual, what deludes into giving meaning to "
+"existence."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:474
 msgid "La fatalità"
@@ -5974,9 +6103,10 @@ msgid ""
 "schiaccia chi nasce nella posizione sbagliata."
 msgstr ""
 "Inevitable destiny, economic and social laws that dominate the individual. "
-"Verismo is a narrative of necessity: characters do not choose freely, but are "
-"determined by birth, environment, class. Fatality is not metaphysical, but "
-"social: it is the structure that crushes those born in the wrong position."
+"Verismo is a narrative of necessity: characters do not choose freely, but "
+"are determined by birth, environment, class. Fatality is not metaphysical, "
+"but social: it is the structure that crushes those born in the wrong "
+"position."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:483
 msgid "La famiglia"
@@ -6036,18 +6166,14 @@ msgid ""
 "la modernità è alienazione. Il Verismo è letteratura della resistenza "
 "nostalgica e della sconfitta inevitabile."
 msgstr ""
-"In Verismo progress is almost always negative. It brings disintegration, loss "
-"of values, dangerous illusions. New economic laws destroy old solidarity, money "
-"replaces human relationships, modernity is alienation. Verismo is literature of "
-"nostalgic resistance and inevitable defeat."
+"In Verismo progress is almost always negative. It brings disintegration, "
+"loss of values, dangerous illusions. New economic laws destroy old "
+"solidarity, money replaces human relationships, modernity is alienation. "
+"Verismo is literature of nostalgic resistance and inevitable defeat."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:526
-msgid "Personaggi, opere e luoghi:"
-msgstr "Characters, works and places:"
-
-#: parco_verismo/templates/parco_verismo/personaggi_lessico.html:526
-msgid "un sistema integrato"
-msgstr "an integrated system"
+msgid "Personaggi, opere e luoghi: un sistema integrato"
+msgstr "Characters, works and places: an integrated system"
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:531
 msgid ""
@@ -6056,8 +6182,8 @@ msgid ""
 "popolari, le cave, i fondaci, le masserie: sono parte integrante delle loro "
 "storie."
 msgstr ""
-"Verismo characters do not exist without their places. Vizzini, Mineo, Licodia "
-"Eubea, Aci Trezza, the countryside, the inland towns, the popular "
+"Verismo characters do not exist without their places. Vizzini, Mineo, "
+"Licodia Eubea, Aci Trezza, the countryside, the inland towns, the popular "
 "neighborhoods, the quarries, the inns, the farms: they are an integral part "
 "of their stories."
 
@@ -6089,9 +6215,9 @@ msgstr ""
 "return to dialogue, returning the visitor a living narrative experience. "
 "Walking in the towns of Verga and Capuana means entering the pages, "
 "recognizing the houses, the squares, the inns where those lives took shape. "
-"It means understanding that Verismo is not just literature, but anthropological "
-"document, testimony of a world, archive of real existences transformed into "
-"narration."
+"It means understanding that Verismo is not just literature, but "
+"anthropological document, testimony of a world, archive of real existences "
+"transformed into narration."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:543
 msgid ""
@@ -6103,9 +6229,9 @@ msgid ""
 msgstr ""
 "Verismo characters continue to speak to us because they embody universal "
 "conflicts: the struggle against destiny, the weight of conventions, the "
-"violence of social structures, dignity in defeat, resistance in silence. They "
-"are common lives becoming paradigms, individuals becoming symbols, particular "
-"stories telling general truths."
+"violence of social structures, dignity in defeat, resistance in silence. "
+"They are common lives becoming paradigms, individuals becoming symbols, "
+"particular stories telling general truths."
 
 #: parco_verismo/templates/parco_verismo/personaggi_lessico.html:547
 msgid ""
@@ -6126,8 +6252,8 @@ msgid ""
 "Visita Vizzini, Mineo e Licodia Eubea: cammina nei paesi dove i personaggi "
 "di Verga e Capuana hanno preso vita"
 msgstr ""
-"Visit Vizzini, Mineo and Licodia Eubea: walk in the towns where the characters "
-"of Verga and Capuana came to life"
+"Visit Vizzini, Mineo and Licodia Eubea: walk in the towns where the "
+"characters of Verga and Capuana came to life"
 
 #: parco_verismo/templates/parco_verismo/privacy_policy.html:66
 msgid "Informativa sulla Privacy"
@@ -6505,14 +6631,6 @@ msgstr ""
 "and Luigi Capuana Literary Park. Download regulations, budgets and official "
 "documents."
 
-#: parco_verismo/templates/parco_verismo/regolamenti_documenti.html:59
-msgid "Comitato"
-msgstr "Committee"
-
-#: parco_verismo/templates/parco_verismo/regolamenti_documenti.html:59
-msgid "Tecnico-Scientifico"
-msgstr "Technical-Scientific"
-
 #: parco_verismo/templates/parco_verismo/regolamenti_documenti.html:62
 msgid ""
 "Il Comitato Tecnico-Scientifico è l'organo consultivo del Parco Letterario "
@@ -6547,12 +6665,8 @@ msgid "Determina Sindacale n. 50"
 msgstr "Mayoral Determination n. 50"
 
 #: parco_verismo/templates/parco_verismo/regolamenti_documenti.html:102
-msgid "Premio Nazionale"
-msgstr "National Award"
-
-#: parco_verismo/templates/parco_verismo/regolamenti_documenti.html:102
-msgid "\"Verga - Capuana\""
-msgstr "\"Verga - Capuana\""
+msgid "Premio Nazionale \"Verga - Capuana\""
+msgstr "National Award \"Verga - Capuana\""
 
 #: parco_verismo/templates/parco_verismo/regolamenti_documenti.html:105
 msgid ""
@@ -6693,12 +6807,8 @@ msgstr ""
 "regulations."
 
 #: parco_verismo/templates/parco_verismo/regolamenti_documenti.html:195
-msgid "Documentazione"
-msgstr "Documentation"
-
-#: parco_verismo/templates/parco_verismo/regolamenti_documenti.html:195
-msgid "Amministrativa"
-msgstr "Administrative"
+msgid "Documentazione Amministrativa"
+msgstr "Administrative Documentation"
 
 #: parco_verismo/templates/parco_verismo/regolamenti_documenti.html:196
 msgid ""
@@ -6836,14 +6946,6 @@ msgstr "No photos available"
 #: parco_verismo/templates/parco_verismo/verga_capuana_fotografi.html:121
 msgid "L'archivio fotografico sarà presto disponibile."
 msgstr "The photo archive will be available soon."
-
-#: parco_verismo/templates/parco_verismo/verga_capuana_fotografi.html:135
-msgid "Verga e Capuana"
-msgstr "Verga and Capuana"
-
-#: parco_verismo/templates/parco_verismo/verga_capuana_fotografi.html:135
-msgid "Fotografi"
-msgstr "Photographers"
 
 #: parco_verismo/templates/parco_verismo/verga_capuana_fotografi.html:138
 msgid ""
@@ -7923,6 +8025,10 @@ msgstr ""
 "</p>\n"
 "          "
 
+#: parco_verismo/templates/parco_verismo/vizzini.html:48
+msgid "Panorama di Vizzini"
+msgstr "Panorama of Vizzini"
+
 #: parco_verismo/templates/parco_verismo/vizzini.html:60
 msgid "Vizzini nella vita di Giovanni Verga"
 msgstr "Vizzini in the life of Giovanni Verga"
@@ -7950,8 +8056,8 @@ msgstr ""
 "          "
 
 #: parco_verismo/templates/parco_verismo/vizzini.html:67
-msgid "Casa Natale di"
-msgstr "Birthplace of"
+msgid "Casa Natale di Giovanni Verga"
+msgstr "Birthplace of Giovanni Verga"
 
 #: parco_verismo/templates/parco_verismo/vizzini.html:80
 msgid ""
@@ -8217,3 +8323,119 @@ msgstr "Summer events"
 #: parco_verismo/templates/parco_verismo/vizzini.html:398
 msgid "Esplora Vizzini"
 msgstr "Explore Vizzini"
+
+#~ msgid "Casa Natale"
+#~ msgstr "Birthplace of"
+
+#~ msgid "Le donne de"
+#~ msgstr "Women of"
+
+#~ msgid "I protagonisti delle"
+#~ msgstr "Protagonists of"
+
+#~ msgid "Casa Natale di"
+#~ msgstr "Birthplace of"
+
+#~ msgid "Accrediti"
+#~ msgstr "Accreditations"
+
+#~ msgid "Istituzionali"
+#~ msgstr "Institutional"
+
+#~ msgid "Fonti di"
+#~ msgstr "Sources of"
+
+#~ msgid "Parco"
+#~ msgstr "Park"
+
+#~ msgid "Comuni partner del"
+#~ msgstr "Partner municipalities of the"
+
+#~ msgid "Modulo di"
+#~ msgstr "Contact"
+
+#~ msgid "contatto"
+#~ msgstr "form"
+
+#~ msgid "Nome e cognome"
+#~ msgstr "Full name"
+
+#~ msgid "Inserisci nome e cognome"
+#~ msgstr "Enter full name"
+
+#~ msgid "Nome ente o istituzione"
+#~ msgstr "Organization or institution name"
+
+#~ msgid "Indirizzo email"
+#~ msgstr "Email address"
+
+#~ msgid "La tua email"
+#~ msgstr "Your email"
+
+#~ msgid "Messaggio"
+#~ msgstr "Message"
+
+#~ msgid "Nota sulla"
+#~ msgstr "Note on"
+
+#~ msgid "privacy"
+#~ msgstr "privacy"
+
+#~ msgid "Il"
+#~ msgstr "The"
+
+#~ msgid ""
+#~ "Per richieste di informazioni generali, proposte di collaborazione, "
+#~ "attività didattiche, visite guidate, eventi o comunicazioni "
+#~ "istituzionali, è possibile utilizzare il modulo di contatto sottostante. "
+#~ "Il messaggio sarà indirizzato all'email ufficiale del Parco Letterario."
+#~ msgstr ""
+#~ "For general information requests, collaboration proposals, educational "
+#~ "activities, guided tours, events or institutional communications, you can "
+#~ "use the contact form below. The message will be forwarded to the Literary "
+#~ "Park's official email."
+
+#~ msgid "elementi ricorrenti"
+#~ msgstr "recurrent elements"
+
+#~ msgid "Geografia letteraria:"
+#~ msgstr "Literary geography:"
+
+#~ msgid "Missione"
+#~ msgstr "Mission"
+
+#~ msgid "Visione"
+#~ msgstr "Vision"
+
+#~ msgid "Associazioni"
+#~ msgstr "Associations"
+
+#~ msgid "Rete"
+#~ msgstr "Network"
+
+#~ msgid "Lessico del Verismo:"
+#~ msgstr "Lexicon of Verismo:"
+
+#~ msgid "un sistema integrato"
+#~ msgstr "an integrated system"
+
+#~ msgid "Comitato"
+#~ msgstr "Committee"
+
+#~ msgid "Tecnico-Scientifico"
+#~ msgstr "Technical-Scientific"
+
+#~ msgid "Premio Nazionale"
+#~ msgstr "National Award"
+
+#~ msgid "Documentazione"
+#~ msgstr "Documentation"
+
+#~ msgid "Amministrativa"
+#~ msgstr "Administrative"
+
+#~ msgid "Verga e Capuana"
+#~ msgstr "Verga and Capuana"
+
+#~ msgid "Fotografi"
+#~ msgstr "Photographers"
