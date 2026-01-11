@@ -12,6 +12,7 @@ from parler.admin import TranslatableAdmin
 from ..models import Documento, FotoArchivio
 from django import forms
 from parler.forms import TranslatableModelForm
+from .custom_fields import MultipleFileField, MultipleFileInput
 from django.urls import path
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -44,13 +45,15 @@ class DocumentoAdmin(TranslatableAdmin):
     )
 
 
-class MultipleFileInput(forms.ClearableFileInput):
-    allow_multiple_selected = True
+class DocumentoForm(forms.ModelForm):
+    class Meta:
+        model = Documento
+        fields = '__all__'
 
 
 class FotoArchivioForm(TranslatableModelForm):
     # Campo per caricamento multiplo (solo per creazione, ma lo definiamo qui)
-    upload_multiple = forms.FileField(
+    upload_multiple = MultipleFileField(
         widget=MultipleFileInput(attrs={'multiple': True}),
         required=False,
         label="Caricamento Multiplo",

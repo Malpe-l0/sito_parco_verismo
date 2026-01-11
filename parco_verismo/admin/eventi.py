@@ -12,6 +12,7 @@ from parler.admin import TranslatableAdmin
 from ..models import Evento, Notizia, EventoImage, NotiziaImage
 from django import forms
 from parler.forms import TranslatableModelForm
+from .custom_fields import MultipleFileField, MultipleFileInput
 
 
 class EventoImageInline(admin.TabularInline):
@@ -24,23 +25,20 @@ class NotiziaImageInline(admin.TabularInline):
     extra = 1
 
 
-class MultipleFileInput(forms.ClearableFileInput):
-    allow_multiple_selected = True
-
-
 class EventoForm(TranslatableModelForm):
-    nuove_foto_galleria = forms.FileField(
+    nuove_foto_galleria = MultipleFileField(
         widget=MultipleFileInput(attrs={'multiple': True}),
         required=False,
         help_text="Seleziona più foto da aggiungere alla galleria."
     )
+
     class Meta:
         model = Evento
         fields = '__all__'
 
 
 class NotiziaForm(TranslatableModelForm):
-    nuove_foto_galleria = forms.FileField(
+    nuove_foto_galleria = MultipleFileField(
         widget=MultipleFileInput(attrs={'multiple': True}),
         required=False,
         help_text="Seleziona più foto da aggiungere alla galleria."
@@ -65,9 +63,16 @@ class EventoAdmin(TranslatableAdmin):
 
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
-        files = request.FILES.getlist('nuove_foto_galleria')
-        for f in files:
-            EventoImage.objects.create(evento=obj, immagine=f)
+        # Ora possiamo prendere i file da cleaned_data
+        files = form.cleaned_data.get('nuove_foto_galleria')
+        if files:
+            # Se è una lista (MultipleFileField)
+            if isinstance(files, list):
+                for f in files:
+                    EventoImage.objects.create(evento=obj, immagine=f)
+            else:
+                # Fallback caso singolo
+                EventoImage.objects.create(evento=obj, immagine=files)
 
 
 @admin.register(Notizia)
@@ -85,6 +90,10 @@ class NotiziaAdmin(TranslatableAdmin):
 
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
-        files = request.FILES.getlist('nuove_foto_galleria')
-        for f in files:
-            NotiziaImage.objects.create(notizia=obj, immagine=f)
+        files = form.cleaned_data.get('nuove_foto_galleria')
+        if files:
+            if isinstance(files, list):
+                for f in files:
+                    NotiziaImage.objects.create(notizia=obj, immagine=f)
+            else:
+                NotiziaImage.objects.create(notizia=obj, immagine=files)
