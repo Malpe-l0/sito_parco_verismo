@@ -11,6 +11,7 @@ from parler.admin import TranslatableAdmin
 # Local imports
 from ..models import Evento, Notizia, EventoImage, NotiziaImage
 from django import forms
+from parler.forms import TranslatableModelForm
 
 
 class EventoImageInline(admin.TabularInline):
@@ -23,8 +24,35 @@ class NotiziaImageInline(admin.TabularInline):
     extra = 1
 
 
+class MultipleFileInput(forms.ClearableFileInput):
+    allow_multiple_selected = True
+
+
+class EventoForm(TranslatableModelForm):
+    nuove_foto_galleria = forms.FileField(
+        widget=MultipleFileInput(attrs={'multiple': True}),
+        required=False,
+        help_text="Seleziona più foto da aggiungere alla galleria."
+    )
+    class Meta:
+        model = Evento
+        fields = '__all__'
+
+
+class NotiziaForm(TranslatableModelForm):
+    nuove_foto_galleria = forms.FileField(
+        widget=MultipleFileInput(attrs={'multiple': True}),
+        required=False,
+        help_text="Seleziona più foto da aggiungere alla galleria."
+    )
+    class Meta:
+        model = Notizia
+        fields = '__all__'
+
+
 @admin.register(Evento)
 class EventoAdmin(TranslatableAdmin):
+    form = EventoForm
     list_display = ("__str__", "data_inizio", "data_fine", "is_active")
     list_filter = ("is_active", "data_inizio")
     search_fields = ("translations__titolo", "translations__luogo")
@@ -32,16 +60,8 @@ class EventoAdmin(TranslatableAdmin):
     ordering = ("-data_inizio",)
     list_editable = ("is_active",)
     inlines = [EventoImageInline]
-
-    def get_form(self, request, obj=None, **kwargs):
-        form = super().get_form(request, obj, **kwargs)
-        # Aggiungiamo il campo dinamicamente per evitare di creare una classe Form separata
-        form.base_fields['nuove_foto_galleria'] = forms.FileField(
-            widget=forms.ClearableFileInput(attrs={'multiple': True}),
-            required=False,
-            help_text="Seleziona più foto da aggiungere alla galleria."
-        )
-        return form
+    
+    # get_form rimosso perché usiamo form = EventoForm explicit definition
 
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
@@ -52,6 +72,7 @@ class EventoAdmin(TranslatableAdmin):
 
 @admin.register(Notizia)
 class NotiziaAdmin(TranslatableAdmin):
+    form = NotiziaForm
     list_display = ("__str__", "data_pubblicazione", "is_active")
     list_filter = ("is_active", "data_pubblicazione")
     search_fields = ("translations__titolo", "translations__contenuto")
@@ -60,14 +81,7 @@ class NotiziaAdmin(TranslatableAdmin):
     list_editable = ("is_active",)
     inlines = [NotiziaImageInline]
 
-    def get_form(self, request, obj=None, **kwargs):
-        form = super().get_form(request, obj, **kwargs)
-        form.base_fields['nuove_foto_galleria'] = forms.FileField(
-            widget=forms.ClearableFileInput(attrs={'multiple': True}),
-            required=False,
-            help_text="Seleziona più foto da aggiungere alla galleria."
-        )
-        return form
+
 
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
