@@ -9,6 +9,7 @@ from django.utils.text import slugify
 
 # Third-party imports
 from parler.models import TranslatableModel, TranslatedFields
+from parco_verismo.utils.image_optimizer import optimize_image
 
 
 class Evento(TranslatableModel):
@@ -50,9 +51,8 @@ class Evento(TranslatableModel):
         return reverse("evento_detail", kwargs={"slug": self.slug})
 
     def save(self, *args, **kwargs):
-        # Genera slug automaticamente dal titolo se non specificato
         if not self.slug:
-            titolo = self.safe_translation_getter('titolo', any_language=True) or f'evento-{self.pk or "new"}'
+            titolo = self.safe_translation_getter('titolo', any_language=True) or "evento"
             base_slug = slugify(titolo)
             slug = base_slug
             counter = 1
@@ -60,6 +60,16 @@ class Evento(TranslatableModel):
                 slug = f"{base_slug}-{counter}"
                 counter += 1
             self.slug = slug
+        
+        # Ottimizza l'immagine
+        if self.immagine:
+            try:
+                this = Evento.objects.get(pk=self.pk)
+                if this.immagine != self.immagine:
+                    self.immagine = optimize_image(self.immagine)
+            except Evento.DoesNotExist:
+                self.immagine = optimize_image(self.immagine)
+        
         super().save(*args, **kwargs)
 
     @property
@@ -99,9 +109,8 @@ class Notizia(TranslatableModel):
         return self.safe_translation_getter("titolo", any_language=True) or str(self.pk)
 
     def save(self, *args, **kwargs):
-        # Genera slug automaticamente dal titolo se non specificato
         if not self.slug:
-            titolo = self.safe_translation_getter('titolo', any_language=True) or f'notizia-{self.pk or "new"}'
+            titolo = self.safe_translation_getter('titolo', any_language=True) or "notizia"
             base_slug = slugify(titolo)
             slug = base_slug
             counter = 1
@@ -109,6 +118,16 @@ class Notizia(TranslatableModel):
                 slug = f"{base_slug}-{counter}"
                 counter += 1
             self.slug = slug
+
+        # Ottimizza l'immagine
+        if self.immagine:
+            try:
+                this = Notizia.objects.get(pk=self.pk)
+                if this.immagine != self.immagine:
+                    self.immagine = optimize_image(self.immagine)
+            except Notizia.DoesNotExist:
+                self.immagine = optimize_image(self.immagine)
+
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
@@ -126,6 +145,16 @@ class EventoImage(models.Model):
         verbose_name = "Immagine Evento"
         verbose_name_plural = "Immagini Evento"
 
+    def save(self, *args, **kwargs):
+        if self.immagine:
+            try:
+                this = EventoImage.objects.get(pk=self.pk)
+                if this.immagine != self.immagine:
+                    self.immagine = optimize_image(self.immagine)
+            except EventoImage.DoesNotExist:
+                self.immagine = optimize_image(self.immagine)
+        super().save(*args, **kwargs)
+
 
 class NotiziaImage(models.Model):
     notizia = models.ForeignKey(Notizia, related_name='additional_images', on_delete=models.CASCADE)
@@ -137,3 +166,13 @@ class NotiziaImage(models.Model):
         ordering = ['ordine']
         verbose_name = "Immagine Notizia"
         verbose_name_plural = "Immagini Notizia"
+
+    def save(self, *args, **kwargs):
+        if self.immagine:
+            try:
+                this = NotiziaImage.objects.get(pk=self.pk)
+                if this.immagine != self.immagine:
+                    self.immagine = optimize_image(self.immagine)
+            except NotiziaImage.DoesNotExist:
+                self.immagine = optimize_image(self.immagine)
+        super().save(*args, **kwargs)

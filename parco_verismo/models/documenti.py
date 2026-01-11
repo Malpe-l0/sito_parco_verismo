@@ -9,6 +9,7 @@ from django.utils.text import slugify
 
 # Third-party imports
 from parler.models import TranslatableModel, TranslatedFields
+from parco_verismo.utils.image_optimizer import optimize_image
 
 
 class Documento(TranslatableModel):
@@ -79,9 +80,8 @@ class Documento(TranslatableModel):
         return self.safe_translation_getter("titolo", any_language=True) or str(self.pk)
 
     def save(self, *args, **kwargs):
-        # Genera slug automaticamente dal titolo se non specificato
         if not self.slug:
-            titolo = self.safe_translation_getter('titolo', any_language=True) or f'documento-{self.pk or "new"}'
+            titolo = self.safe_translation_getter('titolo', any_language=True) or "documento"
             base_slug = slugify(titolo)
             slug = base_slug
             counter = 1
@@ -89,6 +89,16 @@ class Documento(TranslatableModel):
                 slug = f"{base_slug}-{counter}"
                 counter += 1
             self.slug = slug
+
+        # Ottimizza l'immagine (anteprima)
+        if self.anteprima:
+            try:
+                this = Documento.objects.get(pk=self.pk)
+                if this.anteprima != self.anteprima:
+                    self.anteprima = optimize_image(self.anteprima)
+            except Documento.DoesNotExist:
+                self.anteprima = optimize_image(self.anteprima)
+
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
@@ -150,7 +160,16 @@ class FotoArchivio(TranslatableModel):
         verbose_name_plural = "Archivio Fotografico"
 
     def __str__(self):
-        titolo = self.safe_translation_getter("titolo", any_language=True)
-        if titolo:
-            return titolo
         return f"Foto #{self.pk}"
+
+    def save(self, *args, **kwargs):
+        # Ottimizza l'immagine
+        if self.immagine:
+            try:
+                this = FotoArchivio.objects.get(pk=self.pk)
+                if this.immagine != self.immagine:
+                    self.immagine = optimize_image(self.immagine)
+            except FotoArchivio.DoesNotExist:
+                self.immagine = optimize_image(self.immagine)
+        
+        super().save(*args, **kwargs)

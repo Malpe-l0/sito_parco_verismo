@@ -9,6 +9,7 @@ from django.utils.text import slugify
 
 # Third-party imports
 from parler.models import TranslatableModel, TranslatedFields
+from parco_verismo.utils.image_optimizer import optimize_image
 
 
 class Itinerario(TranslatableModel):
@@ -105,6 +106,18 @@ class Itinerario(TranslatableModel):
                 slug = f"{base_slug}-{counter}"
                 counter += 1
             self.slug = slug
+        
+        # Ottimizza l'immagine se presente e se è stata modificata (o è nuova)
+        if self.immagine:
+            # Controlliamo se è un nuovo file o se è cambiato
+            try:
+                this = Itinerario.objects.get(pk=self.pk)
+                if this.immagine != self.immagine:
+                    self.immagine = optimize_image(self.immagine)
+            except Itinerario.DoesNotExist:
+                # Se l'oggetto è nuovo
+                self.immagine = optimize_image(self.immagine)
+
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
@@ -155,3 +168,15 @@ class TappaItinerario(TranslatableModel):
             else "N/A"
         )
         return f"{itinerario_nome} - {nome}" if nome else f"Tappa #{self.pk}"
+
+    def save(self, *args, **kwargs):
+        # Ottimizza l'immagine se presente
+        if self.immagine:
+            try:
+                this = TappaItinerario.objects.get(pk=self.pk)
+                if this.immagine != self.immagine:
+                    self.immagine = optimize_image(self.immagine)
+            except TappaItinerario.DoesNotExist:
+                self.immagine = optimize_image(self.immagine)
+        
+        super().save(*args, **kwargs)

@@ -8,6 +8,7 @@ from django.utils.text import slugify
 
 # Third-party imports
 from parler.models import TranslatableModel, TranslatedFields
+from parco_verismo.utils.image_optimizer import optimize_image
 
 
 class Autore(models.Model):
@@ -58,9 +59,9 @@ class Opera(TranslatableModel):
         return self.safe_translation_getter('titolo', any_language=True) or str(self.pk)
 
     def save(self, *args, **kwargs):
-        # Genera slug automaticamente dal titolo se non specificato
         if not self.slug:
-            titolo = self.safe_translation_getter('titolo', any_language=True) or f'opera-{self.pk or "new"}'
+            # Tenta di ottenere titolo (fallback a "opera" se vuoto)
+            titolo = self.safe_translation_getter('titolo', any_language=True) or "opera"
             base_slug = slugify(titolo)
             slug = base_slug
             counter = 1
@@ -68,6 +69,16 @@ class Opera(TranslatableModel):
                 slug = f"{base_slug}-{counter}"
                 counter += 1
             self.slug = slug
+
+        # Ottimizza l'immagine (copertina)
+        if self.copertina:
+            try:
+                this = Opera.objects.get(pk=self.pk)
+                if this.copertina != self.copertina:
+                    self.copertina = optimize_image(self.copertina)
+            except Opera.DoesNotExist:
+                self.copertina = optimize_image(self.copertina)
+
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
