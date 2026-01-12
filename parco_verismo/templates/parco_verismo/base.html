@@ -6,14 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Analytics (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CPRYW1SYB"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-1CPRYW1SYB');
-    </script>
+    <!-- Google Analytics (gtag.js) managed by cookie_banner.js -->
 
     <!-- SEO Meta Tags -->
     <meta name="description"
@@ -164,11 +157,9 @@
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
     <!-- Google Analytics Configuration -->
-    {% if GA_MEASUREMENT_ID %}
     <script>
-        window.GA_MEASUREMENT_ID = "{{ GA_MEASUREMENT_ID }}";
+        window.GA_MEASUREMENT_ID = "{{ GA_MEASUREMENT_ID|default:'G-1CPRYW1SYB' }}";
     </script>
-    {% endif %}
 
     <!-- Cookie Banner Script -->
     <script src="{% static 'js/cookie_banner.js' %}"></script>
