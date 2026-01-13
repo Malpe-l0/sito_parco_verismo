@@ -6,18 +6,40 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-dark-pages" id="mainNav">
 {% endif %}
     <div class="container">
-      <a class="navbar-brand" href="{% url 'home' %}">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'home' %}">
         {% if request.path == '/' or is_homepage == '/it/' or is_homepage == '/en/' and request.path|length <= 4 %}
+        <!-- Homepage: White logos on transparent navbar -->
         <img
-          src="{% static 'assets/img/logo-header-white.png' %}"
-          alt="{% trans 'Parco Letterario Giovanni Verga Luigi Capuana' %}"
-          class="logo-header"
+          src="{% static 'assets/img/loghi/network/logo-parchi-letterari-white.png' %}"
+          alt="{% trans 'Logo Parchi Letterari' %}"
+          class="logo-header logo-parchi logo-white"
+        />
+        <img
+          src="{% static 'assets/img/loghi/network/logo-parchi-letterari.png' %}"
+          alt="{% trans 'Logo Parchi Letterari' %}"
+          class="logo-header logo-parchi logo-color"
+        />
+        <img
+          src="{% static 'assets/img/loghi/parco/logo-parco-white.png' %}"
+          alt="{% trans 'Parco Letterario® Giovanni Verga e Luigi Capuana' %}"
+          class="logo-header logo-parco logo-white"
+        />
+        <img
+          src="{% static 'assets/img/loghi/parco/logo-parco-black.png' %}"
+          alt="{% trans 'Parco Letterario® Giovanni Verga e Luigi Capuana' %}"
+          class="logo-header logo-parco logo-black"
         />
         {% else %}
+        <!-- Other pages: Original colors on solid navbar -->
         <img
-          src="{% static 'assets/img/logo-header.png' %}"
-          alt="{% trans 'Parco Letterario Giovanni Verga Luigi Capuana' %}"
-          class="logo-header"
+          src="{% static 'assets/img/loghi/network/logo-parchi-letterari.png' %}"
+          alt="{% trans 'Logo Parchi Letterari' %}"
+          class="logo-header logo-parchi"
+        />
+        <img
+          src="{% static 'assets/img/loghi/parco/logo-parco-black.png' %}"
+          alt="{% trans 'Parco Letterario® Giovanni Verga e Luigi Capuana' %}"
+          class="logo-header logo-parco"
         />
         {% endif %}
       </a>

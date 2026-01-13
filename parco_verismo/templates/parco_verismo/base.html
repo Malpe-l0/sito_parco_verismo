@@ -10,34 +10,34 @@
 
     <!-- SEO Meta Tags -->
     <meta name="description"
-        content="{% block meta_description %}{% trans 'Parco Letterario Giovanni Verga Luigi Capuana - Un viaggio nella letteratura verista siciliana attraverso i luoghi di Verga e Capuana' %}{% endblock %}">
+        content="{% block meta_description %}{% trans 'Parco Letterario® Verga e Capuana: itinerari culturali, eventi e musei nei luoghi del Verismo in Sicilia (Vizzini, Mineo, Licodia Eubea).' %}{% endblock %}">
     <meta name="keywords"
-        content="{% block meta_keywords %}parco letterario, verismo, Giovanni Verga, Luigi Capuana, Sicilia, letteratura, Vizzini, Mineo, Licodia Eubea{% endblock %}">
-    <meta name="author" content="Parco Letterario Giovanni Verga e Luigi Capuana">
+        content="{% block meta_keywords %}parco letterario, verismo, Giovanni Verga, Luigi Capuana, Sicilia, turismo culturale, itinerari, Vizzini, Mineo, Licodia Eubea, eventi, musei{% endblock %}">
+    <meta name="author" content="Parco Letterario® Giovanni Verga e Luigi Capuana">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://parcovergacapuana.it{{ request.path }}">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="{% block og_type %}website{% endblock %}">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:title" content="{% block og_title %}{% trans 'Parco Letterario Giovanni Verga e Luigi Capuana' %}{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}{% trans 'Parco Letterario® Giovanni Verga e Luigi Capuana' %}{% endblock %}">
     <meta property="og:description"
-        content="{% block og_description %}{% trans 'Scopri il Parco Letterario Giovanni Verga e Luigi Capuana: itinerari, eventi e cultura nei luoghi di Verga e Capuana' %}{% endblock %}">
+        content="{% block og_description %}{% trans 'I luoghi del Verismo a Vizzini, Mineo e Licodia Eubea' %}{% endblock %}">
     <meta property="og:image"
-        content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/logo-header.png' %}{% endblock %}">
+        content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/loghi/parco/logo-parco-black.png' %}{% endblock %}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="1200">
-    <meta property="og:site_name" content="Parco Letterario Giovanni Verga e Luigi Capuana">
+    <meta property="og:site_name" content="Parco Letterario® Giovanni Verga e Luigi Capuana">
     <meta property="og:locale" content="{% if LANGUAGE_CODE == 'it' %}it_IT{% else %}en_US{% endif %}">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{ request.build_absolute_uri }}">
-    <meta name="twitter:title" content="{% block twitter_title %}{% trans 'Parco Letterario Giovanni Verga e Luigi Capuana' %}{% endblock %}">
+    <meta name="twitter:title" content="{% block twitter_title %}{% trans 'Parco Letterario® Giovanni Verga e Luigi Capuana' %}{% endblock %}">
     <meta name="twitter:description"
-        content="{% block twitter_description %}{% trans 'Scopri il Parco Letterario Giovanni Verga e Luigi Capuana in Sicilia' %}{% endblock %}">
+        content="{% block twitter_description %}{% trans 'I luoghi del Verismo a Vizzini, Mineo e Licodia Eubea' %}{% endblock %}">
     <meta name="twitter:image"
-        content="{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/logo-header.png' %}{% endblock %}">
+        content="{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/loghi/parco/logo-parco-black.png' %}{% endblock %}">
 
     <!-- Structured Data - Schema.org -->
     <script type="application/ld+json">
@@ -45,11 +45,11 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization",
-      "name": "Parco Letterario Giovanni Verga e Luigi Capuana",
+      "name": "Parco Letterario® Giovanni Verga e Luigi Capuana",
       "url": "{{ request.scheme }}://{{ request.get_host }}/",
       "logo": {
         "@type": "ImageObject",
-        "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/logo-header.png' %}",
+        "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/loghi/parco/logo-parco-black.png' %}",
         "width": "2000",
         "height": "2000"
       },
@@ -65,7 +65,7 @@
       "@type": "WebSite",
       "@id": "{{ request.scheme }}://{{ request.get_host }}/#website",
       "url": "{{ request.scheme }}://{{ request.get_host }}/",
-      "name": "Parco Letterario Giovanni Verga e Luigi Capuana",
+      "name": "Parco Letterario® Giovanni Verga e Luigi Capuana",
       "publisher": {
         "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
       },
@@ -80,8 +80,8 @@
     {
       "@context": "https://schema.org",
       "@type": "{% block schema_type %}TouristAttraction{% endblock %}",
-      "name": "Parco Letterario Giovanni Verga e Luigi Capuana",
-      "description": "{% trans 'Parco letterario dedicato alla scoperta del Verismo siciliano attraverso i luoghi di Giovanni Verga e Luigi Capuana' %}",
+      "name": "Parco Letterario® Giovanni Verga e Luigi Capuana",
+      "description": "{% trans 'I luoghi del Verismo a Vizzini, Mineo e Licodia Eubea' %}",
       "url": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}",
       "address": {
         "@type": "PostalAddress",
@@ -96,19 +96,19 @@
     }
     </script>
 
-    <title>{% block title %}{% trans 'Parco Letterario Giovanni Verga e Luigi Capuana' %}{% endblock %}</title>
+    <title>{% block title %}{% trans 'Parco Letterario® Giovanni Verga e Luigi Capuana' %}{% endblock %}</title>
 
     <!-- Favicon & Site Identity -->
     <link rel="icon" href="{{ request.scheme }}://{{ request.get_host }}{% static 'favicon.ico' %}" sizes="any">
-    <link rel="icon" type="image/png" href="{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/favicon-48.png' %}" sizes="48x48">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/favicon-32.png' %}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/logo-192.png' %}">
-    <link rel="icon" type="image/png" sizes="512x512" href="{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/logo-512.png' %}">
-    <link rel="apple-touch-icon" href="{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/logo-192.png' %}">
-    <link rel="mask-icon" href="{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/logo-512.png' %}" color="#4A6741">
+    <link rel="icon" type="image/png" href="{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/favicons/favicon-48.png' %}" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/favicons/favicon-32.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/loghi/parco/logo-parco-192.png' %}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/loghi/parco/logo-parco-512.png' %}">
+    <link rel="apple-touch-icon" href="{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/loghi/parco/logo-parco-192.png' %}">
+    <link rel="mask-icon" href="{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/loghi/parco/logo-parco-512.png' %}" color="#4A6741">
     <meta name="theme-color" content="#4A6741">
     <meta name="msapplication-TileColor" content="#4A6741">
-    <meta name="msapplication-TileImage" content="{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/logo-192.png' %}">
+    <meta name="msapplication-TileImage" content="{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/loghi/parco/logo-parco-192.png' %}">
     <meta name="apple-mobile-web-app-title" content="Parco Verismo">
     <meta name="application-name" content="Parco Verismo">
 
@@ -167,23 +167,7 @@
     <!-- Custom Scripts -->
     <script>
         (function () {
-            function setLogoWhite(logo) {
-                try {
-                    if (!logo || !logo.src) return;
-                    if (logo.src.includes('logo-header.png')) {
-                        logo.src = logo.src.replace('logo-header.png', 'logo-header-white.png');
-                    }
-                } catch (e) { }
-            }
 
-            function setLogoDark(logo) {
-                try {
-                    if (!logo || !logo.src) return;
-                    if (logo.src.includes('logo-header-white.png')) {
-                        logo.src = logo.src.replace('logo-header-white.png', 'logo-header.png');
-                    }
-                } catch (e) { }
-            }
 
             document.addEventListener('DOMContentLoaded', function () {
                 const navbar = document.getElementById('mainNav');
@@ -197,7 +181,7 @@
                     navbar.classList.add('navbar-scrolled');
                     navbar.classList.add('navbar-light');
                     navbar.classList.remove('navbar-dark');
-                    setLogoDark(logo);
+
                     return; // Non serve altro per queste pagine
                 }
 
@@ -209,7 +193,7 @@
                     navbar.classList.remove('navbar-scrolled');
                     navbar.classList.remove('navbar-light');
                     navbar.classList.add('navbar-dark');
-                    setLogoWhite(logo);
+
 
                     const observer = new IntersectionObserver((entries) => {
                         entries.forEach(entry => {
@@ -218,13 +202,13 @@
                                 navbar.classList.remove('navbar-scrolled');
                                 navbar.classList.remove('navbar-light');
                                 navbar.classList.add('navbar-dark');
-                                setLogoWhite(logo);
+
                             } else {
                                 // hero out of view -> solid + dark logo
                                 navbar.classList.add('navbar-scrolled');
                                 navbar.classList.remove('navbar-dark');
                                 navbar.classList.add('navbar-light');
-                                setLogoDark(logo);
+
                             }
                         });
                     }, { root: null, threshold: 0, rootMargin: '-60px 0px 0px 0px' });
@@ -241,14 +225,14 @@
                             navbar.classList.remove('navbar-dark');
                             navbar.classList.add('navbar-light');
                         }
-                        setLogoDark(logo);
+
                     } else {
                         // Only remove scrolled if we either had a hero or the navbar isn't the dark-pages variant
                         if (hero || !navbar.classList.contains('navbar-dark-pages')) {
                             navbar.classList.remove('navbar-scrolled');
                             navbar.classList.remove('navbar-light');
                             navbar.classList.add('navbar-dark');
-                            setLogoWhite(logo);
+
                         }
                     }
                 }, { passive: true });
