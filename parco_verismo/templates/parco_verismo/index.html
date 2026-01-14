@@ -11,7 +11,9 @@
 
 {% block hero_section %}
 <header>
-    <video class="videobg" src="{% static 'assets/video/videobg.mp4' %}" autoplay muted loop playsinline disablePictureInPicture oncontextmenu="return false;"></video>
+    <video class="videobg" autoplay muted loop playsinline disablePictureInPicture oncontextmenu="return false;">
+        <source src="{% static 'assets/video/videobg.mp4' %}" type="video/mp4">
+    </video>
     <div class="hero-content">
         <h1 class="hero-title">
             {% trans 'Parco Letterario®' %}<br>
@@ -452,6 +454,27 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var video = document.querySelector('.videobg');
+        if(video) {
+            video.muted = true;
+            var playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // Autoplay started!
+                }).catch(error => {
+                    console.log("Auto-play was prevented. Attempting mute-and-play workaround.", error);
+                    video.muted = true;
+                    video.play().catch(e => console.log("Still failed to play video", e));
+                });
+            }
+        }
+    });
+</script>
 {% endblock %}
 
 

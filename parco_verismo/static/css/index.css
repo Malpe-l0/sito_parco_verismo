@@ -500,6 +500,11 @@ header::after {
 
 /* Mobile: logo più piccolo e meno invadente */
 @media (max-width: 768px) {
+    /* Mobile video: remove scale to minimize cropping */
+    .videobg {
+        transform: translate(-50%, -50%) scale(1) !important;
+    }
+
     #il-parco.hp-parco::before {
         width: 80vw;
         height: 80vw;
