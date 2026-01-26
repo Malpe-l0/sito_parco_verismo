@@ -1,0 +1,94 @@
+{% extends "parco_verismo/base.html" %}
+{% load static i18n %}
+
+{% block title %}404 - {% trans "Pagina Non Trovata" %}{% endblock %}
+
+{% block meta_description %}{% trans "La pagina che stai cercando non esiste o è stata spostata." %}{% endblock %}
+
+{% block content %}
+<section class="error-page py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 text-center">
+                <!-- Error Code -->
+                <div class="error-code mb-4">
+                    <h1 class="display-1 fw-bold text-primary" style="font-size: 10rem;">404</h1>
+                </div>
+
+                <!-- Error Title -->
+                <h2 class="h1 mb-4">
+                    {% trans "Pagina Non Trovata" %}
+                </h2>
+
+                <!-- Error Description -->
+                <p class="lead text-muted mb-5">
+                    {% trans "La pagina che stai cercando potrebbe essere stata rimossa, il suo nome è cambiato o è temporaneamente non disponibile." %}
+                </p>
+
+                <!-- Illustration/Icon -->
+                <div class="mb-5">
+                    <i class="bi bi-compass" style="font-size: 8rem; color: var(--bs-primary); opacity: 0.2;"></i>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <a href="{% url 'home' %}" class="btn btn-primary btn-lg">
+                        <i class="bi bi-house-door me-2"></i>
+                        {% trans "Torna alla Home" %}
+                    </a>
+                    <a href="{% url 'biblioteca' %}" class="btn btn-outline-primary btn-lg">
+                        <i class="bi bi-book me-2"></i>
+                        {% trans "Esplora la Biblioteca" %}
+                    </a>
+                    <a href="{% url 'itinerari' %}" class="btn btn-outline-primary btn-lg">
+                        <i class="bi bi-map me-2"></i>
+                        {% trans "Scopri gli Itinerari" %}
+                    </a>
+                </div>
+
+                <!-- Search Suggestion -->
+                <div class="mt-5 pt-4 border-top">
+                    <p class="text-muted mb-3">
+                        {% trans "Oppure cerca quello che ti interessa:" %}
+                    </p>
+                    <form action="{% url 'biblioteca' %}" method="get" class="mx-auto" style="max-width: 500px;">
+                        <div class="input-group input-group-lg">
+                            <input type="text" 
+                                   class="form-control" 
+                                   name="q" 
+                                   placeholder="{% trans 'Cerca opere, autori...' %}"
+                                   aria-label="{% trans 'Cerca' %}">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .error-page {
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+    }
+    
+    .error-code {
+        animation: fadeInDown 0.6s ease-out;
+    }
+    
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "parco_verismo/base.html" %}
+{% load static i18n %}
+
+{% block title %}400 - {% trans "Richiesta Non Valida" %}{% endblock %}
+
+{% block meta_description %}{% trans "La richiesta inviata non è valida." %}{% endblock %}
+
+{% block content %}
+<section class="error-page py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 text-center">
+                <!-- Error Code -->
+                <div class="error-code mb-4">
+                    <h1 class="display-1 fw-bold text-warning" style="font-size: 10rem;">400</h1>
+                </div>
+
+                <!-- Error Title -->
+                <h2 class="h1 mb-4">
+                    {% trans "Richiesta Non Valida" %}
+                </h2>
+
+                <!-- Error Description -->
+                <p class="lead text-muted mb-5">
+                    {% trans "La richiesta inviata al server non è corretta o contiene dati non validi. Verifica i dati inseriti e riprova." %}
+                </p>
+
+                <!-- Illustration/Icon -->
+                <div class="mb-5">
+                    <i class="bi bi-exclamation-circle" style="font-size: 8rem; color: var(--bs-warning); opacity: 0.2;"></i>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <a href="{% url 'home' %}" class="btn btn-primary btn-lg">
+                        <i class="bi bi-house-door me-2"></i>
+                        {% trans "Torna alla Home" %}
+                    </a>
+                    <a href="javascript:history.back()" class="btn btn-outline-primary btn-lg">
+                        <i class="bi bi-arrow-left me-2"></i>
+                        {% trans "Torna Indietro" %}
+                    </a>
+                </div>
+
+                <!-- Help Info -->
+                <div class="mt-5 pt-4 border-top">
+                    <p class="text-muted">
+                        {% trans "Se il problema persiste, contattaci per assistenza." %}
+                    </p>
+                    <a href="{% url 'contatti' %}" class="text-decoration-none fw-bold">
+                        {% trans "Vai alla pagina Contatti" %} <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .error-page {
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+    }
+    
+    .error-code {
+        animation: bounce 1s ease-in-out;
+    }
+    
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+</style>
+{% endblock %}

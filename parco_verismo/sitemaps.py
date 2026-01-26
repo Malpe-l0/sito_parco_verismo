@@ -14,9 +14,7 @@ class StaticViewSitemap(Sitemap):
     def items(self):
         return [
             'home',
-            'biblioteca',
             'eventi',
-            'calendario',
             'notizie',
             'documenti',
             'verga_capuana_fotografi',

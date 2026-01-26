@@ -8,7 +8,6 @@ from .home import home_view
 
 # Biblioteca
 from .biblioteca import (
-    biblioteca_view,
     opere_per_autore_view,
     opera_detail_view,
     personaggi_lessico_view,
@@ -18,7 +17,6 @@ from .biblioteca import (
 # Eventi e Notizie
 from .eventi import (
     eventi_view,
-    calendario_view,
     evento_detail_view,
     notizie_view,
     notizia_detail_view,
@@ -60,16 +58,22 @@ from .istituzionale import (
     cookie_policy_view,
 )
 
+# Error Handlers
+from .errors import (
+    custom_404,
+    custom_500,
+    custom_403,
+    custom_400,
+)
+
 __all__ = [
     # Home
     'home_view',
     # Biblioteca
-    'biblioteca_view',
     'opere_per_autore_view',
     'opera_detail_view',
     # Eventi e Notizie
     'eventi_view',
-    'calendario_view',
     'evento_detail_view',
     'notizie_view',
     'notizia_detail_view',
@@ -97,4 +101,9 @@ __all__ = [
     'privacy_policy_view',
     'note_legali_view',
     'cookie_policy_view',
+    # Error handlers
+    'custom_404',
+    'custom_500',
+    'custom_403',
+    'custom_400',
 ]

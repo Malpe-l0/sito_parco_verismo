@@ -84,3 +84,9 @@ urlpatterns += [
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# Custom error handlers
+handler404 = 'parco_verismo.views.errors.custom_404'
+handler500 = 'parco_verismo.views.errors.custom_500'
+handler403 = 'parco_verismo.views.errors.custom_403'
+handler400 = 'parco_verismo.views.errors.custom_400'

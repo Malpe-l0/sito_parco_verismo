@@ -102,10 +102,40 @@ docker compose restart nginx
 
 ---
 
-## 👤 Step 6: Crea l'admin
+## 👤 Step 6: Crea l'admin e Popola Database
+
+### Opzione A: Crea solo superuser
 
 ```bash
 docker compose exec web python manage.py createsuperuser
+```
+
+### Opzione B: Popola database completo (consigliato)
+
+```bash
+# Popola tutto: opere, autori, eventi, notizie, itinerari, archivio foto
+docker compose exec web python populate-db-complete.py
+
+# Questo script crea automaticamente:
+# - Superuser (admin / admin123)
+# - Autori (Verga, Capuana)
+# - Opere complete con descrizioni e traduzioni
+# - Eventi e notizie
+# - Archivio fotografico
+# - Itinerari letterari con coordinate
+```
+
+### Comandi Utili Popolamento Database
+
+```bash
+# Aggiorna solo le coordinate degli itinerari
+docker compose exec web python populate-db-complete.py --update-coords
+
+# Verifica integrità dei dati
+docker compose exec web python populate-db-complete.py --check
+
+# Crea solo il superuser
+docker compose exec web python populate-db-complete.py --create-superuser
 ```
 
 Poi accedi a: `https://tuodominio.com/admin/`

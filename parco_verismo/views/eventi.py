@@ -1,10 +1,10 @@
 """
-Views per Eventi, Notizie e Calendario.
+Views per Eventi e Notizie.
 """
 
 # Django imports
 from django.shortcuts import render, get_object_or_404
-from django.utils import timezone, translation
+from django.utils import timezone
 
 # Local imports
 from ..models import Evento, Notizia
@@ -35,16 +35,6 @@ def eventi_view(request):
         "notizie": notizie,
     }
     return render(request, "parco_verismo/eventi.html", context)
-
-
-def calendario_view(request):
-    """Mostra il calendario degli eventi."""
-    eventi = Evento.objects.filter(is_active=True).order_by("data_inizio")
-    context = {
-        "eventi": eventi,
-        "LANGUAGE_CODE": translation.get_language(),
-    }
-    return render(request, "parco_verismo/calendario.html", context)
 
 
 def evento_detail_view(request, slug):

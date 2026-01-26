@@ -169,12 +169,9 @@
           </div>
         {% endif %}
 
-        <div class="text-center d-flex flex-column flex-sm-row justify-content-center gap-3 return-actions">
+        <div class="text-center return-actions">
           <a href="{% url 'eventi' %}" class="btn btn-outline-secondary">
-            ← {% trans 'Torna agli eventi' %}
-          </a>
-          <a href="{% url 'calendario' %}" class="btn btn-outline-primary">
-            <i class="bi bi-calendar"></i> {% trans 'Vedi calendario' %}
+            <i class="bi bi-arrow-left me-2"></i>{% trans 'Torna agli eventi' %}
           </a>
         </div>
       </div>

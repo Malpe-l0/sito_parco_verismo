@@ -105,7 +105,7 @@ python manage.py createsuperuser
 python manage.py compilemessages
 
 # Dati demo (opzionale)
-python populate_db_complete.py
+python populate-db-complete.py
 
 # Avvia server
 python manage.py runserver
@@ -239,6 +239,12 @@ python manage.py compilemessages        # Compila traduzioni
 python manage.py dbshell                # Shell database
 python manage.py dumpdata > backup.json # Backup dati
 python manage.py loaddata backup.json   # Ripristina backup
+
+# Popolamento Database Completo
+python populate-db-complete.py                    # Popola tutto (opere, autori, eventi, etc.)
+python populate-db-complete.py --create-superuser # Crea solo superuser
+python populate-db-complete.py --update-coords    # Aggiorna coordinate itinerari
+python populate-db-complete.py --check            # Verifica integrità dati
 
 # Testing
 python manage.py test                   # Esegui test
