@@ -3,13 +3,129 @@
 
 {% block title %}{% trans 'Menu del Verismo - Parco Letterario®' %}{% endblock %}
 
-{% block extra_css %}
+{% block extra_head %}
 <style>
-    .modal-fullscreen-img {
-        max-width: 100%;
-        max-height: 90vh;
-        object-fit: contain;
+    /* ── Menu Modal Lightbox ── */
+    .menu-lightbox .modal-dialog {
+        max-width: 90vw;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
     }
+    .menu-lightbox .modal-content {
+        background: rgba(0, 0, 0, 0.35);
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+        width: fit-content;
+        margin: auto;
+    }
+    .menu-lightbox .modal-header {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        border: none;
+        padding: 0.75rem 1rem;
+        background: transparent;
+    }
+    .menu-lightbox .modal-body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2.5rem;
+        overflow: hidden;
+    }
+
+    @media (max-width: 991px) {
+        .menu-lightbox .modal-dialog {
+            max-width: 95vw;
+        }
+        .menu-lightbox .modal-body {
+            padding: 1.5rem 0.5rem;
+        }
+        .menu-img-container {
+            max-width: 100vw;
+        }
+    }
+
+    /* Image container for zoom/pan */
+    .menu-img-container {
+        max-width: 90vw;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: zoom-in;
+    }
+    .menu-img-container.is-zoomed {
+        cursor: grab;
+        overflow: auto;
+        max-height: 85vh;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .menu-img-container.is-zoomed:active {
+        cursor: grabbing;
+    }
+    .menu-img-container img {
+        max-width: 100%;
+        max-height: 85vh;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+        display: block;
+        border-radius: 8px;
+    }
+    .menu-img-container.is-zoomed img {
+        max-width: none;
+        max-height: none;
+        cursor: grab;
+        margin: auto;
+        /* Remove transition during zoom to make drag instantaneous */
+        transition: none;
+    }
+
+    /* Zoom button */
+    .menu-zoom-btn {
+        position: absolute;
+        bottom: 1.25rem;
+        right: 1.25rem;
+        z-index: 10;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 2px solid rgba(255,255,255,0.5);
+        background: rgba(0,0,0,0.5);
+        color: #fff;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(4px);
+        transition: all 0.2s ease;
+    }
+    .menu-zoom-btn:hover {
+        background: rgba(255,255,255,0.2);
+        border-color: #fff;
+        color: #fff;
+    }
+
+    .menu-lightbox-hint {
+        position: absolute;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.7);
+        background: rgba(0,0,0,0.5);
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        z-index: 10;
+        pointer-events: none;
+    }
+
     .hover-opacity {
         transition: opacity var(--transition-fast);
     }
@@ -97,15 +213,23 @@
                             </article>
                         </div>
 
-                        <!-- Modal for Menu Image -->
-                        <div class="modal fade" id="menuModal{{ ristorante.id }}" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog modal-xl modal-dialog-centered">
-                                <div class="modal-content border-0 bg-transparent">
-                                    <div class="modal-header border-0 pb-0">
-                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <!-- Modal Lightbox for Menu Image -->
+                        <div class="modal fade menu-lightbox" id="menuModal{{ ristorante.id }}" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body text-center pt-0">
-                                        <img src="{{ ristorante.menu.url }}" alt="{% trans 'Menu' %} {{ ristorante.nome }}" class="modal-fullscreen-img shadow-lg rounded">
+                                    <div class="modal-body">
+                                        <div class="menu-lightbox-hint">
+                                            <i class="bi bi-info-circle me-1"></i> {% trans 'Clicca per ingrandire' %}
+                                        </div>
+                                        <div class="menu-img-container" data-menu-zoom>
+                                            <img src="{{ ristorante.menu.url }}" alt="{% trans 'Menu' %} {{ ristorante.nome }}" draggable="false">
+                                        </div>
+                                        <button type="button" class="menu-zoom-btn" data-zoom-toggle title="{% trans 'Ingrandisci / Riduci' %}">
+                                            <i class="bi bi-zoom-in"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -129,4 +253,107 @@
         {% endif %}
     </div>
 </section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Handle all menu lightbox modals
+    document.querySelectorAll('.menu-lightbox').forEach(function(modal) {
+        const container = modal.querySelector('[data-menu-zoom]');
+        const img = container ? container.querySelector('img') : null;
+        const zoomBtn = modal.querySelector('[data-zoom-toggle]');
+        if (!container || !img) return;
+
+        let isDragging = false;
+        let startX, startY, scrollLeft, scrollTop;
+
+        function toggleZoom(clickX, clickY, forceState) {
+            const willZoom = forceState !== undefined ? forceState : !container.classList.contains('is-zoomed');
+            if (willZoom === container.classList.contains('is-zoomed')) return;
+            
+            const isZoomed = willZoom;
+            container.classList.toggle('is-zoomed', isZoomed);
+            const icon = zoomBtn.querySelector('i');
+            
+            if (isZoomed) {
+                icon.className = 'bi bi-zoom-out';
+                requestAnimationFrame(function() {
+                    if (clickX !== undefined && clickY !== undefined) {
+                        // Calculate relative position of click on the image (0-1)
+                        var rect = img.getBoundingClientRect();
+                        var ratioX = clickX / rect.width;
+                        var ratioY = clickY / rect.height;
+                        // Scroll to that position in the zoomed image
+                        container.scrollLeft = (img.scrollWidth * ratioX) - (container.clientWidth / 2);
+                        container.scrollTop = (img.scrollHeight * ratioY) - (container.clientHeight / 2);
+                    } else {
+                        container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
+                        container.scrollTop = (container.scrollHeight - container.clientHeight) / 2;
+                    }
+                });
+            } else {
+                icon.className = 'bi bi-zoom-in';
+            }
+        }
+
+        // Click on image to zoom at click position
+        container.addEventListener('click', function(e) {
+            if (isDragging) return;
+            var rect = img.getBoundingClientRect();
+            var x = e.clientX - rect.left;
+            var y = e.clientY - rect.top;
+            toggleZoom(x, y);
+        });
+
+
+
+        // Zoom button
+        zoomBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleZoom();
+        });
+
+        // Drag to pan when zoomed
+        container.addEventListener('mousedown', function(e) {
+            if (!container.classList.contains('is-zoomed')) return;
+            isDragging = false;
+            startX = e.pageX - container.offsetLeft;
+            startY = e.pageY - container.offsetTop;
+            scrollLeft = container.scrollLeft;
+            scrollTop = container.scrollTop;
+            container.style.cursor = 'grabbing';
+
+            function onMove(ev) {
+                const x = ev.pageX - container.offsetLeft;
+                const y = ev.pageY - container.offsetTop;
+                const walkX = x - startX;
+                const walkY = y - startY;
+                if (Math.abs(walkX) > 3 || Math.abs(walkY) > 3) isDragging = true;
+                container.scrollLeft = scrollLeft - walkX;
+                container.scrollTop = scrollTop - walkY;
+            }
+            function onUp() {
+                container.style.cursor = '';
+                document.removeEventListener('mousemove', onMove);
+                document.removeEventListener('mouseup', onUp);
+                // Reset drag flag after a tick so click doesn't fire
+                setTimeout(function() { isDragging = false; }, 10);
+            }
+            document.addEventListener('mousemove', onMove);
+            document.addEventListener('mouseup', onUp);
+        });
+
+
+
+        // Reset zoom when modal closes
+        modal.addEventListener('hidden.bs.modal', function() {
+            container.classList.remove('is-zoomed');
+            const icon = zoomBtn.querySelector('i');
+            icon.className = 'bi bi-zoom-in';
+        });
+    });
+});
+</script>
 {% endblock %}
