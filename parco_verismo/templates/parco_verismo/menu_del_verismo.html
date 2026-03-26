@@ -269,6 +269,17 @@ document.addEventListener('DOMContentLoaded', function() {
         let isDragging = false;
         let startX, startY, scrollLeft, scrollTop;
 
+        // --- Variabili per Pinch-to-Zoom ---
+        let initialPinchDistance = null;
+        let initialPinchWidth = null;
+        let initialPinchCenterX = 0;
+        let initialPinchCenterY = 0;
+        let initialScrollLeft = 0;
+        let initialScrollTop = 0;
+        
+        // Evitiamo che il browser zoomi l'intera pagina se usiamo 2 dita sull'immagine
+        container.style.touchAction = 'pan-x pan-y';
+
         function toggleZoom(clickX, clickY, forceState) {
             const willZoom = forceState !== undefined ? forceState : !container.classList.contains('is-zoomed');
             if (willZoom === container.classList.contains('is-zoomed')) return;
@@ -279,6 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (isZoomed) {
                 icon.className = 'bi bi-zoom-out';
+                img.style.width = img.naturalWidth + 'px'; // Base natural size for pinching
                 requestAnimationFrame(function() {
                     if (clickX !== undefined && clickY !== undefined) {
                         // Calculate relative position of click on the image (0-1)
@@ -295,6 +307,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             } else {
                 icon.className = 'bi bi-zoom-in';
+                img.style.width = ''; // Resetta lo stile inline
+                img.style.maxWidth = '';
+                img.style.maxHeight = '';
             }
         }
 
@@ -306,8 +321,6 @@ document.addEventListener('DOMContentLoaded', function() {
             var y = e.clientY - rect.top;
             toggleZoom(x, y);
         });
-
-
 
         // Zoom button
         zoomBtn.addEventListener('click', function(e) {
@@ -345,11 +358,75 @@ document.addEventListener('DOMContentLoaded', function() {
             document.addEventListener('mouseup', onUp);
         });
 
+        // --- Pinch to Zoom Support per Dispositivi Mobili ---
+        container.addEventListener('touchstart', function(e) {
+            if (e.touches.length === 2) {
+                // Se non è già un contenitore zoomabile, attiviamo lo zoom per operare liberamente
+                if (!container.classList.contains('is-zoomed')) {
+                    const rect = container.getBoundingClientRect();
+                    const centerX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+                    const centerY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+                    toggleZoom(centerX - rect.left, centerY - rect.top, true);
+                }
+                
+                initialPinchDistance = Math.hypot(
+                    e.touches[0].clientX - e.touches[1].clientX,
+                    e.touches[0].clientY - e.touches[1].clientY
+                );
+                initialPinchWidth = img.offsetWidth;
+                initialPinchCenterX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+                initialPinchCenterY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+                initialScrollLeft = container.scrollLeft;
+                initialScrollTop = container.scrollTop;
+            }
+        }, { passive: false });
 
+        container.addEventListener('touchmove', function(e) {
+            if (e.touches.length === 2) {
+                e.preventDefault(); // Previene il pinch to zoom di sistema dell'intera pagina
+                if (!initialPinchDistance) return;
+
+                const currentDistance = Math.hypot(
+                    e.touches[0].clientX - e.touches[1].clientX,
+                    e.touches[0].clientY - e.touches[1].clientY
+                );
+                const scale = currentDistance / initialPinchDistance;
+                let newWidth = initialPinchWidth * scale;
+
+                // Applico limiti pruenziali
+                const minWidth = container.clientWidth;
+                const maxWidth = img.naturalWidth * 3;
+                if (newWidth < minWidth) newWidth = minWidth;
+                if (newWidth > maxWidth) newWidth = maxWidth;
+
+                // Cambia il layout fisico dell'immagine per consentire l'auto-scroll del container
+                img.style.width = newWidth + 'px';
+                img.style.maxWidth = 'none';
+                img.style.maxHeight = 'none';
+                
+                // Manteniamo centrata l'immagine dove stanno pizzicando le dita
+                const actualScale = newWidth / initialPinchWidth;
+                const rect = container.getBoundingClientRect();
+                const imageRelX = initialPinchCenterX - rect.left + initialScrollLeft;
+                const imageRelY = initialPinchCenterY - rect.top + initialScrollTop;
+
+                container.scrollLeft = imageRelX * actualScale - (initialPinchCenterX - rect.left);
+                container.scrollTop = imageRelY * actualScale - (initialPinchCenterY - rect.top);
+            }
+        }, { passive: false });
+
+        container.addEventListener('touchend', function(e) {
+            if (e.touches.length < 2) {
+                initialPinchDistance = null;
+            }
+        });
 
         // Reset zoom when modal closes
         modal.addEventListener('hidden.bs.modal', function() {
             container.classList.remove('is-zoomed');
+            img.style.width = '';
+            img.style.maxWidth = '';
+            img.style.maxHeight = '';
             const icon = zoomBtn.querySelector('i');
             icon.className = 'bi bi-zoom-in';
         });
