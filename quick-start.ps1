@@ -85,14 +85,14 @@ Write-Host ""
 
 # 6. Dati iniziali
 Write-Host "[6/6] Setup dati demo..." -ForegroundColor Yellow
-if (Test-Path "populate_db_complete.py") {
+if (Test-Path "populate-db-complete.py") {
     $ErrorActionPreference = "SilentlyContinue"
-    & $venvPython populate_db_complete.py 2>&1 | Out-Null
+    & $venvPython populate-db-complete.py 2>&1 | Out-Null
     $ErrorActionPreference = "Stop"
     Write-Host "[OK] Database popolato" -ForegroundColor Green
 }
 else {
-    Write-Host "[SKIP] populate_db_complete.py non trovato" -ForegroundColor Yellow
+    Write-Host "[SKIP] populate-db-complete.py non trovato" -ForegroundColor Yellow
 }
 Write-Host ""
 
