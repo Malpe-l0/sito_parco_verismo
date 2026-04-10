@@ -346,6 +346,10 @@ Vizzini, Mineo e Licodia Eubea. Informazioni, collaborazioni, attività didattic
 
                             <form class="contatti-form" method="post">
                                 {% csrf_token %}
+                                {# Honeypot anti-spam: non visibile agli utenti #}
+                                <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;">
+                                    {{ form.website }}
+                                </div>
                                 {% if form.non_field_errors %}
                                 <div class="alert alert-danger">{{ form.non_field_errors }}</div>
                                 {% endif %}

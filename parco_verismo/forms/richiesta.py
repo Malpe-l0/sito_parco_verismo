@@ -18,6 +18,16 @@ from ..models import Richiesta
 class RichiestaForm(forms.ModelForm):
     """Form semplificato per il modulo di contatto pubblico"""
 
+    # Campo honeypot: invisibile agli umani, compilato dai bot
+    website = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={
+            "style": "position:absolute;left:-9999px;top:-9999px;opacity:0;",
+            "tabindex": "-1",
+            "autocomplete": "off",
+        }),
+    )
+
     class Meta:
         model = Richiesta
         fields = ["nome", "cognome", "email", "ente", "oggetto", "messaggio"]

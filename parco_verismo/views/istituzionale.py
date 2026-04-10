@@ -2,12 +2,30 @@
 # Django imports
 import logging
 from django.contrib import messages
+from django.core.cache import cache
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
 # Local imports
 from ..forms.richiesta import RichiestaForm
+
+
+def _get_client_ip(request):
+    x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
+    if x_forwarded_for:
+        return x_forwarded_for.split(",")[0].strip()
+    return request.META.get("REMOTE_ADDR")
+
+
+def _check_contatti_rate_limit(ip):
+    """Permette al massimo 3 invii per ora per IP sulla pagina contatti."""
+    cache_key = f"contatti_rl:{ip}"
+    count = cache.get(cache_key, 0)
+    if count >= 3:
+        return False
+    cache.set(cache_key, count + 1, 3600)
+    return True
 
 
 # =============================================================================
@@ -46,8 +64,26 @@ def accrediti_finanziamenti_view(request):
 def contatti_view(request):
     """Pagina Contatti del Parco Letterario con modulo funzionale."""
     if request.method == "POST":
+        # Rate limit: max 3 invii per ora per IP
+        ip = _get_client_ip(request)
+        if not _check_contatti_rate_limit(ip):
+            messages.error(
+                request,
+                "Hai inviato troppe richieste. Riprova tra un'ora."
+            )
+            return render(request, "parco_verismo/contatti.html", {"form": RichiestaForm()})
+
         form = RichiestaForm(request.POST)
         if form.is_valid():
+            # Honeypot: se compilato è un bot — simula successo senza salvare
+            if form.cleaned_data.get("website"):
+                logging.warning("Honeypot attivato da IP=%s", ip)
+                messages.success(
+                    request,
+                    "Messaggio inviato con successo! Ti contatteremo al più presto."
+                )
+                return HttpResponseRedirect(reverse("contatti") + "#richiesta-contatto")
+
             try:
                 richiesta = form.save()
                 
